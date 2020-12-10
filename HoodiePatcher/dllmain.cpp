@@ -53,7 +53,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReser
     {
     case DLL_PROCESS_ATTACH:
 
-        GetPrivateProfileStringW(L"Misc", L"ChainloadDinput8dll", L"", chainPath, MAX_PATH, L".\\nightfall.ini");
+        GetPrivateProfileStringW(L"Misc", L"ChainloadDinput8dll", L"", chainPath, MAX_PATH, L".\\HoodiePatcher.ini");
 
         if (chainPath && wcscmp(chainPath, L""))
         {
