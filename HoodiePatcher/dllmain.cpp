@@ -14,10 +14,6 @@ HWND g_hWnd = NULL;
 
 DWORD WINAPI MainThread(HMODULE hModule)
 {   
-    int maxHkobjects = GetPrivateProfileIntW(L"Misc", L"MaximumHkobjects", 8192, L".\\HoodiePatcher.ini");
-
-    int debuganimspeed = GetPrivateProfileIntW(L"Misc", L"EnableDebugAnimSpeed", 0, L".\\HoodiePatcher.ini");
-
     //delay patching process
     while (!g_hWnd)
        g_hWnd = FindWindow(0, AppWindowTitle);
@@ -30,13 +26,18 @@ DWORD WINAPI MainThread(HMODULE hModule)
 
     if (!VirtualProtect((LPVOID)0x140F09A52, 4, PAGE_EXECUTE_READWRITE, &oldProtect))
         return true;
-    *(unsigned int*)0x140F09A52 = maxHkobjects;
+    *(unsigned int*)0x140F09A52 = GetPrivateProfileIntW(L"Misc", L"MaximumHkobjects", 8192, L".\\HoodiePatcher.ini");
     VirtualProtect((LPVOID)0x140F09A52, 4, oldProtect, &oldProtect);
 
     if (!VirtualProtect((LPVOID)0x144768F85, 1, PAGE_EXECUTE_READWRITE, &oldProtect))
         return true;
-    *(unsigned char*)0x144768F85 = debuganimspeed;
+    *(unsigned char*)0x144768F85 = GetPrivateProfileIntW(L"Misc", L"EnableDebugAnimSpeedPlayer", 0, L".\\HoodiePatcher.ini");
     VirtualProtect((LPVOID)0x144768F85, 1, oldProtect, &oldProtect);
+
+    if (!VirtualProtect((LPVOID)0x144768F81, 1, PAGE_EXECUTE_READWRITE, &oldProtect))
+        return true;
+    *(unsigned char*)0x144768F81 = GetPrivateProfileIntW(L"Misc", L"EnableDebugAnimSpeedEnemy", 0, L".\\HoodiePatcher.ini");
+    VirtualProtect((LPVOID)0x144768F81, 1, oldProtect, &oldProtect);
 
     return S_OK;
 }
