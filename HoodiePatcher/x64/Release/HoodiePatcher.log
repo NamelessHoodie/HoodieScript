@@ -1,8 +1,0 @@
-﻿D:\SysStorage\Programs\Visual Studio\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(491,5): warning MSB8028: The intermediate directory (x64\Release\) contains files shared from another project (Nightfall.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-     Creating library D:\Download\Nightfall-patched ds3\x64\Release\dinput8.lib and object D:\Download\Nightfall-patched ds3\x64\Release\dinput8.exp
-  Generating code
-  0 of 20 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  HoodiePatcher.vcxproj -> D:\Download\Nightfall-patched ds3\x64\Release\dinput8.dll
