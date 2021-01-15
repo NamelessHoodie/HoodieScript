@@ -55,7 +55,7 @@ int DifficultyModule() {
             std::cout << "NG7 Start" << std::endl;
             NGDifficulty(NG7, 1.80F, DifficultyLevel);
 
-            std::cout << "Difficulty Module End" << std::endl;
+            std::cout << "Difficulty Module End" << std::endl << std::endl;
             return true;
         }
     }
