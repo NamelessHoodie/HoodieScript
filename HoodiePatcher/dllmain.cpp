@@ -6,6 +6,9 @@
 #include <wchar.h>
 #include "dinput8/dinputWrapper.h"
 #include "MinHook/include/MinHook.h"
+#include <iostream>
+#include <windows.h>
+#include "dllmain.h"
 
 tDirectInput8Create oDirectInput8Create;
 
@@ -20,24 +23,44 @@ DWORD WINAPI MainThread(HMODULE hModule)
 
     MH_Initialize();
 
-    /* patch things here */
+    if (GetPrivateProfileIntW(L"Debug", L"HoodiePatcherDebugLog", 0, L".\\HoodiePatcher.ini") == 1){
+        FILE* fp;
+        AllocConsole();
+        SetConsoleTitleA("HoodiePatcher - Debug Log");
+        freopen_s(&fp, "CONOUT$", "w", stdout);
+        std::cout << "HoodiePatcher - Debug Log == Enabled" << std::endl << std::endl;
+    }
+    else {std::cout << "HoodiePatcher - Debug Log == Disabled" << std::endl << std::endl;}
+
+    std::cout << "StaticAddressPatcher - Start" << std::endl << std::endl;
 
     DWORD oldProtect;
-
+    std::cout << "Patching... MaximumHkobjects" << std::endl;
     if (!VirtualProtect((LPVOID)0x140F09A52, 4, PAGE_EXECUTE_READWRITE, &oldProtect))
         return true;
     *(unsigned int*)0x140F09A52 = GetPrivateProfileIntW(L"Misc", L"MaximumHkobjects", 8192, L".\\HoodiePatcher.ini");
     VirtualProtect((LPVOID)0x140F09A52, 4, oldProtect, &oldProtect);
+    std::cout << "MaximumHkojbects = " << *(unsigned int*)0x140F09A52 << std::endl << std::endl;
 
+    std::cout << "Patching... EnableDebugAnimSpeedPlayer" << std::endl;
     if (!VirtualProtect((LPVOID)0x144768F85, 1, PAGE_EXECUTE_READWRITE, &oldProtect))
         return true;
     *(unsigned char*)0x144768F85 = GetPrivateProfileIntW(L"Misc", L"EnableDebugAnimSpeedPlayer", 0, L".\\HoodiePatcher.ini");
     VirtualProtect((LPVOID)0x144768F85, 1, oldProtect, &oldProtect);
+    std::cout << "DebugAnimSpeedPlayer = " << *(unsigned int*)0x144768F85 << std::endl << std::endl;
 
+    std::cout << "Patching... EnableDebugAnimSpeedEnemy" << std::endl;
     if (!VirtualProtect((LPVOID)0x144768F81, 1, PAGE_EXECUTE_READWRITE, &oldProtect))
         return true;
     *(unsigned char*)0x144768F81 = GetPrivateProfileIntW(L"Misc", L"EnableDebugAnimSpeedEnemy", 0, L".\\HoodiePatcher.ini");
     VirtualProtect((LPVOID)0x144768F81, 1, oldProtect, &oldProtect);
+    std::cout << "DebugAnimSpeedEnemy = " << *(unsigned int*)0x144768F81 << std::endl << std::endl;
+
+    std::cout << "StaticAddressPatcher - End" << std::endl << std::endl;
+     
+    DifficultyModule();
+
+    std::cout << "HoodiePatcher - Complete" << std::endl;
 
     return S_OK;
 }
