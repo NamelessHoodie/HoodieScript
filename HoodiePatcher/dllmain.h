@@ -1,5 +1,6 @@
 #pragma once
 
+//Thanks Sfix from ?servername? for providing the original template function.
 template<typename T, typename ...Ts>
 inline T* mlp(void* base, Ts... offsets) {
     const auto len = sizeof...(Ts);
