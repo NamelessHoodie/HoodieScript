@@ -112,6 +112,36 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReser
     return TRUE;
 }
 
+int StaticAddressPatcher() {
+
+    std::cout << "StaticAddressPatcher - Start" << std::endl << std::endl;
+
+    DWORD oldProtect;
+    std::cout << "Patching... MaximumHkobjects" << std::endl;
+    if (!VirtualProtect((LPVOID)0x140F09A52, 4, PAGE_EXECUTE_READWRITE, &oldProtect))
+        return true;
+    *(unsigned int*)0x140F09A52 = GetPrivateProfileIntW(L"Misc", L"MaximumHkobjects", 8192, L".\\HoodiePatcher.ini");
+    VirtualProtect((LPVOID)0x140F09A52, 4, oldProtect, &oldProtect);
+    std::cout << "MaximumHkojbects = " << *(unsigned int*)0x140F09A52 << std::endl << std::endl;
+
+    std::cout << "Patching... EnableDebugAnimSpeedPlayer" << std::endl;
+    if (!VirtualProtect((LPVOID)0x144768F85, 1, PAGE_EXECUTE_READWRITE, &oldProtect))
+        return true;
+    *(unsigned char*)0x144768F85 = GetPrivateProfileIntW(L"Misc", L"EnableDebugAnimSpeedPlayer", 0, L".\\HoodiePatcher.ini");
+    VirtualProtect((LPVOID)0x144768F85, 1, oldProtect, &oldProtect);
+    std::cout << "DebugAnimSpeedPlayer = " << *(unsigned int*)0x144768F85 << std::endl << std::endl;
+
+    std::cout << "Patching... EnableDebugAnimSpeedEnemy" << std::endl;
+    if (!VirtualProtect((LPVOID)0x144768F81, 1, PAGE_EXECUTE_READWRITE, &oldProtect))
+        return true;
+    *(unsigned char*)0x144768F81 = GetPrivateProfileIntW(L"Misc", L"EnableDebugAnimSpeedEnemy", 0, L".\\HoodiePatcher.ini");
+    VirtualProtect((LPVOID)0x144768F81, 1, oldProtect, &oldProtect);
+    std::cout << "DebugAnimSpeedEnemy = " << *(unsigned int*)0x144768F81 << std::endl << std::endl;
+
+    std::cout << "StaticAddressPatcher - End" << std::endl << std::endl;
+
+}
+
 int DifficultyModule() {
 
     int NG0 = 0x100;
@@ -154,35 +184,6 @@ int DifficultyModule() {
     }
 }
 
-int StaticAddressPatcher(){
-
-    std::cout << "StaticAddressPatcher - Start" << std::endl << std::endl;
-
-    DWORD oldProtect;
-    std::cout << "Patching... MaximumHkobjects" << std::endl;
-    if (!VirtualProtect((LPVOID)0x140F09A52, 4, PAGE_EXECUTE_READWRITE, &oldProtect))
-        return true;
-    *(unsigned int*)0x140F09A52 = GetPrivateProfileIntW(L"Misc", L"MaximumHkobjects", 8192, L".\\HoodiePatcher.ini");
-    VirtualProtect((LPVOID)0x140F09A52, 4, oldProtect, &oldProtect);
-    std::cout << "MaximumHkojbects = " << *(unsigned int*)0x140F09A52 << std::endl << std::endl;
-
-    std::cout << "Patching... EnableDebugAnimSpeedPlayer" << std::endl;
-    if (!VirtualProtect((LPVOID)0x144768F85, 1, PAGE_EXECUTE_READWRITE, &oldProtect))
-        return true;
-    *(unsigned char*)0x144768F85 = GetPrivateProfileIntW(L"Misc", L"EnableDebugAnimSpeedPlayer", 0, L".\\HoodiePatcher.ini");
-    VirtualProtect((LPVOID)0x144768F85, 1, oldProtect, &oldProtect);
-    std::cout << "DebugAnimSpeedPlayer = " << *(unsigned int*)0x144768F85 << std::endl << std::endl;
-
-    std::cout << "Patching... EnableDebugAnimSpeedEnemy" << std::endl;
-    if (!VirtualProtect((LPVOID)0x144768F81, 1, PAGE_EXECUTE_READWRITE, &oldProtect))
-        return true;
-    *(unsigned char*)0x144768F81 = GetPrivateProfileIntW(L"Misc", L"EnableDebugAnimSpeedEnemy", 0, L".\\HoodiePatcher.ini");
-    VirtualProtect((LPVOID)0x144768F81, 1, oldProtect, &oldProtect);
-    std::cout << "DebugAnimSpeedEnemy = " << *(unsigned int*)0x144768F81 << std::endl << std::endl;
-
-    std::cout << "StaticAddressPatcher - End" << std::endl << std::endl;
-
-}
 
 int NGDifficulty(int RowOffset, float NGMultiplier, int DifficultyLevel) {
 
