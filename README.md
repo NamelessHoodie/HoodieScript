@@ -17,3 +17,6 @@ Pretty simple, it enables the homonymous TAE event.
 
 HkObjects limit extender:
 This is also pretty self explanatory, it extends the behbnd Hkobject limit in behbnd.
+
+# Patreon
+If you would like to contribute to this project considering becoming my patreon https://www.patreon.com/namelesshoodie
