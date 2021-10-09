@@ -10,7 +10,16 @@
 #include "dllmain.h"
 #include <string.h>
 #include <filesystem>
-#include "chaiscript/chaiscript.hpp"
+#include "Lua/include/lua.hpp"
+
+extern "C"
+{
+	#include "Lua/include/lua.h"
+	#include "Lua/include/lauxlib.h"
+	#include "Lua/include/lualib.h"
+}
+
+#pragma comment(lib, "Lua/liblua54.a")
 
 int NGDifficulty(int RowOffset, float NGMultiplier, int DifficultyLevel);
 
@@ -30,14 +39,8 @@ EXTERN_C IMAGE_DOS_HEADER __ImageBase;
 
 LPTSTR GetFullDllPath()
 {
-	// and then, anywhere you need it:
 	LPTSTR  strDLLPath1 = new TCHAR[_MAX_PATH];
 	::GetModuleFileName((HINSTANCE)&__ImageBase, strDLLPath1, _MAX_PATH);
-
-	std::ofstream stream("test.txt");  // better use L"test.txt" on Windows if possible
-	std::wstring string = L"Test\n";
-	stream.write(reinterpret_cast<const char*>(string.data()), string.size() * sizeof(wchar_t));
-
 	return strDLLPath1;
 }
 
@@ -147,8 +150,27 @@ std::string helloWorld(const std::string& t_name) {
 
 void DoScriptingMemeLolHaHa()
 {
-	chaiscript::ChaiScript chai;
+	std::string cmd = "a = 7 + 11";
 
+	lua_State* L = luaL_newstate();
+
+	int r = luaL_dostring(L, cmd.c_str());
+
+	if (r == LUA_OK)
+	{
+		lua_getglobal(L, "a");
+		if (lua_isnumber(L, -1))
+		{
+			float a_in_cpp = (float)lua_tonumber(L, -1);
+			std::cout << "a_in_cpp = " << a_in_cpp << std::endl;
+		}
+	}
+	else
+	{
+		std::string errormsg = lua_tostring(L, -1);
+		std::cout << errormsg << std::endl;
+	}
+	lua_close(L);
 	const wchar_t* txt = dllPath;
 	std::wstring ws(dllPath);
 	ws = std::filesystem::path(ws).remove_filename().wstring() + std::filesystem::path("HoodieScripts").wstring();
@@ -156,7 +178,7 @@ void DoScriptingMemeLolHaHa()
 	{
 		if (entry.path().string().ends_with(".dssf"))
 		{
-			chai.eval_file(entry.path().string());
+			//chai.eval_file(entry.path().string());
 		}
 	}
 

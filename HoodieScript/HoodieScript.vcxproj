@@ -174,57 +174,15 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="chaiscript\chaiscript.hpp" />
-    <ClInclude Include="chaiscript\chaiscript_basic.hpp" />
-    <ClInclude Include="chaiscript\chaiscript_defines.hpp" />
-    <ClInclude Include="chaiscript\chaiscript_stdlib.hpp" />
-    <ClInclude Include="chaiscript\chaiscript_threading.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\any.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\bad_boxed_cast.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\bind_first.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\bootstrap.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\bootstrap_stl.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\boxed_cast.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\boxed_cast_helper.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\boxed_number.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\boxed_value.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\callable_traits.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\dispatchkit.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\dynamic_object.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\dynamic_object_detail.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\exception_specification.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\function_call.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\function_call_detail.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\handle_return.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\operators.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\proxy_constructors.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\proxy_functions.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\proxy_functions_detail.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\register_function.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\short_alloc.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\type_conversions.hpp" />
-    <ClInclude Include="chaiscript\dispatchkit\type_info.hpp" />
-    <ClInclude Include="chaiscript\language\chaiscript_algebraic.hpp" />
-    <ClInclude Include="chaiscript\language\chaiscript_common.hpp" />
-    <ClInclude Include="chaiscript\language\chaiscript_engine.hpp" />
-    <ClInclude Include="chaiscript\language\chaiscript_eval.hpp" />
-    <ClInclude Include="chaiscript\language\chaiscript_optimizer.hpp" />
-    <ClInclude Include="chaiscript\language\chaiscript_parser.hpp" />
-    <ClInclude Include="chaiscript\language\chaiscript_posix.hpp" />
-    <ClInclude Include="chaiscript\language\chaiscript_prelude.hpp" />
-    <ClInclude Include="chaiscript\language\chaiscript_prelude_docs.hpp" />
-    <ClInclude Include="chaiscript\language\chaiscript_tracer.hpp" />
-    <ClInclude Include="chaiscript\language\chaiscript_unknown.hpp" />
-    <ClInclude Include="chaiscript\language\chaiscript_windows.hpp" />
-    <ClInclude Include="chaiscript\utility\fnv1a.hpp" />
-    <ClInclude Include="chaiscript\utility\json.hpp" />
-    <ClInclude Include="chaiscript\utility\json_wrap.hpp" />
-    <ClInclude Include="chaiscript\utility\static_string.hpp" />
-    <ClInclude Include="chaiscript\utility\utility.hpp" />
     <ClInclude Include="dinput8\dinput.h" />
     <ClInclude Include="dinput8\dinputWrapper.h" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="Lua\include\lauxlib.h" />
+    <ClInclude Include="Lua\include\lua.h" />
+    <ClInclude Include="Lua\include\lua.hpp" />
+    <ClInclude Include="Lua\include\luaconf.h" />
+    <ClInclude Include="Lua\include\lualib.h" />
     <ClInclude Include="MinHook\include\MinHook.h" />
     <ClInclude Include="MinHook\src\buffer.h" />
     <ClInclude Include="MinHook\src\HDE\hde32.h" />
@@ -245,6 +203,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dinput8\dinput8.def" />
+    <None Include="Lua\lua54.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Lua\liblua54.a" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
