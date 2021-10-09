@@ -24,7 +24,7 @@
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>HoodiePatcher</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>HoodiePatcher</ProjectName>
+    <ProjectName>HoodieScript</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -74,16 +74,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <TargetName>HoodieScript</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <TargetName>HoodieScript</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <TargetName>HoodieScript</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <TargetName>dinput8</TargetName>
+    <TargetName>HoodieScript</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -93,12 +96,16 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;NIGHTFALL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(TargetDir)$(ProjectName).dll" "D:\Modding\DS3\DARK SOULS III ModDev\Game\$(ProjectName).dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -108,12 +115,16 @@
       <PreprocessorDefinitions>_DEBUG;NIGHTFALL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(TargetDir)$(ProjectName).dll" "D:\Modding\DS3\DARK SOULS III ModDev\Game\$(ProjectName).dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -125,6 +136,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;NIGHTFALL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -133,6 +145,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(TargetDir)$(ProjectName).dll" "D:\Modding\DS3\DARK SOULS III ModDev\Game\$(ProjectName).dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -144,6 +159,7 @@
       <PreprocessorDefinitions>NDEBUG;NIGHTFALL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -153,8 +169,58 @@
       <EnableUAC>false</EnableUAC>
       <ModuleDefinitionFile>dinput8\dinput8.def</ModuleDefinitionFile>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(TargetDir)$(ProjectName).dll" "D:\Modding\DS3\DARK SOULS III ModDev\Game\$(ProjectName).dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="chaiscript\chaiscript.hpp" />
+    <ClInclude Include="chaiscript\chaiscript_basic.hpp" />
+    <ClInclude Include="chaiscript\chaiscript_defines.hpp" />
+    <ClInclude Include="chaiscript\chaiscript_stdlib.hpp" />
+    <ClInclude Include="chaiscript\chaiscript_threading.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\any.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\bad_boxed_cast.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\bind_first.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\bootstrap.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\bootstrap_stl.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\boxed_cast.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\boxed_cast_helper.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\boxed_number.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\boxed_value.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\callable_traits.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\dispatchkit.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\dynamic_object.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\dynamic_object_detail.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\exception_specification.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\function_call.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\function_call_detail.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\handle_return.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\operators.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\proxy_constructors.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\proxy_functions.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\proxy_functions_detail.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\register_function.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\short_alloc.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\type_conversions.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\type_info.hpp" />
+    <ClInclude Include="chaiscript\language\chaiscript_algebraic.hpp" />
+    <ClInclude Include="chaiscript\language\chaiscript_common.hpp" />
+    <ClInclude Include="chaiscript\language\chaiscript_engine.hpp" />
+    <ClInclude Include="chaiscript\language\chaiscript_eval.hpp" />
+    <ClInclude Include="chaiscript\language\chaiscript_optimizer.hpp" />
+    <ClInclude Include="chaiscript\language\chaiscript_parser.hpp" />
+    <ClInclude Include="chaiscript\language\chaiscript_posix.hpp" />
+    <ClInclude Include="chaiscript\language\chaiscript_prelude.hpp" />
+    <ClInclude Include="chaiscript\language\chaiscript_prelude_docs.hpp" />
+    <ClInclude Include="chaiscript\language\chaiscript_tracer.hpp" />
+    <ClInclude Include="chaiscript\language\chaiscript_unknown.hpp" />
+    <ClInclude Include="chaiscript\language\chaiscript_windows.hpp" />
+    <ClInclude Include="chaiscript\utility\fnv1a.hpp" />
+    <ClInclude Include="chaiscript\utility\json.hpp" />
+    <ClInclude Include="chaiscript\utility\json_wrap.hpp" />
+    <ClInclude Include="chaiscript\utility\static_string.hpp" />
+    <ClInclude Include="chaiscript\utility\utility.hpp" />
     <ClInclude Include="dinput8\dinput.h" />
     <ClInclude Include="dinput8\dinputWrapper.h" />
     <ClInclude Include="dllmain.h" />

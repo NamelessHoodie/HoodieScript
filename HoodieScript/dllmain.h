@@ -7,7 +7,7 @@ inline T* mlp(void* base, Ts... offsets) {
     const int offsets_unpacked[len] = { offsets... };
 
     for (unsigned i = 0; i < len; i++) {
-        if (*(uintptr_t*)base == 0){
+        if (*(uintptr_t*)base == 0) {
             return (T*)nullptr;
         }
         else {
