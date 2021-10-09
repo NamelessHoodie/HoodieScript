@@ -44,9 +44,6 @@ LPTSTR GetFullDllPath()
 	return strDLLPath1;
 }
 
-
-
-
 tDirectInput8Create oDirectInput8Create;
 
 const LPCWSTR AppWindowTitle = L"DARK SOULS III";
@@ -148,41 +145,64 @@ std::string helloWorld(const std::string& t_name) {
 	return "Hello " + t_name + "!";
 }
 
-void DoScriptingMemeLolHaHa()
-{
-	std::string cmd = "a = 7 + 11";
+static int Luaprint(lua_State* L) {
+	int nargs = lua_gettop(L);
 
-	lua_State* L = luaL_newstate();
+	for (int i = 1; i <= nargs; i++) {
+		if (lua_isstring(L, i)) {
+			std::cout << lua_tostring(L, i);
+		}
+		else {
+			/* Do something with non-strings if you like */
+		}
 
-	int r = luaL_dostring(L, cmd.c_str());
-
-	if (r == LUA_OK)
-	{
-		lua_getglobal(L, "a");
-		if (lua_isnumber(L, -1))
+		if (i == nargs)
 		{
-			float a_in_cpp = (float)lua_tonumber(L, -1);
-			std::cout << "a_in_cpp = " << a_in_cpp << std::endl;
+			std::cout << std::endl;
 		}
 	}
-	else
-	{
-		std::string errormsg = lua_tostring(L, -1);
-		std::cout << errormsg << std::endl;
-	}
-	lua_close(L);
+
+	return 0;
+}
+
+void DoScriptingMemeLolHaHa()
+{
+	lua_State* L = luaL_newstate();
+	luaL_openlibs(L);
+
+	lua_getglobal(L, "_G");
+	//Define print()
+	static const struct luaL_Reg printlib[] = { {"print", Luaprint}, {NULL, NULL} };
+	luaL_setfuncs(L, printlib, 0);
+
+	lua_pop(L, 1);
+
 	const wchar_t* txt = dllPath;
 	std::wstring ws(dllPath);
 	ws = std::filesystem::path(ws).remove_filename().wstring() + std::filesystem::path("HoodieScripts").wstring();
+
+	std::list<std::string> stringList;
+	int i = 1;
 	for (const auto& entry : std::filesystem::directory_iterator(ws))
 	{
-		if (entry.path().string().ends_with(".dssf"))
+		if (entry.path().string().ends_with(".lua"))
 		{
-			//chai.eval_file(entry.path().string());
+			std::string buf("LuaFile");
+			buf.append(std::to_string(i));
+			stringList.push_back(buf);
+			luaL_loadfile(L, entry.path().string().c_str());
+			lua_newtable(L);
+			lua_newtable(L);
+			lua_getglobal(L, "_G");
+			lua_setfield(L, -2, "__index");
+			lua_setmetatable(L, -2);
+			lua_setfield(L, LUA_REGISTRYINDEX, buf.c_str());
+			lua_getfield(L, LUA_REGISTRYINDEX, buf.c_str());
+			lua_setupvalue(L, 1, 1);
+			lua_pcall(L, 0, LUA_MULTRET, 0);
 		}
 	}
-
-	//chai.add(chaiscript::fun(&helloWorld), "helloWorld");
+	//lua_close(L);
 }
 
 
