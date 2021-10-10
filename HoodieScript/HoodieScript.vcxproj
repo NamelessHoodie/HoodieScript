@@ -195,6 +195,7 @@
   <ItemGroup>
     <ClCompile Include="dinput8\dinputWrapper.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Ds3LuaEvents.cpp" />
     <ClCompile Include="MinHook\src\buffer.c" />
     <ClCompile Include="MinHook\src\HDE\hde32.c" />
     <ClCompile Include="MinHook\src\HDE\hde64.c" />

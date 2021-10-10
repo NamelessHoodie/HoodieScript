@@ -11,6 +11,7 @@
 #include <string.h>
 #include <filesystem>
 #include "Lua/include/lua.hpp"
+#include "Ds3LuaEvents.cpp"
 
 extern "C"
 {
@@ -89,6 +90,9 @@ private:
 		static const struct luaL_Reg printlib[] = { {"print", Luaprint}, {NULL, NULL} };
 		luaL_setfuncs(LuaHandle, printlib, 0);
 
+		//Define SubscribeToEventOnParamLoaded
+		lua_register(LuaHandle, "SubscribeToEventOnParamLoaded", SubscribeToEventOnParamLoaded);
+
 		lua_pop(LuaHandle, 1);
 	}
 };
@@ -126,11 +130,16 @@ DWORD WINAPI MainThread(HMODULE hModule)
 	}
 	else { std::cout << "HoodiePatcher - Debug Log == Disabled" << std::endl << std::endl; }
 
+	ds3LuaHelper.Initialize();
+
 	StaticAddressPatcher();
+
+	while (!IsParamLoaded())
+		Sleep(100);
 
 	DifficultyModule();
 
-	ds3LuaHelper.Initialize();
+	DoOnParamLoaded(ds3LuaHelper.LuaHandle);
 
 	std::cout << "HoodiePatcher - Complete" << std::endl;
 
@@ -266,9 +275,6 @@ int DifficultyModule() {
 	int NG5 = 0x380;
 	int NG6 = 0x400;
 	int NG7 = 0x480;
-
-	while (!IsParamLoaded())
-		Sleep(100);
 
 	std::cout << "Difficulty Module Start" << std::endl;
 	int DifficultyLevel = GetPrivateProfileIntW(L"Difficulty", L"DifficultyLevel", 0, L".\\HoodiePatcher.ini");
