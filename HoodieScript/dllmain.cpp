@@ -14,9 +14,9 @@
 
 extern "C"
 {
-	#include "Lua/include/lua.h"
-	#include "Lua/include/lauxlib.h"
-	#include "Lua/include/lualib.h"
+#include "Lua/include/lua.h"
+#include "Lua/include/lauxlib.h"
+#include "Lua/include/lualib.h"
 }
 
 #pragma comment(lib, "Lua/liblua54.a")
@@ -29,11 +29,71 @@ int StaticAddressPatcher();
 
 bool IsParamLoaded();
 
-void DoScriptingMemeLolHaHa();
+static int Luaprint(lua_State* L);
 
 LPTSTR GetFullDllPath();
 
 static const wchar_t* dllPath = GetFullDllPath();
+
+class Ds3LuaHelper
+{
+public:
+	lua_State* LuaHandle;
+	std::list<std::string> LoadedLuaFiles;
+
+	Ds3LuaHelper()
+	{
+		lua_State* L = luaL_newstate();
+		luaL_openlibs(L);
+		LuaHandle = L;
+	}
+	void Initialize()
+	{
+		InitializeNativeFunctionsToLuaBindings();
+
+		luaL_dostring(LuaHandle, R"(print("TestPrintFromLua"))");
+
+		const wchar_t* txt = dllPath;
+		std::wstring ws(dllPath);
+		ws = std::filesystem::path(ws).remove_filename().wstring() + std::filesystem::path("HoodieScripts").wstring();
+
+		std::list<std::string> stringList;
+		int i = 1;
+		for (const auto& entry : std::filesystem::directory_iterator(ws))
+		{
+			if (entry.path().string().ends_with(".lua"))
+			{
+				std::string buf("LuaFile");
+				buf.append(std::to_string(i));
+				stringList.push_back(buf);
+				luaL_loadfile(LuaHandle, entry.path().string().c_str());
+				lua_newtable(LuaHandle);
+				lua_newtable(LuaHandle);
+				lua_getglobal(LuaHandle, "_G");
+				lua_setfield(LuaHandle, -2, "__index");
+				lua_setmetatable(LuaHandle, -2);
+				lua_setfield(LuaHandle, LUA_REGISTRYINDEX, buf.c_str());
+				lua_getfield(LuaHandle, LUA_REGISTRYINDEX, buf.c_str());
+				lua_setupvalue(LuaHandle, 1, 1);
+				lua_pcall(LuaHandle, 0, LUA_MULTRET, 0);
+			}
+		}
+		LoadedLuaFiles = stringList;
+	}
+private:
+	void InitializeNativeFunctionsToLuaBindings()
+	{
+		lua_getglobal(LuaHandle, "_G");
+
+		//Define print()
+		static const struct luaL_Reg printlib[] = { {"print", Luaprint}, {NULL, NULL} };
+		luaL_setfuncs(LuaHandle, printlib, 0);
+
+		lua_pop(LuaHandle, 1);
+	}
+};
+
+static Ds3LuaHelper ds3LuaHelper;
 
 EXTERN_C IMAGE_DOS_HEADER __ImageBase;
 
@@ -70,7 +130,7 @@ DWORD WINAPI MainThread(HMODULE hModule)
 
 	DifficultyModule();
 
-	DoScriptingMemeLolHaHa();
+	ds3LuaHelper.Initialize();
 
 	std::cout << "HoodiePatcher - Complete" << std::endl;
 
@@ -141,10 +201,6 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
 	return TRUE;
 }
 
-std::string helloWorld(const std::string& t_name) {
-	return "Hello " + t_name + "!";
-}
-
 static int Luaprint(lua_State* L) {
 	int nargs = lua_gettop(L);
 
@@ -164,47 +220,6 @@ static int Luaprint(lua_State* L) {
 
 	return 0;
 }
-
-void DoScriptingMemeLolHaHa()
-{
-	lua_State* L = luaL_newstate();
-	luaL_openlibs(L);
-
-	lua_getglobal(L, "_G");
-	//Define print()
-	static const struct luaL_Reg printlib[] = { {"print", Luaprint}, {NULL, NULL} };
-	luaL_setfuncs(L, printlib, 0);
-
-	lua_pop(L, 1);
-
-	const wchar_t* txt = dllPath;
-	std::wstring ws(dllPath);
-	ws = std::filesystem::path(ws).remove_filename().wstring() + std::filesystem::path("HoodieScripts").wstring();
-
-	std::list<std::string> stringList;
-	int i = 1;
-	for (const auto& entry : std::filesystem::directory_iterator(ws))
-	{
-		if (entry.path().string().ends_with(".lua"))
-		{
-			std::string buf("LuaFile");
-			buf.append(std::to_string(i));
-			stringList.push_back(buf);
-			luaL_loadfile(L, entry.path().string().c_str());
-			lua_newtable(L);
-			lua_newtable(L);
-			lua_getglobal(L, "_G");
-			lua_setfield(L, -2, "__index");
-			lua_setmetatable(L, -2);
-			lua_setfield(L, LUA_REGISTRYINDEX, buf.c_str());
-			lua_getfield(L, LUA_REGISTRYINDEX, buf.c_str());
-			lua_setupvalue(L, 1, 1);
-			lua_pcall(L, 0, LUA_MULTRET, 0);
-		}
-	}
-	//lua_close(L);
-}
-
 
 bool IsParamLoaded()
 {
