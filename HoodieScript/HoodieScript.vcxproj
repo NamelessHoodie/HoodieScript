@@ -161,9 +161,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Ds3LuaEvents.h" />
     <ClInclude Include="Ds3LuaHelper.h" />
     <ClInclude Include="entry.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="Hooks\game_frame_hook.h" />
     <ClInclude Include="Hooks\goods_use_hook.h" />
     <ClInclude Include="jump_hook.h" />
     <ClInclude Include="logging.h" />
@@ -175,8 +177,10 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Ds3LuaEvents.cpp" />
     <ClCompile Include="Ds3LuaHelper.cpp" />
     <ClCompile Include="entry.cpp" />
+    <ClCompile Include="Hooks\game_frame_hook.cpp" />
     <ClCompile Include="Hooks\goods_use_hook.cpp" />
     <ClCompile Include="jump_hook.cpp" />
     <ClCompile Include="logging.cpp" />

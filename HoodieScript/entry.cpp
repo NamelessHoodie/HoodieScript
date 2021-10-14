@@ -32,12 +32,15 @@ void attach()
     luaHelper->Initialize();
 
     goodsUseHook = new hoodie_script::goods_use_hook();
+    gameFrameHook = new hoodie_script::GameFrameHook();
     goodsUseHook->install();
+    //gameFrameHook->install();
 }
 
 void detach()
 {
     goodsUseHook->uninstall();
+    //gameFrameHook->uninstall();
     hoodie_script::logging::write_line("Detached HoodieScriptExtender");
     free_console();
 }

@@ -5,6 +5,7 @@
 #include "minhook/MinHook.h"
 #include "Hooks/goods_use_hook.h"
 #include "Ds3LuaHelper.h"
+#include "Hooks/game_frame_hook.h"
 
 void attach();
 void detach();
@@ -31,3 +32,4 @@ inline T* mlp(void* base, Ts... offsets) {
 
 
 hoodie_script::goods_use_hook *goodsUseHook = nullptr;
+hoodie_script::GameFrameHook* gameFrameHook = nullptr;

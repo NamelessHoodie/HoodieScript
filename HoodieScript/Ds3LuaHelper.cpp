@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Ds3LuaHelper.h"
+#include "Ds3LuaEvents.h"
 
 namespace hoodie_script {
 	Ds3LuaHelper::Ds3LuaHelper()
@@ -53,7 +54,7 @@ namespace hoodie_script {
 		luaL_setfuncs(LuaHandle, printlib, 0);
 
 		//Define SubscribeToEventOnParamLoaded
-		//lua_register(LuaHandle, "SubscribeToEventOnParamLoaded", SubscribeToEventOnParamLoaded);
+		lua_register(LuaHandle, "SubscribeToEventOnParamLoaded", SubscribeToEventOnParamLoaded);
 
 		lua_pop(LuaHandle, 1);
 	}

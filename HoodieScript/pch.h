@@ -12,6 +12,8 @@
 #include "lua/lua.hpp"
 #include <list>
 #include <string>
+#include "jump_hook.h"
+#include "logging.h"
 
 extern "C" {
 	#include "lua/lua.h"
