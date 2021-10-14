@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "dinputWrapper.h"
 
 HRESULT WINAPI DirectInput8Create(HINSTANCE inst_handle, DWORD version, const IID& r_iid, LPVOID* out_wrapper, LPUNKNOWN p_unk)

@@ -116,6 +116,8 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\sweet\Documents\GitHub\HoodieScript</AdditionalIncludeDirectories>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -151,15 +153,17 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;NIGHTFALL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;NIGHTFALL_EXPORTS;_WINDOWS;_USRDLL;SPDLOG_WCHAR_TO_UTF8_SUPPORT;_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\sweet\Documents\GitHub\HoodieScript\HoodieScript</AdditionalIncludeDirectories>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -168,6 +172,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <ModuleDefinitionFile>dinput8\dinput8.def</ModuleDefinitionFile>
+      <AdditionalLibraryDirectories>ds3runtime\dependencies\Libs\detours;ds3runtime\dependencies\Libs\fmod;ds3runtime\dependencies\Libs\fmt;ds3runtime\dependencies\Libs\spdlog;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy /Y "$(TargetDir)$(ProjectName).dll" "D:\Modding\DS3\DARK SOULS III ModDev\Game\$(ProjectName).dll"</Command>
@@ -176,7 +181,178 @@
   <ItemGroup>
     <ClInclude Include="dinput8\dinput.h" />
     <ClInclude Include="dinput8\dinputWrapper.h" />
+    <ClInclude Include="dist\pugiconfig.hpp" />
+    <ClInclude Include="dist\pugixml.hpp" />
     <ClInclude Include="dllmain.h" />
+    <ClInclude Include="ds3runtime\async_module.h" />
+    <ClInclude Include="ds3runtime\boss\ariandar_boss.h" />
+    <ClInclude Include="ds3runtime\boss\blight_combo_system.h" />
+    <ClInclude Include="ds3runtime\boss\boss.h" />
+    <ClInclude Include="ds3runtime\boss\build_copy.h" />
+    <ClInclude Include="ds3runtime\boss\standard_combo_system.h" />
+    <ClInclude Include="ds3runtime\boss\standard_player_boss.h" />
+    <ClInclude Include="ds3runtime\bullet_spawn.h" />
+    <ClInclude Include="ds3runtime\chr_ins.h" />
+    <ClInclude Include="ds3runtime\databaseaddress.h" />
+    <ClInclude Include="ds3runtime\dependencies\detours\detours.h" />
+    <ClInclude Include="ds3runtime\dependencies\detours\detver.h" />
+    <ClInclude Include="ds3runtime\dependencies\fmod\fmod.h" />
+    <ClInclude Include="ds3runtime\dependencies\fmod\fmod.hpp" />
+    <ClInclude Include="ds3runtime\dependencies\fmod\fmod_codec.h" />
+    <ClInclude Include="ds3runtime\dependencies\fmod\fmod_common.h" />
+    <ClInclude Include="ds3runtime\dependencies\fmod\fmod_dsp.h" />
+    <ClInclude Include="ds3runtime\dependencies\fmod\fmod_dsp_effects.h" />
+    <ClInclude Include="ds3runtime\dependencies\fmod\fmod_errors.h" />
+    <ClInclude Include="ds3runtime\dependencies\fmod\fmod_output.h" />
+    <ClInclude Include="ds3runtime\dependencies\fmt\chrono.h" />
+    <ClInclude Include="ds3runtime\dependencies\fmt\color.h" />
+    <ClInclude Include="ds3runtime\dependencies\fmt\compile.h" />
+    <ClInclude Include="ds3runtime\dependencies\fmt\core.h" />
+    <ClInclude Include="ds3runtime\dependencies\fmt\format-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\fmt\format.h" />
+    <ClInclude Include="ds3runtime\dependencies\fmt\locale.h" />
+    <ClInclude Include="ds3runtime\dependencies\fmt\os.h" />
+    <ClInclude Include="ds3runtime\dependencies\fmt\ostream.h" />
+    <ClInclude Include="ds3runtime\dependencies\fmt\posix.h" />
+    <ClInclude Include="ds3runtime\dependencies\fmt\printf.h" />
+    <ClInclude Include="ds3runtime\dependencies\fmt\ranges.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\async.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\async_logger-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\async_logger.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\cfg\argv.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\cfg\env.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\cfg\helpers-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\cfg\helpers.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\cfg\log_levels.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\common-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\common.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\backtracer-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\backtracer.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\circular_q.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\console_globals.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\file_helper-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\file_helper.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\fmt_helper.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\log_msg-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\log_msg.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\log_msg_buffer-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\log_msg_buffer.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\mpmc_blocking_q.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\null_mutex.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\os-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\os.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\periodic_worker-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\periodic_worker.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\registry-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\registry.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\synchronous_factory.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\tcp_client-windows.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\tcp_client.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\thread_pool-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\thread_pool.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\details\windows_include.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\fmt\bin_to_hex.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\fmt\chrono.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\fmt\fmt.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\fmt\ostr.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\formatter.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\fwd.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\logger-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\logger.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\pattern_formatter-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\pattern_formatter.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\android_sink.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\ansicolor_sink-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\ansicolor_sink.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\base_sink-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\base_sink.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\basic_file_sink-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\basic_file_sink.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\daily_file_sink.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\dist_sink.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\dup_filter_sink.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\msvc_sink.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\null_sink.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\ostream_sink.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\ringbuffer_sink.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\rotating_file_sink-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\rotating_file_sink.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\sink-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\sink.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\stdout_color_sinks-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\stdout_color_sinks.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\stdout_sinks-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\stdout_sinks.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\syslog_sink.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\systemd_sink.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\tcp_sink.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\wincolor_sink-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\wincolor_sink.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\sinks\win_eventlog_sink.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\spdlog-inl.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\spdlog.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\stopwatch.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\tweakme.h" />
+    <ClInclude Include="ds3runtime\dependencies\spdlog\version.h" />
+    <ClInclude Include="ds3runtime\ds3runtime.h" />
+    <ClInclude Include="ds3runtime\ds3_debug_variables.h" />
+    <ClInclude Include="ds3runtime\equip_game_data.h" />
+    <ClInclude Include="ds3runtime\equip_inventory_data.h" />
+    <ClInclude Include="ds3runtime\game_data_man.h" />
+    <ClInclude Include="ds3runtime\game_option_man.h" />
+    <ClInclude Include="ds3runtime\game_packet.h" />
+    <ClInclude Include="ds3runtime\hook.h" />
+    <ClInclude Include="ds3runtime\hooks\better_swordspear_hook.h" />
+    <ClInclude Include="ds3runtime\hooks\ds1_backstabs.h" />
+    <ClInclude Include="ds3runtime\hooks\ds1_no_hyperarmor.h" />
+    <ClInclude Include="ds3runtime\hooks\ds3_iframe_patch_attacker_effect_hook.h" />
+    <ClInclude Include="ds3runtime\hooks\ds3_iframe_patch_ban_check.h" />
+    <ClInclude Include="ds3runtime\hooks\ds3_iframe_patch_durablity_cost_hook.h" />
+    <ClInclude Include="ds3runtime\hooks\ds3_iframe_patch_hit_delete.h" />
+    <ClInclude Include="ds3runtime\hooks\ds3_iframe_patch_hit_reg_hook.h" />
+    <ClInclude Include="ds3runtime\hooks\ds3_iframe_patch_hit_reg_hook_shockwave.h" />
+    <ClInclude Include="ds3runtime\hooks\ds3_iframe_patch_hit_sibling_hook.h" />
+    <ClInclude Include="ds3runtime\hooks\ds3_iframe_patch_hit_uuid_hook.h" />
+    <ClInclude Include="ds3runtime\hooks\ds3_iframe_patch_hit_uuid_identify.h" />
+    <ClInclude Include="ds3runtime\hooks\ds3_iframe_patch_no_player_iframes.h" />
+    <ClInclude Include="ds3runtime\hooks\game_frame_hook.h" />
+    <ClInclude Include="ds3runtime\hooks\has_speffect_visual.h" />
+    <ClInclude Include="ds3runtime\hooks\play_animation_hook.h" />
+    <ClInclude Include="ds3runtime\hooks\session_receive_hook.h" />
+    <ClInclude Include="ds3runtime\hooks\session_send_hook.h" />
+    <ClInclude Include="ds3runtime\hooks\sprj_chr_damage_module_hook.h" />
+    <ClInclude Include="ds3runtime\hooks\throw_hook.h" />
+    <ClInclude Include="ds3runtime\memory_util.h" />
+    <ClInclude Include="ds3runtime\misc_functions.h" />
+    <ClInclude Include="ds3runtime\player_ctrl.h" />
+    <ClInclude Include="ds3runtime\player_game_data.h" />
+    <ClInclude Include="ds3runtime\player_ins.h" />
+    <ClInclude Include="ds3runtime\player_network_session.h" />
+    <ClInclude Include="ds3runtime\scripts\animation_id_handler.h" />
+    <ClInclude Include="ds3runtime\scripts\bonk_sound_cosmetic.h" />
+    <ClInclude Include="ds3runtime\scripts\damage_update_test.h" />
+    <ClInclude Include="ds3runtime\scripts\ds1_passive_poise.h" />
+    <ClInclude Include="ds3runtime\scripts\ds3_iframe_patch.h" />
+    <ClInclude Include="ds3runtime\scripts\fmod_system_handler.h" />
+    <ClInclude Include="ds3runtime\scripts\hotkey_manager.h" />
+    <ClInclude Include="ds3runtime\scripts\imposter_sound_cosmetic.h" />
+    <ClInclude Include="ds3runtime\scripts\interrupt_attacks.h" />
+    <ClInclude Include="ds3runtime\scripts\latency_simulator.h" />
+    <ClInclude Include="ds3runtime\scripts\mod_p2p_filter.h" />
+    <ClInclude Include="ds3runtime\scripts\npc_mod_test.h" />
+    <ClInclude Include="ds3runtime\scripts\param_patcher.h" />
+    <ClInclude Include="ds3runtime\scripts\sync_call_script.h" />
+    <ClInclude Include="ds3runtime\scripts\yhorm_scream_on_warcry_cosmetic.h" />
+    <ClInclude Include="ds3runtime\script_module.h" />
+    <ClInclude Include="ds3runtime\sprj_bullet_state.h" />
+    <ClInclude Include="ds3runtime\sprj_chr_damage_module.h" />
+    <ClInclude Include="ds3runtime\sprj_chr_data_module.h" />
+    <ClInclude Include="ds3runtime\sprj_gaitem_imp.h" />
+    <ClInclude Include="ds3runtime\sprj_gaitem_ins.h" />
+    <ClInclude Include="ds3runtime\sprj_lua_event_condition_item.h" />
+    <ClInclude Include="ds3runtime\sprj_session_manager.h" />
+    <ClInclude Include="ds3runtime\sprj_wep_gaitem_ins.h" />
+    <ClInclude Include="ds3runtime\world_chr_man.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Lua\include\lauxlib.h" />
     <ClInclude Include="Lua\include\lua.h" />
@@ -191,22 +367,125 @@
     <ClInclude Include="MinHook\src\HDE\table32.h" />
     <ClInclude Include="MinHook\src\HDE\table64.h" />
     <ClInclude Include="MinHook\src\trampoline.h" />
+    <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dinput8\dinputWrapper.cpp" />
+    <ClCompile Include="dist\pugixml.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Ds3LuaEvents.cpp" />
-    <ClCompile Include="MinHook\src\buffer.c" />
-    <ClCompile Include="MinHook\src\HDE\hde32.c" />
-    <ClCompile Include="MinHook\src\HDE\hde64.c" />
-    <ClCompile Include="MinHook\src\hook.c" />
-    <ClCompile Include="MinHook\src\trampoline.c" />
+    <ClCompile Include="ds3runtime\async_module.cpp" />
+    <ClCompile Include="ds3runtime\boss\ariandar_boss.cpp" />
+    <ClCompile Include="ds3runtime\boss\boss.cpp" />
+    <ClCompile Include="ds3runtime\boss\build_copy.cpp" />
+    <ClCompile Include="ds3runtime\boss\standard_combo_system.cpp" />
+    <ClCompile Include="ds3runtime\boss\standard_player_boss.cpp" />
+    <ClCompile Include="ds3runtime\bullet_spawn.cpp" />
+    <ClCompile Include="ds3runtime\chr_ins.cpp" />
+    <ClCompile Include="ds3runtime\databaseaddress.cpp" />
+    <ClCompile Include="ds3runtime\ds3runtime.cpp" />
+    <ClCompile Include="ds3runtime\ds3_debug_variables.cpp" />
+    <ClCompile Include="ds3runtime\equip_game_data.cpp" />
+    <ClCompile Include="ds3runtime\equip_inventory_data.cpp" />
+    <ClCompile Include="ds3runtime\game_data_man.cpp" />
+    <ClCompile Include="ds3runtime\game_option_man.cpp" />
+    <ClCompile Include="ds3runtime\game_packet.cpp" />
+    <ClCompile Include="ds3runtime\hook.cpp" />
+    <ClCompile Include="ds3runtime\hooks\better_swordspear_hook.cpp" />
+    <ClCompile Include="ds3runtime\hooks\ds1_backstabs.cpp" />
+    <ClCompile Include="ds3runtime\hooks\ds1_no_hyperarmor.cpp" />
+    <ClCompile Include="ds3runtime\hooks\ds3_iframe_patch_attacker_effect_hook.cpp" />
+    <ClCompile Include="ds3runtime\hooks\ds3_iframe_patch_ban_check.cpp" />
+    <ClCompile Include="ds3runtime\hooks\ds3_iframe_patch_durablity_cost_hook.cpp" />
+    <ClCompile Include="ds3runtime\hooks\ds3_iframe_patch_hit_delete.cpp" />
+    <ClCompile Include="ds3runtime\hooks\ds3_iframe_patch_hit_reg_hook.cpp" />
+    <ClCompile Include="ds3runtime\hooks\ds3_iframe_patch_hit_reg_hook_shockwave.cpp" />
+    <ClCompile Include="ds3runtime\hooks\ds3_iframe_patch_hit_sibling_hook.cpp" />
+    <ClCompile Include="ds3runtime\hooks\ds3_iframe_patch_hit_uuid_hook.cpp" />
+    <ClCompile Include="ds3runtime\hooks\ds3_iframe_patch_hit_uuid_identify.cpp" />
+    <ClCompile Include="ds3runtime\hooks\ds3_iframe_patch_no_player_iframes.cpp" />
+    <ClCompile Include="ds3runtime\hooks\game_frame_hook.cpp" />
+    <ClCompile Include="ds3runtime\hooks\has_speffect_visual.cpp" />
+    <ClCompile Include="ds3runtime\hooks\play_animation_hook.cpp" />
+    <ClCompile Include="ds3runtime\hooks\session_receive_hook.cpp" />
+    <ClCompile Include="ds3runtime\hooks\session_send_hook.cpp" />
+    <ClCompile Include="ds3runtime\hooks\sprj_chr_damage_module_hook.cpp" />
+    <ClCompile Include="ds3runtime\hooks\throw_hook.cpp" />
+    <ClCompile Include="ds3runtime\misc_functions.cpp" />
+    <ClCompile Include="ds3runtime\player_game_data.cpp" />
+    <ClCompile Include="ds3runtime\player_ins.cpp" />
+    <ClCompile Include="ds3runtime\player_network_session.cpp" />
+    <ClCompile Include="ds3runtime\scripts\animation_id_handler.cpp" />
+    <ClCompile Include="ds3runtime\scripts\bonk_sound_cosmetic.cpp" />
+    <ClCompile Include="ds3runtime\scripts\damage_update_test.cpp" />
+    <ClCompile Include="ds3runtime\scripts\ds1_passive_poise.cpp" />
+    <ClCompile Include="ds3runtime\scripts\ds3_iframe_patch.cpp" />
+    <ClCompile Include="ds3runtime\scripts\fmod_system_handler.cpp" />
+    <ClCompile Include="ds3runtime\scripts\hotkey_manager.cpp" />
+    <ClCompile Include="ds3runtime\scripts\imposter_sound_cosmetic.cpp" />
+    <ClCompile Include="ds3runtime\scripts\interrupt_attacks.cpp" />
+    <ClCompile Include="ds3runtime\scripts\latency_simulator.cpp" />
+    <ClCompile Include="ds3runtime\scripts\mod_p2p_filter.cpp" />
+    <ClCompile Include="ds3runtime\scripts\npc_mod_test.cpp" />
+    <ClCompile Include="ds3runtime\scripts\param_patcher.cpp" />
+    <ClCompile Include="ds3runtime\scripts\sync_call_script.cpp" />
+    <ClCompile Include="ds3runtime\scripts\yhorm_scream_on_warcry_cosmetic.cpp" />
+    <ClCompile Include="ds3runtime\script_module.cpp" />
+    <ClCompile Include="ds3runtime\sprj_bullet_state.cpp" />
+    <ClCompile Include="ds3runtime\sprj_chr_damage_module.cpp" />
+    <ClCompile Include="ds3runtime\sprj_chr_data_module.cpp" />
+    <ClCompile Include="ds3runtime\sprj_gaitem_imp.cpp" />
+    <ClCompile Include="ds3runtime\sprj_gaitem_ins.cpp" />
+    <ClCompile Include="ds3runtime\sprj_lua_event_condition_item.cpp" />
+    <ClCompile Include="ds3runtime\sprj_session_manager.cpp" />
+    <ClCompile Include="ds3runtime\sprj_wep_gaitem_ins.cpp" />
+    <ClCompile Include="ds3runtime\world_chr_man.cpp" />
+    <ClCompile Include="MinHook\src\buffer.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="MinHook\src\HDE\hde32.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="MinHook\src\HDE\hde64.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="MinHook\src\hook.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="MinHook\src\trampoline.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="dinput8\dinput8.def" />
     <None Include="Lua\lua54.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Library Include="ds3runtime\dependencies\Libs\detours\base.lib" />
+    <Library Include="ds3runtime\dependencies\Libs\detours\client.lib" />
+    <Library Include="ds3runtime\dependencies\Libs\detours\detours.lib" />
+    <Library Include="ds3runtime\dependencies\Libs\detours\util.lib" />
+    <Library Include="ds3runtime\dependencies\Libs\fmod\fmodL_vc.lib" />
+    <Library Include="ds3runtime\dependencies\Libs\fmod\fmod_vc.lib" />
+    <Library Include="ds3runtime\dependencies\Libs\fmt\fmt.lib" />
+    <Library Include="ds3runtime\dependencies\Libs\spdlog\spdlog.lib" />
+    <Library Include="ds3runtime\dependencies\Libs\spdlog\spdlogd.lib" />
     <Library Include="Lua\liblua54.a" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
