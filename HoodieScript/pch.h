@@ -12,6 +12,7 @@
 #include "lua/lua.hpp"
 #include <list>
 #include <string>
+#include <iostream>
 
 extern "C" {
 	#include "lua/lua.h"

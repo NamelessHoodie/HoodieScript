@@ -32,7 +32,9 @@ void attach()
     luaHelper->Initialize();
 
     goodsUseHook = new hoodie_script::goods_use_hook();
+    hoodie_script::logging::write_line("Prememe");
     goodsUseHook->install();
+    hoodie_script::logging::write_line("Realmeme");
 }
 
 void detach()

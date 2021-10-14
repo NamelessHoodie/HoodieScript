@@ -20,13 +20,18 @@ namespace hoodie_script {
 		LPTSTR  dllPath = new TCHAR[_MAX_PATH];
 		GetModuleFileName((HINSTANCE)&__ImageBase, dllPath, _MAX_PATH);
 		const wchar_t* txt = dllPath;
-		std::wstring ws(dllPath);
-		ws = std::filesystem::path(ws).remove_filename().wstring() + std::filesystem::path("HoodieScripts").wstring();
+		std::wstring pathWStr(dllPath);
+		std::string pathStr(pathWStr.begin(), pathWStr.end());
+		pathStr = std::filesystem::path(pathStr).remove_filename().string() + std::filesystem::path("HoodieScripts").string();
 
 		std::list<std::string> stringList;
 		int i = 1;
-		for (const auto& entry : std::filesystem::directory_iterator(ws)) {
+		hoodie_script::logging::write_line("PreLuameme");
+		hoodie_script::logging::write_line(pathStr);
+		for (const auto& entry : std::filesystem::directory_iterator(pathStr)) {
 			if (entry.path().string().ends_with(".lua")) {
+				hoodie_script::logging::write_line("Le M");
+
 				std::string buf("LuaFile");
 				buf.append(std::to_string(i));
 				stringList.push_back(buf);
@@ -43,6 +48,9 @@ namespace hoodie_script {
 			}
 		}
 		LoadedLuaFiles = stringList;
+
+		hoodie_script::logging::write_line("EndLuameme");
+
 	}
 
 	void Ds3LuaHelper::InitializeNativeFunctionsToLuaBindings() {
