@@ -8,33 +8,15 @@
 #define PCH_H
 
 // add headers that you want to pre-compile here
-#include <windows.h>
-#undef min
-#undef max
+#include "framework.h"
+#include "lua/lua.hpp"
+#include <list>
 #include <string>
-#include <vector>
-#include <cstdint>
-#include <iostream>
-#include <chrono>
-#include <thread>
-#include <stdexcept>
-#include <unordered_set>
-#include "ds3runtime/dependencies/detours/detours.h"
-#include <memory>
-#include <functional>
-#include <string_view>
-#include <optional>
-#include <algorithm>
-#include <execution>
-#include "ds3runtime/dependencies/spdlog/spdlog.h"
-#include "ds3runtime/dependencies/spdlog/sinks/basic_file_sink.h"
-#include "ds3runtime/dependencies/spdlog/sinks/stdout_color_sinks.h"
-#include <locale>
-#include <codecvt>
-#include <fstream>
-#include <filesystem>
-#include "ds3runtime/dependencies/fmod/fmod.hpp"
-#include "ds3runtime/dependencies/fmod/fmod_errors.h"
-#include <cmath>
+
+extern "C" {
+	#include "lua/lua.h"
+	#include "lua/lauxlib.h"
+	#include "lua/lualib.h"
+}
 
 #endif //PCH_H
