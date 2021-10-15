@@ -60,6 +60,12 @@
     <ClInclude Include="Hooks\game_frame_hook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="vendor\DInput8\DInput8Proxy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaEvents\OnParamLoaded.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -89,8 +95,16 @@
     <ClCompile Include="Hooks\game_frame_hook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LuaEvents\OnParamLoaded.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="liblua54.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DInput.def">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -1,11 +1,46 @@
 #include "pch.h"
 #include "entry.h"
+#include "vendor/DInput8/DInput8Proxy.h"
+#include "LuaEvents/OnParamLoaded.h"
 
 #define EXCEPTION_STRING_SIZE    1024
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved) {
+    HANDLE thread;
+    static HMODULE dinput8dll = nullptr;
+    HMODULE chainModule = NULL;
+    wchar_t chainPath[MAX_PATH];
+    wchar_t dllPath[MAX_PATH];
+
     switch (ul_reason_for_call) {
     case DLL_PROCESS_ATTACH:
+        GetPrivateProfileStringW(L"Misc", L"ChainloadDinput8dll", L"", chainPath, MAX_PATH, L".\\HoodiePatcher.ini");
+
+        if (chainPath && wcscmp(chainPath, L""))
+        {
+            GetCurrentDirectoryW(MAX_PATH, dllPath);
+            wcscat_s(dllPath, MAX_PATH, L"\\");
+            wcscat_s(dllPath, MAX_PATH, chainPath);
+            chainModule = LoadLibraryW(dllPath);
+
+            if (chainModule)
+            {
+                DirectInput8Create_fn = (DirectInput8Create_TYPE)GetProcAddress(chainModule, "DirectInput8Create");
+            }
+        }
+
+        if (!chainModule)
+        {
+            wchar_t path[MAX_PATH];
+            GetSystemDirectoryW(path, MAX_PATH);
+            wcscat_s(path, MAX_PATH, L"\\dinput8.dll");
+            dinput8dll = LoadLibraryW(path);
+
+            if (dinput8dll)
+            {
+                DirectInput8Create_fn = (DirectInput8Create_TYPE)GetProcAddress(dinput8dll, "DirectInput8Create");
+            }
+        }
         attach();
         break;
     case DLL_PROCESS_DETACH:
@@ -20,8 +55,8 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
 // Should do hook and LUA init
 DWORD WINAPI init_thread(void* lpParam)
 {
-    hoodie_script::script_repository::load_files();
     hoodie_script::script_runtime::initialize();
+    hoodie_script::script_repository::load_files();
 
     // TODO: refactor these to fit in the script_runtime somehow
     goodsUseHook = new hoodie_script::goods_use_hook();
@@ -31,6 +66,12 @@ DWORD WINAPI init_thread(void* lpParam)
     goodsUseHook->install();
     hkbAnimationHook->install();
     gameFrameHook->install();
+
+
+    //hoodie_script::OnParamLoaded::DoOnParamLoaded(hoodie_script::script_runtime::_luaState);
+    //hoodie_script::OnParamLoaded::DoOnParamLoaded(hoodie_script::script_runtime::_luaState);
+    //hoodie_script::OnParamLoaded::DoOnParamLoaded(hoodie_script::script_runtime::_luaState);
+    //hoodie_script::OnParamLoaded::DoOnParamLoaded(hoodie_script::script_runtime::_luaState);
 
     return S_OK;
 }

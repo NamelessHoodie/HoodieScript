@@ -10,7 +10,11 @@ namespace hoodie_script {
 		logging::write_line("Found lua file %s", pathStr.c_str());
 		for (const auto& entry : std::filesystem::directory_iterator(pathStr)) {
 			if (entry.path().string().ends_with(".lua")) {
-				_luaFiles.emplace_back(entry.path());
+				auto path = entry.path();
+				if (script_runtime::initialize_file(path))
+				{
+					_luaFiles.emplace_back(path);
+				}
 			}
 		}
 	}
