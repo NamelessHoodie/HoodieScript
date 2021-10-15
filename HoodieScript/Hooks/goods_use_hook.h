@@ -1,8 +1,7 @@
 #pragma once
 
-#include <string>
-#include "logging.h"
 #include "jump_hook.h"
+#include "script_runtime.h"
 
 namespace hoodie_script {
     class goods_use_hook : public jump_hook

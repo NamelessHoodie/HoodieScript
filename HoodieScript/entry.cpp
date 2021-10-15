@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "entry.h"
 
+#define EXCEPTION_STRING_SIZE    1024
+
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved) {
     switch (ul_reason_for_call) {
     case DLL_PROCESS_ATTACH:
@@ -15,11 +17,30 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
     return TRUE;
 }
 
+// Should do hook and LUA init
+DWORD WINAPI init_thread(void* lpParam)
+{
+    hoodie_script::script_repository::load_files();
+    hoodie_script::script_runtime::initialize();
+
+    // TODO: refactor these to fit in the script_runtime somehow
+    goodsUseHook = new hoodie_script::goods_use_hook();
+    hkbAnimationHook = new hoodie_script::hkb_animation_hook();
+    gameFrameHook = new hoodie_script::game_frame_hook();
+
+    goodsUseHook->install();
+    hkbAnimationHook->install();
+    gameFrameHook->install();
+
+    return S_OK;
+}
+
 void attach()
 {
     prepare_console();
     hoodie_script::logging::init();
     hoodie_script::logging::write_line("Attached HoodieScriptExtender");
+    SetUnhandledExceptionFilter(exception_handler);
 
     // Set up minhook
     if (MH_Initialize() != MH_OK) {
@@ -28,18 +49,16 @@ void attach()
         hoodie_script::logging::write_line("Minhook set up");
     }
 
-    auto luaHelper = new hoodie_script::Ds3LuaHelper();
-    luaHelper->Initialize();
-
-    goodsUseHook = new hoodie_script::goods_use_hook();
-    hoodie_script::logging::write_line("Prememe");
-    goodsUseHook->install();
-    hoodie_script::logging::write_line("Realmeme");
+    CreateThread(nullptr, 0x1000, &init_thread, nullptr, 0, nullptr);
 }
 
 void detach()
 {
+    // TODO: keep track of all the hooks in a centralized place so we can roll them back in batch
     goodsUseHook->uninstall();
+    hkbAnimationHook->uninstall();
+    gameFrameHook->uninstall();
+
     hoodie_script::logging::write_line("Detached HoodieScriptExtender");
     free_console();
 }
@@ -58,4 +77,50 @@ void free_console() {
     if (GetConsoleWindow() != nullptr) {
         FreeConsole();
     }
+}
+
+LONG WINAPI exception_handler(struct _EXCEPTION_POINTERS* exception) {
+    PEXCEPTION_RECORD record = exception->ExceptionRecord;
+    PCONTEXT context = exception->ContextRecord;
+    char exception_text[EXCEPTION_STRING_SIZE];
+
+    switch (record->ExceptionCode) {
+    case EXCEPTION_ACCESS_VIOLATION:
+        snprintf(
+            exception_text,
+            EXCEPTION_STRING_SIZE,
+            "Access violation!\n\n"
+            "Instruction at 0x%p\n"
+            "attempted to %s\n"
+            "memory at 0x%p\n\n"
+            "Register dump:\n"
+            "RAX = 0x%p\n" "RBX = 0x%p\n" "RCX = 0x%p\n" "RDX = 0x%p\n"
+            "RSI = 0x%p\n" "RDI = 0x%p\n" "RBP = 0x%p\n" "RSP = 0x%p\n"
+            "R8  = 0x%p\n" "R9  = 0x%p\n" "R10 = 0x%p\n" "R11 = 0x%p\n"
+            "R12 = 0x%p\n" "R13 = 0x%p\n" "R14 = 0x%p\n" "R15 = 0x%p\n",
+            record->ExceptionAddress,
+            record->ExceptionInformation[0] ? "WRITE" : "READ",
+            record->ExceptionInformation[1],
+            context->Rax, context->Rbx, context->Rcx, context->Rdx,
+            context->Rsi, context->Rdi, context->Rbp, context->Rsp,
+            context->R8, context->R9, context->R10, context->R11,
+            context->R12, context->R13, context->R14, context->R15
+        );
+        break;
+    default:
+        snprintf(
+            exception_text,
+            EXCEPTION_STRING_SIZE,
+            "Caught unhandled exception\n"
+            "Code: %x\n"
+            "Address: %p",
+            record->ExceptionCode,
+            record->ExceptionAddress
+        );
+        break;
+    }
+
+    hoodie_script::logging::write_line(exception_text);
+    MessageBoxA(NULL, exception_text, "Error Dump", MB_ICONERROR | MB_OK);
+    return EXCEPTION_CONTINUE_SEARCH;
 }

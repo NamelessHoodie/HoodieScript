@@ -161,12 +161,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Ds3LuaHelper.h" />
     <ClInclude Include="entry.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="Hooks\game_frame_hook.h" />
     <ClInclude Include="Hooks\goods_use_hook.h" />
+    <ClInclude Include="Hooks\hkb_animation_hook.h" />
     <ClInclude Include="jump_hook.h" />
     <ClInclude Include="logging.h" />
+    <ClInclude Include="script_repository.h" />
+    <ClInclude Include="script_runtime.h" />
     <ClInclude Include="vendor\lua\lauxlib.h" />
     <ClInclude Include="vendor\lua\lua.h" />
     <ClInclude Include="vendor\lua\lua.hpp" />
@@ -175,9 +178,10 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Ds3LuaHelper.cpp" />
     <ClCompile Include="entry.cpp" />
+    <ClCompile Include="Hooks\game_frame_hook.cpp" />
     <ClCompile Include="Hooks\goods_use_hook.cpp" />
+    <ClCompile Include="Hooks\hkb_animation_hook.cpp" />
     <ClCompile Include="jump_hook.cpp" />
     <ClCompile Include="logging.cpp" />
     <ClCompile Include="pch.cpp">
@@ -190,6 +194,8 @@
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(ProjectDir)/vendor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(ProjectDir)/vendor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <ClCompile Include="script_repository.cpp" />
+    <ClCompile Include="script_runtime.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="liblua54.a" />

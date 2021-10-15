@@ -33,9 +33,6 @@
     <ClInclude Include="Hooks\goods_use_hook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Ds3LuaHelper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="vendor\lua\lauxlib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -49,6 +46,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="vendor\lua\lualib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="script_repository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="script_runtime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\hkb_animation_hook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\game_frame_hook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -68,7 +77,16 @@
     <ClCompile Include="Hooks\goods_use_hook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Ds3LuaHelper.cpp">
+    <ClCompile Include="script_repository.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="script_runtime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks\hkb_animation_hook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks\game_frame_hook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
