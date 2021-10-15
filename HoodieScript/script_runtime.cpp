@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "script_runtime.h"
 #include "LuaEvents/OnParamLoaded.h"
+#include "LuaEvents/OnGameFrame.h"
+#include "LuaEvents/OnHkbAnimation.h"
 
 namespace hoodie_script {
 	lua_State* script_runtime::_luaState = nullptr;
@@ -15,6 +17,12 @@ namespace hoodie_script {
 
 		//Define SubscribeToEventOnParamLoaded
 		lua_register(_luaState, "SubscribeToEventOnParamLoaded", OnParamLoaded::SubscribeToEventOnParamLoaded);
+
+		//Define SubscribeToEventOnGameFrame
+		lua_register(_luaState, "SubscribeToEventOnGameFrame", OnGameFrame::SubscribeToEventOnGameFrame);
+
+		//Define SubscribeToEventOnAnimationId
+		lua_register(_luaState, "SubscribeToEventOnHkbAnimation", OnHkbAnimation::SubscribeToEventOnHkbAnimation);
 
 		lua_pop(_luaState, 1);
 	}
@@ -96,41 +104,30 @@ namespace hoodie_script {
 
 	int script_runtime::on_hkb_animation(uintptr_t hbkCharacter, int animationId)
 	{
+		return OnHkbAnimation::DoOnHkbAnimation(_luaState, animationId);
+
 		//for (auto file : script_repository::get_files()) {
 
-		//	lua_getglobal(_luaState, "on_hkb_animation");
-		//	lua_pushinteger(_luaState, animationId);
-		//	if (lua_pcall(_luaState, 1, 1, 0) != LUA_OK) {
-		//		logging::write_line("Could not invoke LUA %s - on_hkb_animation", file.string().c_str());
-		//		handle_error(_luaState);
-		//		continue;
-		//	}
+			//lua_getglobal(_luaState, "on_hkb_animation");
+			//lua_pushinteger(_luaState, animationId);
+			//if (lua_pcall(_luaState, 1, 1, 0) != LUA_OK) {
+			//	logging::write_line("Could not invoke LUA %s - on_hkb_animation", file.string().c_str());
+			//	handle_error(_luaState);
+			//	//continue;
+			//}
 
-		//	if (!lua_isinteger(_luaState, -1)) {
-		//		logging::write_line("Invoked LUA does not return an integer %s - on_hkb_animation");
-		//		lua_pop(_luaState, 1);
-		//		continue;
-		//	}
+			//if (!lua_isinteger(_luaState, -1)) {
+			//	logging::write_line("Invoked LUA does not return an integer %s - on_hkb_animation");
+			//	lua_pop(_luaState, 1);
+			//	continue;
+			//}
 
-		//	animationId = lua_tointeger(_luaState, -1);
-		//	lua_pop(_luaState, 1);
-		//}
-
-		return animationId;
+			//animationId = lua_tointeger(_luaState, -1);
+			//lua_pop(_luaState, 1);
 	}
 
 	void script_runtime::on_game_frame()
 	{
-		//for (auto file : script_repository::get_files()) {
-		//	if (!initialize_file(file)) {
-		//		continue;
-		//	}
-
-		//	lua_getglobal(_luaState, "on_game_frame");
-		//	if (lua_pcall(_luaState, 0, 0, 0) != LUA_OK) {
-		//		logging::write_line("Could not invoke LUA %s - on_game_frame", file.string().c_str());
-		//		handle_error(_luaState);
-		//	}
-		//}
+		OnGameFrame::DoOnGameFrame(_luaState);
 	}
 }

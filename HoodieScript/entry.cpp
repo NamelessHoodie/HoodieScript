@@ -68,10 +68,10 @@ DWORD WINAPI init_thread(void* lpParam)
     gameFrameHook->install();
 
 
-    //hoodie_script::OnParamLoaded::DoOnParamLoaded(hoodie_script::script_runtime::_luaState);
-    //hoodie_script::OnParamLoaded::DoOnParamLoaded(hoodie_script::script_runtime::_luaState);
-    //hoodie_script::OnParamLoaded::DoOnParamLoaded(hoodie_script::script_runtime::_luaState);
-    //hoodie_script::OnParamLoaded::DoOnParamLoaded(hoodie_script::script_runtime::_luaState);
+    hoodie_script::OnParamLoaded::DoOnParamLoaded(hoodie_script::script_runtime::_luaState);
+    hoodie_script::OnParamLoaded::DoOnParamLoaded(hoodie_script::script_runtime::_luaState);
+    hoodie_script::OnParamLoaded::DoOnParamLoaded(hoodie_script::script_runtime::_luaState);
+    hoodie_script::OnParamLoaded::DoOnParamLoaded(hoodie_script::script_runtime::_luaState);
 
     return S_OK;
 }

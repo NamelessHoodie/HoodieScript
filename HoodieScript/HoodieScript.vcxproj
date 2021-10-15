@@ -171,6 +171,8 @@
     <ClInclude Include="jump_hook.h" />
     <ClInclude Include="logging.h" />
     <ClInclude Include="LuaEvents\OnParamLoaded.h" />
+    <ClInclude Include="LuaEvents\OnGameFrame.h" />
+    <ClInclude Include="LuaEvents\OnHkbAnimation.h" />
     <ClInclude Include="script_repository.h" />
     <ClInclude Include="script_runtime.h" />
     <ClInclude Include="vendor\DInput8\DInput8Proxy.h" />
@@ -189,6 +191,8 @@
     <ClCompile Include="jump_hook.cpp" />
     <ClCompile Include="logging.cpp" />
     <ClCompile Include="LuaEvents\OnParamLoaded.cpp" />
+    <ClCompile Include="LuaEvents\OnGameFrame.cpp" />
+    <ClCompile Include="LuaEvents\OnHkbAnimation.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
