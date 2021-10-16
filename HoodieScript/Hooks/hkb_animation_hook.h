@@ -9,6 +9,10 @@ namespace hoodie_script {
     public:
         hkb_animation_hook();
         static void on_invoke(uintptr_t hkbCharacter, int32_t* animationId);
+        std::string getName()
+        {
+            return "hkb_animation_hook";
+        }
     private:
         static hkb_animation_hook *_instance;
     };

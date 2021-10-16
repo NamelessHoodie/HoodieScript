@@ -2,8 +2,11 @@
 #include "entry.h"
 #include "vendor/DInput8/DInput8Proxy.h"
 #include "LuaEvents/OnParamLoaded.h"
+#include <Amir/ds3runtime.h>
 
 #define EXCEPTION_STRING_SIZE    1024
+
+std::shared_ptr<hoodie_script::DS3RuntimeScripting> hoodie_script::ds3runtime_global;;
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved) {
     HANDLE thread;

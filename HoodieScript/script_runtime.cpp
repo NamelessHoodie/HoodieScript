@@ -105,25 +105,6 @@ namespace hoodie_script {
 	int script_runtime::on_hkb_animation(uintptr_t hbkCharacter, int animationId)
 	{
 		return OnHkbAnimation::DoOnHkbAnimation(_luaState, animationId);
-
-		//for (auto file : script_repository::get_files()) {
-
-			//lua_getglobal(_luaState, "on_hkb_animation");
-			//lua_pushinteger(_luaState, animationId);
-			//if (lua_pcall(_luaState, 1, 1, 0) != LUA_OK) {
-			//	logging::write_line("Could not invoke LUA %s - on_hkb_animation", file.string().c_str());
-			//	handle_error(_luaState);
-			//	//continue;
-			//}
-
-			//if (!lua_isinteger(_luaState, -1)) {
-			//	logging::write_line("Invoked LUA does not return an integer %s - on_hkb_animation");
-			//	lua_pop(_luaState, 1);
-			//	continue;
-			//}
-
-			//animationId = lua_tointeger(_luaState, -1);
-			//lua_pop(_luaState, 1);
 	}
 
 	void script_runtime::on_game_frame()

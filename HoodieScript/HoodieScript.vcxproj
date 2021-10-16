@@ -163,8 +163,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Amir\async_module.h" />
+    <ClInclude Include="Amir\ds3runtime.h" />
+    <ClInclude Include="Amir\script_module.h" />
+    <ClInclude Include="databaseaddress.h" />
     <ClInclude Include="entry.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="GameObjects\chr_ins.h" />
+    <ClInclude Include="GameObjects\player_ins.h" />
     <ClInclude Include="Hooks\game_frame_hook.h" />
     <ClInclude Include="Hooks\goods_use_hook.h" />
     <ClInclude Include="Hooks\hkb_animation_hook.h" />
@@ -173,6 +179,7 @@
     <ClInclude Include="LuaEvents\OnParamLoaded.h" />
     <ClInclude Include="LuaEvents\OnGameFrame.h" />
     <ClInclude Include="LuaEvents\OnHkbAnimation.h" />
+    <ClInclude Include="memory_util.h" />
     <ClInclude Include="script_repository.h" />
     <ClInclude Include="script_runtime.h" />
     <ClInclude Include="vendor\DInput8\DInput8Proxy.h" />
@@ -184,7 +191,13 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Amir\async_module.cpp" />
+    <ClCompile Include="Amir\ds3runtime.cpp" />
+    <ClCompile Include="Amir\script_module.cpp" />
+    <ClCompile Include="databaseaddress.cpp" />
     <ClCompile Include="entry.cpp" />
+    <ClCompile Include="GameObjects\chr_ins.cpp" />
+    <ClCompile Include="GameObjects\player_ins.cpp" />
     <ClCompile Include="Hooks\game_frame_hook.cpp" />
     <ClCompile Include="Hooks\goods_use_hook.cpp" />
     <ClCompile Include="Hooks\hkb_animation_hook.cpp" />

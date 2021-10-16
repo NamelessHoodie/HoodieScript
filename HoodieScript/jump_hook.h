@@ -12,6 +12,7 @@ namespace hoodie_script {
         bool install();
         bool uninstall();
         uintptr_t get_original();
+        virtual std::string getName() = 0;
 
     private:
         uintptr_t _target;
