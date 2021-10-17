@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "OnHkbAnimation.h"
 
+using namespace luabridge;
+
 namespace hoodie_script {
 
     int OnHkbAnimation::OnHkbAnimationHandlers[1024];
@@ -16,15 +18,20 @@ namespace hoodie_script {
         return 0;
     }
 
-    int OnHkbAnimation::DoOnHkbAnimation(lua_State* L, int animationId) {
+    int OnHkbAnimation::DoOnHkbAnimation(lua_State* L, PlayerIns hkbCharacter ,int animationId) {
         int i;
         for (i = 0; i < OnHkbAnimationEventSubscribersCount; ++i) {
             lua_rawgeti(L, LUA_REGISTRYINDEX, OnHkbAnimationHandlers[i]);
-            lua_pushinteger(L, animationId);
-            lua_pcall(L, 1, 1, 0);
-            
-            animationId = lua_tointeger(L, -1);
-            lua_pop(L, 1);
+            LuaRef a = LuaRef::fromStack(L);
+            if (a.isFunction())
+            {
+                logging::write_line("Calling" + a.tostring());
+                animationId = a(hkbCharacter, animationId);
+            }
+            else
+            {
+                logging::write_line("error calling lua fun");
+            }
         }
 
         return animationId;

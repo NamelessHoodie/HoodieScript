@@ -154,7 +154,7 @@ void ChrIns::playAnimation(const int32_t& animationStringId)
 	playAnimationInternal(animationHandle, input);
 }
 
-void ChrIns::playAnimation(const std::wstring& animationString)
+void ChrIns::playAnimationString(const std::wstring& animationString)
 {
 	uintptr_t* animationHandle = accessMultilevelPointer<uintptr_t>(address + 0x1F90, 0x28, 0x10, 0x28); //AnibndResCap
 	void(*playAnimationStringInternal)(...);

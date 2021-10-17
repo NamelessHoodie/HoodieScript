@@ -183,6 +183,7 @@
     <ClInclude Include="script_repository.h" />
     <ClInclude Include="script_runtime.h" />
     <ClInclude Include="vendor\DInput8\DInput8Proxy.h" />
+    <ClInclude Include="vendor\LuaBridge\LuaBridge.h" />
     <ClInclude Include="vendor\lua\lauxlib.h" />
     <ClInclude Include="vendor\lua\lua.h" />
     <ClInclude Include="vendor\lua\lua.hpp" />

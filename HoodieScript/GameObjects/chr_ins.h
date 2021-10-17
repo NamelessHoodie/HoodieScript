@@ -373,7 +373,7 @@ public:
 	* 
 	* @param animationString The animation string id to play.
 	*/
-	void playAnimation(const std::wstring& animationString);
+	void playAnimationString(const std::wstring& animationString);
 
 	/**
 	* Gets the integer id which matches a specified Havok Behaivor String.

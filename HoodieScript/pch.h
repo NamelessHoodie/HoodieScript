@@ -13,11 +13,14 @@
 #include <list>
 #include <string>
 #include <iostream>
+#include "logging.h"
 
 extern "C" {
 	#include "lua/lua.h"
 	#include "lua/lauxlib.h"
 	#include "lua/lualib.h"
 }
+
+#include "vendor/LuaBridge/LuaBridge.h"
 
 #endif //PCH_H

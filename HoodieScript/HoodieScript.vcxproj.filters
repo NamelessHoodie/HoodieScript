@@ -93,6 +93,9 @@
     <ClInclude Include="GameObjects\chr_ins.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="vendor\LuaBridge\LuaBridge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

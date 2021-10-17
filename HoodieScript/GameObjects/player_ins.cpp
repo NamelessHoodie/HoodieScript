@@ -111,7 +111,10 @@ namespace hoodie_script {
 
 	bool PlayerIns::isNoGoodsConsume() const
 	{
-		return (*accessMultilevelPointer<uint8_t>(getAddress() + 0x1EEA) & static_cast<uint8_t>(pow(2, 3))) == pow(2, 3);
+		logging::write_line("Called Is No Goods Consume");
+		bool value = (*accessMultilevelPointer<uint8_t>(getAddress() + 0x1EEA) & static_cast<uint8_t>(pow(2, 3))) == pow(2, 3);
+		logging::write_line(std::to_string(value));
+		return value;
 	}
 
 	void PlayerIns::setNoGoodsConsume(const bool& value)
