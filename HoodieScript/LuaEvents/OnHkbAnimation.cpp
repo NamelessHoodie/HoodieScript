@@ -3,18 +3,6 @@
 
 namespace hoodie_script {
 
-    MyClass::MyClass(float valueFun)
-    {
-        value = valueFun;
-    }
-
-    float MyClass::GetValue()
-    {
-        return value;
-    }
-
-    MyClass a(16);
-
     int OnHkbAnimation::OnHkbAnimationHandlers[1024];
     int OnHkbAnimation::OnHkbAnimationEventSubscribersCount = 0;
 
@@ -28,7 +16,7 @@ namespace hoodie_script {
         return 0;
     }
 
-    int OnHkbAnimation::DoOnHkbAnimation(lua_State* L, PlayerIns chr ,int animationId) {
+    int OnHkbAnimation::DoOnHkbAnimation(lua_State* L, uintptr_t chr ,int animationId) {
         int i;
         sol::state_view sol(L);
         for (i = 0; i < OnHkbAnimationEventSubscribersCount; ++i) {

@@ -99,10 +99,6 @@ namespace hoodie_script {
 		player_type["isMainChr"] = &PlayerIns::isMainChr;
 		player_type["isMainChrLoaded"] = &PlayerIns::isMainChrLoaded;
 
-		sol::usertype<MyClass> ex = lua.new_usertype<MyClass>("MyClass", sol::constructors<MyClass(float)>());
-		ex["Value"] = &MyClass::value;
-		ex["GetValue"] = &MyClass::GetValue;
-
 
 		// typical member function that returns a variable
 		//player_type["shoot"] = &player::shoot;
@@ -201,10 +197,11 @@ namespace hoodie_script {
 		//if (processFunc.isFunction()) {
 		//	processFunc(&myObject);
 		//}
-		auto mainChr = PlayerIns(PlayerIns::getMainChrAddress());
+		auto mainChrPtr = PlayerIns::getMainChrAddress();
+		auto mainChr = PlayerIns(mainChrPtr);
 		if (mainChr.getHkbCharacter() == hbkCharacter)
 		{
-			return OnHkbAnimation::DoOnHkbAnimation(_luaState, mainChr, animationId);
+			return OnHkbAnimation::DoOnHkbAnimation(_luaState, mainChrPtr, animationId);
 		}
 		else
 		{

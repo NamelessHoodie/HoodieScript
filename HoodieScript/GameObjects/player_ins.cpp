@@ -26,7 +26,7 @@ namespace hoodie_script {
 
 	int32_t PlayerIns::getLeftHandWeaponActive() const
 	{
-		auto leftHandEquipped = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x28C);
+		auto leftHandEquipped = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x2BC);
 		return *accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x32C + leftHandEquipped * 8);
 	}
 
@@ -37,7 +37,7 @@ namespace hoodie_script {
 
 	void PlayerIns::setLeftHandWeaponActive(const int32_t& equipParamWeaponId)
 	{
-		auto leftHandEquipped = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x28C);
+		auto leftHandEquipped = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x2BC);
 		*accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x32C + leftHandEquipped * 8) = equipParamWeaponId;
 	}
 

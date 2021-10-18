@@ -1,6 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "chr_ins.h"
+#include "Hooks/hkb_animation_hook.h"
 
 namespace hoodie_script {
 
@@ -146,7 +147,7 @@ bool ChrIns::hasHkbCharacter() const
 
 void ChrIns::playAnimation(const int32_t& animationStringId)
 {
-	auto hook = ds3runtime_global->accessHook("play_anim_hook");
+	auto hook = hoodie_script::hkb_animation_hook::_instance;
 	int32_t input[6] = { animationStringId, 0, 0 };
 	uintptr_t animationHandle = getHkbCharacter();
 	void(*playAnimationInternal)(uintptr_t, int32_t*);
