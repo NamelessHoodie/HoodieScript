@@ -190,6 +190,9 @@
     <ClInclude Include="vendor\lua\luaconf.h" />
     <ClInclude Include="vendor\lua\lualib.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="vendor\Sol2\config.hpp" />
+    <ClInclude Include="vendor\Sol2\forward.hpp" />
+    <ClInclude Include="vendor\Sol2\sol.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Amir\async_module.cpp" />

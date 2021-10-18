@@ -24,9 +24,21 @@ namespace hoodie_script {
 		return *accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x32C + (slotNumber - 1) * 8);
 	}
 
+	int32_t PlayerIns::getLeftHandWeaponActive() const
+	{
+		auto leftHandEquipped = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x28C);
+		return *accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x32C + leftHandEquipped * 8);
+	}
+
 	void PlayerIns::setLeftHandWeapon(const uint32_t& slotNumber, const int32_t& equipParamWeaponId)
 	{
 		*accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x32C + (slotNumber - 1) * 8) = equipParamWeaponId;
+	}
+
+	void PlayerIns::setLeftHandWeaponActive(const int32_t& equipParamWeaponId)
+	{
+		auto leftHandEquipped = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x28C);
+		*accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x32C + leftHandEquipped * 8) = equipParamWeaponId;
 	}
 
 	int32_t PlayerIns::getRightHandWeapon(const uint32_t& slotNumber) const
@@ -34,9 +46,21 @@ namespace hoodie_script {
 		return *accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + (slotNumber - 1) * 8);
 	}
 
+	int32_t PlayerIns::getRightHandWeaponActive() const
+	{
+		auto rightHandEquipped = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x2C0);
+		return *accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + rightHandEquipped * 8);
+	}
+
 	void PlayerIns::setRightHandWeapon(const uint32_t& slotNumber, const int32_t& equipParamWeaponId)
 	{
 		*accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + (slotNumber - 1) * 8) = equipParamWeaponId;
+	}
+
+	void PlayerIns::setRightHandWeaponActive(const int32_t& equipParamWeaponId)
+	{
+		auto rightHandEquipped = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x2C0);
+		*accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + rightHandEquipped * 8) = equipParamWeaponId;
 	}
 
 	int32_t PlayerIns::getHead() const
@@ -111,9 +135,7 @@ namespace hoodie_script {
 
 	bool PlayerIns::isNoGoodsConsume() const
 	{
-		logging::write_line("Called Is No Goods Consume");
 		bool value = (*accessMultilevelPointer<uint8_t>(getAddress() + 0x1EEA) & static_cast<uint8_t>(pow(2, 3))) == pow(2, 3);
-		logging::write_line(std::to_string(value));
 		return value;
 	}
 

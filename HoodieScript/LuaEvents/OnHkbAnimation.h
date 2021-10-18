@@ -2,6 +2,15 @@
 #include "GameObjects/player_ins.h"
 
 namespace hoodie_script {
+    class MyClass
+    {
+    public:
+        float value;
+        MyClass(float valueFun);
+        float GetValue();
+    private:
+    };
+
 	class OnHkbAnimation {
 		public:
 			static int SubscribeToEventOnHkbAnimation(lua_State* L);
@@ -10,4 +19,5 @@ namespace hoodie_script {
 			static int OnHkbAnimationHandlers[1024];
 			static int OnHkbAnimationEventSubscribersCount;
 	};
+
 }

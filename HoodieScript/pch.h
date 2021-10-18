@@ -14,6 +14,7 @@
 #include <string>
 #include <iostream>
 #include "logging.h"
+#include "Sol2/sol.hpp"
 
 extern "C" {
 	#include "lua/lua.h"

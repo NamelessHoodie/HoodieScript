@@ -96,6 +96,15 @@
     <ClInclude Include="vendor\LuaBridge\LuaBridge.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="vendor\Sol2\config.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Sol2\sol.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Sol2\forward.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

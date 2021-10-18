@@ -1,9 +1,19 @@
 #include "pch.h"
 #include "OnHkbAnimation.h"
 
-using namespace luabridge;
-
 namespace hoodie_script {
+
+    MyClass::MyClass(float valueFun)
+    {
+        value = valueFun;
+    }
+
+    float MyClass::GetValue()
+    {
+        return value;
+    }
+
+    MyClass a(16);
 
     int OnHkbAnimation::OnHkbAnimationHandlers[1024];
     int OnHkbAnimation::OnHkbAnimationEventSubscribersCount = 0;
@@ -18,22 +28,19 @@ namespace hoodie_script {
         return 0;
     }
 
-    int OnHkbAnimation::DoOnHkbAnimation(lua_State* L, PlayerIns hkbCharacter ,int animationId) {
+    int OnHkbAnimation::DoOnHkbAnimation(lua_State* L, PlayerIns chr ,int animationId) {
         int i;
+        sol::state_view sol(L);
         for (i = 0; i < OnHkbAnimationEventSubscribersCount; ++i) {
             lua_rawgeti(L, LUA_REGISTRYINDEX, OnHkbAnimationHandlers[i]);
-            LuaRef a = LuaRef::fromStack(L);
-            if (a.isFunction())
+            sol::protected_function fun = sol::stack::get<sol::reference>(L, sol.stack_top());;
+            sol::protected_function_result result = fun(chr, animationId);
+            if (result.valid())
             {
-                logging::write_line("Calling" + a.tostring());
-                animationId = a(hkbCharacter, animationId);
+                animationId = result;
             }
-            else
-            {
-                logging::write_line("error calling lua fun");
-            }
+            lua_pop(L, 1);
         }
-
         return animationId;
     }
 }

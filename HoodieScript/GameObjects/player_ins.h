@@ -63,6 +63,12 @@ public:
 	int32_t getLeftHandWeapon(const uint32_t& slotNumber) const;
 
 	/**
+	* Gets the item in the active left weapon slot of this PlayerIns in the game's memory.
+	*
+	* @return equipParamId of the weapon in this slot.
+	*/
+	int32_t getLeftHandWeaponActive() const; 
+	/**
 	* Sets the item in the specified left hand weapon slot of this PlayerIns in the game's memory.
 	*
 	* Setting this value may not result in expected behaivor, to learn more read this header's documentation 
@@ -74,12 +80,29 @@ public:
 	void setLeftHandWeapon(const uint32_t& slotNumber, const int32_t& equipParamWeaponId);
 
 	/**
+	* Sets the item in the active left hand weapon slot of this PlayerIns in the game's memory.
+	*
+	* Setting this value may not result in expected behaivor, to learn more read this header's documentation
+	  at the top of the file.
+	*
+	* @param equipParamWeaponId equipParamId of the weapon to put in this slot.
+	*/
+	void setLeftHandWeaponActive(const int32_t& equipParamWeaponId);
+
+	/**
 	* Gets the item in the specified right weapon slot of this PlayerIns in the game's memory. 
 	* 
 	* @param slotNumber The weapon slot to get the weapon from, must be a integer ranging 1-3.
 	* @return equipParamId of the weapon in this slot.
 	*/
 	int32_t getRightHandWeapon(const uint32_t& slotNumber) const;
+
+	/**
+	* Gets the item in the active right weapon slot of this PlayerIns in the game's memory.
+	*
+	* @return equipParamId of the weapon in this slot.
+	*/
+	int32_t getRightHandWeaponActive() const;
 
 	/**
 	* Sets the item in the specified right hand weapon slot of this PlayerIns in the game's memory.
@@ -91,6 +114,16 @@ public:
 	* @param equipParamWeaponId equipParamId of the weapon to put in this slot.
 	*/
 	void setRightHandWeapon(const uint32_t& slotNumber, const int32_t& equipParamWeaponId);
+
+	/**
+	* Sets the item in the specified right hand weapon slot of this PlayerIns in the game's memory.
+	*
+	* Setting this value may not result in expected behaivor, to learn more read this header's documentation
+	  at the top of the file.
+	*
+	* @param equipParamWeaponId equipParamId of the weapon to put in this slot.
+	*/
+	void setRightHandWeaponActive(const int32_t& equipParamWeaponId);
 
 	/**
 	* Gets the item in the head slot of this PlayerIns in the game's memory. 
