@@ -2,6 +2,8 @@
 
 #include "pch.h"
 #include "player_ins.h"
+#include "Amir/standard_player_boss.h"
+#include "GameObjects/equip_game_data.h"
 
 namespace hoodie_script {
 
@@ -39,6 +41,7 @@ namespace hoodie_script {
 	{
 		auto leftHandEquipped = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x2BC);
 		*accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x32C + leftHandEquipped * 8) = equipParamWeaponId;
+		PlayerNetworkSession::queueEquipmentPacket();
 	}
 
 	int32_t PlayerIns::getRightHandWeapon(const uint32_t& slotNumber) const
@@ -59,8 +62,19 @@ namespace hoodie_script {
 
 	void PlayerIns::setRightHandWeaponActive(const int32_t& equipParamWeaponId)
 	{
-		auto rightHandEquipped = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x2C0);
-		*accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + rightHandEquipped * 8) = equipParamWeaponId;
+		auto rightHandSlot = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x2C0);
+		logging::write_line(std::to_string(rightHandSlot));
+		auto rightHandEquippedPtr = accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + rightHandSlot * 8);
+		auto rightHandEquipped = *rightHandEquippedPtr;
+
+		int array[]{ 1,3,6 };
+
+		auto wepPlrPtr = *accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + rightHandEquipped * 8);
+		StandardPlayerBoss hello = StandardPlayerBoss();
+		hello.SwapItem((InventorySlot)array[rightHandSlot], ItemParamIdPrefix::Weapon, equipParamWeaponId, -1, true);
+		//hello.SwapItem((InventorySlot) array[rightHandSlot], ItemParamIdPrefix::Weapon, rightHandEquipped, -1, false);
+		hello.DoMeme((InventorySlot)array[rightHandSlot], ItemParamIdPrefix::Weapon, rightHandEquipped, -1, false);
+		//*rightHandEquippedPtr = equipParamWeaponId;
 	}
 
 	int32_t PlayerIns::getHead() const

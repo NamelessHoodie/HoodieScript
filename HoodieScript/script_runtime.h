@@ -1,6 +1,11 @@
 #pragma once
 
 #include "script_repository.h"
+#include "LuaEvents/OnParamLoaded.h"
+#include "LuaEvents/OnGameFrame.h"
+#include "LuaEvents/OnHkbAnimation.h"
+#include "GameObjects/player_ins.h"
+#include "GameObjects/chr_ins.h"
 
 namespace hoodie_script {
 	class script_runtime

@@ -7,6 +7,8 @@
 #ifndef PCH_H
 #define PCH_H
 
+#define NOMINMAX
+
 // add headers that you want to pre-compile here
 #include "framework.h"
 #include "lua/lua.hpp"
@@ -15,6 +17,7 @@
 #include <iostream>
 #include "logging.h"
 #include "Sol2/sol.hpp"
+#include <algorithm>
 
 extern "C" {
 	#include "lua/lua.h"
