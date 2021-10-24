@@ -16,17 +16,19 @@ namespace hoodie_script {
         return 0;
     }
 
-    int OnHkbAnimation::DoOnHkbAnimation(lua_State* L, int animationId) {
+    int OnHkbAnimation::DoOnHkbAnimation(lua_State* L, uintptr_t chr ,int animationId) {
         int i;
+        sol::state_view sol(L);
         for (i = 0; i < OnHkbAnimationEventSubscribersCount; ++i) {
             lua_rawgeti(L, LUA_REGISTRYINDEX, OnHkbAnimationHandlers[i]);
-            lua_pushinteger(L, animationId);
-            lua_pcall(L, 1, 1, 0);
-            
-            animationId = lua_tointeger(L, -1);
+            sol::protected_function fun = sol::stack::get<sol::reference>(L, sol.stack_top());;
+            sol::protected_function_result result = fun(chr, animationId);
+            if (result.valid())
+            {
+                animationId = result;
+            }
             lua_pop(L, 1);
         }
-
         return animationId;
     }
 }

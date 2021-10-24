@@ -12,7 +12,10 @@ namespace hoodie_script {
         bool install();
         bool uninstall();
         uintptr_t get_original();
-
+        virtual std::string getName() 
+        {
+            return "jump_hook";
+        }
     private:
         uintptr_t _target;
         uintptr_t _replacement;

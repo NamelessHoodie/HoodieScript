@@ -163,36 +163,77 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Amir\async_module.h" />
+    <ClInclude Include="Amir\ds3runtime.h" />
+    <ClInclude Include="Amir\game_packet.h" />
+    <ClInclude Include="Amir\player_network_session.h" />
+    <ClInclude Include="Amir\script_module.h" />
+    <ClInclude Include="Amir\standard_player_boss.h" />
+    <ClInclude Include="databaseaddress.h" />
     <ClInclude Include="entry.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="GameDebugClasses\game_data_man.h" />
+    <ClInclude Include="GameDebugClasses\game_option_man.h" />
+    <ClInclude Include="GameDebugClasses\world_chr_man.h" />
+    <ClInclude Include="GameObjects\chr_ins.h" />
+    <ClInclude Include="GameObjects\equip_game_data.h" />
+    <ClInclude Include="GameObjects\equip_inventory_data.h" />
+    <ClInclude Include="GameObjects\player_game_data.h" />
+    <ClInclude Include="GameObjects\player_ins.h" />
+    <ClInclude Include="Hooks\has_speffect_hook.h" />
     <ClInclude Include="Hooks\game_frame_hook.h" />
     <ClInclude Include="Hooks\goods_use_hook.h" />
     <ClInclude Include="Hooks\hkb_animation_hook.h" />
+    <ClInclude Include="Hooks\session_send_hook.h" />
     <ClInclude Include="jump_hook.h" />
     <ClInclude Include="logging.h" />
     <ClInclude Include="LuaEvents\OnParamLoaded.h" />
     <ClInclude Include="LuaEvents\OnGameFrame.h" />
     <ClInclude Include="LuaEvents\OnHkbAnimation.h" />
+    <ClInclude Include="memory_util.h" />
+    <ClInclude Include="LuaEvents\OnSpeffectActive.h" />
     <ClInclude Include="script_repository.h" />
     <ClInclude Include="script_runtime.h" />
     <ClInclude Include="vendor\DInput8\DInput8Proxy.h" />
+    <ClInclude Include="vendor\LuaBridge\LuaBridge.h" />
     <ClInclude Include="vendor\lua\lauxlib.h" />
     <ClInclude Include="vendor\lua\lua.h" />
     <ClInclude Include="vendor\lua\lua.hpp" />
     <ClInclude Include="vendor\lua\luaconf.h" />
     <ClInclude Include="vendor\lua\lualib.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="vendor\Sol2\config.hpp" />
+    <ClInclude Include="vendor\Sol2\forward.hpp" />
+    <ClInclude Include="vendor\Sol2\sol.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Amir\async_module.cpp" />
+    <ClCompile Include="Amir\ds3runtime.cpp" />
+    <ClCompile Include="Amir\game_packet.cpp" />
+    <ClCompile Include="Amir\player_network_session.cpp" />
+    <ClCompile Include="Amir\script_module.cpp" />
+    <ClCompile Include="Amir\standard_player_boss.cpp" />
+    <ClCompile Include="databaseaddress.cpp" />
     <ClCompile Include="entry.cpp" />
+    <ClCompile Include="GameDebugClasses\game_data_man.cpp" />
+    <ClCompile Include="GameDebugClasses\game_option_man.cpp" />
+    <ClCompile Include="GameDebugClasses\world_chr_man.cpp" />
+    <ClCompile Include="GameObjects\chr_ins.cpp" />
+    <ClCompile Include="GameObjects\equip_game_data.cpp" />
+    <ClCompile Include="GameObjects\equip_inventory_data.cpp" />
+    <ClCompile Include="GameObjects\player_game_data.cpp" />
+    <ClCompile Include="GameObjects\player_ins.cpp" />
+    <ClCompile Include="Hooks\has_speffect_hook.cpp" />
     <ClCompile Include="Hooks\game_frame_hook.cpp" />
     <ClCompile Include="Hooks\goods_use_hook.cpp" />
     <ClCompile Include="Hooks\hkb_animation_hook.cpp" />
+    <ClCompile Include="Hooks\session_send_hook.cpp" />
     <ClCompile Include="jump_hook.cpp" />
     <ClCompile Include="logging.cpp" />
     <ClCompile Include="LuaEvents\OnParamLoaded.cpp" />
     <ClCompile Include="LuaEvents\OnGameFrame.cpp" />
     <ClCompile Include="LuaEvents\OnHkbAnimation.cpp" />
+    <ClCompile Include="LuaEvents\OnSpeffectActive.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

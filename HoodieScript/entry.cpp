@@ -2,8 +2,11 @@
 #include "entry.h"
 #include "vendor/DInput8/DInput8Proxy.h"
 #include "LuaEvents/OnParamLoaded.h"
+#include <Amir/ds3runtime.h>
 
 #define EXCEPTION_STRING_SIZE    1024
+
+std::shared_ptr<hoodie_script::DS3RuntimeScripting> hoodie_script::ds3runtime_global;;
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved) {
     HANDLE thread;
@@ -55,22 +58,23 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
 // Should do hook and LUA init
 DWORD WINAPI init_thread(void* lpParam)
 {
-    hoodie_script::script_runtime::initialize();
-    hoodie_script::script_repository::load_files();
-
     // TODO: refactor these to fit in the script_runtime somehow
     goodsUseHook = new hoodie_script::goods_use_hook();
     hkbAnimationHook = new hoodie_script::hkb_animation_hook();
     gameFrameHook = new hoodie_script::game_frame_hook();
+    //sessionsendhook = new hoodie_script::session_send_hook();
+    hasspeffecthook = new hoodie_script::has_speffect_hook();
+
+    hoodie_script::script_runtime::initialize();
+    hoodie_script::script_repository::load_files();
 
     goodsUseHook->install();
     hkbAnimationHook->install();
     gameFrameHook->install();
+    //sessionsendhook->install();
+    hasspeffecthook->install();
 
 
-    hoodie_script::OnParamLoaded::DoOnParamLoaded(hoodie_script::script_runtime::_luaState);
-    hoodie_script::OnParamLoaded::DoOnParamLoaded(hoodie_script::script_runtime::_luaState);
-    hoodie_script::OnParamLoaded::DoOnParamLoaded(hoodie_script::script_runtime::_luaState);
     hoodie_script::OnParamLoaded::DoOnParamLoaded(hoodie_script::script_runtime::_luaState);
 
     return S_OK;
@@ -99,6 +103,8 @@ void detach()
     goodsUseHook->uninstall();
     hkbAnimationHook->uninstall();
     gameFrameHook->uninstall();
+    //sessionsendhook->uninstall();
+    hasspeffecthook->uninstall();
 
     hoodie_script::logging::write_line("Detached HoodieScriptExtender");
     free_console();
