@@ -6,14 +6,15 @@ using namespace sol;
 namespace hoodie_script {
 
 	lua_State* script_runtime::_luaState = nullptr;
+	script_runtime::DoesHandleHaveSpEffect_t script_runtime::DoesHandleHaveSpEffectUnsafe = nullptr;
 
 	void script_runtime::InitializeFunctionLuaBindings()
 	{
 		lua_getglobal(_luaState, "_G");
 
 		//Define print()
-		static const struct luaL_Reg printlib[] = { {"print", Luaprint}, {NULL, NULL} };
-		luaL_setfuncs(_luaState, printlib, 0);
+		//static const struct luaL_Reg printlib[] = { {"print", Luaprint}, {NULL, NULL} };
+		//luaL_setfuncs(_luaState, printlib, 0);
 
 		//Define SubscribeToEventOnParamLoaded
 		lua_register(_luaState, "SubscribeToEventOnParamLoaded", OnParamLoaded::SubscribeToEventOnParamLoaded);
@@ -23,6 +24,8 @@ namespace hoodie_script {
 
 		//Define SubscribeToEventOnAnimationId
 		lua_register(_luaState, "SubscribeToEventOnHkbAnimation", OnHkbAnimation::SubscribeToEventOnHkbAnimation);
+
+		//lua_register(_luaState, "SubscribeToEventOnSpEffect", OnSpeffectActive::SubscribeToEventOnSpEffect);
 
 		lua_pop(_luaState, 1);
 
@@ -93,6 +96,10 @@ namespace hoodie_script {
 		player_type["isMainChr"] = &PlayerIns::isMainChr;
 		player_type["isMainChrLoaded"] = &PlayerIns::isMainChrLoaded;
 
+		lua.set_function("SubscribeToEventOnSpEffect", OnSpeffectActive::SubscribeToEventOnSpEffect);
+		lua.set_function("HandleHasSpEffect", HandleHasSpEffectSafe);
+		lua.set_function("print", Luaprint);
+
 
 		// typical member function that returns a variable
 		//player_type["shoot"] = &player::shoot;
@@ -106,32 +113,29 @@ namespace hoodie_script {
 		//player_type.set("bullets", sol::readonly(&player::bullets));
 	}
 
-	int script_runtime::Luaprint(lua_State* L) {
-		int nargs = lua_gettop(L);
-
-		for (int i = 1; i <= nargs; i++) {
-			if (lua_isstring(L, i)) {
-				std::cout << lua_tostring(L, i);
-			}
-			else {
-				/* Do something with non-strings if you like */
-			}
-
-			if (i == nargs)
+	void script_runtime::Luaprint(sol::variadic_args va, std::string) {
+		std::string r = "";
+		for (auto v : va) {
+			if (v.is<bool>())
 			{
-				std::cout << std::endl;
+				bool value = v;
+				r += value ? "True" : "False";
+			}
+			else
+			{
+				std::string value = v;
+				r += value;
 			}
 		}
-
-		return 0;
+		std::cout << r << std::endl;
 	}
-
 
 	void script_runtime::initialize()
 	{
 		lua_State* L = luaL_newstate();
 
 		luaL_openlibs(L);
+		DoesHandleHaveSpEffectUnsafe = (DoesHandleHaveSpEffect_t)has_speffect_hook::_instance->get_original();
 		_luaState = L;
 		InitializeFunctionLuaBindings();
 	}
@@ -170,6 +174,16 @@ namespace hoodie_script {
 		return true;
 	}
 
+	bool script_runtime::HandleHasSpEffectSafe(unsigned int handle, int spEffect)
+	{
+		auto worldChrManPointer = (uintptr_t*)DataBaseAddress::WorldChrMan;
+		if (*worldChrManPointer != NULL)
+		{
+			return DoesHandleHaveSpEffectUnsafe(handle, spEffect);
+		}
+		return false;
+	}
+
 	void script_runtime::on_goods_use(int goodsId) {
 		//for (auto file : script_repository::get_files()) {
 		//	lua_getglobal(_luaState, "on_goods_use");
@@ -183,14 +197,6 @@ namespace hoodie_script {
 
 	int script_runtime::on_hkb_animation(uintptr_t hbkCharacter, int animationId)
 	{
-		//MyClass myObject(200); // single instance
-
-		//// lookup script function in global table
-		//luabridge::LuaRef processFunc = luabridge::LuaRef::getGlobal(_luaState, "process");
-
-		//if (processFunc.isFunction()) {
-		//	processFunc(&myObject);
-		//}
 		auto mainChrPtr = PlayerIns::getMainChrAddress();
 		auto mainChr = PlayerIns(mainChrPtr);
 		if (mainChr.getHkbCharacter() == hbkCharacter)
@@ -206,5 +212,10 @@ namespace hoodie_script {
 	void script_runtime::on_game_frame()
 	{
 		OnGameFrame::DoOnGameFrame(_luaState);
+		OnSpeffectActive::DoOnSpEffect(_luaState);
+	}
+
+	void script_runtime::on_speffect(unsigned int handle, int speffect)
+	{
 	}
 }
