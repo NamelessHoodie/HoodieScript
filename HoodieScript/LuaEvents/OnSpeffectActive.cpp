@@ -5,18 +5,18 @@ namespace hoodie_script {
 
     std::deque<std::tuple<sol::function, bool ,unsigned int, int>> OnSpeffectActive::OnSpeffectSubscriptions;
 
-    int OnSpeffectActive::SubscribeToEventOnSpEffect(sol::function function, bool onSpEffectExist , unsigned int handle, int speffect)
+    int OnSpeffectActive::SubscribeToEventOnSpEffect(sol::function function, bool onSpEffectExist , unsigned int entityId, int speffect)
     {
-        OnSpeffectSubscriptions.push_back(std::tuple<sol::function, bool, unsigned int, int>{ function, onSpEffectExist, handle, speffect });
+        OnSpeffectSubscriptions.push_back(std::tuple<sol::function, bool, unsigned int, int>{ function, onSpEffectExist, entityId, speffect });
         return 0;
     }
 
-    std::optional<bool> OnSpeffectActive::HandleHasSpEffectSafe(unsigned int handle, int spEffect)
+    std::optional<bool> OnSpeffectActive::EntityHasSpEffectSafeOptionalReturn(unsigned int entityId, int spEffect)
     {
         auto worldChrManPointer = (uintptr_t*)DataBaseAddress::WorldChrMan;
         if (*worldChrManPointer != NULL)
         {
-            return script_runtime::DoesHandleHaveSpEffectUnsafe(handle, spEffect);
+            return script_runtime::DoesHandleHaveSpEffectUnsafe(entityId, spEffect);
         }
         return std::nullopt;
     }
@@ -25,11 +25,11 @@ namespace hoodie_script {
         sol::state_view sol(L);
         for (size_t i = 0; i < OnSpeffectActive::OnSpeffectSubscriptions.size(); i++)
         {
-            auto [funRef, leBool, handleFilter, spEffectFilter] = OnSpeffectActive::OnSpeffectSubscriptions[i];
-            auto hasSpEffect = OnSpeffectActive::HandleHasSpEffectSafe(handleFilter, spEffectFilter);
+            auto [funRef, onSpeffectActive, handleFilter, spEffectFilter] = OnSpeffectActive::OnSpeffectSubscriptions[i];
+            auto hasSpEffect = OnSpeffectActive::EntityHasSpEffectSafeOptionalReturn(handleFilter, spEffectFilter);
             if (hasSpEffect)
             {
-                if (*hasSpEffect == leBool)
+                if (*hasSpEffect == onSpeffectActive)
                 {
                     sol::protected_function function = funRef;
                     sol::protected_function_result funResult = function(handleFilter, spEffectFilter);

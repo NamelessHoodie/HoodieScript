@@ -9,12 +9,11 @@ namespace hoodie_script {
 		_instance = this;
 	}
 
-	bool has_speffect_hook::on_invoke(unsigned int handle, int speffect)
+	bool has_speffect_hook::on_invoke(unsigned int entityId, int speffect)
 	{
-		//logging::write_line("Le Handle : " + std::to_string(handle));
-		script_runtime::on_speffect(handle, speffect);
+		script_runtime::on_speffect(entityId, speffect);
 		uintptr_t(*originalFunction)(unsigned int handle, int speffect);
 		*(uintptr_t*)&originalFunction = _instance->get_original();
-		return originalFunction(handle, speffect);
+		return originalFunction(entityId, speffect);
 	}
 }

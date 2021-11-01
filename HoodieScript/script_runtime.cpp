@@ -6,6 +6,7 @@ using namespace sol;
 namespace hoodie_script {
 
 	lua_State* script_runtime::_luaState = nullptr;
+	ParamPatcher* script_runtime::paramPatcher = nullptr;
 	script_runtime::DoesHandleHaveSpEffect_t script_runtime::DoesHandleHaveSpEffectUnsafe = nullptr;
 
 	void script_runtime::InitializeFunctionLuaBindings()
@@ -23,7 +24,7 @@ namespace hoodie_script {
 		lua_register(_luaState, "SubscribeToEventOnGameFrame", OnGameFrame::SubscribeToEventOnGameFrame);
 
 		//Define SubscribeToEventOnAnimationId
-		lua_register(_luaState, "SubscribeToEventOnHkbAnimation", OnHkbAnimation::SubscribeToEventOnHkbAnimation);
+		//lua_register(_luaState, "SubscribeToEventOnHkbAnimation", OnHkbAnimation::SubscribeToEventOnHkbAnimation);
 
 		//lua_register(_luaState, "SubscribeToEventOnSpEffect", OnSpeffectActive::SubscribeToEventOnSpEffect);
 
@@ -70,6 +71,10 @@ namespace hoodie_script {
 		player_type["getNetworkPointer"] = &PlayerIns::getNetworkPointer;
 		player_type["ActiveLeftHandWeapon"] = sol::property(&PlayerIns::getLeftHandWeaponActive, &PlayerIns::setLeftHandWeaponActive);
 		player_type["ActiveRightHandWeapon"] = sol::property(&PlayerIns::getRightHandWeaponActive, &PlayerIns::setRightHandWeaponActive);
+		player_type["ActiveRightHandWeaponNetworked"] = sol::property(&PlayerIns::getRightHandWeaponActive, &PlayerIns::setRightHandWeaponActiveNetworked);
+		player_type["WeaponSheatState"] = sol::property(&PlayerIns::getWeaponSheathState, &PlayerIns::setWeaponSheathState);
+		player_type["setRightHandWeaponNetworked"] = &PlayerIns::setRightHandWeaponNetworked;
+		player_type["RemoveWeaponFromInventory"] = &PlayerIns::removeWeaponFromInventory;
 		player_type["getLeftHandWeapon"] = &PlayerIns::getLeftHandWeapon;
 		player_type["setLeftHandWeapon"] = &PlayerIns::setLeftHandWeapon;
 		player_type["getRightHandWeapon"] = &PlayerIns::getRightHandWeapon;
@@ -96,8 +101,9 @@ namespace hoodie_script {
 		player_type["isMainChr"] = &PlayerIns::isMainChr;
 		player_type["isMainChrLoaded"] = &PlayerIns::isMainChrLoaded;
 
+		lua.set_function("SubscribeToEventOnHkbAnimation",OnHkbAnimation::SubscribeToEventOnHkbAnimation);
 		lua.set_function("SubscribeToEventOnSpEffect", OnSpeffectActive::SubscribeToEventOnSpEffect);
-		lua.set_function("HandleHasSpEffect", HandleHasSpEffectSafe);
+		lua.set_function("EntityHasSpeffect", EntityHasSpEffectSafe);
 		lua.set_function("print", Luaprint);
 
 
@@ -138,6 +144,8 @@ namespace hoodie_script {
 		DoesHandleHaveSpEffectUnsafe = (DoesHandleHaveSpEffect_t)has_speffect_hook::_instance->get_original();
 		_luaState = L;
 		InitializeFunctionLuaBindings();
+		script_runtime::paramPatcher = new ParamPatcher();
+		OnParamLoaded::DoOnParamLoaded(_luaState);
 	}
 
 	void script_runtime::handle_error(lua_State* luaState)
@@ -174,12 +182,12 @@ namespace hoodie_script {
 		return true;
 	}
 
-	bool script_runtime::HandleHasSpEffectSafe(unsigned int handle, int spEffect)
+	bool script_runtime::EntityHasSpEffectSafe(unsigned int entityId, int spEffect)
 	{
 		auto worldChrManPointer = (uintptr_t*)DataBaseAddress::WorldChrMan;
 		if (*worldChrManPointer != NULL)
 		{
-			return DoesHandleHaveSpEffectUnsafe(handle, spEffect);
+			return DoesHandleHaveSpEffectUnsafe(entityId, spEffect);
 		}
 		return false;
 	}

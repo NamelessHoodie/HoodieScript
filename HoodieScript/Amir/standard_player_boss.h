@@ -41,7 +41,7 @@ public:
 		int32_t paramItemId,
 		int32_t durability, bool networked);
 
-	void DoMeme(InventorySlot inventorySlot, ItemParamIdPrefix paramIdPrefix, int32_t paramItemId, int32_t durability, bool networked);
+	void DoMeme(ItemParamIdPrefix paramIdPrefix, int32_t paramItemId);
 
 	void giveGoodsAndSwap(GoodsSlot inventorySlot,
 		int32_t paramItemId, int32_t quantity);
@@ -77,7 +77,7 @@ private:
 
 	bool isHiddenItem(const uint32_t itemId);
 
-	//int32_t getItemMaxDurability(ItemParamIdPrefix paramIdPrefix, int32_t paramItemId);
+	int32_t getItemMaxDurability(ItemParamIdPrefix paramIdPrefix, int32_t paramItemId);
 protected:
 	void restorePlayerData();
 

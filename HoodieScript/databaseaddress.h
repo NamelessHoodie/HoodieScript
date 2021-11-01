@@ -9,6 +9,7 @@
 namespace hoodie_script {
 
 enum class DataBaseAddress : uintptr_t {
+	BASEExecutable = 0x140000000,
 	GAME = 0x144740178,
 	WorldChrMan = 0x144768E78,
 	BaseC = 0x144743AB0,

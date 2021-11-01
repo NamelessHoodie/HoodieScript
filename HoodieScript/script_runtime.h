@@ -16,7 +16,7 @@ namespace hoodie_script {
 	public:
 		typedef bool (*DoesHandleHaveSpEffect_t)(unsigned int, int);
 		static DoesHandleHaveSpEffect_t DoesHandleHaveSpEffectUnsafe;
-		static bool HandleHasSpEffectSafe(unsigned int handle, int spEffect);
+		static bool EntityHasSpEffectSafe(unsigned int entityId, int spEffect);
 		static void on_goods_use(int goodsId);
 		static int on_hkb_animation(uintptr_t hbkCharacter, int animationId);
 		static void on_speffect(unsigned int handle, int speffect);
@@ -26,6 +26,7 @@ namespace hoodie_script {
 		static void Luaprint(sol::variadic_args va, std::string);
 		static void initialize();
 		static lua_State* _luaState;
+		static ParamPatcher *paramPatcher;
 	private:
 		static void handle_error(lua_State *luaState);
 	};

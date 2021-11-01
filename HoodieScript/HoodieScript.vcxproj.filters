@@ -93,9 +93,6 @@
     <ClInclude Include="GameObjects\chr_ins.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="vendor\LuaBridge\LuaBridge.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="vendor\Sol2\config.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -139,6 +136,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LuaEvents\OnSpeffectActive.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LeCG\ParamPatcher.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -231,6 +231,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LuaEvents\OnSpeffectActive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LeCG\ParamPatcher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

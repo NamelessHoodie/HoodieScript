@@ -74,9 +74,6 @@ DWORD WINAPI init_thread(void* lpParam)
     //sessionsendhook->install();
     hasspeffecthook->install();
 
-
-    hoodie_script::OnParamLoaded::DoOnParamLoaded(hoodie_script::script_runtime::_luaState);
-
     return S_OK;
 }
 

@@ -3,31 +3,29 @@
 
 namespace hoodie_script {
 
-    int OnHkbAnimation::OnHkbAnimationHandlers[1024];
-    int OnHkbAnimation::OnHkbAnimationEventSubscribersCount = 0;
+    std::deque<std::tuple<sol::function>> OnHkbAnimation::OnHkbAnimationHandlers;
 
-    int OnHkbAnimation::SubscribeToEventOnHkbAnimation(lua_State* L)
+    int OnHkbAnimation::SubscribeToEventOnHkbAnimation(sol::function function)
     {
-        if (!lua_isfunction(L, 1)) {
-            luaL_argerror(L, 1, "expected function");
-        }
-        lua_pushvalue(L, -1);
-        OnHkbAnimationHandlers[OnHkbAnimationEventSubscribersCount++] = luaL_ref(L, LUA_REGISTRYINDEX);
+        OnHkbAnimationHandlers.push_back(std::tuple<sol::function>{ function});
         return 0;
     }
 
     int OnHkbAnimation::DoOnHkbAnimation(lua_State* L, uintptr_t chr ,int animationId) {
-        int i;
         sol::state_view sol(L);
-        for (i = 0; i < OnHkbAnimationEventSubscribersCount; ++i) {
-            lua_rawgeti(L, LUA_REGISTRYINDEX, OnHkbAnimationHandlers[i]);
-            sol::protected_function fun = sol::stack::get<sol::reference>(L, sol.stack_top());;
+        for (size_t i = 0; i < OnHkbAnimationHandlers.size(); ++i) {
+            auto &[funRef] = OnHkbAnimation::OnHkbAnimationHandlers[i];
+            sol::protected_function fun = funRef;
             sol::protected_function_result result = fun(chr, animationId);
             if (result.valid())
             {
                 animationId = result;
             }
-            lua_pop(L, 1);
+            else
+            {
+                sol::error error = result;
+                logging::write_line(error.what());
+            }
         }
         return animationId;
     }

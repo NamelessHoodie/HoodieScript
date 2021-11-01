@@ -186,6 +186,7 @@
     <ClInclude Include="Hooks\hkb_animation_hook.h" />
     <ClInclude Include="Hooks\session_send_hook.h" />
     <ClInclude Include="jump_hook.h" />
+    <ClInclude Include="LeCG\ParamPatcher.h" />
     <ClInclude Include="logging.h" />
     <ClInclude Include="LuaEvents\OnParamLoaded.h" />
     <ClInclude Include="LuaEvents\OnGameFrame.h" />
@@ -195,7 +196,6 @@
     <ClInclude Include="script_repository.h" />
     <ClInclude Include="script_runtime.h" />
     <ClInclude Include="vendor\DInput8\DInput8Proxy.h" />
-    <ClInclude Include="vendor\LuaBridge\LuaBridge.h" />
     <ClInclude Include="vendor\lua\lauxlib.h" />
     <ClInclude Include="vendor\lua\lua.h" />
     <ClInclude Include="vendor\lua\lua.hpp" />
@@ -229,6 +229,7 @@
     <ClCompile Include="Hooks\hkb_animation_hook.cpp" />
     <ClCompile Include="Hooks\session_send_hook.cpp" />
     <ClCompile Include="jump_hook.cpp" />
+    <ClCompile Include="LeCG\ParamPatcher.cpp" />
     <ClCompile Include="logging.cpp" />
     <ClCompile Include="LuaEvents\OnParamLoaded.cpp" />
     <ClCompile Include="LuaEvents\OnGameFrame.cpp" />

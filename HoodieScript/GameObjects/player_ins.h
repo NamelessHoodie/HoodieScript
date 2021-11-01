@@ -97,6 +97,10 @@ public:
 	*/
 	int32_t getRightHandWeapon(const uint32_t& slotNumber) const;
 
+	void setWeaponSheathState(int32_t slot);
+
+	int32_t getWeaponSheathState();
+
 	/**
 	* Gets the item in the active right weapon slot of this PlayerIns in the game's memory.
 	*
@@ -116,7 +120,7 @@ public:
 	void setRightHandWeapon(const uint32_t& slotNumber, const int32_t& equipParamWeaponId);
 
 	/**
-	* Sets the item in the specified right hand weapon slot of this PlayerIns in the game's memory.
+	* Sets the item in the active right hand weapon slot of this PlayerIns in the game's memory.
 	*
 	* Setting this value may not result in expected behaivor, to learn more read this header's documentation
 	  at the top of the file.
@@ -124,6 +128,23 @@ public:
 	* @param equipParamWeaponId equipParamId of the weapon to put in this slot.
 	*/
 	void setRightHandWeaponActive(const int32_t& equipParamWeaponId);
+
+
+	/**
+	* Sets the item in the active right hand weapon slot of this PlayerIns in the game's memory.
+	* Differs from the standard for being networked, important notes:
+	* If the item is not in the inventory it will be given to the player. That is necessary in order for the set to be successful.
+	* @param equipParamWeaponId equipParamId of the weapon to put in this slot.
+	*/
+	void setRightHandWeaponActiveNetworked(const int32_t& equipParamWeaponId);
+
+	void setRightHandWeaponNetworked(const int32_t& equipParamWeaponId, int index);
+
+	/**
+	* Removes a wepaon from the player's inventory
+	* @param equipParamWeaponId equipParamId of the weapon to remove
+	*/
+	bool removeWeaponFromInventory(const int32_t& equipParamWeaponId);
 
 	/**
 	* Gets the item in the head slot of this PlayerIns in the game's memory. 

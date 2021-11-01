@@ -41,12 +41,11 @@ namespace hoodie_script {
 	{
 		auto leftHandEquipped = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x2BC);
 		*accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x32C + leftHandEquipped * 8) = equipParamWeaponId;
-		PlayerNetworkSession::queueEquipmentPacket();
 	}
 
 	int32_t PlayerIns::getRightHandWeapon(const uint32_t& slotNumber) const
 	{
-		return *accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + (slotNumber - 1) * 8);
+		return *accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + (slotNumber) * 8);
 	}
 
 	int32_t PlayerIns::getRightHandWeaponActive() const
@@ -63,18 +62,65 @@ namespace hoodie_script {
 	void PlayerIns::setRightHandWeaponActive(const int32_t& equipParamWeaponId)
 	{
 		auto rightHandSlot = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x2C0);
-		logging::write_line(std::to_string(rightHandSlot));
 		auto rightHandEquippedPtr = accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + rightHandSlot * 8);
-		auto rightHandEquipped = *rightHandEquippedPtr;
+		*rightHandEquippedPtr = equipParamWeaponId;
+	}
 
-		int array[]{ 1,3,6 };
+	void PlayerIns::setWeaponSheathState(int32_t slot)
+	{
+		auto a = new StandardPlayerBoss();
+		a->setSheathState(slot);
+	}
 
-		auto wepPlrPtr = *accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + rightHandEquipped * 8);
+	int32_t PlayerIns::getWeaponSheathState()
+	{
+		if (!GameDataMan::hasInstance()
+			|| GameDataMan(GameDataMan::getInstance()).getPlayerGameData() == 0) return 0;
+		PlayerGameData playerGameData = GameDataMan(GameDataMan::getInstance()).getPlayerGameData();
+		return playerGameData.getWeaponSheathState();
+	}
+
+
+	void PlayerIns::setRightHandWeaponActiveNetworked(const int32_t& equipParamWeaponId)
+	{
+		auto rightHandSlot = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x2C0);
+		//auto rightHandEquippedPtr = accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + rightHandSlot * 8);
+		int array[]{ 1,3,5 };
 		StandardPlayerBoss hello = StandardPlayerBoss();
 		hello.SwapItem((InventorySlot)array[rightHandSlot], ItemParamIdPrefix::Weapon, equipParamWeaponId, -1, true);
-		//hello.SwapItem((InventorySlot) array[rightHandSlot], ItemParamIdPrefix::Weapon, rightHandEquipped, -1, false);
-		hello.DoMeme((InventorySlot)array[rightHandSlot], ItemParamIdPrefix::Weapon, rightHandEquipped, -1, false);
 		//*rightHandEquippedPtr = equipParamWeaponId;
+
+		//logging::write_line(std::to_string(rightHandSlot));
+		//auto rightHandEquipped = *rightHandEquippedPtr;
+
+
+		//auto wepPlrPtr = *accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + rightHandEquipped * 8);
+		//hello.SwapItem((InventorySlot) array[rightHandSlot], ItemParamIdPrefix::Weapon, rightHandEquipped, -1, false);
+		//hello.DoMeme((InventorySlot)array[rightHandSlot], ItemParamIdPrefix::Weapon, rightHandEquipped, -1, false);
+	}
+
+	void PlayerIns::setRightHandWeaponNetworked(const int32_t& equipParamWeaponId, int index)
+	{
+		//auto rightHandEquippedPtr = accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + index * 8);
+		int array[]{ 1,3,5 };
+		StandardPlayerBoss hello = StandardPlayerBoss();
+		hello.SwapItem((InventorySlot)array[index], ItemParamIdPrefix::Weapon, equipParamWeaponId, -1, true);
+		//*rightHandEquippedPtr = equipParamWeaponId;
+
+		//logging::write_line(std::to_string(rightHandSlot));
+		//auto rightHandEquipped = *rightHandEquippedPtr;
+
+
+		//auto wepPlrPtr = *accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + rightHandEquipped * 8);
+		//hello.SwapItem((InventorySlot) array[rightHandSlot], ItemParamIdPrefix::Weapon, rightHandEquipped, -1, false);
+		//hello.DoMeme((InventorySlot)array[rightHandSlot], ItemParamIdPrefix::Weapon, rightHandEquipped, -1, false);
+	}
+
+	bool PlayerIns::removeWeaponFromInventory(const int32_t& equipParamWeaponId)
+	{
+		StandardPlayerBoss hello = StandardPlayerBoss();
+		hello.DoMeme(ItemParamIdPrefix::Weapon, equipParamWeaponId);
+		return true;
 	}
 
 	int32_t PlayerIns::getHead() const
