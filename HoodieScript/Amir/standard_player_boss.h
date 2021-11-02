@@ -36,12 +36,9 @@ public:
 		int32_t paramItemId,
 		int32_t durability);
 
-	void SwapItem(InventorySlot inventorySlot,
-		ItemParamIdPrefix paramIdPrefix,
-		int32_t paramItemId,
-		int32_t durability, bool networked);
+	void ReplaceItem(InventorySlot inventorySlot, ItemParamIdPrefix paramIdPrefix, int32_t paramItemIdTarget, int32_t paramItemIdReplacement, int32_t durability);
 
-	void DoMeme(ItemParamIdPrefix paramIdPrefix, int32_t paramItemId);
+	void RemoveItemFromInventory(ItemParamIdPrefix paramIdPrefix, int32_t paramItemId);
 
 	void giveGoodsAndSwap(GoodsSlot inventorySlot,
 		int32_t paramItemId, int32_t quantity);

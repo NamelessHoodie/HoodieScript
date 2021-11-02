@@ -71,10 +71,6 @@ namespace hoodie_script {
 		player_type["getNetworkPointer"] = &PlayerIns::getNetworkPointer;
 		player_type["ActiveLeftHandWeapon"] = sol::property(&PlayerIns::getLeftHandWeaponActive, &PlayerIns::setLeftHandWeaponActive);
 		player_type["ActiveRightHandWeapon"] = sol::property(&PlayerIns::getRightHandWeaponActive, &PlayerIns::setRightHandWeaponActive);
-		player_type["ActiveRightHandWeaponNetworked"] = sol::property(&PlayerIns::getRightHandWeaponActive, &PlayerIns::setRightHandWeaponActiveNetworked);
-		player_type["WeaponSheatState"] = sol::property(&PlayerIns::getWeaponSheathState, &PlayerIns::setWeaponSheathState);
-		player_type["setRightHandWeaponNetworked"] = &PlayerIns::setRightHandWeaponNetworked;
-		player_type["RemoveWeaponFromInventory"] = &PlayerIns::removeWeaponFromInventory;
 		player_type["getLeftHandWeapon"] = &PlayerIns::getLeftHandWeapon;
 		player_type["setLeftHandWeapon"] = &PlayerIns::setLeftHandWeapon;
 		player_type["getRightHandWeapon"] = &PlayerIns::getRightHandWeapon;
@@ -100,6 +96,13 @@ namespace hoodie_script {
 		player_type["getMainChrAddress"] = &PlayerIns::getMainChrAddress;
 		player_type["isMainChr"] = &PlayerIns::isMainChr;
 		player_type["isMainChrLoaded"] = &PlayerIns::isMainChrLoaded;
+		//Temporary Members, remember to fix this bad meme
+		player_type["ActiveRightHandWeaponNetworked"] = sol::property(&PlayerIns::getRightHandWeaponActive, &PlayerIns::setRightHandWeaponActiveNetworked);
+		player_type["setRightHandWeaponNetworked"] = &PlayerIns::setRightHandWeaponNetworked;
+		player_type["WeaponSheatState"] = sol::property(&PlayerIns::getWeaponSheathState, &PlayerIns::setWeaponSheathState);
+		player_type["RemoveWeaponFromInventory"] = &PlayerIns::removeWeaponFromInventory;
+		player_type["ReplaceWeaponNetworked"] = &PlayerIns::ReplaceWeapon;
+
 
 		lua.set_function("SubscribeToEventOnHkbAnimation",OnHkbAnimation::SubscribeToEventOnHkbAnimation);
 		lua.set_function("SubscribeToEventOnSpEffect", OnSpeffectActive::SubscribeToEventOnSpEffect);

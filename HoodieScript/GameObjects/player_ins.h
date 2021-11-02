@@ -99,6 +99,8 @@ public:
 
 	void setWeaponSheathState(int32_t slot);
 
+	void ReplaceWeapon(const int32_t& equipParamWeaponTarget, const int32_t equipParamWeaponReplacement, int index);
+
 	int32_t getWeaponSheathState();
 
 	/**

@@ -87,7 +87,7 @@ namespace hoodie_script {
 		//auto rightHandEquippedPtr = accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + rightHandSlot * 8);
 		int array[]{ 1,3,5 };
 		StandardPlayerBoss hello = StandardPlayerBoss();
-		hello.SwapItem((InventorySlot)array[rightHandSlot], ItemParamIdPrefix::Weapon, equipParamWeaponId, -1, true);
+		hello.giveItemAndSwap((InventorySlot)array[rightHandSlot], ItemParamIdPrefix::Weapon, equipParamWeaponId, -1);
 		//*rightHandEquippedPtr = equipParamWeaponId;
 
 		//logging::write_line(std::to_string(rightHandSlot));
@@ -104,7 +104,7 @@ namespace hoodie_script {
 		//auto rightHandEquippedPtr = accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + index * 8);
 		int array[]{ 1,3,5 };
 		StandardPlayerBoss hello = StandardPlayerBoss();
-		hello.SwapItem((InventorySlot)array[index], ItemParamIdPrefix::Weapon, equipParamWeaponId, -1, true);
+		hello.giveItemAndSwap((InventorySlot)array[index], ItemParamIdPrefix::Weapon, equipParamWeaponId, -1);
 		//*rightHandEquippedPtr = equipParamWeaponId;
 
 		//logging::write_line(std::to_string(rightHandSlot));
@@ -119,8 +119,15 @@ namespace hoodie_script {
 	bool PlayerIns::removeWeaponFromInventory(const int32_t& equipParamWeaponId)
 	{
 		StandardPlayerBoss hello = StandardPlayerBoss();
-		hello.DoMeme(ItemParamIdPrefix::Weapon, equipParamWeaponId);
+		hello.RemoveItemFromInventory(ItemParamIdPrefix::Weapon, equipParamWeaponId);
 		return true;
+	}
+
+	void PlayerIns::ReplaceWeapon(const int32_t& equipParamWeaponTarget, const int32_t equipParamWeaponReplacement, int index)
+	{
+		int array[]{ 1,3,5 };
+		StandardPlayerBoss hello = StandardPlayerBoss();
+		hello.ReplaceItem((InventorySlot)array[index], ItemParamIdPrefix::Weapon, equipParamWeaponTarget, equipParamWeaponReplacement, -1);
 	}
 
 	int32_t PlayerIns::getHead() const
