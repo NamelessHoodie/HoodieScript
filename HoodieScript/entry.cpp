@@ -64,6 +64,8 @@ DWORD WINAPI init_thread(void* lpParam)
     gameFrameHook = new hoodie_script::game_frame_hook();
     //sessionsendhook = new hoodie_script::session_send_hook();
     hasspeffecthook = new hoodie_script::has_speffect_hook();
+    jumptable_hook = new hoodie_script::jumptable_hook();
+    hksget_hook = new hoodie_script::hksgetter_hook();
 
     hoodie_script::script_runtime::initialize();
     hoodie_script::script_repository::load_files();
@@ -73,6 +75,8 @@ DWORD WINAPI init_thread(void* lpParam)
     gameFrameHook->install();
     //sessionsendhook->install();
     hasspeffecthook->install();
+    jumptable_hook->install();
+    hksget_hook->install();
 
     return S_OK;
 }
@@ -102,6 +106,8 @@ void detach()
     gameFrameHook->uninstall();
     //sessionsendhook->uninstall();
     hasspeffecthook->uninstall();
+    jumptable_hook->uninstall();
+    hksget_hook->uninstall();
 
     hoodie_script::logging::write_line("Detached HoodieScriptExtender");
     free_console();

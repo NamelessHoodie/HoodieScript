@@ -6,10 +6,6 @@
 #include <map>
 
 namespace hoodie_script {
-
-	//macro from amir who got it from someone
-#define call(f,...) (((intptr_t(*)(uintptr_t,...))(f))((uintptr_t)__VA_ARGS__))
-
 #define SetParamEntryDefine(type) bool SetParamEntry(std::string, std::wstring, std::uint32_t, std::uint32_t, type);
 #define SetParamEntryFunction(type) \
 bool ParamPatcher::SetParamEntry(std::string PatchGroup, std::wstring ParamName, std::uint32_t EntryID, std::uint32_t Offset, type Value) {\

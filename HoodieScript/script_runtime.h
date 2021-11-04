@@ -9,6 +9,7 @@
 #include "GameObjects/chr_ins.h"
 #include "GameDebugClasses/world_chr_man.h"
 #include "databaseaddress.h"
+#include "GameObjects/sprj_chr_data_module.h"
 
 namespace hoodie_script {
 	class script_runtime

@@ -141,6 +141,15 @@
     <ClInclude Include="LeCG\ParamPatcher.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameObjects\sprj_chr_data_module.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\jumptable_hook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\hksgetter_hook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -234,6 +243,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LeCG\ParamPatcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\sprj_chr_data_module.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks\jumptable_hook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks\hksgetter_hook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

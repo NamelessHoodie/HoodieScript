@@ -19,6 +19,8 @@
 #include <algorithm>
 #include "LeCG/ParamPatcher.h"
 
+	//macro from amir who got it from someone
+#define call(f,...) (((intptr_t(*)(uintptr_t,...))(f))((uintptr_t)__VA_ARGS__))
 
 extern "C" {
 	#include "lua/lua.h"

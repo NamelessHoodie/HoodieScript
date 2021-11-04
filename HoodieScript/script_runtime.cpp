@@ -102,7 +102,25 @@ namespace hoodie_script {
 		player_type["WeaponSheatState"] = sol::property(&PlayerIns::getWeaponSheathState, &PlayerIns::setWeaponSheathState);
 		player_type["RemoveWeaponFromInventory"] = &PlayerIns::removeWeaponFromInventory;
 		player_type["ReplaceWeaponNetworked"] = &PlayerIns::ReplaceWeapon;
-
+		
+		auto aPa = accessMultilevelPointer<unsigned int>((long long)DataBaseAddress::BASEExecutable + 0x4768e78, 0x1d0, 0x0);
+		if (aPa != nullptr)
+		{
+			auto aP = *aPa;
+			for (size_t i = 0; i < aP; i++)
+			{
+				auto a = accessMultilevelPointer<uintptr_t*>((long long)DataBaseAddress::BASEExecutable + 0x4768e78, 0x1d0, 0x8);
+				if (a != nullptr)
+				{
+					uintptr_t* al = (uintptr_t*)((byte*)*a + (0x38 * i));
+					std::cout << al << std::endl;
+					ChrIns chr(*al);
+					std::wcout << chr.getCharacterString() << std::endl;
+					SprjChrDataModule cdm(chr.getSprjChrDataModule());
+					//cdm.setHealth(0);
+				}
+			} 
+		}
 
 		lua.set_function("SubscribeToEventOnHkbAnimation",OnHkbAnimation::SubscribeToEventOnHkbAnimation);
 		lua.set_function("SubscribeToEventOnSpEffect", OnSpeffectActive::SubscribeToEventOnSpEffect);

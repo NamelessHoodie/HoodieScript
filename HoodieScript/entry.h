@@ -10,6 +10,8 @@
 #include "hooks/hkb_animation_hook.h"
 #include "hooks/session_send_hook.h"
 #include "Hooks/has_speffect_hook.h"
+#include "Hooks/jumptable_hook.h"
+#include "Hooks/hksgetter_hook.h"
 
 void attach();
 void detach();
@@ -25,3 +27,5 @@ hoodie_script::hkb_animation_hook *hkbAnimationHook = nullptr;
 hoodie_script::game_frame_hook *gameFrameHook = nullptr;
 hoodie_script::session_send_hook* sessionsendhook = nullptr;
 hoodie_script::has_speffect_hook * hasspeffecthook = nullptr;
+hoodie_script::jumptable_hook* jumptable_hook = nullptr;
+hoodie_script::hksgetter_hook* hksget_hook = nullptr;
