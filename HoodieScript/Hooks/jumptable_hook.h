@@ -9,7 +9,7 @@ namespace hoodie_script {
     public:
         jumptable_hook();
         static jumptable_hook* _instance;
-        static uintptr_t on_invoke(uintptr_t sprjChrTaeAnimEvent, uintptr_t unkData);
+        static uintptr_t on_invoke(uintptr_t sprjChrTaeAnimEvent, uintptr_t ** jumpTableDataAndExtraPointers);
         std::string getName()
         {
             return "jumptable_hook";

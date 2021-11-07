@@ -189,6 +189,7 @@
     <ClInclude Include="jump_hook.h" />
     <ClInclude Include="Hooks\jumptable_hook.h" />
     <ClInclude Include="Hooks\hksgetter_hook.h" />
+    <ClInclude Include="Hooks\hksActSetter_hook.h" />
     <ClInclude Include="LeCG\ParamPatcher.h" />
     <ClInclude Include="logging.h" />
     <ClInclude Include="LuaEvents\OnParamLoaded.h" />
@@ -235,6 +236,7 @@
     <ClCompile Include="jump_hook.cpp" />
     <ClCompile Include="Hooks\jumptable_hook.cpp" />
     <ClCompile Include="Hooks\hksgetter_hook.cpp" />
+    <ClCompile Include="Hooks\hksActSetter_hook.cpp" />
     <ClCompile Include="LeCG\ParamPatcher.cpp" />
     <ClCompile Include="logging.cpp" />
     <ClCompile Include="LuaEvents\OnParamLoaded.cpp" />

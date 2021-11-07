@@ -8,19 +8,34 @@ namespace hoodie_script {
 	{
 		_instance = this;
 	}
-
-	uintptr_t jumptable_hook::on_invoke(uintptr_t sprjChrTaeAnimEvent, uintptr_t unkData)
+	
+	struct JumpTableArguments 
 	{
-		const int32_t jmpTableId = *accessMultilevelPointer<int32_t>(unkData + 8, 0);
-		if (jmpTableId == 666)
-		{
+		int32_t jumpTableId;
+		float arg1;
+		int32_t arg2;
+		uint8_t arg3;
+		uint8_t arg4;
+		int16_t arg5;
+	};
 
-			//auto a = *(long long**)(*(long long*)(&DAT_00001f90 + *(long long*)(sprjChrTaeAnimEvent + 0x10)) + 0xb8);
+	uintptr_t jumptable_hook::on_invoke(uintptr_t sprjChrTaeAnimEvent, uintptr_t **jumpTableDataAndExtraPointers)
+	{
+		JumpTableArguments* jmpTableArgs = (JumpTableArguments*)(jumpTableDataAndExtraPointers[1]);
+		ChrIns callerCharacterInstance(*(uintptr_t*)(sprjChrTaeAnimEvent + 0x10));
+		if (jmpTableArgs->jumpTableId == 666)
+		{
 			logging::write_line("JumpTable - 666");
-			logging::write_line(std::to_string(*(long long*)(sprjChrTaeAnimEvent + 0x10)));
+			std::cout << std::dec;
+			std::cout << jmpTableArgs->jumpTableId << std::endl;
+			std::cout << jmpTableArgs->arg1 << std::endl;
+			std::cout << jmpTableArgs->arg2 << std::endl;
+			std::cout << unsigned(jmpTableArgs->arg3) << std::endl;
+			std::cout << unsigned(jmpTableArgs->arg4) << std::endl;
+			std::cout << jmpTableArgs->arg5 << std::endl;
 		}
-		uintptr_t(*originalFunction)(uintptr_t sprjChrTaeAnimEvent, uintptr_t unkDatat);
+		uintptr_t(*originalFunction)(uintptr_t sprjChrTaeAnimEvent, uintptr_t **jumpTableDataAndExtraPointers);
 		*(uintptr_t*)&originalFunction = _instance->get_original();
-		return originalFunction(sprjChrTaeAnimEvent, unkData);
+		return originalFunction(sprjChrTaeAnimEvent, jumpTableDataAndExtraPointers);
 	}
 }

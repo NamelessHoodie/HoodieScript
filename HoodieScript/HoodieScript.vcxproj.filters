@@ -150,6 +150,9 @@
     <ClInclude Include="Hooks\hksgetter_hook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Hooks\hksActSetter_hook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -252,6 +255,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Hooks\hksgetter_hook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks\hksActSetter_hook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

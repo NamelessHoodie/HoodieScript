@@ -66,6 +66,7 @@ DWORD WINAPI init_thread(void* lpParam)
     hasspeffecthook = new hoodie_script::has_speffect_hook();
     jumptable_hook = new hoodie_script::jumptable_hook();
     hksget_hook = new hoodie_script::hksgetter_hook();
+    hksActSet_hook = new hoodie_script::hksActSetter();
 
     hoodie_script::script_runtime::initialize();
     hoodie_script::script_repository::load_files();
@@ -77,6 +78,7 @@ DWORD WINAPI init_thread(void* lpParam)
     hasspeffecthook->install();
     jumptable_hook->install();
     hksget_hook->install();
+    hksActSet_hook->install();
 
     return S_OK;
 }
@@ -108,6 +110,7 @@ void detach()
     hasspeffecthook->uninstall();
     jumptable_hook->uninstall();
     hksget_hook->uninstall();
+    hksActSet_hook->uninstall();
 
     hoodie_script::logging::write_line("Detached HoodieScriptExtender");
     free_console();

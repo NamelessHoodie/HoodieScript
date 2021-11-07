@@ -99,6 +99,10 @@ public:
 	*/
 	Handle getHandle() const;
 
+	int getHP();
+
+	void SetHP(int newHpValue);
+
 	/**
 	* Get's the ChrInsType of this ChrIns. 
 	* 
