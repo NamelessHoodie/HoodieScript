@@ -19,6 +19,28 @@ namespace hoodie_script {
 		int16_t arg5;
 	};
 
+	void DeepDive(void* pointer, int depth) {
+		void* data;
+		std::vector<void*> loopcheck;
+		std::cout << "DeepDive\n";
+		for (int i = 0; i < depth; i++) {
+			data = ((void**)pointer)[i];
+			std::cout << "[" << i << "]" << data;
+			while (!IsBadReadPtr((void*)data, sizeof(void*))) {
+				if (loopcheck.size() < depth) {
+					loopcheck.push_back(data);
+				}
+				else {
+					if (std::count(loopcheck.begin(), loopcheck.end(), data)) { break; }
+				}
+				data = *(void**)data;
+				std::cout << "-> " << data;
+			}
+			loopcheck.clear();
+			std::cout << "\n";
+		}
+	}
+
 	uintptr_t jumptable_hook::on_invoke(uintptr_t sprjChrTaeAnimEvent, uintptr_t **jumpTableDataAndExtraPointers)
 	{
 		JumpTableArguments* jmpTableArgs = (JumpTableArguments*)(jumpTableDataAndExtraPointers[1]);
@@ -26,13 +48,28 @@ namespace hoodie_script {
 		if (jmpTableArgs->jumpTableId == 666)
 		{
 			logging::write_line("JumpTable - 666");
+			//std::cout << std::dec;
+			//std::cout << jmpTableArgs->jumpTableId << std::endl;
+			//std::cout << jmpTableArgs->arg1 << std::endl;
+			//std::cout << jmpTableArgs->arg2 << std::endl;
+			//std::cout << unsigned(jmpTableArgs->arg3) << std::endl;
+			//std::cout << unsigned(jmpTableArgs->arg4) << std::endl;
+			//std::cout << jmpTableArgs->arg5 << std::endl;
+			PlayerIns a(callerCharacterInstance.getAddress());
 			std::cout << std::dec;
-			std::cout << jmpTableArgs->jumpTableId << std::endl;
-			std::cout << jmpTableArgs->arg1 << std::endl;
-			std::cout << jmpTableArgs->arg2 << std::endl;
-			std::cout << unsigned(jmpTableArgs->arg3) << std::endl;
-			std::cout << unsigned(jmpTableArgs->arg4) << std::endl;
-			std::cout << jmpTableArgs->arg5 << std::endl;
+			if (PlayerIns::isPlayer(a.getAddress()))
+			{
+				a.ReplaceWeaponActiveRight(a.getRightHandWeaponActive(), jmpTableArgs->arg2);
+			}
+			else if (a.hasPlayerGameData())
+			{
+				std::cout << "NPC" << std::endl;
+				std::cout << a.getRightHandWeapon(0) << std::endl;
+				std::cout << a.getRightHandWeapon(1) << std::endl;
+				std::cout << a.getRightHandWeapon(2) << std::endl;
+				a.setRightHandWeapon(0, jmpTableArgs->arg2);
+
+			}
 		}
 		uintptr_t(*originalFunction)(uintptr_t sprjChrTaeAnimEvent, uintptr_t **jumpTableDataAndExtraPointers);
 		*(uintptr_t*)&originalFunction = _instance->get_original();

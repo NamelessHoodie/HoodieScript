@@ -38,6 +38,8 @@ public:
 
 	void ReplaceItem(InventorySlot inventorySlot, ItemParamIdPrefix paramIdPrefix, int32_t paramItemIdTarget, int32_t paramItemIdReplacement, int32_t durability);
 
+	void RemoveItemFromInventory(InventorySlot slot, ItemParamIdPrefix paramIdPrefix);
+
 	void RemoveItemFromInventory(ItemParamIdPrefix paramIdPrefix, int32_t paramItemId);
 
 	void giveGoodsAndSwap(GoodsSlot inventorySlot,

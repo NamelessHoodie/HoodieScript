@@ -29,5 +29,5 @@ hoodie_script::game_frame_hook *gameFrameHook = nullptr;
 hoodie_script::session_send_hook* sessionsendhook = nullptr;
 hoodie_script::has_speffect_hook * hasspeffecthook = nullptr;
 hoodie_script::jumptable_hook* jumptable_hook = nullptr;
-hoodie_script::hksgetter_hook* hksget_hook = nullptr;
-hoodie_script::hksActSetter* hksActSet_hook = nullptr;
+hoodie_script::hksEnvGetter_hook* hksget_hook = nullptr;
+hoodie_script::hksActSetter_hook* hksActSet_hook = nullptr;

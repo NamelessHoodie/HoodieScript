@@ -16,6 +16,11 @@ namespace hoodie_script {
 		return *accessMultilevelPointer<uintptr_t>(getAddress() + 0x1FA0);
 	}
 
+	bool PlayerIns::hasPlayerGameData()
+	{
+		return accessMultilevelPointer<uintptr_t>(getAddress() + 0x1FA0) != nullptr;
+	}
+
 	uintptr_t* PlayerIns::getNetworkPointer()
 	{
 		return accessMultilevelPointer<uintptr_t>(getAddress() + 0x1FD0, 8);
@@ -128,6 +133,14 @@ namespace hoodie_script {
 		int array[]{ 1,3,5 };
 		StandardPlayerBoss hello = StandardPlayerBoss();
 		hello.ReplaceItem((InventorySlot)array[index], ItemParamIdPrefix::Weapon, equipParamWeaponTarget, equipParamWeaponReplacement, -1);
+	}
+
+	void PlayerIns::ReplaceWeaponActiveRight(const int32_t& equipParamWeaponTarget, const int32_t equipParamWeaponReplacement)
+	{
+		auto rightHandSlot = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x2C0);
+		int array[]{ 1,3,5 };
+		StandardPlayerBoss hello = StandardPlayerBoss();
+		hello.ReplaceItem((InventorySlot)array[rightHandSlot], ItemParamIdPrefix::Weapon, equipParamWeaponTarget, equipParamWeaponReplacement, -1);
 	}
 
 	int32_t PlayerIns::getHead() const

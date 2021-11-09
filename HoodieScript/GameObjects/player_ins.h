@@ -47,6 +47,14 @@ public:
 	*/
 	uintptr_t getPlayerGameData();
 
+
+	/**
+	* checks if this player or npc has a PlayerGameData object.
+	*
+	* @return true if the PlayerGameData is present, false if it isn't.
+	*/
+	bool hasPlayerGameData();
+
 	/**
 	* Gets the virtual address of this Player's NetworkPointer object.
 	* 
@@ -100,6 +108,8 @@ public:
 	void setWeaponSheathState(int32_t slot);
 
 	void ReplaceWeapon(const int32_t& equipParamWeaponTarget, const int32_t equipParamWeaponReplacement, int index);
+
+	void ReplaceWeaponActiveRight(const int32_t& equipParamWeaponTarget, const int32_t equipParamWeaponReplacement);
 
 	int32_t getWeaponSheathState();
 

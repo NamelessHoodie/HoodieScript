@@ -17,7 +17,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
 
     switch (ul_reason_for_call) {
     case DLL_PROCESS_ATTACH:
-        GetPrivateProfileStringW(L"Misc", L"ChainloadDinput8dll", L"", chainPath, MAX_PATH, L".\\HoodiePatcher.ini");
+        GetPrivateProfileStringW(L"Misc", L"ChainloadDinput8dll", L"", chainPath, MAX_PATH, L".\\HoodieScript.ini");
 
         if (chainPath && wcscmp(chainPath, L""))
         {
@@ -65,8 +65,8 @@ DWORD WINAPI init_thread(void* lpParam)
     //sessionsendhook = new hoodie_script::session_send_hook();
     hasspeffecthook = new hoodie_script::has_speffect_hook();
     jumptable_hook = new hoodie_script::jumptable_hook();
-    hksget_hook = new hoodie_script::hksgetter_hook();
-    hksActSet_hook = new hoodie_script::hksActSetter();
+    hksget_hook = new hoodie_script::hksEnvGetter_hook();
+    hksActSet_hook = new hoodie_script::hksActSetter_hook();
 
     hoodie_script::script_runtime::initialize();
     hoodie_script::script_repository::load_files();

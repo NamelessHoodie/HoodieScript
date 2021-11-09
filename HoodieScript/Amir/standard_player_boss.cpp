@@ -84,15 +84,24 @@ namespace hoodie_script {
 		}
 	}
 
+	void StandardPlayerBoss::RemoveItemFromInventory(InventorySlot slot, ItemParamIdPrefix paramIdPrefix)
+	{
+		EquipGameData equipGameData(PlayerGameData(GameDataMan(GameDataMan::getInstance()).getPlayerGameData()).getEquipGameData());
+		EquipInventoryData equipInventoryData(equipGameData.getEquipInventoryData());
+		auto index = equipGameData.getInventoryItemIdBySlot(slot);
+		equipInventoryData.discardInventoryItems(index, 1);
+		giveItemAndSwap(slot, paramIdPrefix,110000, -1);
+	}
+
 	void StandardPlayerBoss::ReplaceItem(InventorySlot inventorySlot, ItemParamIdPrefix paramIdPrefix, int32_t paramItemIdTarget, int32_t paramItemIdReplacement, int32_t durability)
 	{
 		if (!GameDataMan::hasInstance()
 			|| GameDataMan(GameDataMan::getInstance()).getPlayerGameData() == 0) return;
 		PlayerGameData playerGameData = GameDataMan(GameDataMan::getInstance()).getPlayerGameData();
 		auto sheatState = playerGameData.getWeaponSheathState();
+		RemoveItemFromInventory(inventorySlot, paramIdPrefix);
 		giveItemAndSwap(inventorySlot, paramIdPrefix, paramItemIdReplacement, durability);
 		setSheathState(sheatState);
-		RemoveItemFromInventory(paramIdPrefix, paramItemIdTarget);
 	}
 
 	std::optional<int32_t> StandardPlayerBoss::findInventoryIdByGiveId(int32_t giveId)
