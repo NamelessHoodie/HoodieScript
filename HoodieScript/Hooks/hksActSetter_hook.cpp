@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "hksActSetter_hook.h"
+#include "script_runtime.h"
 
 namespace hoodie_script {
 	hksActSetter_hook* hksActSetter_hook::_instance = nullptr;
@@ -17,6 +18,13 @@ namespace hoodie_script {
 		ChrIns characterInstance(*chrInsPtr);
 		switch (actId)
 		{
+		case 421:
+			meme = call(0x140d9cca0, luaStatePtr, 2, 0x5a); //get second argument from lua function
+			if (meme != 0x5a)
+			{
+				logging::write_line(std::format("HKSAct Print = {0}", meme));
+			}
+			break;
 		case 666:
 			meme = call(0x140d9cca0, luaStatePtr, 2, 0x5a); //get second argument from lua function
 			if (meme != 0x5a)

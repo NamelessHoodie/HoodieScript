@@ -18,6 +18,7 @@ namespace hoodie_script {
         static void init();
         static void deinit();
 
+        static void write_line(std::wstring message);
         static void write_line(std::string message);
         static void write_line(const char* format, ...);
     private:

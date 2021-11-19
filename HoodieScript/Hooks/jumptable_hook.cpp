@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "jumptable_hook.h"
+#include "script_runtime.h"
 
 namespace hoodie_script {
 	jumptable_hook* jumptable_hook::_instance = nullptr;
@@ -56,19 +57,17 @@ namespace hoodie_script {
 			//std::cout << unsigned(jmpTableArgs->arg4) << std::endl;
 			//std::cout << jmpTableArgs->arg5 << std::endl;
 			PlayerIns a(callerCharacterInstance.getAddress());
-			std::cout << std::dec;
 			if (PlayerIns::isPlayer(a.getAddress()))
 			{
 				a.ReplaceWeaponActiveRight(a.getRightHandWeaponActive(), jmpTableArgs->arg2);
 			}
 			else if (a.hasPlayerGameData())
 			{
-				std::cout << "NPC" << std::endl;
-				std::cout << a.getRightHandWeapon(0) << std::endl;
-				std::cout << a.getRightHandWeapon(1) << std::endl;
-				std::cout << a.getRightHandWeapon(2) << std::endl;
-				a.setRightHandWeapon(0, jmpTableArgs->arg2);
-
+				logging::write_line(L"NPC : " + callerCharacterInstance.getCharacterString());
+				//std::cout << a.getRightHandWeapon(0) << std::endl;
+				//std::cout << a.getRightHandWeapon(1) << std::endl;
+				//std::cout << a.getRightHandWeapon(2) << std::endl;
+				//a.setRightHandWeapon(0, jmpTableArgs->arg2);
 			}
 		}
 		uintptr_t(*originalFunction)(uintptr_t sprjChrTaeAnimEvent, uintptr_t **jumpTableDataAndExtraPointers);

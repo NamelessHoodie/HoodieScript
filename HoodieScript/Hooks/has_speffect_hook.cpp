@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "has_speffect_hook.h"
+#include "script_runtime.h"
 
 namespace hoodie_script {
 	has_speffect_hook* has_speffect_hook::_instance = nullptr;

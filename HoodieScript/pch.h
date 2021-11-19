@@ -8,6 +8,7 @@
 #define PCH_H
 
 #define NOMINMAX
+#define _USE_MATH_DEFINES
 
 #include "framework.h"
 #include "lua/lua.hpp"
@@ -18,6 +19,7 @@
 #include "Sol2/sol.hpp"
 #include <algorithm>
 #include "LeCG/ParamPatcher.h"
+#include <math.h>
 
 	//macro from amir who got it from someone
 #define call(f,...) (((intptr_t(*)(uintptr_t,...))(f))((uintptr_t)__VA_ARGS__))

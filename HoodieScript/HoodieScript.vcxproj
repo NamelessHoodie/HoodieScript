@@ -172,6 +172,7 @@
     <ClInclude Include="databaseaddress.h" />
     <ClInclude Include="entry.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="GameDebugClasses\Bullet_Spawn.h" />
     <ClInclude Include="GameDebugClasses\game_data_man.h" />
     <ClInclude Include="GameDebugClasses\game_option_man.h" />
     <ClInclude Include="GameDebugClasses\world_chr_man.h" />
@@ -219,6 +220,7 @@
     <ClCompile Include="Amir\standard_player_boss.cpp" />
     <ClCompile Include="databaseaddress.cpp" />
     <ClCompile Include="entry.cpp" />
+    <ClCompile Include="GameDebugClasses\Bullet_Spawn.cpp" />
     <ClCompile Include="GameDebugClasses\game_data_man.cpp" />
     <ClCompile Include="GameDebugClasses\game_option_man.cpp" />
     <ClCompile Include="GameDebugClasses\world_chr_man.cpp" />

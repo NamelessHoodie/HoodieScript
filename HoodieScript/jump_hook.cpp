@@ -20,8 +20,23 @@ namespace hoodie_script {
             return false;
         }
         logging::write_line("Hook successfully created and enabled : " + getName());
-
+        memcpy((void*)instructionBackup, (void*)_target, sizeof(instructionBackup));
         return true;
+    }
+
+    bool jump_hook::tryRefresh()
+    {
+        if (memcmp((void*)instructionBackup, (void*)_target, sizeof(instructionBackup)) != 0)
+        {
+            DWORD oldProtect;
+            DWORD oldProtectUseless;
+            logging::write_line("Refreshing hook... : " + getName());
+            VirtualProtect((void*)_target, sizeof(instructionBackup), PAGE_EXECUTE_READWRITE, &oldProtect);
+            memcpy((void*)_target, (void*)instructionBackup, sizeof(instructionBackup));
+            VirtualProtect((void*)_target, sizeof(instructionBackup), oldProtect, &oldProtectUseless);
+            return true;
+        }
+        return false;
     }
 
     bool jump_hook::uninstall() {

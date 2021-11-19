@@ -14,28 +14,24 @@ namespace hoodie_script {
 class WorldChrMan
 {
 public:
-	WorldChrMan(uintptr_t address);
+	static std::vector<uintptr_t> getCurrentMapEnemies();
 
-	void reloadCharacterFiles(std::wstring characterId);
+	static bool reloadCharacterFiles(std::wstring characterId);
 
-	void findEntityTest(int32_t id);
+	static void findEntityTest(int32_t id);
 
-	uintptr_t getInsByHandle(int32_t handle);
+	static uintptr_t getInsByHandle(int32_t handle);
 
 	/**
-	* Gets the camera quaternion angle.
+	* Gets the camera euler angle.
 	* 
-	* @return The camera quaternion angle.
+	* @return The camera euler angle.
 	*/
-	std::array<float, 3> getCamVector() const;
-
-	bool doesChrHaveSpEffect(ChrIns chr, const int32_t& spEffectId) const;
+	static std::array<float, 3> getCamVector();
 
 	static uintptr_t getInstance();
 
 	static bool hasInstance();
-private:
-	uintptr_t address;
 };
 
 }

@@ -1,7 +1,6 @@
 #pragma once
 
 #include "jump_hook.h"
-#include "script_runtime.h"
 
 namespace hoodie_script {
     class hksEnvGetter_hook : public jump_hook

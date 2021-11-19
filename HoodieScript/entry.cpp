@@ -55,30 +55,12 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
     return TRUE;
 }
 
-// Should do hook and LUA init
 DWORD WINAPI init_thread(void* lpParam)
 {
-    // TODO: refactor these to fit in the script_runtime somehow
-    goodsUseHook = new hoodie_script::goods_use_hook();
-    hkbAnimationHook = new hoodie_script::hkb_animation_hook();
-    gameFrameHook = new hoodie_script::game_frame_hook();
-    //sessionsendhook = new hoodie_script::session_send_hook();
-    hasspeffecthook = new hoodie_script::has_speffect_hook();
-    jumptable_hook = new hoodie_script::jumptable_hook();
-    hksget_hook = new hoodie_script::hksEnvGetter_hook();
-    hksActSet_hook = new hoodie_script::hksActSetter_hook();
-
     hoodie_script::script_runtime::initialize();
     hoodie_script::script_repository::load_files();
 
-    goodsUseHook->install();
-    hkbAnimationHook->install();
-    gameFrameHook->install();
-    //sessionsendhook->install();
-    hasspeffecthook->install();
-    jumptable_hook->install();
-    hksget_hook->install();
-    hksActSet_hook->install();
+    hoodie_script::script_runtime::initializeHooks();
 
     return S_OK;
 }
@@ -88,7 +70,6 @@ void attach()
     prepare_console();
     hoodie_script::logging::init();
     hoodie_script::logging::write_line("Attached HoodieScriptExtender");
-    SetUnhandledExceptionFilter(exception_handler);
 
     // Set up minhook
     if (MH_Initialize() != MH_OK) {
@@ -103,14 +84,7 @@ void attach()
 void detach()
 {
     // TODO: keep track of all the hooks in a centralized place so we can roll them back in batch
-    goodsUseHook->uninstall();
-    hkbAnimationHook->uninstall();
-    gameFrameHook->uninstall();
-    //sessionsendhook->uninstall();
-    hasspeffecthook->uninstall();
-    jumptable_hook->uninstall();
-    hksget_hook->uninstall();
-    hksActSet_hook->uninstall();
+    hoodie_script::script_runtime::deinitializeHooks();
 
     hoodie_script::logging::write_line("Detached HoodieScriptExtender");
     free_console();

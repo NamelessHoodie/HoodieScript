@@ -1,0 +1,20 @@
+{
+    "name": "hoodiescript-vscode",
+    "displayName": "HoodieScript-vscode",
+    "description": "Send help",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.62.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "lua",
+                "path": "./snippets/snippets.json"
+            }
+        ]
+    }
+}

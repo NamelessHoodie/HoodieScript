@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObjects/player_ins.h"
 #include "Hooks/has_speffect_hook.h"
+#include "script_runtime.h"
 
 namespace hoodie_script {
 

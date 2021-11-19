@@ -10,6 +10,7 @@ namespace hoodie_script {
         ~jump_hook();
 
         bool install();
+        bool tryRefresh();
         bool uninstall();
         uintptr_t get_original();
         virtual std::string getName() 
@@ -20,5 +21,6 @@ namespace hoodie_script {
         uintptr_t _target;
         uintptr_t _replacement;
         void* _original;
+        char instructionBackup[5];
     };
 }

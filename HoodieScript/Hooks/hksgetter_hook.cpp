@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "hksgetter_hook.h"
+#include "script_runtime.h"
 
 namespace hoodie_script {
 	hksEnvGetter_hook* hksEnvGetter_hook::_instance = nullptr;
@@ -19,6 +20,10 @@ namespace hoodie_script {
 		case 420:
 			//secondArgLua = call(0x140d9cca0, luaStatePtr, 2, 0x5a); //get second argument from lua function as number
 			return characterInstance.getHP();
+			break;
+		case 421:
+			//secondArgLua = call(0x140d9cca0, luaStatePtr, 2, 0x5a); //get second argument from lua function as number
+			return 9;
 			break;
 		default:
 			uint64_t(*originalFunction)(uintptr_t * ptrToChrIns, uint32_t envId, int64_t luaStatePtr);

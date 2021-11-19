@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "game_frame_hook.h"
+#include "script_runtime.h"
 
 namespace hoodie_script {
 	game_frame_hook* game_frame_hook::_instance = nullptr;
@@ -16,10 +17,6 @@ namespace hoodie_script {
 		*(uintptr_t*)&originalFunction = _instance->get_original();
 		originalFunction(rcx, rdx, r8, r9, rsp20);
 		//if (ds3runtime_global->getGameThreadId() == 0) ds3runtime_global->setGameThreadId(GetCurrentThreadId());
-		static uint64_t uniqueFrameClock = 0;
-		uniqueFrameClock++;
-		if (uniqueFrameClock % 2 == 0) {
-			script_runtime::on_game_frame();
-		}
+		script_runtime::on_game_frame();
 	}
 }

@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "hkb_animation_hook.h"
+#include "script_runtime.h"
 
 namespace hoodie_script
 {

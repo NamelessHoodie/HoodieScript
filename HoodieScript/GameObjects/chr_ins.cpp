@@ -193,6 +193,18 @@ int32_t ChrIns::getWeightIndex() const
 	return *accessMultilevelPointer<int32_t>(address + 0x50, 0x2B4);
 }
 
+bool ChrIns::hasSpEffect(const int32_t& spEffectId)
+{
+	const uintptr_t effectBase = *accessMultilevelPointer<uintptr_t>(address + 0x11c8);
+	uintptr_t effectPtr = *accessMultilevelPointer<uintptr_t>(effectBase + 8);
+	if (reinterpret_cast<uintptr_t*>(effectPtr) == nullptr) return false;
+	uint8_t effectcount = 0;
+
+	for (effectPtr = *accessMultilevelPointer<uintptr_t>(effectPtr + 0x78); accessMultilevelPointer<uintptr_t*>(effectPtr) != nullptr; effectPtr = *accessMultilevelPointer<uintptr_t>(effectPtr + 0x78)) {
+		if (*accessMultilevelPointer<int32_t>(effectPtr + 0x60) == spEffectId) return true;
+	}
+}
+
 void ChrIns::setWeightIndex(const int32_t& weightIndex)
 {
 	*accessMultilevelPointer<int32_t>(address + 0x50, 0x2B4) = weightIndex;

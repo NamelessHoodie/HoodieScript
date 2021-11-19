@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "goods_use_hook.h"
+#include "script_runtime.h"
 
 namespace hoodie_script
 {

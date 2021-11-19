@@ -17,6 +17,17 @@ namespace hoodie_script {
         close_log_file();
     }
 
+    void logging::write_line(std::wstring message) {
+        std::string str;
+        std::transform(message.begin(), message.end(), std::back_inserter(str), [](wchar_t c) {
+            return (char)c;
+        });
+
+        std::ostringstream logEntry;
+        logEntry << banner() << str << std::endl;
+        log(logEntry.str());
+    }
+
     void logging::write_line(std::string message) {
         std::ostringstream logEntry;
         logEntry << banner() << message << std::endl;

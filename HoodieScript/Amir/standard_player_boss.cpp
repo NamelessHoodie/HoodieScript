@@ -59,8 +59,8 @@ namespace hoodie_script {
 		std::optional<int32_t> indexOfItem = findInventoryIdByGiveId((uint32_t)paramIdPrefix + paramItemId);
 
 		if (!indexOfItem.has_value()) {
-			const int32_t durability = getItemMaxDurability(paramIdPrefix, paramItemId);
-			equipInventoryData.addItem(paramIdPrefix, paramItemId, 1, durability);
+			const int32_t durabilityA = getItemMaxDurability(paramIdPrefix, paramItemId);
+			equipInventoryData.addItem(paramIdPrefix, paramItemId, 1, durabilityA);
 			indexOfItem = findInventoryIdByGiveId((uint32_t)paramIdPrefix + paramItemId);
 			equipGameData.equipInventoryItem(inventorySlot, indexOfItem.value());
 			PlayerNetworkSession::queueEquipmentPacket();
@@ -89,8 +89,8 @@ namespace hoodie_script {
 		EquipGameData equipGameData(PlayerGameData(GameDataMan(GameDataMan::getInstance()).getPlayerGameData()).getEquipGameData());
 		EquipInventoryData equipInventoryData(equipGameData.getEquipInventoryData());
 		auto index = equipGameData.getInventoryItemIdBySlot(slot);
+		giveItemAndSwap(slot, paramIdPrefix, 110000, -1);
 		equipInventoryData.discardInventoryItems(index, 1);
-		giveItemAndSwap(slot, paramIdPrefix,110000, -1);
 	}
 
 	void StandardPlayerBoss::ReplaceItem(InventorySlot inventorySlot, ItemParamIdPrefix paramIdPrefix, int32_t paramItemIdTarget, int32_t paramItemIdReplacement, int32_t durability)
@@ -463,7 +463,7 @@ namespace hoodie_script {
 		uint16_t durabilityStage;
 		if (paramIdPrefix == ItemParamIdPrefix::Weapon)
 		{
-			if (script_runtime::paramPatcher->GetParamEntry(L"EquipParamWeapon", paramItemId, 0xBE, &durabilityStage))
+			if (hoodie_script::script_runtime::paramPatcher->GetParamEntry(L"EquipParamWeapon", paramItemId, 0xBE, &durabilityStage))
 			{
 				return (int16_t)(durabilityStage);
 			}
@@ -491,10 +491,8 @@ namespace hoodie_script {
 	}
 	void StandardPlayerBoss::tryReloadPlayerChr()
 	{
-		std::optional<WorldChrMan> worldChrMan;
-		if (WorldChrMan::hasInstance()) worldChrMan = WorldChrMan::getInstance();
-		if (!worldChrMan.has_value() || !PlayerIns::isMainChrLoaded() || !accessMultilevelPointer<uintptr_t>(PlayerIns::getMainChrAddress() + 0x1F90, 0x58, 0x8, 0x1F90, 0x28, 0x10, 0x28, 0xB8)) return;
-		worldChrMan->reloadCharacterFiles(L"c0000");
+		if (!WorldChrMan::hasInstance() || !PlayerIns::isMainChrLoaded() || !accessMultilevelPointer<uintptr_t>(PlayerIns::getMainChrAddress() + 0x1F90, 0x58, 0x8, 0x1F90, 0x28, 0x10, 0x28, 0xB8)) return;
+		WorldChrMan::reloadCharacterFiles(L"c0000");
 	}
 
 	void StandardPlayerBoss::setSheathState(int32_t slot)

@@ -15,6 +15,7 @@
 #include <Amir/player_network_session.h>
 #include <Hooks/hkb_animation_hook.h>
 #include "GameObjects/player_ins.h"
+#include "script_runtime.h"
 
 namespace hoodie_script {
 

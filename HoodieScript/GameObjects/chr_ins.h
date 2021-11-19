@@ -416,6 +416,8 @@ public:
 	* @return The weight index of this ChrIns;
 	*/
 	int32_t getWeightIndex() const;
+
+	bool hasSpEffect(const int32_t& spEffectId);
 	
 	/**
 	* Sets the weight index of this ChrIns, which is a variable used for determing how Player Characters should be set to move among other things.

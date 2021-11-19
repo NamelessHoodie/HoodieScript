@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "script_runtime.h"
+#include <random>
 
 using namespace sol;
 
@@ -8,6 +9,14 @@ namespace hoodie_script {
 	lua_State* script_runtime::_luaState = nullptr;
 	ParamPatcher* script_runtime::paramPatcher = nullptr;
 	script_runtime::DoesHandleHaveSpEffect_t script_runtime::DoesHandleHaveSpEffectUnsafe = nullptr;
+	goods_use_hook* script_runtime::goodsUseHook = nullptr;
+	hkb_animation_hook* script_runtime::hkbAnimationHook = nullptr;
+	game_frame_hook* script_runtime::gameFrameHook = nullptr;
+	session_send_hook* script_runtime::sessionsendhook = nullptr;
+	has_speffect_hook* script_runtime::hasspeffecthook = nullptr;
+	jumptable_hook* script_runtime::jumptable_hook = nullptr;
+	hksEnvGetter_hook* script_runtime::hksget_hook = nullptr;
+	hksActSetter_hook* script_runtime::hksActSet_hook = nullptr;
 
 	void script_runtime::InitializeFunctionLuaBindings()
 	{
@@ -60,7 +69,7 @@ namespace hoodie_script {
 		player_type["getHkbIdFromString"] = &PlayerIns::getHkbIdFromString;
 		player_type["getHkbStringFromId"] = &PlayerIns::getHkbStringFromId;
 		player_type["WeightIndex"] = sol::property(&PlayerIns::getWeightIndex, &PlayerIns::setWeightIndex);
-		player_type["WeightIndex"] = sol::property(&PlayerIns::getWeightIndex, &PlayerIns::setWeightIndex);
+		player_type["hasSpEffect"] = &PlayerIns::hasSpEffect;
 		player_type["getHkbIdFromString"] = &PlayerIns::getHkbIdFromString;
 		player_type["setDebugAnimSpeed"] = &PlayerIns::setDebugAnimSpeed;
 		player_type["getDummyPolyPositions"] = &PlayerIns::getDummyPolyPositions;
@@ -102,25 +111,16 @@ namespace hoodie_script {
 		player_type["WeaponSheatState"] = sol::property(&PlayerIns::getWeaponSheathState, &PlayerIns::setWeaponSheathState);
 		player_type["RemoveWeaponFromInventory"] = &PlayerIns::removeWeaponFromInventory;
 		player_type["ReplaceWeaponNetworked"] = &PlayerIns::ReplaceWeapon;
-		
-		auto aPa = accessMultilevelPointer<unsigned int>((long long)DataBaseAddress::BASEExecutable + 0x4768e78, 0x1d0, 0x0);
-		if (aPa != nullptr)
-		{
-			auto aP = *aPa;
-			for (size_t i = 0; i < aP; i++)
-			{
-				auto a = accessMultilevelPointer<uintptr_t*>((long long)DataBaseAddress::BASEExecutable + 0x4768e78, 0x1d0, 0x8);
-				if (a != nullptr)
-				{
-					uintptr_t* al = (uintptr_t*)((byte*)*a + (0x38 * i));
-					std::cout << al << std::endl;
-					ChrIns chr(*al);
-					std::wcout << chr.getCharacterString() << std::endl;
-					SprjChrDataModule cdm(chr.getSprjChrDataModule());
-					//cdm.setHealth(0);
-				}
-			} 
-		}
+
+		sol::usertype<WorldChrMan> world_chr_man = lua.new_usertype<WorldChrMan>("WorldChrMan");
+		world_chr_man["getCurrentMapEnemies"] = WorldChrMan::getCurrentMapEnemies;
+		world_chr_man["reloadCharacterFiles"] = WorldChrMan::reloadCharacterFiles;
+		world_chr_man["findEntityTest"] = WorldChrMan::findEntityTest;
+		world_chr_man["getInsByHandle"] = WorldChrMan::getInsByHandle;
+		world_chr_man["getCamVector"] = WorldChrMan::getCamVector;
+		world_chr_man["getInstance"] = WorldChrMan::getInstance;
+		world_chr_man["hasInstance"] = WorldChrMan::hasInstance;
+
 
 		lua.set_function("SubscribeToEventOnHkbAnimation",OnHkbAnimation::SubscribeToEventOnHkbAnimation);
 		lua.set_function("SubscribeToEventOnSpEffect", OnSpeffectActive::SubscribeToEventOnSpEffect);
@@ -159,14 +159,66 @@ namespace hoodie_script {
 
 	void script_runtime::initialize()
 	{
-		lua_State* L = luaL_newstate();
+		//Generate Instances of Hooks
+		goodsUseHook = new hoodie_script::goods_use_hook();
+		hkbAnimationHook = new hoodie_script::hkb_animation_hook();
+		gameFrameHook = new hoodie_script::game_frame_hook();
+		//sessionsendhook = new hoodie_script::session_send_hook();
+		hasspeffecthook = new hoodie_script::has_speffect_hook();
+		jumptable_hook = new hoodie_script::jumptable_hook();
+		hksget_hook = new hoodie_script::hksEnvGetter_hook();
+		hksActSet_hook = new hoodie_script::hksActSetter_hook();
 
+		lua_State* L = luaL_newstate();
 		luaL_openlibs(L);
 		DoesHandleHaveSpEffectUnsafe = (DoesHandleHaveSpEffect_t)has_speffect_hook::_instance->get_original();
 		_luaState = L;
 		InitializeFunctionLuaBindings();
 		script_runtime::paramPatcher = new ParamPatcher();
 		OnParamLoaded::DoOnParamLoaded(_luaState);
+	}
+
+	void script_runtime::initializeHooks()
+	{
+		//Install hooks
+		goodsUseHook->install();
+		hkbAnimationHook->install();
+		//sessionsendhook->install();
+		hasspeffecthook->install();
+		jumptable_hook->install();
+		hksget_hook->install();
+		hksActSet_hook->install();
+
+		//Important that this is hook installed last
+		gameFrameHook->install();
+	}
+
+	void script_runtime::refreshHooks()
+	{
+		//Avoid refreshing game frame hook for now, seems to cause crashes.
+		//gameFrameHook->tryRefresh();
+
+		goodsUseHook->tryRefresh();
+		hkbAnimationHook->tryRefresh();
+		//sessionsendhook->tryRefresh();
+		hasspeffecthook->tryRefresh();
+		jumptable_hook->tryRefresh();
+		hksget_hook->tryRefresh();
+		hksActSet_hook->tryRefresh();
+	}
+
+	void script_runtime::deinitializeHooks()
+	{
+		//Important that this is installed and uninstalled first
+		gameFrameHook->uninstall();
+
+		goodsUseHook->uninstall();
+		hkbAnimationHook->uninstall();
+		//sessionsendhook->uninstall();
+		hasspeffecthook->uninstall();
+		jumptable_hook->uninstall();
+		hksget_hook->uninstall();
+		hksActSet_hook->uninstall();
 	}
 
 	void script_runtime::handle_error(lua_State* luaState)
@@ -238,10 +290,64 @@ namespace hoodie_script {
 		}
 	}
 
+	double uniform()
+	{
+		return (double)rand() / RAND_MAX;
+	}
+
+	class Solution {
+	public:
+		Solution(float radius, float x_center, float y_center)
+			: _radius(radius), _x(x_center), _y(y_center), _gen(_rd()),
+			_radius_distribution(0, ((float)radius)* radius),
+			_angle_distribution(0, 2 * M_PI) {}
+
+		std::vector<float> randPoint() {
+			float radius = std::sqrt(_radius_distribution(_gen));
+			float angle = _angle_distribution(_gen);    return { _x + radius * cos(angle), _y + radius * sin(angle) };
+		} private:
+			float _radius;
+			float _x;
+			float _y;
+			std::random_device _rd;
+			std::mt19937 _gen;
+			std::uniform_real_distribution<> _radius_distribution;
+			std::uniform_real_distribution<> _angle_distribution;
+	};
+
 	void script_runtime::on_game_frame()
 	{
-		OnGameFrame::DoOnGameFrame(_luaState);
-		OnSpeffectActive::DoOnSpEffect(_luaState);
+		static uint64_t uniqueFrameClock = 0;
+		if (uniqueFrameClock % 2 == 0)
+		{
+
+
+
+			auto plr = PlayerIns(PlayerIns::getMainChrAddress());
+			//entryBullet->set_owner((int32_t)chr.getHandle());
+			float radius = 50;
+			auto a = plr.getPosition();
+			for (size_t i = 0; i < 10; i++)
+			{
+				auto entryBullet = new bullet_spawn_request();
+				entryBullet->set_bullet_param_id((bullet_type)12457000);
+				entryBullet->set_owner((int32_t)plr.getHandle());
+				auto b = Solution(radius, a[0], a[2]).randPoint();
+				entryBullet->set_direction({0,0,0});
+				a[0] = b[0];
+				a[2] = b[1];
+				a[1] += 50;
+				entryBullet->set_coordinates(a);
+				bullet_facade::spawn(entryBullet);
+			}
+		}
+
+		uniqueFrameClock++;
+		if (uniqueFrameClock % 2 == 0) {
+			OnGameFrame::DoOnGameFrame(_luaState);
+			OnSpeffectActive::DoOnSpEffect(_luaState);
+		}
+		refreshHooks();
 	}
 
 	void script_runtime::on_speffect(unsigned int handle, int speffect)
