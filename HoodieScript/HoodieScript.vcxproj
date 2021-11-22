@@ -210,6 +210,7 @@
     <ClInclude Include="Hooks\jumptable_hook.h" />
     <ClInclude Include="Hooks\hksgetter_hook.h" />
     <ClInclude Include="Hooks\hksActSetter_hook.h" />
+    <ClInclude Include="LuaBindings.h" />
     <ClInclude Include="LuaEvents\OnRenderingFrame.h" />
     <ClInclude Include="LeCG\ParamPatcher.h" />
     <ClInclude Include="logging.h" />
@@ -291,6 +292,7 @@
     <ClCompile Include="Hooks\jumptable_hook.cpp" />
     <ClCompile Include="Hooks\hksgetter_hook.cpp" />
     <ClCompile Include="Hooks\hksActSetter_hook.cpp" />
+    <ClCompile Include="LuaBindings.cpp" />
     <ClCompile Include="LuaEvents\OnRenderingFrame.cpp" />
     <ClCompile Include="LeCG\ParamPatcher.cpp" />
     <ClCompile Include="logging.cpp" />

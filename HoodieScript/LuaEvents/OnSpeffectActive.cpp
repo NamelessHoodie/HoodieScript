@@ -16,7 +16,7 @@ namespace hoodie_script {
         auto worldChrManPointer = (uintptr_t*)DataBaseAddress::WorldChrMan;
         if (*worldChrManPointer != NULL)
         {
-            return script_runtime::DoesHandleHaveSpEffectUnsafe(entityId, spEffect);
+            return LuaBindings::EntityHasSpEffectSafe(entityId, spEffect);
         }
         return std::nullopt;
     }

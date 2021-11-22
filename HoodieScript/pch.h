@@ -17,8 +17,6 @@
 #include <string>
 #include <iostream>
 #include "logging.h"
-#include "HoodieScript-ImGui-Test/sol_ImGui.h"
-#include "Sol2/sol.hpp"
 #include <algorithm>
 #include "LeCG/ParamPatcher.h"
 #include <math.h>
@@ -26,6 +24,9 @@
 #include <DXGI.h>
 #include <d3d11.h>
 #include <deque>
+#include "databaseaddress.h"
+#include "HoodieScript-ImGui-Test/sol_ImGui.h"
+
 
 	//macro from amir who got it from someone
 #define call(f,...) (((intptr_t(*)(uintptr_t,...))(f))((uintptr_t)__VA_ARGS__))

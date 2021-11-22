@@ -203,6 +203,7 @@ bool ChrIns::hasSpEffect(const int32_t& spEffectId)
 	for (effectPtr = *accessMultilevelPointer<uintptr_t>(effectPtr + 0x78); accessMultilevelPointer<uintptr_t*>(effectPtr) != nullptr; effectPtr = *accessMultilevelPointer<uintptr_t>(effectPtr + 0x78)) {
 		if (*accessMultilevelPointer<int32_t>(effectPtr + 0x60) == spEffectId) return true;
 	}
+	return false;
 }
 
 void ChrIns::setWeightIndex(const int32_t& weightIndex)

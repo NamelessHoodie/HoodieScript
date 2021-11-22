@@ -7,14 +7,13 @@
 #include "LuaEvents/OnSpeffectActive.h"
 #include "LuaEvents/OnRenderingFrame.h"
 #include "LuaEvents/OnHotkey.h"
-#include "GameObjects/player_ins.h"
-#include "GameObjects/chr_ins.h"
 #include "GameDebugClasses/world_chr_man.h"
-#include "databaseaddress.h"
 #include "GameObjects/sprj_chr_data_module.h"
 #include "GameDebugClasses/Bullet_Spawn.h"
 #include <HoodieScript-ImGui-Test/imgui_impl_dx11.h>
-#include "HoodieScript-ImGui-Test/Menu.h"
+#include "LuaBindings.h"
+#include <random>
+#include "HotKeyManager.h"
 
 //Hooks
 #include "hooks/goods_use_hook.h"
@@ -25,15 +24,12 @@
 #include "Hooks/jumptable_hook.h"
 #include "Hooks/hksgetter_hook.h"
 #include "Hooks/hksActSetter_hook.h"
-#include "HotKeyManager.h"
 
 namespace hoodie_script {
 	class script_runtime
 	{
 	public:
 		typedef bool (*DoesHandleHaveSpEffect_t)(unsigned int, int);
-		static DoesHandleHaveSpEffect_t DoesHandleHaveSpEffectUnsafe;
-		static bool EntityHasSpEffectSafe(unsigned int entityId, int spEffect);
 		static void on_goods_use(int goodsId);
 		static int on_hkb_animation(uintptr_t hbkCharacter, int animationId);
 		static void on_speffect(unsigned int handle, int speffect);
@@ -41,7 +37,6 @@ namespace hoodie_script {
 		static void OnRenderFrame();
 		static bool initialize_file(std::filesystem::path file);
 		static void InitializeFunctionLuaBindings();
-		static void Luaprint(sol::variadic_args va, std::string);
 		static void initialize();
 		static void initializeHooks();
 		static void refreshHooks();

@@ -1,6 +1,5 @@
 #pragma once
-#include "ImGui/imgui.h">
-#include <string>
+#include "ImGui/imgui.h"
 #include <Sol2/sol.hpp>
 
 namespace sol_ImGui
