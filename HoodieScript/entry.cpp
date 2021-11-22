@@ -57,11 +57,28 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
 
 DWORD WINAPI init_thread(void* lpParam)
 {
+    std::cout << "initthreadstart\n";
+
     hoodie_script::script_runtime::initialize();
     hoodie_script::script_repository::load_files();
+    HWND ds3Handle = NULL;
+    while (!ds3Handle)
+    {
+        ds3Handle = FindWindowW(0, L"DARK SOULS III");
+    }
+    hoodie_script::HotKeyManager::Init(ds3Handle);
+    hoodie_script::logging::write_line("HotKey Manager - Initialized");
+    if (ImplHookDX11_Init(hModuleS, ds3Handle))
+    {
+        hoodie_script::logging::write_line("ImGui Overlay - Initialized");
+    }
+    else
+    {
+        hoodie_script::logging::write_line("ImGui Overlay - Initialization failed");
+    }
 
     hoodie_script::script_runtime::initializeHooks();
-
+    std::cout << "initthreadend\n";
     return S_OK;
 }
 
@@ -85,7 +102,7 @@ void detach()
 {
     // TODO: keep track of all the hooks in a centralized place so we can roll them back in batch
     hoodie_script::script_runtime::deinitializeHooks();
-
+    HookDX11_UnInit();
     hoodie_script::logging::write_line("Detached HoodieScriptExtender");
     free_console();
 }

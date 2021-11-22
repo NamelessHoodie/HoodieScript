@@ -21,27 +21,14 @@ namespace hoodie_script {
 	void script_runtime::InitializeFunctionLuaBindings()
 	{
 		lua_getglobal(_luaState, "_G");
-
-		//Define print()
-		//static const struct luaL_Reg printlib[] = { {"print", Luaprint}, {NULL, NULL} };
-		//luaL_setfuncs(_luaState, printlib, 0);
-
-		//Define SubscribeToEventOnParamLoaded
 		lua_register(_luaState, "SubscribeToEventOnParamLoaded", OnParamLoaded::SubscribeToEventOnParamLoaded);
-
-		//Define SubscribeToEventOnGameFrame
 		lua_register(_luaState, "SubscribeToEventOnGameFrame", OnGameFrame::SubscribeToEventOnGameFrame);
-
-		//Define SubscribeToEventOnAnimationId
-		//lua_register(_luaState, "SubscribeToEventOnHkbAnimation", OnHkbAnimation::SubscribeToEventOnHkbAnimation);
-
-		//lua_register(_luaState, "SubscribeToEventOnSpEffect", OnSpeffectActive::SubscribeToEventOnSpEffect);
-
 		lua_pop(_luaState, 1);
 
 		state_view lua(_luaState);
 
-		// make usertype metatable
+		sol_ImGui::Init(lua);
+
 		sol::usertype<PlayerIns> player_type = lua.new_usertype<PlayerIns>("PlayerIns", sol::constructors<PlayerIns(uintptr_t)>());
 		//PlayerIns : Chr_Ins Members
 		player_type["isValid"] = &PlayerIns::isValid;
@@ -121,23 +108,192 @@ namespace hoodie_script {
 		world_chr_man["getInstance"] = WorldChrMan::getInstance;
 		world_chr_man["hasInstance"] = WorldChrMan::hasInstance;
 
+		lua["VK"] = lua.create_table_with(
+			"NONE", VK::NONE,
+			"LBUTTON", VK::LBUTTON,
+			"RBUTTON", VK::RBUTTON,
+			"CANCEL", VK::CANCEL,
+			"MBUTTON", VK::MBUTTON,
+			"XBUTTON1M", VK::XBUTTON1M,
+			"XBUTTON2M", VK::XBUTTON2M,
+			"BACK", VK::BACK,
+			"TAB", VK::TAB,
+			"CLEAR", VK::CLEAR,
+			"RETURN", VK::RETURN,
+			"SHIFT", VK::SHIFT,
+			"CONTROL", VK::CONTROL,
+			"MENU", VK::MENU,
+			"PAUSE", VK::PAUSE,
+			"CAPITAL", VK::CAPITAL,
+			"KANA", VK::KANA,
+			"HANGUL", VK::HANGUL,
+			"JUNJA", VK::JUNJA,
+			"FINAL", VK::FINAL,
+			"HANJA", VK::HANJA,
+			"KANJI", VK::KANJI,
+			"ESCAPE", VK::ESCAPE,
+			"CONVERT", VK::CONVERT,
+			"NONCONVERT", VK::NONCONVERT,
+			"ACCEPT", VK::ACCEPT,
+			"MODECHANGE", VK::MODECHANGE,
+			"SPACE", VK::SPACE,
+			"PRIOR", VK::PRIOR,
+			"NEXT", VK::NEXT,
+			"END", VK::END,
+			"HOME", VK::HOME,
+			"LEFT", VK::LEFT,
+			"UP", VK::UP,
+			"RIGHT", VK::RIGHT,
+			"DOWN", VK::DOWN,
+			"SELECT", VK::SELECT,
+			"PRINT", VK::PRINT,
+			"EXECUTE", VK::EXECUTE,
+			"SNAPSHOT", VK::SNAPSHOT,
+			"INSERT", VK::INSERT,
+			"DEL", VK::DEL,
+			"HELP", VK::HELP,
+			"KEY_0", VK::KEY_0,
+			"KEY_1", VK::KEY_1,
+			"KEY_2", VK::KEY_2,
+			"KEY_3", VK::KEY_3,
+			"KEY_4", VK::KEY_4,
+			"KEY_5", VK::KEY_5,
+			"KEY_6", VK::KEY_6,
+			"KEY_7", VK::KEY_7,
+			"KEY_8", VK::KEY_8,
+			"KEY_9", VK::KEY_9,
+			"KEY_A", VK::KEY_A,
+			"KEY_B", VK::KEY_B,
+			"KEY_C", VK::KEY_C,
+			"KEY_D", VK::KEY_D,
+			"KEY_E", VK::KEY_E,
+			"KEY_F", VK::KEY_F,
+			"KEY_G", VK::KEY_G,
+			"KEY_H", VK::KEY_H,
+			"KEY_I", VK::KEY_I,
+			"KEY_J", VK::KEY_J,
+			"KEY_K", VK::KEY_K,
+			"KEY_L", VK::KEY_L,
+			"KEY_M", VK::KEY_M,
+			"KEY_N", VK::KEY_N,
+			"KEY_O", VK::KEY_O,
+			"KEY_P", VK::KEY_P,
+			"KEY_Q", VK::KEY_Q,
+			"KEY_R", VK::KEY_R,
+			"KEY_S", VK::KEY_S,
+			"KEY_T", VK::KEY_T,
+			"KEY_U", VK::KEY_U,
+			"KEY_V", VK::KEY_V,
+			"KEY_W", VK::KEY_W,
+			"KEY_X", VK::KEY_X,
+			"KEY_Y", VK::KEY_Y,
+			"KEY_Z", VK::KEY_Z,
+			"LWIN", VK::LWIN,
+			"RWIN", VK::RWIN,
+			"APPS", VK::APPS,
+			"SLEEP", VK::SLEEP,
+			"NUMPAD0", VK::NUMPAD0,
+			"NUMPAD1", VK::NUMPAD1,
+			"NUMPAD2", VK::NUMPAD2,
+			"NUMPAD3", VK::NUMPAD3,
+			"NUMPAD4", VK::NUMPAD4,
+			"NUMPAD5", VK::NUMPAD5,
+			"NUMPAD6", VK::NUMPAD6,
+			"NUMPAD7", VK::NUMPAD7,
+			"NUMPAD8", VK::NUMPAD8,
+			"NUMPAD9", VK::NUMPAD9,
+			"MULTIPLY", VK::MULTIPLY,
+			"ADD", VK::ADD,
+			"SEPARATOR", VK::SEPARATOR,
+			"SUBTRACT", VK::SUBTRACT,
+			"DECIMAL", VK::DECIMAL,
+			"DIVIDE", VK::DIVIDE,
+			"F1", VK::F1,
+			"F2", VK::F2,
+			"F3", VK::F3,
+			"F4", VK::F4,
+			"F5", VK::F5,
+			"F6", VK::F6,
+			"F7", VK::F7,
+			"F8", VK::F8,
+			"F9", VK::F9,
+			"F10", VK::F10,
+			"F11", VK::F11,
+			"F12", VK::F12,
+			"F13", VK::F13,
+			"F14", VK::F14,
+			"F15", VK::F15,
+			"F16", VK::F16,
+			"F17", VK::F17,
+			"F18", VK::F18,
+			"F19", VK::F19,
+			"F20", VK::F20,
+			"F21", VK::F21,
+			"F22", VK::F22,
+			"F23", VK::F23,
+			"F24", VK::F24,
+			"NUMLOCK", VK::NUMLOCK,
+			"SCROLL", VK::SCROLL,
+			"LSHIFT", VK::LSHIFT,
+			"RSHIFT", VK::RSHIFT,
+			"LCONTROL", VK::LCONTROL,
+			"RCONTROL", VK::RCONTROL,
+			"LMENU", VK::LMENU,
+			"RMENU", VK::RMENU,
+			"BROWSER_BACK", VK::BROWSER_BACK,
+			"BROWSER_FORWARD", VK::BROWSER_FORWARD,
+			"BROWSER_REFRESH", VK::BROWSER_REFRESH,
+			"BROWSER_STOP", VK::BROWSER_STOP,
+			"BROWSER_SEARCH", VK::BROWSER_SEARCH,
+			"BROWSER_FAVORITES", VK::BROWSER_FAVORITES,
+			"BROWSER_HOME", VK::BROWSER_HOME,
+			"VOLUME_MUTE", VK::VOLUME_MUTE,
+			"VOLUME_DOWN", VK::VOLUME_DOWN,
+			"VOLUME_UP", VK::VOLUME_UP,
+			"MEDIA_NEXT_TRACK", VK::MEDIA_NEXT_TRACK,
+			"MEDIA_PREV_TRACK", VK::MEDIA_PREV_TRACK,
+			"MEDIA_STOP", VK::MEDIA_STOP,
+			"MEDIA_PLAY_PAUSE", VK::MEDIA_PLAY_PAUSE,
+			"LAUNCH_MAIL", VK::LAUNCH_MAIL,
+			"LAUNCH_MEDIA_SELECT", VK::LAUNCH_MEDIA_SELECT,
+			"LAUNCH_APP1", VK::LAUNCH_APP1,
+			"LAUNCH_APP2", VK::LAUNCH_APP2,
+			"OEM_1", VK::OEM_1,
+			"OEM_PLUS", VK::OEM_PLUS,
+			"OEM_COMMA", VK::OEM_COMMA,
+			"OEM_MINUS", VK::OEM_MINUS,
+			"OEM_PERIOD", VK::OEM_PERIOD,
+			"OEM_2", VK::OEM_2,
+			"OEM_3", VK::OEM_3,
+			"OEM_4", VK::OEM_4,
+			"OEM_5", VK::OEM_5,
+			"OEM_6", VK::OEM_6,
+			"OEM_7", VK::OEM_7,
+			"OEM_8", VK::OEM_8,
+			"OEM_102", VK::OEM_102,
+			"PROCESSKEY", VK::PROCESSKEY,
+			"PACKET", VK::PACKET,
+			"ATTN", VK::ATTN,
+			"CRSEL", VK::CRSEL,
+			"EXSEL", VK::EXSEL,
+			"EREOF", VK::EREOF,
+			"PLAY", VK::PLAY,
+			"ZOOM", VK::ZOOM,
+			"NONAME", VK::NONAME,
+			"PA1", VK::PA1,
+			"OEM_CLEAR", VK::OEM_CLEAR
+		);
 
-		lua.set_function("SubscribeToEventOnHkbAnimation",OnHkbAnimation::SubscribeToEventOnHkbAnimation);
+
+		lua.set_function("SubscribeToEventOnHkbAnimation", OnHkbAnimation::SubscribeToEventOnHkbAnimation);
 		lua.set_function("SubscribeToEventOnSpEffect", OnSpeffectActive::SubscribeToEventOnSpEffect);
+		lua.set_function("SubscribeToEventOnRenderingFrame", OnRenderingFrame::SubscribeToEventOnRenderingFrame);
+		lua.set_function("RegisterHotkey", OnHotKey::RegisterHotkey);
+		lua.set_function("UnregisterHotkey", OnHotKey::UnregisterHotkey);
 		lua.set_function("EntityHasSpeffect", EntityHasSpEffectSafe);
 		lua.set_function("print", Luaprint);
-
-
-		// typical member function that returns a variable
-		//player_type["shoot"] = &player::shoot;
-
-		// gets or set the value using member variable syntax
-
-		// read and write variable
-		//player_type["speed"] = &player::speed;
-		// can only read from, not write to
-		// .set(foo, bar) is the same as [foo] = bar;
-		//player_type.set("bullets", sol::readonly(&player::bullets));
+		lua.set_function("WasKeyPressed", HotKeyManager::WasKeyPressed);
+		lua.set_function("WasKeyReleased", HotKeyManager::WasKeyReleased);
 	}
 
 	void script_runtime::Luaprint(sol::variadic_args va, std::string) {
@@ -232,7 +388,7 @@ namespace hoodie_script {
 	bool script_runtime::initialize_file(std::filesystem::path file)
 	{
 		auto filePath = file.string().c_str();
-		if (luaL_loadfile(_luaState, filePath) != LUA_OK ) {
+		if (luaL_loadfile(_luaState, filePath) != LUA_OK) {
 			logging::write_line("Could not load LUA file %s", file.string().c_str());
 			handle_error(_luaState);
 			return false;
@@ -315,32 +471,42 @@ namespace hoodie_script {
 			std::uniform_real_distribution<> _angle_distribution;
 	};
 
+	void script_runtime::OnRenderFrame()
+	{
+		ImGui_ImplDX11_NewFrame();
+		HotKeyManager::Update();
+		OnHotKey::DoOnHotkey(_luaState);
+		OnRenderingFrame::DoOnRenderingFrame(_luaState);
+		ImGui::Render();
+		ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+	}
+
 	void script_runtime::on_game_frame()
 	{
 		static uint64_t uniqueFrameClock = 0;
-		if (uniqueFrameClock % 2 == 0)
-		{
+		//if (uniqueFrameClock % 2 == 0)
+		//{
 
 
 
-			auto plr = PlayerIns(PlayerIns::getMainChrAddress());
-			//entryBullet->set_owner((int32_t)chr.getHandle());
-			float radius = 50;
-			auto a = plr.getPosition();
-			for (size_t i = 0; i < 10; i++)
-			{
-				auto entryBullet = new bullet_spawn_request();
-				entryBullet->set_bullet_param_id((bullet_type)12457000);
-				entryBullet->set_owner((int32_t)plr.getHandle());
-				auto b = Solution(radius, a[0], a[2]).randPoint();
-				entryBullet->set_direction({0,0,0});
-				a[0] = b[0];
-				a[2] = b[1];
-				a[1] += 50;
-				entryBullet->set_coordinates(a);
-				bullet_facade::spawn(entryBullet);
-			}
-		}
+		//	auto plr = PlayerIns(PlayerIns::getMainChrAddress());
+		//	//entryBullet->set_owner((int32_t)chr.getHandle());
+		//	float radius = 50;
+		//	auto a = plr.getPosition();
+		//	for (size_t i = 0; i < 10; i++)
+		//	{
+		//		auto entryBullet = new bullet_spawn_request();
+		//		entryBullet->set_bullet_param_id((bullet_type)12457000);
+		//		entryBullet->set_owner((int32_t)plr.getHandle());
+		//		auto b = Solution(radius, a[0], a[2]).randPoint();
+		//		entryBullet->set_direction({0,0,0});
+		//		a[0] = b[0];
+		//		a[2] = b[1];
+		//		a[1] += 50;
+		//		entryBullet->set_coordinates(a);
+		//		bullet_facade::spawn(entryBullet);
+		//	}
+		//}
 
 		uniqueFrameClock++;
 		if (uniqueFrameClock % 2 == 0) {

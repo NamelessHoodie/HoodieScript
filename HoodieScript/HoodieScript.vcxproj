@@ -72,15 +72,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -182,15 +186,31 @@
     <ClInclude Include="GameObjects\player_game_data.h" />
     <ClInclude Include="GameObjects\player_ins.h" />
     <ClInclude Include="GameObjects\sprj_chr_data_module.h" />
+    <ClInclude Include="HoodieScript-ImGui-Test\d3d11hook.h" />
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imconfig.h" />
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imgui.h" />
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imgui_internal.h" />
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imstb_textedit.h" />
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imstb_truetype.h" />
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\stb_rect_pack.h" />
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\stb_textedit.h" />
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\stb_truetype.h" />
+    <ClInclude Include="HoodieScript-ImGui-Test\imgui_impl_dx11.h" />
+    <ClInclude Include="HoodieScript-ImGui-Test\InputHook.h" />
+    <ClInclude Include="HoodieScript-ImGui-Test\Menu.h" />
+    <ClInclude Include="HoodieScript-ImGui-Test\sol_ImGui.h" />
     <ClInclude Include="Hooks\has_speffect_hook.h" />
     <ClInclude Include="Hooks\game_frame_hook.h" />
     <ClInclude Include="Hooks\goods_use_hook.h" />
     <ClInclude Include="Hooks\hkb_animation_hook.h" />
     <ClInclude Include="Hooks\session_send_hook.h" />
+    <ClInclude Include="HotKeyManager.h" />
     <ClInclude Include="jump_hook.h" />
     <ClInclude Include="Hooks\jumptable_hook.h" />
     <ClInclude Include="Hooks\hksgetter_hook.h" />
     <ClInclude Include="Hooks\hksActSetter_hook.h" />
+    <ClInclude Include="LuaEvents\OnRenderingFrame.h" />
     <ClInclude Include="LeCG\ParamPatcher.h" />
     <ClInclude Include="logging.h" />
     <ClInclude Include="LuaEvents\OnParamLoaded.h" />
@@ -207,6 +227,8 @@
     <ClInclude Include="vendor\lua\luaconf.h" />
     <ClInclude Include="vendor\lua\lualib.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="vendor\minhook\MinHook.h" />
+    <ClInclude Include="LuaEvents\OnHotkey.h" />
     <ClInclude Include="vendor\Sol2\config.hpp" />
     <ClInclude Include="vendor\Sol2\forward.hpp" />
     <ClInclude Include="vendor\Sol2\sol.hpp" />
@@ -230,15 +252,46 @@
     <ClCompile Include="GameObjects\player_game_data.cpp" />
     <ClCompile Include="GameObjects\player_ins.cpp" />
     <ClCompile Include="GameObjects\sprj_chr_data_module.cpp" />
+    <ClCompile Include="HoodieScript-ImGui-Test\d3d11hook.cpp" />
+    <ClCompile Include="HoodieScript-ImGui-Test\ImGui\imgui.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="HoodieScript-ImGui-Test\ImGui\imgui_demo.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="HoodieScript-ImGui-Test\ImGui\imgui_draw.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="HoodieScript-ImGui-Test\ImGui\imgui_tables.cpp" />
+    <ClCompile Include="HoodieScript-ImGui-Test\ImGui\imgui_widgets.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="HoodieScript-ImGui-Test\imgui_impl_dx11.cpp" />
+    <ClCompile Include="HoodieScript-ImGui-Test\InputHook.cpp" />
+    <ClCompile Include="HoodieScript-ImGui-Test\Menu.cpp" />
     <ClCompile Include="Hooks\has_speffect_hook.cpp" />
     <ClCompile Include="Hooks\game_frame_hook.cpp" />
     <ClCompile Include="Hooks\goods_use_hook.cpp" />
     <ClCompile Include="Hooks\hkb_animation_hook.cpp" />
     <ClCompile Include="Hooks\session_send_hook.cpp" />
+    <ClCompile Include="HotKeyManager.cpp" />
     <ClCompile Include="jump_hook.cpp" />
     <ClCompile Include="Hooks\jumptable_hook.cpp" />
     <ClCompile Include="Hooks\hksgetter_hook.cpp" />
     <ClCompile Include="Hooks\hksActSetter_hook.cpp" />
+    <ClCompile Include="LuaEvents\OnRenderingFrame.cpp" />
     <ClCompile Include="LeCG\ParamPatcher.cpp" />
     <ClCompile Include="logging.cpp" />
     <ClCompile Include="LuaEvents\OnParamLoaded.cpp" />
@@ -257,6 +310,7 @@
     </ClCompile>
     <ClCompile Include="script_repository.cpp" />
     <ClCompile Include="script_runtime.cpp" />
+    <ClCompile Include="LuaEvents\OnHotKey.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="liblua54.a" />

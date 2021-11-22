@@ -156,6 +156,60 @@
     <ClInclude Include="GameDebugClasses\Bullet_Spawn.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="HoodieScript-ImGui-Test\d3d11hook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imconfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imgui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imgui_internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imstb_rectpack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imstb_textedit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imstb_truetype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\stb_rect_pack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\stb_textedit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\stb_truetype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\minhook\MinHook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HoodieScript-ImGui-Test\InputHook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HoodieScript-ImGui-Test\imgui_impl_dx11.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HoodieScript-ImGui-Test\sol_ImGui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaEvents\OnRenderingFrame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HoodieScript-ImGui-Test\Menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HotKeyManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaEvents\OnHotkey.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -264,6 +318,42 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameDebugClasses\Bullet_Spawn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HoodieScript-ImGui-Test\d3d11hook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HoodieScript-ImGui-Test\ImGui\imgui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HoodieScript-ImGui-Test\ImGui\imgui_demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HoodieScript-ImGui-Test\ImGui\imgui_draw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HoodieScript-ImGui-Test\ImGui\imgui_widgets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HoodieScript-ImGui-Test\InputHook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HoodieScript-ImGui-Test\imgui_impl_dx11.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaEvents\OnRenderingFrame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HoodieScript-ImGui-Test\Menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HoodieScript-ImGui-Test\ImGui\imgui_tables.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HotKeyManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaEvents\OnHotKey.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

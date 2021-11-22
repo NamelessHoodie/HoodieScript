@@ -10,16 +10,22 @@
 #define NOMINMAX
 #define _USE_MATH_DEFINES
 
+#include <windows.h>
 #include "framework.h"
 #include "lua/lua.hpp"
 #include <list>
 #include <string>
 #include <iostream>
 #include "logging.h"
+#include "HoodieScript-ImGui-Test/sol_ImGui.h"
 #include "Sol2/sol.hpp"
 #include <algorithm>
 #include "LeCG/ParamPatcher.h"
 #include <math.h>
+#include <TlHelp32.h>
+#include <DXGI.h>
+#include <d3d11.h>
+#include <deque>
 
 	//macro from amir who got it from someone
 #define call(f,...) (((intptr_t(*)(uintptr_t,...))(f))((uintptr_t)__VA_ARGS__))
