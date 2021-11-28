@@ -222,6 +222,7 @@
     <ClInclude Include="script_repository.h" />
     <ClInclude Include="script_runtime.h" />
     <ClInclude Include="vendor\DInput8\DInput8Proxy.h" />
+    <ClInclude Include="Hooks\menu_isopen_getter_hook.h" />
     <ClInclude Include="vendor\lua\lauxlib.h" />
     <ClInclude Include="vendor\lua\lua.h" />
     <ClInclude Include="vendor\lua\lua.hpp" />
@@ -313,6 +314,7 @@
     <ClCompile Include="script_repository.cpp" />
     <ClCompile Include="script_runtime.cpp" />
     <ClCompile Include="LuaEvents\OnHotKey.cpp" />
+    <ClCompile Include="Hooks\menu_isopen_getter_hook.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="liblua54.a" />

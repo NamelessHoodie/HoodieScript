@@ -30,7 +30,8 @@ namespace hoodie_script {
 			if (meme != 0x5a)
 			{
 				//std::wcout << characterInstance.getCharacterString() << "-HPAct = " << meme << std::endl;
-				characterInstance.SetHP(meme);
+				auto chrData = SprjChrDataModule(characterInstance.getSprjChrDataModule());
+				chrData.setHealth(meme);
 			}
 			break;
 		default:

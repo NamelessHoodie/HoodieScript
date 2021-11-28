@@ -24,6 +24,7 @@
 #include "Hooks/jumptable_hook.h"
 #include "Hooks/hksgetter_hook.h"
 #include "Hooks/hksActSetter_hook.h"
+#include "Hooks/menu_isopen_getter_hook.h"
 
 namespace hoodie_script {
 	class script_runtime
@@ -52,6 +53,8 @@ namespace hoodie_script {
 		static jumptable_hook* jumptable_hook;
 		static hksEnvGetter_hook* hksget_hook;
 		static hksActSetter_hook* hksActSet_hook;
+		static menu_isopen_getter_hook* menu_isopen_getter_hook;
+		static bool isGameInputLocked;
 	private:
 		static void handle_error(lua_State *luaState);
 	};

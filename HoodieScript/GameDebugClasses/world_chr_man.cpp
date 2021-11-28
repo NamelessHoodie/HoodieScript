@@ -22,7 +22,14 @@ namespace hoodie_script {
 					if (a != nullptr)
 					{
 						uintptr_t* mapCharacterEntry = (uintptr_t*)((byte*)*a + (0x38 * i));
-						enemies.push_back(*mapCharacterEntry);
+						if (mapCharacterEntry != nullptr)
+						{
+							auto chrInsPointer = *mapCharacterEntry;
+							if (chrInsPointer != NULL)
+							{
+								enemies.push_back(*mapCharacterEntry);
+							}
+						}
 					}
 				}
 			}

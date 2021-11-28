@@ -194,6 +194,8 @@ namespace hoodie_script
 		luaSol.set_function("print", Luaprint);
 		luaSol.set_function("WasKeyPressed", HotKeyManager::WasKeyPressed);
 		luaSol.set_function("WasKeyReleased", HotKeyManager::WasKeyReleased);
+		luaSol.set_function("TryLockGameInputs", TryLockGameInputs);
+		luaSol.set_function("TryUnlockGameInputs", TryUnlockGameInputs);
 
 		sol_ImGui::Init(luaSol);
 	}
@@ -277,8 +279,48 @@ namespace hoodie_script
 		world_chr_man["getCamVector"] = WorldChrMan::getCamVector;
 		world_chr_man["getInstance"] = WorldChrMan::getInstance;
 		world_chr_man["hasInstance"] = WorldChrMan::hasInstance;
+
+		sol::usertype<ChrIns> sol_chrins = luaSol.new_usertype<ChrIns>("ChrIns");
+		sol_chrins["isValid"] = &ChrIns::isValid;
+		sol_chrins["getHandle"] = &ChrIns::getHandle;
+		sol_chrins["getChrType"] = &ChrIns::getChrType;
+		sol_chrins["setChrType"] = &ChrIns::setChrType;
+		sol_chrins["getTeam"] = &ChrIns::getTeam;
+		sol_chrins["setTeam"] = &ChrIns::setTeam;
+		sol_chrins["getForwardId"] = &ChrIns::getForwardId;
+		sol_chrins["getCharacterString"] = &ChrIns::getCharacterString;
+		sol_chrins["getAnimationString"] = &ChrIns::getAnimationString;
+		sol_chrins["getAnimationTime"] = &ChrIns::getAnimationTime;
+		sol_chrins["getMaxAnimationTime"] = &ChrIns::getMaxAnimationTime;
+		sol_chrins["getTurnRate"] = &ChrIns::getTurnRate;
+		sol_chrins["getPosition"] = &ChrIns::getPosition;
+		sol_chrins["setPosition"] = &ChrIns::setPosition;
+		sol_chrins["getAngle"] = &ChrIns::getAngle;
+		sol_chrins["getCrossbowAngle"] = &ChrIns::getCrossbowAngle;
+		sol_chrins["setAngle"] = &ChrIns::setAngle;
+		sol_chrins["getSprjChrDataModule"] = &ChrIns::getSprjChrDataModule;
+		sol_chrins["getSprjChrDamageModule"] = &ChrIns::getSprjChrDamageModule;
+		sol_chrins["isDead"] = &ChrIns::isDead;
+		sol_chrins["setIsDead"] = &ChrIns::setIsDead;
+		sol_chrins["isNoGravity"] = &ChrIns::isNoGravity;
+		sol_chrins["setNoGravity"] = &ChrIns::setNoGravity;
+		sol_chrins["isDodging"] = &ChrIns::isDodging;
+		sol_chrins["getHkbCharacter"] = &ChrIns::getHkbCharacter;
+		sol_chrins["hasHkbCharacter"] = &ChrIns::hasHkbCharacter;
+		sol_chrins["playAnimation"] = &ChrIns::playAnimation;
+		sol_chrins["playAnimationString"] = &ChrIns::playAnimationString;
+		sol_chrins["getHkbIdFromString"] = &ChrIns::getHkbIdFromString;
+		sol_chrins["getHkbStringFromId"] = &ChrIns::getHkbStringFromId;
+		//sol_chrins["playDebugIdle"] = &ChrIns::playDebugIdle;
+		sol_chrins["getWeightIndex"] = &ChrIns::getWeightIndex;
+		sol_chrins["hasSpEffect"] = &ChrIns::hasSpEffect;
+		sol_chrins["setWeightIndex"] = &ChrIns::setWeightIndex;
+		sol_chrins["setDebugAnimSpeed"] = &ChrIns::setDebugAnimSpeed;
+		sol_chrins["getDummyPolyPositions"] = &ChrIns::getDummyPolyPositions;
+		sol_chrins["getAddress"] = &ChrIns::getAddress;
+		sol_chrins["isChrIns"] = ChrIns::isChrIns;
 	}
-	void LuaBindings::Luaprint(sol::variadic_args va, std::string) {
+	void LuaBindings::Luaprint(sol::variadic_args va) {
 		std::string r = "";
 		for (auto v : va) {
 			if (v.is<bool>())
@@ -300,6 +342,26 @@ namespace hoodie_script
 		if (*worldChrManPointer != NULL)
 		{
 			return call(has_speffect_hook::_instance->get_original(), entityId, spEffect);
+		}
+		return false;
+	}
+	bool LuaBindings::TryLockGameInputs()
+	{
+		uint32_t menuState = call(0x14075ec70, 8);
+		if (!script_runtime::isGameInputLocked && menuState == 0)
+		{
+			script_runtime::isGameInputLocked = true;
+			call(0x140762880, 8, 7);
+		}
+		return script_runtime::isGameInputLocked;
+	}
+	bool LuaBindings::TryUnlockGameInputs()
+	{
+		if (script_runtime::isGameInputLocked)
+		{
+			script_runtime::isGameInputLocked = false;
+			call(0x140762880, 8, 0);
+			return true;
 		}
 		return false;
 	}

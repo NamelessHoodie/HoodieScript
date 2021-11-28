@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "InputHook.h"
-#include "imgui_impl_dx11.h"
 
 using namespace ImGui;
 
@@ -84,6 +83,5 @@ LRESULT APIENTRY WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	case WM_QUIT:
 		break;
 	}
-
 	return CallWindowProc(oWndProc, hwnd, uMsg, wParam, lParam);
 }

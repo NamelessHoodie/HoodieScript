@@ -99,10 +99,6 @@ public:
 	*/
 	Handle getHandle() const;
 
-	int getHP();
-
-	void SetHP(int newHpValue);
-
 	/**
 	* Get's the ChrInsType of this ChrIns. 
 	* 
@@ -408,7 +404,7 @@ public:
 	* 
 	* @param animationId The idle animation to play
 	*/
-	void playDebugIdle(const int32_t& animationId);
+	//void playDebugIdle(const int32_t& animationId);
 
 	/**
 	* Gets the weight index of this ChrIns, which is a variable used for determing how Player Characters should be set to move among other things.

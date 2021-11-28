@@ -15,6 +15,8 @@ namespace hoodie_script {
 	jumptable_hook* script_runtime::jumptable_hook = nullptr;
 	hksEnvGetter_hook* script_runtime::hksget_hook = nullptr;
 	hksActSetter_hook* script_runtime::hksActSet_hook = nullptr;
+	menu_isopen_getter_hook* script_runtime::menu_isopen_getter_hook = nullptr;
+	bool script_runtime::isGameInputLocked = false;
 
 	void script_runtime::InitializeFunctionLuaBindings()
 	{
@@ -37,6 +39,7 @@ namespace hoodie_script {
 		jumptable_hook = new hoodie_script::jumptable_hook();
 		hksget_hook = new hoodie_script::hksEnvGetter_hook();
 		hksActSet_hook = new hoodie_script::hksActSetter_hook();
+		menu_isopen_getter_hook = new hoodie_script::menu_isopen_getter_hook();
 
 		lua_State* L = luaL_newstate();
 		luaL_openlibs(L);
@@ -56,6 +59,7 @@ namespace hoodie_script {
 		jumptable_hook->install();
 		hksget_hook->install();
 		hksActSet_hook->install();
+		menu_isopen_getter_hook->install();
 
 		//Important that this is hook installed last
 		gameFrameHook->install();
@@ -73,6 +77,7 @@ namespace hoodie_script {
 		jumptable_hook->tryRefresh();
 		hksget_hook->tryRefresh();
 		hksActSet_hook->tryRefresh();
+		menu_isopen_getter_hook->tryRefresh();
 	}
 
 	void script_runtime::deinitializeHooks()
@@ -87,6 +92,7 @@ namespace hoodie_script {
 		jumptable_hook->uninstall();
 		hksget_hook->uninstall();
 		hksActSet_hook->uninstall();
+		menu_isopen_getter_hook->uninstall();
 	}
 
 	void script_runtime::handle_error(lua_State* luaState)

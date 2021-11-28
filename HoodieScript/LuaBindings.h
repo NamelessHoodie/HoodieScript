@@ -1,5 +1,6 @@
 #pragma once
 #include "HotKeyManager.h"
+#include "script_runtime.h"
 #include "LuaEvents/OnHkbAnimation.h"
 #include "LuaEvents/OnSpeffectActive.h"
 #include "Hooks/has_speffect_hook.h"
@@ -14,8 +15,11 @@ namespace hoodie_script
 		static void initializeEnums(sol::state_view luaSol);
 		static void initializeStaticFunctions(sol::state_view luaSol);
 		static void initializeClasses(sol::state_view luaSol);
-		static void Luaprint(sol::variadic_args va, std::string);
+		static void Luaprint(sol::variadic_args va);
 		static bool EntityHasSpEffectSafe(unsigned int entityId, int spEffect);
+		static bool TryLockGameInputs();
+		static bool TryUnlockGameInputs();
 	private:
 	};
+
 }

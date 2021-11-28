@@ -1,4 +1,6 @@
 #pragma once
+#include "imgui_impl_dx11.h"
+
 class InputHook
 {
 public:

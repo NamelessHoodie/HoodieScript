@@ -15,11 +15,12 @@ namespace hoodie_script {
 		//0x14112df50
 		long long secondArgLua;
 		ChrIns characterInstance(*ptrToChrIns);
+		auto chrData = SprjChrDataModule(characterInstance.getSprjChrDataModule());
 		switch (envId)
 		{
 		case 420:
 			//secondArgLua = call(0x140d9cca0, luaStatePtr, 2, 0x5a); //get second argument from lua function as number
-			return characterInstance.getHP();
+			return chrData.getHealth();
 			break;
 		case 421:
 			//secondArgLua = call(0x140d9cca0, luaStatePtr, 2, 0x5a); //get second argument from lua function as number

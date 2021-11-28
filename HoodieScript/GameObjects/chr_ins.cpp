@@ -31,16 +31,6 @@ void ChrIns::setChrType(const ChrType& chrType)
 	*accessMultilevelPointer<uint32_t>(address + 0x70) = static_cast<uint32_t>(chrType);
 }
 
-int ChrIns::getHP()
-{
-	return *accessMultilevelPointer<int>(address + 0x1f90 ,0x18, 0xd8);
-}
-
-void ChrIns::SetHP(int newHpValue)
-{
-	*accessMultilevelPointer<int>(address + 0x1f90, 0x18, 0xd8) = newHpValue;
-}
-
 ChrIns::Team ChrIns::getTeam() const
 {
 	return static_cast<Team>(*accessMultilevelPointer<uint32_t>(address + 0x74));
