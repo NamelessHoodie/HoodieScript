@@ -4,6 +4,7 @@
 */
 
 #pragma once
+#include "GameObjects/player_game_data.h"
 
 namespace hoodie_script {
 
@@ -17,7 +18,7 @@ public:
 	* 
 	* @return The virtual address of the current save game's PlayerGameData object.
 	*/
-	uintptr_t getPlayerGameData();
+	PlayerGameData getPlayerGameData();
 
 	/**
 	* Gets the number of times the game has been finished on this save game, also known as "New Game Level".
@@ -66,7 +67,7 @@ public:
 	* 
 	* @return The one GameDataMan instance.
 	*/
-	static uintptr_t getInstance();
+	static GameDataMan getInstance();
 
 	/**
 	* Checks if the instance of GameDataMan exists.

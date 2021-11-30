@@ -23,7 +23,7 @@ void EquipGameData::equipInventoryItem(InventorySlot inventorySlot, int32_t inve
 	*(uintptr_t*)weirdBA = 0x1427AFA38;
 	*(uintptr_t*)(weirdBA + 8) = address;
 	*(uint32_t*)(weirdBA + 0x10) = (uint32_t)inventorySlot;
-	*(uint32_t*)(weirdBA + 0x14) = inventoryItemId == -1 ? 0 : EquipInventoryData(getEquipInventoryData()).getInventoryItemById(inventoryItemId)->uniqueId;
+	*(uint32_t*)(weirdBA + 0x14) = inventoryItemId == -1 ? 0 : getEquipInventoryData().getInventoryItemById(inventoryItemId)->uniqueId;
 	void (*switchEquipment)(...);
 	*(uintptr_t*)&switchEquipment = 0x1405886a0;
 	switchEquipment(address, inventorySlot, inventoryItemId, weirdData);
@@ -32,7 +32,7 @@ void EquipGameData::equipInventoryItem(InventorySlot inventorySlot, int32_t inve
 void EquipGameData::equipGoodsInventoryItem(GoodsSlot goodsSlot, int32_t inventoryItemId)
 {
 	char data[0x20] = {};
-	*(uint32_t*)data = inventoryItemId == -1 ? 0 : EquipInventoryData(getEquipInventoryData()).getInventoryItemById(inventoryItemId)->uniqueId;
+	*(uint32_t*)data = inventoryItemId == -1 ? 0 : getEquipInventoryData().getInventoryItemById(inventoryItemId)->uniqueId;
 	void (*equipGoods)(...);
 	*(uintptr_t*)&equipGoods = 0x140583ED0;
 	equipGoods(address, goodsSlot, data, inventoryItemId, 1);
@@ -60,9 +60,9 @@ void EquipGameData::modifyInventoryItemQuantity(int32_t inventoryItemId, int32_t
 	ModifyItemQuantity(address, inventoryItemId, quantityDelta, 1);
 }
 
-uintptr_t EquipGameData::getEquipInventoryData()
+EquipInventoryData EquipGameData::getEquipInventoryData()
 {
-	return address + 0x1A8;
+	return EquipInventoryData(address + 0x1A8);
 }
 
 }

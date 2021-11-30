@@ -57,6 +57,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
 void* inputLockOfAddr;
 void* menuOpenGetter;
 void* menuOpenSetter;
+void* addVehOgFun;
 
 uint32_t Meme1(int a)
 {
@@ -91,8 +92,15 @@ uint32_t Memes()
 	return ((uint32_t)call(inputLockOfAddr, NULL)) | 0x40;
 }
 
+PVOID addVeh(ULONG first, PVECTORED_EXCEPTION_HANDLER handler)
+{
+	std::cout << "VEH Added : First = " << first << ", handler = " << std::hex << (unsigned long long)handler << std::endl;
+	return (PVOID)call(addVehOgFun, first, handler);
+}
+
 DWORD WINAPI init_thread(void* lpParam)
 {
+	//SetUnhandledExceptionFilter(exception_handler);
 	hoodie_script::script_runtime::initialize();
 	hoodie_script::script_repository::load_files();
 	HWND ds3Handle = NULL;
@@ -119,6 +127,9 @@ DWORD WINAPI init_thread(void* lpParam)
 	//MH_CreateHook((LPVOID)0x140762880, Meme2, &menuOpenSetter);
 	//MH_EnableHook((LPVOID)0x140762880);
 	//call(menuOpenSetter, 8, 0);
+
+	MH_CreateHook((LPVOID)AddVectoredExceptionHandler, addVeh, &addVehOgFun);
+	MH_EnableHook((LPVOID)AddVectoredExceptionHandler);
 
 	hoodie_script::script_runtime::initializeHooks();
 	return S_OK;

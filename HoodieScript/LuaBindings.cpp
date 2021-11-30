@@ -196,6 +196,8 @@ namespace hoodie_script
 		luaSol.set_function("WasKeyReleased", HotKeyManager::WasKeyReleased);
 		luaSol.set_function("TryLockGameInputs", TryLockGameInputs);
 		luaSol.set_function("TryUnlockGameInputs", TryUnlockGameInputs);
+		luaSol.set_function("PMAF", LuaMemory::GetPtrLua);
+		luaSol.set_function("IsPtrValid", LuaMemory::IsPtrValid);	
 
 		sol_ImGui::Init(luaSol);
 	}
@@ -319,6 +321,93 @@ namespace hoodie_script
 		sol_chrins["getDummyPolyPositions"] = &ChrIns::getDummyPolyPositions;
 		sol_chrins["getAddress"] = &ChrIns::getAddress;
 		sol_chrins["isChrIns"] = ChrIns::isChrIns;
+
+		sol::usertype<SprjChrDataModule> sol_sprjchrdatamodule = luaSol.new_usertype<SprjChrDataModule>("SprjChrDataModule", sol::constructors<SprjChrDataModule(uintptr_t)>());
+		sol_sprjchrdatamodule["getHealth"] = &SprjChrDataModule::getHealth;
+		sol_sprjchrdatamodule["setHealth"] = &SprjChrDataModule::setHealth;
+		sol_sprjchrdatamodule["getStamina"] = &SprjChrDataModule::getStamina;
+		sol_sprjchrdatamodule["setStamina"] = &SprjChrDataModule::setStamina;
+		sol_sprjchrdatamodule["getFP"] = &SprjChrDataModule::getFP;
+		sol_sprjchrdatamodule["setFP"] = &SprjChrDataModule::setFP;
+		sol_sprjchrdatamodule["getMaxHealth"] = &SprjChrDataModule::getMaxHealth;
+		sol_sprjchrdatamodule["setMaxHealth"] = &SprjChrDataModule::setMaxHealth;
+		sol_sprjchrdatamodule["getMaxStamina"] = &SprjChrDataModule::getMaxStamina;
+		sol_sprjchrdatamodule["setMaxStamina"] = &SprjChrDataModule::setMaxStamina;
+		sol_sprjchrdatamodule["getMaxFP"] = &SprjChrDataModule::getMaxFP;
+		sol_sprjchrdatamodule["setMaxFP"] = &SprjChrDataModule::setMaxFP;
+		sol_sprjchrdatamodule["getBaseMaxHealth"] = &SprjChrDataModule::getBaseMaxHealth;
+		sol_sprjchrdatamodule["setBaseMaxHealth"] = &SprjChrDataModule::setBaseMaxHealth;
+		sol_sprjchrdatamodule["getBaseMaxStamina"] = &SprjChrDataModule::getBaseMaxStamina;
+		sol_sprjchrdatamodule["setBaseMaxStamina"] = &SprjChrDataModule::setBaseMaxStamina;
+		sol_sprjchrdatamodule["getBaseMaxFP"] = &SprjChrDataModule::getBaseMaxFP;
+		sol_sprjchrdatamodule["setBaseMaxFP"] = &SprjChrDataModule::setBaseMaxFP;
+		sol_sprjchrdatamodule["isNoDamage"] = &SprjChrDataModule::isNoDamage;
+		sol_sprjchrdatamodule["setNoDamage"] = &SprjChrDataModule::setNoDamage;
+		sol_sprjchrdatamodule["isNoDead"] = &SprjChrDataModule::isNoDead;
+		sol_sprjchrdatamodule["setNoDead"] = &SprjChrDataModule::setNoDead;
+		sol_sprjchrdatamodule["isNoStaminaConsumption"] = &SprjChrDataModule::isNoStaminaConsumption;
+		sol_sprjchrdatamodule["setNoStaminaConsumption"] = &SprjChrDataModule::setNoStaminaConsumption;
+		sol_sprjchrdatamodule["isNoFPConsumption"] = &SprjChrDataModule::isNoFPConsumption;
+		sol_sprjchrdatamodule["setNoFPConsumption"] = &SprjChrDataModule::setNoFPConsumption;
+		sol_sprjchrdatamodule["getAddress"] = &SprjChrDataModule::getAddress;
+
+		sol::usertype<EquipInventoryData> sol_EquipInventoryData = luaSol.new_usertype<EquipInventoryData>("EquipInventoryData", sol::constructors<EquipInventoryData(uintptr_t)>());
+		sol_EquipInventoryData["discardInventoryItems"] = &EquipInventoryData::discardInventoryItems;
+		sol_EquipInventoryData["addItem"] = &EquipInventoryData::addItem;
+		sol_EquipInventoryData["getInventoryItemById"] = &EquipInventoryData::getInventoryItemById;
+		sol_EquipInventoryData["getInventoryItemCount"] = &EquipInventoryData::getInventoryItemCount;
+		sol_EquipInventoryData["IISDeref"] = &EquipInventoryData::IISDeref;
+
+		sol::usertype<PlayerGameData> sol_playergamedata = luaSol.new_usertype<PlayerGameData>("PlayerGameData", sol::constructors<PlayerGameData(uintptr_t)>());
+		sol_playergamedata["getPlayerNo"] = &PlayerGameData::getPlayerNo;
+		sol_playergamedata["getVoice"] = &PlayerGameData::getVoice;
+		sol_playergamedata["setVoice"] = &PlayerGameData::setVoice;
+		sol_playergamedata["getClass"] = &PlayerGameData::getClass;
+		sol_playergamedata["setClass"] = &PlayerGameData::setClass;
+		sol_playergamedata["getGender"] = &PlayerGameData::getGender;
+		sol_playergamedata["setGender"] = &PlayerGameData::setGender;
+		sol_playergamedata["getAge"] = &PlayerGameData::getAge;
+		sol_playergamedata["setAge"] = &PlayerGameData::setAge;
+		sol_playergamedata["getFaceData"] = &PlayerGameData::getFaceData;
+		sol_playergamedata["getBodyProportions"] = &PlayerGameData::getBodyProportions;
+		sol_playergamedata["setBodyPreportions"] = &PlayerGameData::setBodyPreportions;
+		sol_playergamedata["getAttributes"] = &PlayerGameData::getAttributes;
+		sol_playergamedata["setAttributes"] = &PlayerGameData::setAttributes;
+		sol_playergamedata["getName"] = &PlayerGameData::getName;
+		sol_playergamedata["setName"] = &PlayerGameData::setName;
+		sol_playergamedata["getCovenant"] = &PlayerGameData::getCovenant;
+		sol_playergamedata["setCovenant"] = &PlayerGameData::setCovenant;
+		sol_playergamedata["getInvadeType"] = &PlayerGameData::getInvadeType;
+		sol_playergamedata["setInvadeType"] = &PlayerGameData::setInvadeType;
+		sol_playergamedata["getSpell"] = &PlayerGameData::getSpell;
+		sol_playergamedata["setSpell"] = &PlayerGameData::setSpell;
+		sol_playergamedata["getGesture"] = &PlayerGameData::getGesture;
+		sol_playergamedata["setGesture"] = &PlayerGameData::setGesture;
+		sol_playergamedata["getEquipGameData"] = &PlayerGameData::getEquipGameData;
+		sol_playergamedata["getWeaponSheathData"] = &PlayerGameData::getWeaponSheathData;
+		sol_playergamedata["getRightHandSlot"] = &PlayerGameData::getRightHandSlot;
+		sol_playergamedata["setRightHandSlot"] = &PlayerGameData::setRightHandSlot;
+		sol_playergamedata["getLeftHandSlot"] = &PlayerGameData::getLeftHandSlot;
+		sol_playergamedata["setLeftHandSlot"] = &PlayerGameData::setLeftHandSlot;
+		sol_playergamedata["getWeaponSheathState"] = &PlayerGameData::getWeaponSheathState;
+		sol_playergamedata["setWeaponSheathState"] = &PlayerGameData::setWeaponSheathState;
+		sol_playergamedata["getAddress"] = &PlayerGameData::getAddress;
+
+		sol::usertype<EquipGameData> sol_EquipGameData = luaSol.new_usertype<EquipGameData>("EquipGameData", sol::constructors<EquipGameData(uintptr_t)>());
+		sol_EquipGameData["getInventoryItemIdBySlot"] = &EquipGameData::getInventoryItemIdBySlot;
+		sol_EquipGameData["getInventoryItemIdByQuickSlot"] = &EquipGameData::getInventoryItemIdByQuickSlot;
+		sol_EquipGameData["getInventoryItemIdByToolbeltSlot"] = &EquipGameData::getInventoryItemIdByToolbeltSlot;
+		sol_EquipGameData["equipInventoryItem"] = &EquipGameData::equipInventoryItem;
+		sol_EquipGameData["equipGoodsInventoryItem"] = &EquipGameData::equipGoodsInventoryItem;
+		sol_EquipGameData["modifyInventoryItemQuantity"] = &EquipGameData::modifyInventoryItemQuantity;
+		sol_EquipGameData["getEquipInventoryData"] = &EquipGameData::getEquipInventoryData;
+
+		sol::usertype<InventoryItemLua> sol_InventoryItem = luaSol.new_usertype<InventoryItemLua>("InventoryItem");
+		sol_InventoryItem["inventoryIndex"] = &InventoryItemLua::inventoryIndex;
+		sol_InventoryItem["uniqueId"] = &InventoryItemLua::uniqueId;
+		sol_InventoryItem["giveId"] = &InventoryItemLua::giveId;
+		sol_InventoryItem["quantity"] = &InventoryItemLua::quantity;
+		sol_InventoryItem["unknown1"] = &InventoryItemLua::unknown1;
 	}
 	void LuaBindings::Luaprint(sol::variadic_args va) {
 		std::string r = "";
@@ -347,7 +436,7 @@ namespace hoodie_script
 	}
 	bool LuaBindings::TryLockGameInputs()
 	{
-		uint32_t menuState = call(0x14075ec70, 8);
+		uint32_t menuState = (uint32_t)call(0x14075ec70, 8);
 		if (!script_runtime::isGameInputLocked && menuState == 0)
 		{
 			script_runtime::isGameInputLocked = true;

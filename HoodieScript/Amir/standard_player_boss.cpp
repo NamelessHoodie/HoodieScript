@@ -14,7 +14,7 @@ namespace hoodie_script {
 	void StandardPlayerBoss::savePlayerData()
 	{
 		PlayerIns chr(getChrAddress().value());
-		PlayerGameData playerGameData(chr.getPlayerGameData());
+		PlayerGameData playerGameData = chr.getPlayerGameData();
 		savedBodyProportions = playerGameData.getBodyProportions();
 		savedAttributes = playerGameData.getAttributes();
 		savedGender = playerGameData.getGender();
@@ -26,7 +26,7 @@ namespace hoodie_script {
 	void StandardPlayerBoss::restorePlayerData()
 	{
 		PlayerIns chr(getChrAddress().value());
-		PlayerGameData playerGameData(chr.getPlayerGameData());
+		PlayerGameData playerGameData = chr.getPlayerGameData();
 		playerGameData.setBodyPreportions(savedBodyProportions);
 		playerGameData.setAttributes(savedAttributes);
 		playerGameData.setGender(savedGender);
@@ -38,8 +38,8 @@ namespace hoodie_script {
 	void StandardPlayerBoss::giveGoodsAndSwap(GoodsSlot goodsSlot,
 		int32_t paramItemId, int32_t quantity)
 	{
-		EquipGameData equipGameData(PlayerGameData(GameDataMan(GameDataMan::getInstance()).getPlayerGameData()).getEquipGameData());
-		EquipInventoryData equipInventoryData(equipGameData.getEquipInventoryData());
+		EquipGameData equipGameData = GameDataMan::getInstance().getPlayerGameData().getEquipGameData();
+		EquipInventoryData equipInventoryData = equipGameData.getEquipInventoryData();
 		std::optional<int32_t> indexOfItem = findInventoryIdByGiveId((uint32_t)ItemParamIdPrefix::Goods + paramItemId);
 
 		if (!indexOfItem.has_value()) {
@@ -54,8 +54,8 @@ namespace hoodie_script {
 
 	void StandardPlayerBoss::giveItemAndSwap(InventorySlot inventorySlot, ItemParamIdPrefix paramIdPrefix, int32_t paramItemId, int32_t durability)
 	{
-		EquipGameData equipGameData(PlayerGameData(GameDataMan(GameDataMan::getInstance()).getPlayerGameData()).getEquipGameData());
-		EquipInventoryData equipInventoryData(equipGameData.getEquipInventoryData());
+		EquipGameData equipGameData = GameDataMan::getInstance().getPlayerGameData().getEquipGameData();
+		EquipInventoryData equipInventoryData = equipGameData.getEquipInventoryData();
 		std::optional<int32_t> indexOfItem = findInventoryIdByGiveId((uint32_t)paramIdPrefix + paramItemId);
 
 		if (!indexOfItem.has_value()) {
@@ -74,8 +74,8 @@ namespace hoodie_script {
 
 	void StandardPlayerBoss::RemoveItemFromInventory(ItemParamIdPrefix paramIdPrefix, int32_t paramItemId)
 	{
-		EquipGameData equipGameData(PlayerGameData(GameDataMan(GameDataMan::getInstance()).getPlayerGameData()).getEquipGameData());
-		EquipInventoryData equipInventoryData(equipGameData.getEquipInventoryData());
+		EquipGameData equipGameData = GameDataMan::getInstance().getPlayerGameData().getEquipGameData();
+		EquipInventoryData equipInventoryData = equipGameData.getEquipInventoryData();
 		std::optional<int32_t> indexOfItem = findInventoryIdByGiveId((uint32_t)paramIdPrefix + paramItemId);
 		if (indexOfItem.has_value())
 		{
@@ -86,8 +86,8 @@ namespace hoodie_script {
 
 	void StandardPlayerBoss::RemoveItemFromInventory(InventorySlot slot, ItemParamIdPrefix paramIdPrefix)
 	{
-		EquipGameData equipGameData(PlayerGameData(GameDataMan(GameDataMan::getInstance()).getPlayerGameData()).getEquipGameData());
-		EquipInventoryData equipInventoryData(equipGameData.getEquipInventoryData());
+		EquipGameData equipGameData = GameDataMan::getInstance().getPlayerGameData().getEquipGameData();
+		EquipInventoryData equipInventoryData = equipGameData.getEquipInventoryData();
 		auto index = equipGameData.getInventoryItemIdBySlot(slot);
 		giveItemAndSwap(slot, paramIdPrefix, 110000, -1);
 		equipInventoryData.discardInventoryItems(index, 1);
@@ -96,8 +96,8 @@ namespace hoodie_script {
 	void StandardPlayerBoss::ReplaceItem(InventorySlot inventorySlot, ItemParamIdPrefix paramIdPrefix, int32_t paramItemIdTarget, int32_t paramItemIdReplacement, int32_t durability)
 	{
 		if (!GameDataMan::hasInstance()
-			|| GameDataMan(GameDataMan::getInstance()).getPlayerGameData() == 0) return;
-		PlayerGameData playerGameData = GameDataMan(GameDataMan::getInstance()).getPlayerGameData();
+			|| GameDataMan::getInstance().getPlayerGameData().getAddress() == 0) return;
+		PlayerGameData playerGameData = GameDataMan::getInstance().getPlayerGameData();
 		auto sheatState = playerGameData.getWeaponSheathState();
 		RemoveItemFromInventory(inventorySlot, paramIdPrefix);
 		giveItemAndSwap(inventorySlot, paramIdPrefix, paramItemIdReplacement, durability);
@@ -106,8 +106,8 @@ namespace hoodie_script {
 
 	std::optional<int32_t> StandardPlayerBoss::findInventoryIdByGiveId(int32_t giveId)
 	{
-		EquipGameData equipGameData(PlayerGameData(GameDataMan(GameDataMan::getInstance()).getPlayerGameData()).getEquipGameData());
-		EquipInventoryData equipInventoryData(equipGameData.getEquipInventoryData());
+		EquipGameData equipGameData = GameDataMan::getInstance().getPlayerGameData().getEquipGameData();
+		EquipInventoryData equipInventoryData = equipGameData.getEquipInventoryData();
 		std::optional<int32_t> indexOfItem;
 
 		for (int32_t i = 0; i < equipInventoryData.getInventoryItemCount(); i++) {
@@ -124,10 +124,10 @@ namespace hoodie_script {
 
 	void StandardPlayerBoss::saveEquipment()
 	{
-		GameDataMan gameDataMan(GameDataMan::getInstance());
-		PlayerGameData playerGameData(gameDataMan.getPlayerGameData());
-		EquipGameData equipGameData(playerGameData.getEquipGameData());
-		EquipInventoryData equipInventoryData(equipGameData.getEquipInventoryData());
+		GameDataMan gameDataMan = GameDataMan::getInstance();
+		PlayerGameData playerGameData = gameDataMan.getPlayerGameData();
+		EquipGameData equipGameData = playerGameData.getEquipGameData();
+		EquipInventoryData equipInventoryData = equipGameData.getEquipInventoryData();
 
 		for (int32_t i = 0; i <= 21; i++) {
 			if (i == 10 || i == 11 || i == 16) continue;
@@ -164,10 +164,10 @@ namespace hoodie_script {
 
 	void StandardPlayerBoss::unequipAllEquipment()
 	{
-		GameDataMan gameDataMan(GameDataMan::getInstance());
-		PlayerGameData playerGameData(gameDataMan.getPlayerGameData());
-		EquipGameData equipGameData(playerGameData.getEquipGameData());
-		EquipInventoryData equipInventoryData(equipGameData.getEquipInventoryData());
+		GameDataMan gameDataMan = GameDataMan::getInstance();
+		PlayerGameData playerGameData = gameDataMan.getPlayerGameData();
+		EquipGameData equipGameData = playerGameData.getEquipGameData();
+		EquipInventoryData equipInventoryData = equipGameData.getEquipInventoryData();
 
 		for (int32_t i = 0; i <= 21; ++i) {
 			switch (i) {
@@ -243,16 +243,16 @@ namespace hoodie_script {
 		}
 
 		for (auto&& entry : savedSpells) {
-			GameDataMan gameDataMan(GameDataMan::getInstance());
-			PlayerGameData playerGameData(gameDataMan.getPlayerGameData());
+			GameDataMan gameDataMan = GameDataMan::getInstance();
+			PlayerGameData playerGameData = gameDataMan.getPlayerGameData();
 			playerGameData.setSpell(entry.first, entry.second);
 		}
 	}
 
 	void StandardPlayerBoss::saveAndDiscardItems()
 	{
-		EquipGameData equipGameData(PlayerGameData(GameDataMan(GameDataMan::getInstance()).getPlayerGameData()).getEquipGameData());
-		EquipInventoryData equipInventoryData(equipGameData.getEquipInventoryData());
+		EquipGameData equipGameData = GameDataMan::getInstance().getPlayerGameData().getEquipGameData();
+		EquipInventoryData equipInventoryData = equipGameData.getEquipInventoryData();
 
 		for (int32_t i = 0; i < equipInventoryData.getInventoryItemCount(); i++) {
 			auto* item = equipInventoryData.getInventoryItemById(i);
@@ -265,8 +265,8 @@ namespace hoodie_script {
 
 	void StandardPlayerBoss::loadAndGiveSavedItems()
 	{
-		EquipGameData equipGameData(PlayerGameData(GameDataMan(GameDataMan::getInstance()).getPlayerGameData()).getEquipGameData());
-		EquipInventoryData equipInventoryData(equipGameData.getEquipInventoryData());
+		EquipGameData equipGameData = GameDataMan::getInstance().getPlayerGameData().getEquipGameData();
+		EquipInventoryData equipInventoryData = equipGameData.getEquipInventoryData();
 
 		for (int32_t i = 0; i < equipInventoryData.getInventoryItemCount(); i++) {
 			auto* item = equipInventoryData.getInventoryItemById(i);
@@ -498,8 +498,8 @@ namespace hoodie_script {
 	void StandardPlayerBoss::setSheathState(int32_t slot)
 	{
 		if (!GameDataMan::hasInstance()
-			|| GameDataMan(GameDataMan::getInstance()).getPlayerGameData() == 0) return;
-		PlayerGameData playerGameData = GameDataMan(GameDataMan::getInstance()).getPlayerGameData();
+			|| GameDataMan::getInstance().getPlayerGameData().getAddress() == 0) return;
+		PlayerGameData playerGameData = GameDataMan::getInstance().getPlayerGameData();
 		playerGameData.setWeaponSheathState(slot);
 		uint16_t sheathData[2] = {};
 		sheathData[0] = playerGameData.getWeaponSheathData();
@@ -509,8 +509,8 @@ namespace hoodie_script {
 	}
 
 	void StandardPlayerBoss::clearInventory() {
-		EquipGameData equipGameData(PlayerGameData(GameDataMan(GameDataMan::getInstance()).getPlayerGameData()).getEquipGameData());
-		EquipInventoryData equipInventoryData(equipGameData.getEquipInventoryData());
+		EquipGameData equipGameData = GameDataMan::getInstance().getPlayerGameData().getEquipGameData();
+		EquipInventoryData equipInventoryData = equipGameData.getEquipInventoryData();
 
 		for (int32_t i = 0; i < equipInventoryData.getInventoryItemCount(); i++) {
 			auto* item = equipInventoryData.getInventoryItemById(i);

@@ -15,6 +15,23 @@ struct InventoryItem
 	int32_t unknown1;
 };
 
+struct InventoryItemLua
+{
+	int32_t inventoryIndex;
+	int32_t uniqueId;
+	int32_t giveId;
+	uint32_t quantity;
+	int32_t unknown1;
+	InventoryItemLua(int32_t inventoryIndex ,int32_t uniqueId, int32_t giveId, uint32_t quantity, int32_t unknown1)
+	{
+		this->inventoryIndex = inventoryIndex;
+		this->uniqueId = uniqueId;
+		this->giveId = giveId;
+		this->quantity = quantity;
+		this->unknown1 = unknown1;
+	}
+};
+
 enum class ItemParamIdPrefix : int32_t
 {
 	Weapon = 0,
@@ -35,6 +52,7 @@ public:
 	InventoryItem* getInventoryItemById(int32_t inventoryItemId);
 
 	int32_t getInventoryItemCount();
+	std::vector<InventoryItemLua> IISDeref();
 private:
 	uintptr_t address;
 };

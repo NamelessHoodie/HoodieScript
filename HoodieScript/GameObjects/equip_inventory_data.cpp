@@ -40,4 +40,38 @@ int32_t EquipInventoryData::getInventoryItemCount()
 	return *accessMultilevelPointer<int32_t>(address + 0x88) + 1;
 }
 
+bool FOLWisHiddenItem(const uint32_t itemId)
+{
+	static std::vector<uint32_t> hiddenItems = {
+		0xFFFFFF,
+		(uint32_t)ItemParamIdPrefix::Weapon + 110000u,
+		(uint32_t)ItemParamIdPrefix::Protector + 900000u,
+		(uint32_t)ItemParamIdPrefix::Protector + 901000u,
+		(uint32_t)ItemParamIdPrefix::Protector + 902000u,
+		(uint32_t)ItemParamIdPrefix::Protector + 903000u,
+	};
+
+	for (uint32_t hiddenItemId : hiddenItems) {
+		if (hiddenItemId == itemId) return true;
+	}
+
+	return false;
+}
+
+std::vector<InventoryItemLua> EquipInventoryData::IISDeref()
+{
+	std::vector<InventoryItemLua> lst;
+	for (int32_t i = 0; i < getInventoryItemCount(); i++) {
+		auto* item = getInventoryItemById(i);
+		if (item == nullptr) continue;
+		lst.push_back(InventoryItemLua(i, item->uniqueId, item->giveId, item->quantity, item->unknown1));
+	}
+	//std::cout << "Constructing\n";
+	//InventoryItem* structPtr = getInventoryItemById(invId);
+	//std::cout << std::hex << structPtr << "\n";
+	//InventoryItem structVar = InventoryItem(structPtr->uniqueId ,structPtr->giveId, structPtr->quantity, structPtr->unknown1);
+	//std::cout << "Sending\n";
+	return lst;
+}
+
 }

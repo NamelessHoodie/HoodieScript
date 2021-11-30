@@ -22,6 +22,8 @@
 #include "memory_util.h"
 #include "databaseaddress.h"
 #include "chr_ins.h"
+#include "Amir/standard_player_boss.h"
+#include "GameObjects/equip_game_data.h"
 
 namespace hoodie_script {
 
@@ -45,7 +47,7 @@ public:
 	* 
 	* @return Virtual address of this Player's PlayerGameData object.
 	*/
-	uintptr_t getPlayerGameData();
+	PlayerGameData getPlayerGameData();
 
 
 	/**

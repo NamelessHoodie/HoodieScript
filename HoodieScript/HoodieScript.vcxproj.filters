@@ -216,6 +216,9 @@
     <ClInclude Include="Hooks\menu_isopen_getter_hook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LuaObjects\LuaMemory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -366,6 +369,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Hooks\menu_isopen_getter_hook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaObjects\LuaMemory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

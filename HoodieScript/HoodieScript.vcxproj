@@ -217,6 +217,7 @@
     <ClInclude Include="LuaEvents\OnParamLoaded.h" />
     <ClInclude Include="LuaEvents\OnGameFrame.h" />
     <ClInclude Include="LuaEvents\OnHkbAnimation.h" />
+    <ClInclude Include="LuaObjects\LuaMemory.h" />
     <ClInclude Include="memory_util.h" />
     <ClInclude Include="LuaEvents\OnSpeffectActive.h" />
     <ClInclude Include="script_repository.h" />
@@ -301,6 +302,7 @@
     <ClCompile Include="LuaEvents\OnGameFrame.cpp" />
     <ClCompile Include="LuaEvents\OnHkbAnimation.cpp" />
     <ClCompile Include="LuaEvents\OnSpeffectActive.cpp" />
+    <ClCompile Include="LuaObjects\LuaMemory.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

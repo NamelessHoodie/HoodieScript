@@ -12,7 +12,7 @@ namespace hoodie_script {
 
 	int32_t menu_isopen_getter_hook::on_invoke(uint32_t index)
 	{
-		uint32_t returnValue = call(_instance->get_original(), index);
+		uint32_t returnValue = (uint32_t)call(_instance->get_original(), index);
 		if (script_runtime::isGameInputLocked)
 		{
 			if (index == 8)

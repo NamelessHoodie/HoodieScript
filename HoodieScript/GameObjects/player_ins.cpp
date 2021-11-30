@@ -2,8 +2,6 @@
 
 #include "pch.h"
 #include "player_ins.h"
-#include "Amir/standard_player_boss.h"
-#include "GameObjects/equip_game_data.h"
 
 namespace hoodie_script {
 
@@ -11,9 +9,9 @@ namespace hoodie_script {
 	{
 	}
 
-	uintptr_t PlayerIns::getPlayerGameData()
+	PlayerGameData PlayerIns::getPlayerGameData()
 	{
-		return *accessMultilevelPointer<uintptr_t>(getAddress() + 0x1FA0);
+		return PlayerGameData(*accessMultilevelPointer<uintptr_t>(getAddress() + 0x1FA0));
 	}
 
 	bool PlayerIns::hasPlayerGameData()
@@ -80,8 +78,8 @@ namespace hoodie_script {
 	int32_t PlayerIns::getWeaponSheathState()
 	{
 		if (!GameDataMan::hasInstance()
-			|| GameDataMan(GameDataMan::getInstance()).getPlayerGameData() == 0) return 0;
-		PlayerGameData playerGameData = GameDataMan(GameDataMan::getInstance()).getPlayerGameData();
+			|| GameDataMan::getInstance().getPlayerGameData().getAddress() == 0) return 0;
+		PlayerGameData playerGameData = GameDataMan::getInstance().getPlayerGameData();
 		return playerGameData.getWeaponSheathState();
 	}
 

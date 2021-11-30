@@ -75,7 +75,7 @@ public:
 
 	void modifyInventoryItemQuantity(int32_t inventoryItemId, int32_t quantityDelta);
 
-	uintptr_t getEquipInventoryData();
+	EquipInventoryData getEquipInventoryData();
 private:
 	uintptr_t address;
 };

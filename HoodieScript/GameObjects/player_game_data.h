@@ -306,7 +306,7 @@ public:
 	* 
 	* @return The virtual address of this player's EquipGameData.
 	*/
-	uintptr_t getEquipGameData();
+	EquipGameData getEquipGameData();
 
 	/**
 	* Gets the weapon sheath data of this player.
@@ -370,6 +370,8 @@ public:
 	* @param state The weapon sheath state to set for this player.
 	*/
 	void setWeaponSheathState(const int32_t& state);
+
+	uintptr_t getAddress() const;
 private:
 	uintptr_t address;
 };

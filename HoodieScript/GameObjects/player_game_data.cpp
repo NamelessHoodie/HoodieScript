@@ -143,9 +143,9 @@ void PlayerGameData::setGesture(const uint32_t& slotNumber, const uint8_t& gestu
 	*accessMultilevelPointer<uint8_t>(address + 0x528, 0x10 + (slotNumber - 1) * 4) = gestureId;
 }
 
-uintptr_t PlayerGameData::getEquipGameData()
+EquipGameData PlayerGameData::getEquipGameData()
 {
-	return address + 0x228;
+	return EquipGameData(address + 0x228);
 }
 
 uint16_t PlayerGameData::getWeaponSheathData() const
@@ -183,6 +183,11 @@ int32_t PlayerGameData::getWeaponSheathState() const
 void PlayerGameData::setWeaponSheathState(const int32_t& slot)
 {
 	*accessMultilevelPointer<int32_t>(address + 0x2B8) = slot;
+}
+
+uintptr_t PlayerGameData::getAddress() const
+{
+	return address;
 }
 
 }

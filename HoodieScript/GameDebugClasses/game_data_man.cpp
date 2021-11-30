@@ -12,9 +12,9 @@ GameDataMan::GameDataMan(uintptr_t address)
 	this->address = address;
 }
 
-uintptr_t GameDataMan::getPlayerGameData()
+PlayerGameData GameDataMan::getPlayerGameData()
 {
-	return *accessMultilevelPointer<uintptr_t>(address + 0x10);
+	return PlayerGameData(* accessMultilevelPointer<uintptr_t>(address + 0x10));
 }
 
 int32_t GameDataMan::getClearCount() const
@@ -47,9 +47,9 @@ uint32_t GameDataMan::getPlayTime() const
 	return *accessMultilevelPointer<uint32_t>(address + 0xA4);
 }
 
-uintptr_t GameDataMan::getInstance()
+GameDataMan GameDataMan::getInstance()
 {
-	return *accessMultilevelPointer<uintptr_t>(DataBaseAddress::GAME);
+	return GameDataMan(*accessMultilevelPointer<uintptr_t>(DataBaseAddress::GAME));
 }
 
 bool GameDataMan::hasInstance()

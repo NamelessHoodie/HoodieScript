@@ -31,7 +31,7 @@ namespace hoodie_script {
 			{
 				//std::wcout << characterInstance.getCharacterString() << "-HPAct = " << meme << std::endl;
 				auto chrData = SprjChrDataModule(characterInstance.getSprjChrDataModule());
-				chrData.setHealth(meme);
+				chrData.setHealth((const uint32_t)meme);
 			}
 			break;
 		default:
