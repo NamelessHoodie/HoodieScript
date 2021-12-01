@@ -2,11 +2,11 @@
 
 #include <cstdio>
 #include "logging.h"
-#include "minhook/MinHook.h"
+#include "minhook/include/MinHook.h"
 #include "script_repository.h"
 #include "script_runtime.h"
-#include "HoodieScript-ImGui-Test/d3d11hook.h"
 #include "HotKeyManager.h"
+#include "HoodieScript-ImGui-Test/GuiManager.h"
 
 void attach();
 void detach();

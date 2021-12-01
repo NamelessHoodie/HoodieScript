@@ -11,7 +11,7 @@
 #include <thread>
 #include <stdexcept>
 #include <unordered_set>
-#include "minhook/MinHook.h"
+#include "minhook/include/MinHook.h"
 #include <memory>
 #include <functional>
 #include <string_view>

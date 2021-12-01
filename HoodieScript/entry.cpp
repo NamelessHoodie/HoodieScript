@@ -3,6 +3,7 @@
 #include "vendor/DInput8/DInput8Proxy.h"
 #include "LuaEvents/OnParamLoaded.h"
 #include <Amir/ds3runtime.h>
+#include "GameObjects/SprjMsgRepositoryImp.h"
 
 #define EXCEPTION_STRING_SIZE    1024
 
@@ -108,16 +109,9 @@ DWORD WINAPI init_thread(void* lpParam)
 	{
 		ds3Handle = FindWindowW(0, L"DARK SOULS III");
 	}
+	hoodie_script::GuiManager::Init();
 	hoodie_script::HotKeyManager::Init(ds3Handle);
 	hoodie_script::logging::write_line("HotKey Manager - Initialized");
-	if (ImplHookDX11_Init(hModuleS, ds3Handle))
-	{
-		hoodie_script::logging::write_line("ImGui Overlay - Initialized");
-	}
-	else
-	{
-		hoodie_script::logging::write_line("ImGui Overlay - Initialization failed");
-	}
 	//MH_CreateHook((LPVOID)0x140761910, Memes, &inputLockOfAddr);
 	//MH_EnableHook((LPVOID)0x140761910);
 
@@ -128,9 +122,13 @@ DWORD WINAPI init_thread(void* lpParam)
 	//MH_EnableHook((LPVOID)0x140762880);
 	//call(menuOpenSetter, 8, 0);
 
-	MH_CreateHook((LPVOID)AddVectoredExceptionHandler, addVeh, &addVehOgFun);
-	MH_EnableHook((LPVOID)AddVectoredExceptionHandler);
-
+	//MH_CreateHook((LPVOID)AddVectoredExceptionHandler, addVeh, &addVehOgFun);
+	//MH_EnableHook((LPVOID)AddVectoredExceptionHandler);
+	if (hoodie_script::SprjMsgRepositoryImp::GameHasInstance())
+	{
+		hoodie_script::SprjMsgRepositoryImp helpMe = hoodie_script::SprjMsgRepositoryImp::GameGetInstance();
+		std::wcout << L"LeMemeSS = " << helpMe.getWeaponName(2010000) << "\n";
+	}
 	hoodie_script::script_runtime::initializeHooks();
 	return S_OK;
 }
@@ -155,8 +153,8 @@ void attach()
 void detach()
 {
 	// TODO: keep track of all the hooks in a centralized place so we can roll them back in batch
+	hoodie_script::GuiManager::Uninit();
 	hoodie_script::script_runtime::deinitializeHooks();
-	HookDX11_UnInit();
 	hoodie_script::logging::write_line("Detached HoodieScriptExtender");
 	free_console();
 }

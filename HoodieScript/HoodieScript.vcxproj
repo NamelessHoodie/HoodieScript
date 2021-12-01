@@ -185,10 +185,13 @@
     <ClInclude Include="GameObjects\equip_inventory_data.h" />
     <ClInclude Include="GameObjects\player_game_data.h" />
     <ClInclude Include="GameObjects\player_ins.h" />
+    <ClInclude Include="GameObjects\SprjMsgRepositoryImp.h" />
     <ClInclude Include="GameObjects\sprj_chr_data_module.h" />
-    <ClInclude Include="HoodieScript-ImGui-Test\d3d11hook.h" />
+    <ClInclude Include="HoodieScript-ImGui-Test\GuiManager.h" />
     <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imconfig.h" />
     <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imgui.h" />
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imgui_impl_dx11.h" />
+    <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imgui_impl_win32.h" />
     <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imgui_internal.h" />
     <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imstb_rectpack.h" />
     <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imstb_textedit.h" />
@@ -196,9 +199,15 @@
     <ClInclude Include="HoodieScript-ImGui-Test\ImGui\stb_rect_pack.h" />
     <ClInclude Include="HoodieScript-ImGui-Test\ImGui\stb_textedit.h" />
     <ClInclude Include="HoodieScript-ImGui-Test\ImGui\stb_truetype.h" />
-    <ClInclude Include="HoodieScript-ImGui-Test\imgui_impl_dx11.h" />
-    <ClInclude Include="HoodieScript-ImGui-Test\InputHook.h" />
-    <ClInclude Include="HoodieScript-ImGui-Test\Menu.h" />
+    <ClInclude Include="HoodieScript-ImGui-Test\kiero\kiero.h" />
+    <ClInclude Include="vendor\minhook\include\MinHook.h" />
+    <ClInclude Include="vendor\minhook\src\buffer.h" />
+    <ClInclude Include="vendor\minhook\src\hde\hde32.h" />
+    <ClInclude Include="vendor\minhook\src\hde\hde64.h" />
+    <ClInclude Include="vendor\minhook\src\hde\pstdint.h" />
+    <ClInclude Include="vendor\minhook\src\hde\table32.h" />
+    <ClInclude Include="vendor\minhook\src\hde\table64.h" />
+    <ClInclude Include="vendor\minhook\src\trampoline.h" />
     <ClInclude Include="HoodieScript-ImGui-Test\sol_ImGui.h" />
     <ClInclude Include="Hooks\has_speffect_hook.h" />
     <ClInclude Include="Hooks\game_frame_hook.h" />
@@ -230,7 +239,6 @@
     <ClInclude Include="vendor\lua\luaconf.h" />
     <ClInclude Include="vendor\lua\lualib.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="vendor\minhook\MinHook.h" />
     <ClInclude Include="LuaEvents\OnHotkey.h" />
     <ClInclude Include="vendor\Sol2\config.hpp" />
     <ClInclude Include="vendor\Sol2\forward.hpp" />
@@ -254,8 +262,9 @@
     <ClCompile Include="GameObjects\equip_inventory_data.cpp" />
     <ClCompile Include="GameObjects\player_game_data.cpp" />
     <ClCompile Include="GameObjects\player_ins.cpp" />
+    <ClCompile Include="GameObjects\SprjMsgRepositoryImp.cpp" />
     <ClCompile Include="GameObjects\sprj_chr_data_module.cpp" />
-    <ClCompile Include="HoodieScript-ImGui-Test\d3d11hook.cpp" />
+    <ClCompile Include="HoodieScript-ImGui-Test\GuiManager.cpp" />
     <ClCompile Include="HoodieScript-ImGui-Test\ImGui\imgui.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -274,6 +283,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="HoodieScript-ImGui-Test\ImGui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="HoodieScript-ImGui-Test\ImGui\imgui_impl_win32.cpp" />
     <ClCompile Include="HoodieScript-ImGui-Test\ImGui\imgui_tables.cpp" />
     <ClCompile Include="HoodieScript-ImGui-Test\ImGui\imgui_widgets.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
@@ -281,9 +292,37 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="HoodieScript-ImGui-Test\imgui_impl_dx11.cpp" />
-    <ClCompile Include="HoodieScript-ImGui-Test\InputHook.cpp" />
-    <ClCompile Include="HoodieScript-ImGui-Test\Menu.cpp" />
+    <ClCompile Include="HoodieScript-ImGui-Test\kiero\kiero.cpp" />
+    <ClCompile Include="vendor\minhook\src\buffer.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\minhook\src\hde\hde32.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\minhook\src\hde\hde64.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\minhook\src\hook.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\minhook\src\trampoline.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Hooks\has_speffect_hook.cpp" />
     <ClCompile Include="Hooks\game_frame_hook.cpp" />
     <ClCompile Include="Hooks\goods_use_hook.cpp" />
@@ -323,6 +362,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DInput.def" />
+    <None Include="vendor\minhook\dll_resources\MinHook.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="vendor\minhook\dll_resources\MinHook.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

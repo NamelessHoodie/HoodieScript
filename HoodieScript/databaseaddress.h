@@ -18,6 +18,7 @@ enum class DataBaseAddress : uintptr_t {
 	SprjDebugEvent = 0x14473AD78,
 	ServerIF = 0x144777FA8,
 	PlayerNetworkSession = 0x14474CFF8,
+	MsgRepository = 0x1447819d0,
 	WorldChrManDbg = 0x144768F98,
 	SoloParamRepository = 0x144782838,
 	SprjEventFlagMan = 0x14473BE28,

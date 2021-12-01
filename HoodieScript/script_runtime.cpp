@@ -181,12 +181,9 @@ namespace hoodie_script {
 
 	void script_runtime::OnRenderFrame()
 	{
-		ImGui_ImplDX11_NewFrame();
 		HotKeyManager::Update();
 		OnHotKey::DoOnHotkey(_luaState);
 		OnRenderingFrame::DoOnRenderingFrame(_luaState);
-		ImGui::Render();
-		ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 	}
 
 	void script_runtime::on_game_frame()

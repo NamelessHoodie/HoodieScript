@@ -1,5 +1,3 @@
-#include "pch.h"
-#include "imgui_impl_dx11.h"
 // dear imgui: Renderer for DirectX11
 // This needs to be used along with a Platform Binding (e.g. Win32)
 
@@ -27,14 +25,21 @@
 //  2018-02-06: Misc: Removed call to ImGui::Shutdown() which is not available from 1.60 WIP, user needs to call CreateContext/DestroyContext themselves.
 //  2016-05-07: DirectX11: Disabling depth-write.
 
-static HWND                     g_hWnd = 0;
-static INT64                    g_Time = 0;
-static INT64                    g_TicksPerSecond = 0;
+#include "pch.h"
+#include "imgui.h"
+#include "imgui_impl_dx11.h"
+
+// DirectX
+#include <stdio.h>
+#include <d3d11.h>
+#include <d3dcompiler.h>
+#ifdef _MSC_VER
+#pragma comment(lib, "d3dcompiler") // Automatically link with d3dcompiler.lib as we are using D3DCompile() below.
+#endif
 
 // DirectX data
 static ID3D11Device*            g_pd3dDevice = NULL;
 static ID3D11DeviceContext*     g_pd3dDeviceContext = NULL;
-static IDXGISwapChain*          g_pSwapchain = NULL;
 static IDXGIFactory*            g_pFactory = NULL;
 static ID3D11Buffer*            g_pVB = NULL;
 static ID3D11Buffer*            g_pIB = NULL;
@@ -50,7 +55,6 @@ static ID3D11RasterizerState*   g_pRasterizerState = NULL;
 static ID3D11BlendState*        g_pBlendState = NULL;
 static ID3D11DepthStencilState* g_pDepthStencilState = NULL;
 static int                      g_VertexBufferSize = 5000, g_IndexBufferSize = 10000;
-static ID3D11RenderTargetView*  g_pRenderTarget = NULL;
 
 struct VERTEX_CONSTANT_BUFFER
 {
@@ -90,7 +94,6 @@ static void ImGui_ImplDX11_SetupRenderState(ImDrawData* draw_data, ID3D11DeviceC
     ctx->OMSetBlendState(g_pBlendState, blend_factor, 0xffffffff);
     ctx->OMSetDepthStencilState(g_pDepthStencilState, 0);
     ctx->RSSetState(g_pRasterizerState);
-    ctx->OMSetRenderTargets(1, &g_pRenderTarget, NULL);
 }
 
 // Render function
@@ -473,20 +476,12 @@ bool    ImGui_ImplDX11_CreateDeviceObjects()
         g_pd3dDevice->CreateDepthStencilState(&desc, &g_pDepthStencilState);
     }
 
-    // Create swap chain render target view
-    {
-        ID3D11Texture2D* pTex;
-        g_pSwapchain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pTex);
-        g_pd3dDevice->CreateRenderTargetView(pTex, NULL, &g_pRenderTarget);
-        pTex->Release();
-    }
-
     ImGui_ImplDX11_CreateFontsTexture();
 
     return true;
 }
 
-void ImGui_ImplDX11_InvalidateDeviceObjects()
+void    ImGui_ImplDX11_InvalidateDeviceObjects()
 {
     if (!g_pd3dDevice)
         return;
@@ -507,27 +502,10 @@ void ImGui_ImplDX11_InvalidateDeviceObjects()
     if (g_pVertexShaderBlob) { g_pVertexShaderBlob->Release(); g_pVertexShaderBlob = NULL; }
 }
 
-bool ImGui_ImplDX11_Init(void* hWnd, ID3D11Device* device, ID3D11DeviceContext* device_context, IDXGISwapChain* swapchain)
+bool    ImGui_ImplDX11_Init(ID3D11Device* device, ID3D11DeviceContext* device_context)
 {
-    g_hWnd = (HWND)hWnd;
-    g_pd3dDevice = device;
-    g_pd3dDeviceContext = device_context;
-    g_pSwapchain = swapchain;
-
-    if (!QueryPerformanceFrequency((LARGE_INTEGER*)&g_TicksPerSecond))
-        return false;
-    if (!QueryPerformanceCounter((LARGE_INTEGER*)&g_Time))
-        return false;
-
-    IMGUI_CHECKVERSION();
-    ImGui::CreateContext();
-    ImGuiIO& io = ImGui::GetIO(); (void)io;
-
-    //io.Fonts->AddFontFromFileTTF("NotoSansCJKjp-Medium.otf", 20.0f, NULL, io.Fonts->GetGlyphRangesJapanese());
-    
-    io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\msgothic.ttc", 18.0f, NULL, io.Fonts->GetGlyphRangesJapanese());
     // Setup back-end capabilities flags
-    //ImGuiIO& io = ImGui::GetIO();
+    ImGuiIO& io = ImGui::GetIO();
     io.BackendRendererName = "imgui_impl_dx11";
     io.BackendFlags |= ImGuiBackendFlags_RendererHasVtxOffset;  // We can honor the ImDrawCmd::VtxOffset field, allowing for large meshes.
 
@@ -548,33 +526,6 @@ bool ImGui_ImplDX11_Init(void* hWnd, ID3D11Device* device, ID3D11DeviceContext* 
     if (pDXGIAdapter) pDXGIAdapter->Release();
     g_pd3dDevice->AddRef();
     g_pd3dDeviceContext->AddRef();
-    //io.KeyMap[ImGuiKey_Tab] = VK_TAB;                       // Keyboard mapping. ImGui will use those indices to peek into the io.KeyDown[] array that we will update during the application lifetime.
-    //io.KeyMap[ImGuiKey_LeftArrow] = VK_LEFT;
-    //io.KeyMap[ImGuiKey_RightArrow] = VK_RIGHT;
-    //io.KeyMap[ImGuiKey_UpArrow] = VK_UP;
-    //io.KeyMap[ImGuiKey_DownArrow] = VK_DOWN;
-    //io.KeyMap[ImGuiKey_PageUp] = VK_PRIOR;
-    //io.KeyMap[ImGuiKey_PageDown] = VK_NEXT;
-    //io.KeyMap[ImGuiKey_Home] = VK_HOME;
-    //io.KeyMap[ImGuiKey_End] = VK_END;
-    //io.KeyMap[ImGuiKey_Insert] = VK_INSERT;
-    //io.KeyMap[ImGuiKey_Delete] = VK_DELETE;
-    //io.KeyMap[ImGuiKey_Backspace] = VK_BACK;
-    //io.KeyMap[ImGuiKey_Enter] = VK_RETURN;
-    //io.KeyMap[ImGuiKey_Escape] = VK_ESCAPE;
-    //io.KeyMap[ImGuiKey_A] = 'A';
-    //io.KeyMap[ImGuiKey_C] = 'C';
-    //io.KeyMap[ImGuiKey_V] = 'V';
-    //io.KeyMap[ImGuiKey_X] = 'X';
-    //io.KeyMap[ImGuiKey_Y] = 'Y';
-    //io.KeyMap[ImGuiKey_Z] = 'Z';
-
-
-    //ThisMemeWasDoneWhenUpdating
-    //io.RenderDrawListsFn = NULL;  // Alternatively you can set this to NULL and call ImGui::GetDrawData() after ImGui::Render() to get the same ImDrawData pointer.
-    //io.ImeWindowHandle = g_hWnd;
-
-    //io.ImeWindowHandle = g_hWnd;
 
     return true;
 }
@@ -591,65 +542,4 @@ void ImGui_ImplDX11_NewFrame()
 {
     if (!g_pFontSampler)
         ImGui_ImplDX11_CreateDeviceObjects();
-
-    ImGuiIO& io = ImGui::GetIO();
-
-    // Setup display size (every frame to accommodate for window resizing)
-    RECT rect;
-    GetClientRect(g_hWnd, &rect);
-    io.DisplaySize = ImVec2((float)(rect.right - rect.left), (float)(rect.bottom - rect.top));
-
-    // Setup time step
-    INT64 current_time;
-    QueryPerformanceCounter((LARGE_INTEGER*)&current_time);
-    io.DeltaTime = (float)(current_time - g_Time) / g_TicksPerSecond;
-    g_Time = current_time;
-
-    // Read keyboard modifiers inputs
-    io.KeyCtrl = (GetKeyState(VK_CONTROL) & 0x8000) != 0;
-    io.KeyShift = (GetKeyState(VK_SHIFT) & 0x8000) != 0;
-    io.KeyAlt = (GetKeyState(VK_MENU) & 0x8000) != 0;
-    io.KeySuper = false;
-    io.KeyMap[ImGuiKey_Tab] = VK_TAB;
-    io.KeyMap[ImGuiKey_LeftArrow] = VK_LEFT;
-    io.KeyMap[ImGuiKey_RightArrow] = VK_RIGHT;
-    io.KeyMap[ImGuiKey_UpArrow] = VK_UP;
-    io.KeyMap[ImGuiKey_DownArrow] = VK_DOWN;
-    io.KeyMap[ImGuiKey_PageUp] = VK_PRIOR;
-    io.KeyMap[ImGuiKey_PageDown] = VK_NEXT;
-    io.KeyMap[ImGuiKey_Home] = VK_HOME;
-    io.KeyMap[ImGuiKey_End] = VK_END;
-    io.KeyMap[ImGuiKey_Insert] = VK_INSERT;
-    io.KeyMap[ImGuiKey_Delete] = VK_DELETE;
-    io.KeyMap[ImGuiKey_Backspace] = VK_BACK;
-    io.KeyMap[ImGuiKey_Space] = VK_SPACE;
-    io.KeyMap[ImGuiKey_Enter] = VK_RETURN;
-    io.KeyMap[ImGuiKey_Escape] = VK_ESCAPE;
-    io.KeyMap[ImGuiKey_KeyPadEnter] = VK_RETURN;
-    io.KeyMap[ImGuiKey_A] = 'A';
-    io.KeyMap[ImGuiKey_C] = 'C';
-    io.KeyMap[ImGuiKey_V] = 'V';
-    io.KeyMap[ImGuiKey_X] = 'X';
-    io.KeyMap[ImGuiKey_Y] = 'Y';
-    io.KeyMap[ImGuiKey_Z] = 'Z';
-    // io.KeysDown : filled by WM_KEYDOWN/WM_KEYUP events
-    // io.MousePos : filled by WM_MOUSEMOVE events
-    // io.MouseDown : filled by WM_*BUTTON* events
-    // io.MouseWheel : filled by WM_MOUSEWHEEL events
-
-    // Set OS mouse position if requested last frame by io.WantMoveMouse flag (used when io.NavMovesTrue is enabled by user and using directional navigation)
-    //if (io.WantMoveMouse)
-   /* {
-        POINT pos = { (int)io.MousePos.x, (int)io.MousePos.y };
-        ClientToScreen(g_hWnd, &pos);
-        SetCursorPos(pos.x, pos.y);
-    }*/
-
-    // Hide OS mouse cursor if ImGui is drawing it
-    //if (io.MouseDrawCursor)
-    //SetCursor(NULL);
-
-    // Start the frame. This call will update the io.WantCaptureMouse, io.WantCaptureKeyboard flag that you can use to dispatch inputs (or not) to your application.
-
-    ImGui::NewFrame();
 }

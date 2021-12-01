@@ -5,6 +5,13 @@ namespace hoodie_script
 {
 	void LuaBindings::initializeEnums(sol::state_view luaSol)
 	{
+		luaSol["ItemType"] = luaSol.create_table_with(
+			"Weapon", ItemParamIdPrefix::Weapon,
+			"Protector", ItemParamIdPrefix::Protector,
+			"Accessory", ItemParamIdPrefix::Accessory,
+			"Goods", ItemParamIdPrefix::Goods
+		);
+
 		luaSol["VK"] = luaSol.create_table_with(
 			"NONE", VK::NONE,
 			"LBUTTON", VK::LBUTTON,
@@ -405,9 +412,11 @@ namespace hoodie_script
 		sol::usertype<InventoryItemLua> sol_InventoryItem = luaSol.new_usertype<InventoryItemLua>("InventoryItem");
 		sol_InventoryItem["inventoryIndex"] = &InventoryItemLua::inventoryIndex;
 		sol_InventoryItem["uniqueId"] = &InventoryItemLua::uniqueId;
-		sol_InventoryItem["giveId"] = &InventoryItemLua::giveId;
+		sol_InventoryItem["itemId"] = &InventoryItemLua::itemId;
 		sol_InventoryItem["quantity"] = &InventoryItemLua::quantity;
 		sol_InventoryItem["unknown1"] = &InventoryItemLua::unknown1;
+		sol_InventoryItem["itemType"] = &InventoryItemLua::itemType;
+
 	}
 	void LuaBindings::Luaprint(sol::variadic_args va) {
 		std::string r = "";

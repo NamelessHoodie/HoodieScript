@@ -10,7 +10,6 @@
 #include "GameDebugClasses/world_chr_man.h"
 #include "GameObjects/sprj_chr_data_module.h"
 #include "GameDebugClasses/Bullet_Spawn.h"
-#include <HoodieScript-ImGui-Test/imgui_impl_dx11.h>
 #include "LuaBindings.h"
 #include <random>
 #include "HotKeyManager.h"

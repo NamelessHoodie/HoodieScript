@@ -10,6 +10,10 @@
 #define NOMINMAX
 #define _USE_MATH_DEFINES
 
+#include "HoodieScript-ImGui-Test/kiero/kiero.h"
+#include "HoodieScript-ImGui-Test/imgui/imgui.h"
+#include "HoodieScript-ImGui-Test/imgui/imgui_impl_win32.h"
+#include "HoodieScript-ImGui-Test/imgui/imgui_impl_dx11.h"
 #include <windows.h>
 #include "framework.h"
 #include "lua/lua.hpp"
@@ -36,5 +40,9 @@ extern "C" {
 	#include "lua/lauxlib.h"
 	#include "lua/lualib.h"
 }
+
+typedef HRESULT(__stdcall* Present) (IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags);
+typedef LRESULT(CALLBACK* WNDPROC)(HWND, UINT, WPARAM, LPARAM);
+typedef uintptr_t PTR;
 
 #endif //PCH_H

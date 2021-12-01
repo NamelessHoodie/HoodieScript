@@ -10,24 +10,11 @@
 // https://github.com/ocornut/imgui
 
 #pragma once
-#include "ImGui/imgui.h"
-#include "imgui_impl_dx11.h"
-
-#include "shlobj.h"
-
-// DirectX
-#include <stdio.h>
-#include <d3d11.h>
-#include <d3dcompiler.h>
-#ifdef _MSC_VER
-#pragma comment(lib, "d3dcompiler") // Automatically link with d3dcompiler.lib as we are using D3DCompile() below.
-#endif
 
 struct ID3D11Device;
 struct ID3D11DeviceContext;
-struct IDXGISwapChain;
 
-IMGUI_IMPL_API bool     ImGui_ImplDX11_Init(void* hWnd, ID3D11Device* device, ID3D11DeviceContext* device_context, IDXGISwapChain* swapchain);
+IMGUI_IMPL_API bool     ImGui_ImplDX11_Init(ID3D11Device* device, ID3D11DeviceContext* device_context);
 IMGUI_IMPL_API void     ImGui_ImplDX11_Shutdown();
 IMGUI_IMPL_API void     ImGui_ImplDX11_NewFrame();
 IMGUI_IMPL_API void     ImGui_ImplDX11_RenderDrawData(ImDrawData* draw_data);
