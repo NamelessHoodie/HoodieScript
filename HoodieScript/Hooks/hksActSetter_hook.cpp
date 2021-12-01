@@ -14,8 +14,9 @@ namespace hoodie_script {
 	{
 		//0x14112df50
 		uint64_t meme;
+		const char* str;
 
-		ChrIns characterInstance(*chrInsPtr);
+		ChrIns characterInstance(*(uintptr_t*)((uintptr_t)chrInsPtr + 0x8));
 		switch (actId)
 		{
 		case 421:
@@ -30,9 +31,14 @@ namespace hoodie_script {
 			if (meme != 0x5a)
 			{
 				//std::wcout << characterInstance.getCharacterString() << "-HPAct = " << meme << std::endl;
+
 				auto chrData = SprjChrDataModule(characterInstance.getSprjChrDataModule());
 				chrData.setHealth((const uint32_t)meme);
 			}
+			break;
+		case 9000:
+			str = (const char*)call(0x140d9cd00, luaStatePtr, 2);
+			logging::write_line(std::format("HKS Act9000 Print = {0}", str));
 			break;
 		default:
 			uint64_t(*originalFunction)(uintptr_t * chrInsPtr, int32_t actId, uintptr_t luaStatePtr);

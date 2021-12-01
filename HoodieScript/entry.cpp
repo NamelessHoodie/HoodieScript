@@ -59,6 +59,7 @@ void* inputLockOfAddr;
 void* menuOpenGetter;
 void* menuOpenSetter;
 void* addVehOgFun;
+void* debugMemeOg;
 
 uint32_t Meme1(int a)
 {
@@ -86,6 +87,14 @@ void Meme2(uint32_t index, uint32_t newVal)
 		hoodie_script::logging::write_line(std::format("index = {0}, newVal = {1}", index, newVal));
 	}
 	call(menuOpenSetter, index, newVal);
+}
+
+const wchar_t* Memletto(uintptr_t luaPtr, uint32_t argIdx)
+{
+	std::cout << "PreHelp\n";
+	const wchar_t* helpMe = (const wchar_t*)call(debugMemeOg, luaPtr, argIdx);
+	std::wcout << helpMe << L"\n";
+	return helpMe;
 }
 
 uint32_t Memes()
@@ -124,6 +133,9 @@ DWORD WINAPI init_thread(void* lpParam)
 
 	//MH_CreateHook((LPVOID)AddVectoredExceptionHandler, addVeh, &addVehOgFun);
 	//MH_EnableHook((LPVOID)AddVectoredExceptionHandler);
+
+	//MH_CreateHook((LPVOID)0x140d9cd00, Memletto, &debugMemeOg);
+	//MH_EnableHook((LPVOID)0x140d9cd00);
 	if (hoodie_script::SprjMsgRepositoryImp::GameHasInstance())
 	{
 		hoodie_script::SprjMsgRepositoryImp helpMe = hoodie_script::SprjMsgRepositoryImp::GameGetInstance();
