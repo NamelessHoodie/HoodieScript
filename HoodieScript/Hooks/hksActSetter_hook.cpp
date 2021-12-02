@@ -16,7 +16,7 @@ namespace hoodie_script {
 		uint64_t meme;
 		const char* str;
 
-		ChrIns characterInstance(*(uintptr_t*)((uintptr_t)chrInsPtr + 0x8));
+		ChrIns characterInstance(*chrInsPtr);
 		switch (actId)
 		{
 		case 421:
