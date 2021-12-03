@@ -144,7 +144,7 @@
     <ClInclude Include="GameObjects\sprj_chr_data_module.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Hooks\jumptable_hook.h">
+    <ClInclude Include="Hooks\OnTaeEvent_hook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Hooks\hksgetter_hook.h">
@@ -341,7 +341,7 @@
     <ClCompile Include="GameObjects\sprj_chr_data_module.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Hooks\jumptable_hook.cpp">
+    <ClCompile Include="Hooks\OnTaeEvent_hook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Hooks\hksgetter_hook.cpp">

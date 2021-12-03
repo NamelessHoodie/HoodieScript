@@ -20,7 +20,7 @@
 #include "hooks/hkb_animation_hook.h"
 #include "hooks/session_send_hook.h"
 #include "Hooks/has_speffect_hook.h"
-#include "Hooks/jumptable_hook.h"
+#include "Hooks/OnTaeEvent_hook.h"
 #include "Hooks/hksgetter_hook.h"
 #include "Hooks/hksActSetter_hook.h"
 #include "Hooks/menu_isopen_getter_hook.h"
@@ -49,7 +49,7 @@ namespace hoodie_script {
 		static game_frame_hook* gameFrameHook;
 		static session_send_hook* sessionsendhook;
 		static has_speffect_hook* hasspeffecthook;
-		static jumptable_hook* jumptable_hook;
+		static OnTaeEvent_hook* onTaeEvent_hook_instance;
 		static hksEnvGetter_hook* hksget_hook;
 		static hksActSetter_hook* hksActSet_hook;
 		static menu_isopen_getter_hook* menu_isopen_getter_hook;

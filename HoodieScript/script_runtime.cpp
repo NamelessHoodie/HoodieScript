@@ -12,7 +12,7 @@ namespace hoodie_script {
 	game_frame_hook* script_runtime::gameFrameHook = nullptr;
 	session_send_hook* script_runtime::sessionsendhook = nullptr;
 	has_speffect_hook* script_runtime::hasspeffecthook = nullptr;
-	jumptable_hook* script_runtime::jumptable_hook = nullptr;
+	OnTaeEvent_hook* script_runtime::onTaeEvent_hook_instance = nullptr;
 	hksEnvGetter_hook* script_runtime::hksget_hook = nullptr;
 	hksActSetter_hook* script_runtime::hksActSet_hook = nullptr;
 	menu_isopen_getter_hook* script_runtime::menu_isopen_getter_hook = nullptr;
@@ -36,7 +36,7 @@ namespace hoodie_script {
 		gameFrameHook = new hoodie_script::game_frame_hook();
 		//sessionsendhook = new hoodie_script::session_send_hook();
 		hasspeffecthook = new hoodie_script::has_speffect_hook();
-		jumptable_hook = new hoodie_script::jumptable_hook();
+		onTaeEvent_hook_instance = new hoodie_script::OnTaeEvent_hook();
 		hksget_hook = new hoodie_script::hksEnvGetter_hook();
 		hksActSet_hook = new hoodie_script::hksActSetter_hook();
 		menu_isopen_getter_hook = new hoodie_script::menu_isopen_getter_hook();
@@ -56,7 +56,7 @@ namespace hoodie_script {
 		hkbAnimationHook->install();
 		//sessionsendhook->install();
 		hasspeffecthook->install();
-		jumptable_hook->install();
+		onTaeEvent_hook_instance->install();
 		hksget_hook->install();
 		hksActSet_hook->install();
 		menu_isopen_getter_hook->install();
@@ -74,10 +74,11 @@ namespace hoodie_script {
 		hkbAnimationHook->tryRefresh();
 		//sessionsendhook->tryRefresh();
 		hasspeffecthook->tryRefresh();
-		jumptable_hook->tryRefresh();
+		onTaeEvent_hook_instance->tryRefresh();
 		hksget_hook->tryRefresh();
 		hksActSet_hook->tryRefresh();
 		menu_isopen_getter_hook->tryRefresh();
+
 	}
 
 	void script_runtime::deinitializeHooks()
@@ -89,10 +90,11 @@ namespace hoodie_script {
 		hkbAnimationHook->uninstall();
 		//sessionsendhook->uninstall();
 		hasspeffecthook->uninstall();
-		jumptable_hook->uninstall();
+		onTaeEvent_hook_instance->uninstall();
 		hksget_hook->uninstall();
 		hksActSet_hook->uninstall();
 		menu_isopen_getter_hook->uninstall();
+
 	}
 
 	void script_runtime::handle_error(lua_State* luaState)
