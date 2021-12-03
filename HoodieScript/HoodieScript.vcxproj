@@ -180,6 +180,8 @@
     <ClInclude Include="GameDebugClasses\game_data_man.h" />
     <ClInclude Include="GameDebugClasses\game_option_man.h" />
     <ClInclude Include="GameDebugClasses\world_chr_man.h" />
+    <ClInclude Include="GameExtensions\GameExtensionsManager.h" />
+    <ClInclude Include="GameExtensions\TaeExtension.h" />
     <ClInclude Include="GameObjects\chr_ins.h" />
     <ClInclude Include="GameObjects\equip_game_data.h" />
     <ClInclude Include="GameObjects\equip_inventory_data.h" />
@@ -257,6 +259,8 @@
     <ClCompile Include="GameDebugClasses\game_data_man.cpp" />
     <ClCompile Include="GameDebugClasses\game_option_man.cpp" />
     <ClCompile Include="GameDebugClasses\world_chr_man.cpp" />
+    <ClCompile Include="GameExtensions\GameExtensionsManager.cpp" />
+    <ClCompile Include="GameExtensions\TaeExtension.cpp" />
     <ClCompile Include="GameObjects\chr_ins.cpp" />
     <ClCompile Include="GameObjects\equip_game_data.cpp" />
     <ClCompile Include="GameObjects\equip_inventory_data.cpp" />

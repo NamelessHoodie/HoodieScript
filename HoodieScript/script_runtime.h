@@ -13,6 +13,7 @@
 #include "LuaBindings.h"
 #include <random>
 #include "HotKeyManager.h"
+#include "GameExtensions/GameExtensionsManager.h"
 
 //Hooks
 #include "hooks/goods_use_hook.h"

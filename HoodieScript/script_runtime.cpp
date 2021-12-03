@@ -26,8 +26,6 @@ namespace hoodie_script {
 		LuaBindings::initializeStaticFunctions(lua);
 	}
 
-
-
 	void script_runtime::initialize()
 	{
 		//Generate Instances of Hooks
@@ -46,6 +44,7 @@ namespace hoodie_script {
 		_luaState = L;
 		InitializeFunctionLuaBindings();
 		script_runtime::paramPatcher = new ParamPatcher();
+		GameExtensionManager::registerEmbeddedExtensions();
 		OnParamLoaded::DoOnParamLoaded(_luaState);
 	}
 

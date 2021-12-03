@@ -243,6 +243,12 @@
     <ClInclude Include="GameObjects\SprjMsgRepositoryImp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameExtensions\GameExtensionsManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameExtensions\TaeExtension.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -414,6 +420,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameObjects\SprjMsgRepositoryImp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameExtensions\GameExtensionsManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameExtensions\TaeExtension.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
