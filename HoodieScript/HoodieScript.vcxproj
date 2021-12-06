@@ -181,7 +181,6 @@
     <ClInclude Include="GameDebugClasses\game_option_man.h" />
     <ClInclude Include="GameDebugClasses\world_chr_man.h" />
     <ClInclude Include="GameExtensions\GameExtensionsManager.h" />
-    <ClInclude Include="GameExtensions\TaeExtension.h" />
     <ClInclude Include="GameObjects\chr_ins.h" />
     <ClInclude Include="GameObjects\equip_game_data.h" />
     <ClInclude Include="GameObjects\equip_inventory_data.h" />
@@ -202,6 +201,7 @@
     <ClInclude Include="HoodieScript-ImGui-Test\ImGui\stb_textedit.h" />
     <ClInclude Include="HoodieScript-ImGui-Test\ImGui\stb_truetype.h" />
     <ClInclude Include="HoodieScript-ImGui-Test\kiero\kiero.h" />
+    <ClInclude Include="LuaObjects\LuaArgs.h" />
     <ClInclude Include="vendor\minhook\include\MinHook.h" />
     <ClInclude Include="vendor\minhook\src\buffer.h" />
     <ClInclude Include="vendor\minhook\src\hde\hde32.h" />
@@ -260,7 +260,6 @@
     <ClCompile Include="GameDebugClasses\game_option_man.cpp" />
     <ClCompile Include="GameDebugClasses\world_chr_man.cpp" />
     <ClCompile Include="GameExtensions\GameExtensionsManager.cpp" />
-    <ClCompile Include="GameExtensions\TaeExtension.cpp" />
     <ClCompile Include="GameObjects\chr_ins.cpp" />
     <ClCompile Include="GameObjects\equip_game_data.cpp" />
     <ClCompile Include="GameObjects\equip_inventory_data.cpp" />
@@ -297,6 +296,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="HoodieScript-ImGui-Test\kiero\kiero.cpp" />
+    <ClCompile Include="LuaObjects\LuaArgs.cpp" />
     <ClCompile Include="vendor\minhook\src\buffer.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>

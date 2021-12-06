@@ -3,13 +3,15 @@
 
 namespace hoodie_script
 {
-	std::unordered_map<int32_t, std::function<void(ChrIns& senderCharacter, TaeEvent* eventData, JumpTableArguments* jumpTableData, int32_t extensionId)>> GameExtensionManager::taejumptableExtensions;
-	std::unordered_map<int32_t, std::function<void(ChrIns& senderCharacter, TaeEvent* eventData, int32_t extensionId)>> GameExtensionManager::taeEventExtensions;
+	std::unordered_map<int32_t, hksActExpansionLambda> GameExtensionManager::hksActExtensions;
+	std::unordered_map<int32_t, hksEnvExpansionLambda> GameExtensionManager::hksEnvExtensions;
+	std::unordered_map<int32_t, taeJumptableExpansionLambda> GameExtensionManager::taejumptableExtensions;
+	std::unordered_map<int32_t, taeExpansionLambda> GameExtensionManager::taeEventExtensions;
+
 	void GameExtensionManager::registerEmbeddedExtensions()
 	{
 		tryRegisterTaeEventExtension(715, 
-		[](ChrIns& senderCharacter, TaeEvent* eventData, int32_t extensionId)
-		{
+		[](taeExpansionLambaArgs) {
 			std::cout << "eventParametersAddress = " << eventData->eventParameters << std::endl;
 			std::cout << "playbackFramePrevious = " << eventData->animationPlayBackTimePreviousFrame << std::endl;
 			std::cout << "playbackFrameCurrent = " << eventData->animationPlayBackTimeCurrentFrame << std::endl;
@@ -20,8 +22,7 @@ namespace hoodie_script
 		});
 
 		tryRegisterTaeJumptableExtension(666,
-		[](ChrIns& senderCharacter, TaeEvent* eventData, JumpTableArguments* jumpTableData, int32_t extensionId)
-		{
+		[](taeJumptableExpansionLambdaArgs) {
 			logging::write_line("JumpTable - 666");
 			PlayerIns a(senderCharacter.getAddress());
 			if (PlayerIns::isPlayer(a.getAddress()))
@@ -37,8 +38,62 @@ namespace hoodie_script
 				//a.setRightHandWeapon(0, jmpTableArgs->arg2);
 			}
 		});
+
+		tryRegisterHksActExtension(421,
+		[](hksActExpansionLambdaArgs) {
+			if (luaArgs.HasUint64(2))
+			{
+				float* helpMe = (float*)luaArgs.GetUint64(2);
+				logging::write_line(std::format("HKSAct Print = {0}", (long long)helpMe));
+			}
+		});
+
+		tryRegisterHksActExtension(666,
+		[](hksActExpansionLambdaArgs) {
+			if (luaArgs.HasUint64(2))
+			{
+				//std::wcout << characterInstance.getCharacterString() << "-HPAct = " << meme << std::endl;
+
+				auto chrData = SprjChrDataModule(senderCharacter.getSprjChrDataModule());
+				chrData.setHealth((const uint32_t)luaArgs.GetUint64(2));
+			}
+		});
+
+		tryRegisterHksActExtension(9000,
+		[](hksActExpansionLambdaArgs) {
+				logging::write_line(std::format("HKS Act9000 Print = {0}", luaArgs.GetString0(2)));
+		});
+
+		tryRegisterHksEnvExtension(420,
+		[](hksEnvExpansionLambdaArgs) {
+			return SprjChrDataModule(senderCharacter.getSprjChrDataModule()).getHealth();
+			//logging::write_line(std::format("HKS Act9000 Print = {0}", luaArgs.GetString0(2)));
+		});
+
+		tryRegisterHksEnvExtension(421,
+		[](hksEnvExpansionLambdaArgs) {
+			return 9;
+		});
 	}
-	bool GameExtensionManager::tryRegisterTaeEventExtension(int32_t extensionId, std::function<void(ChrIns& senderCharacter, TaeEvent* eventData, int32_t extensionId)> extensionFunction)
+	bool GameExtensionManager::tryRegisterHksActExtension(int32_t extensionId, hksActExpansionLambda extensionFunction)
+	{
+		if (hksActExtensions.find(extensionId) == hksActExtensions.end())
+		{
+			hksActExtensions.insert({ extensionId, extensionFunction });
+			return true;
+		}
+		return false;
+	}
+	bool GameExtensionManager::tryRegisterHksEnvExtension(int32_t extensionId, hksEnvExpansionLambda extensionFunction)
+	{
+		if (hksEnvExtensions.find(extensionId) == hksEnvExtensions.end())
+		{
+			hksEnvExtensions.insert({ extensionId, extensionFunction });
+			return true;
+		}
+		return false;
+	}
+	bool GameExtensionManager::tryRegisterTaeEventExtension(int32_t extensionId, taeExpansionLambda extensionFunction)
 	{
 		if (taeEventExtensions.find(extensionId) == taeEventExtensions.end())
 		{
@@ -47,7 +102,7 @@ namespace hoodie_script
 		}
 		return false;
 	}
-	bool GameExtensionManager::tryRegisterTaeJumptableExtension(int32_t extensionId, std::function<void(ChrIns& senderCharacter, TaeEvent* eventData, JumpTableArguments* jumpTableData, int32_t extensionId)> extensionFunction)
+	bool GameExtensionManager::tryRegisterTaeJumptableExtension(int32_t extensionId, taeJumptableExpansionLambda extensionFunction)
 	{
 		if (taejumptableExtensions.find(extensionId) == taejumptableExtensions.end())
 		{
@@ -57,18 +112,36 @@ namespace hoodie_script
 		return false;
 	}
 
-	std::optional<std::function<void(ChrIns& senderCharacter, TaeEvent* eventData, int32_t extensionId)>> GameExtensionManager::tryGetTaeEventExtension(int32_t extensionId)
+	std::optional<hksActExpansionLambda> GameExtensionManager::tryGetHksActExpansionLambda(int32_t extensionId)
 	{
-		std::unordered_map<int32_t, std::function<void(ChrIns& senderCharacter, TaeEvent* eventData, int32_t extensionId)>> ::iterator tryFetch = taeEventExtensions.find(extensionId);
+		std::unordered_map<int32_t, hksActExpansionLambda>::iterator tryFetch = hksActExtensions.find(extensionId);
+		if (tryFetch != hksActExtensions.end())
+		{
+			return tryFetch->second;
+		}
+		return std::nullopt;
+	}
+	std::optional<hksEnvExpansionLambda> GameExtensionManager::tryGetHksEnvExpansionLambda(int32_t extensionId)
+	{
+		std::unordered_map<int32_t, hksEnvExpansionLambda>::iterator tryFetch = hksEnvExtensions.find(extensionId);
+		if (tryFetch != hksEnvExtensions.end())
+		{
+			return tryFetch->second;
+		}
+		return std::nullopt;
+	}
+	std::optional<taeExpansionLambda> GameExtensionManager::tryGetTaeEventExtension(int32_t extensionId)
+	{
+		std::unordered_map<int32_t, taeExpansionLambda>::iterator tryFetch = taeEventExtensions.find(extensionId);
 		if (tryFetch != taeEventExtensions.end())
 		{
 			return tryFetch->second;
 		}
 		return std::nullopt;
 	}
-	std::optional<std::function<void(ChrIns& senderCharacter, TaeEvent* eventData, JumpTableArguments* jumpTableData, int32_t extensionId)>> GameExtensionManager::tryGetTaeJumptablExtension(int32_t extensionId)
+	std::optional<taeJumptableExpansionLambda> GameExtensionManager::tryGetTaeJumptablExtension(int32_t extensionId)
 	{
-		std::unordered_map<int32_t, std::function<void(ChrIns& senderCharacter, TaeEvent* eventData, JumpTableArguments* jumpTableData, int32_t extensionId)>>::iterator tryFetch = taejumptableExtensions.find(extensionId);
+		std::unordered_map<int32_t, taeJumptableExpansionLambda>::iterator tryFetch = taejumptableExtensions.find(extensionId);
 		if (tryFetch != taejumptableExtensions.end())
 		{
 			return tryFetch->second;

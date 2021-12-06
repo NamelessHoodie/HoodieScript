@@ -246,7 +246,7 @@
     <ClInclude Include="GameExtensions\GameExtensionsManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameExtensions\TaeExtension.h">
+    <ClInclude Include="LuaObjects\LuaArgs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -425,7 +425,7 @@
     <ClCompile Include="GameExtensions\GameExtensionsManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameExtensions\TaeExtension.cpp">
+    <ClCompile Include="LuaObjects\LuaArgs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

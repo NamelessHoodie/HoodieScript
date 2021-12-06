@@ -60,6 +60,7 @@ void* menuOpenGetter;
 void* menuOpenSetter;
 void* addVehOgFun;
 void* debugMemeOg;
+void* memeHelp;
 
 uint32_t Meme1(int a)
 {
@@ -108,6 +109,26 @@ PVOID addVeh(ULONG first, PVECTORED_EXCEPTION_HANDLER handler)
 	return (PVOID)call(addVehOgFun, first, handler);
 }
 
+bool Idk(uintptr_t hkbMeme)
+{
+	std::cout << hkbMeme << std::endl;
+	//hoodie_script::logging::write_line(std::format("Str = {0}", luaArgs));
+	return false;
+}
+
+void MemeHelp(uintptr_t luaState, const char* name, uintptr_t functionptr)
+{
+	static uintptr_t lastAdr = 0;
+	if (lastAdr != luaState)
+	{
+		call(memeHelp, luaState, "HoodieFun", Idk);
+		std::cout << std::hex << "HkbLuaState* = " << luaState << ", HKSStringName = " << name << ", FunctionPointer = " << functionptr << "\n";
+		lastAdr = luaState;
+	}
+
+	call(memeHelp, luaState, name, functionptr);
+}
+
 DWORD WINAPI init_thread(void* lpParam)
 {
 	//SetUnhandledExceptionFilter(exception_handler);
@@ -136,6 +157,9 @@ DWORD WINAPI init_thread(void* lpParam)
 
 	//MH_CreateHook((LPVOID)0x140d9cd00, Memletto, &debugMemeOg);
 	//MH_EnableHook((LPVOID)0x140d9cd00);
+		
+	//MH_CreateHook((LPVOID)0x1410a08e0, MemeHelp, &memeHelp);
+	//MH_EnableHook((LPVOID)0x1410a08e0);
 	if (hoodie_script::SprjMsgRepositoryImp::GameHasInstance())
 	{
 		hoodie_script::SprjMsgRepositoryImp helpMe = hoodie_script::SprjMsgRepositoryImp::GameGetInstance();

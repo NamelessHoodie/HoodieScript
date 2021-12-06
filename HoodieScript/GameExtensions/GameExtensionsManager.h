@@ -1,7 +1,19 @@
 #pragma once
 #include "GameObjects/player_ins.h"
+#include "LuaObjects/LuaArgs.h"
 namespace hoodie_script
 {
+//Lambda Arg Defines 
+#define taeExpansionLambaArgs ChrIns& senderCharacter, TaeEvent* eventData, int32_t extensionId
+#define taeJumptableExpansionLambdaArgs ChrIns& senderCharacter, TaeEvent* eventData, JumpTableArguments* jumpTableData, int32_t extensionId
+#define hksActExpansionLambdaArgs ChrIns& senderCharacter, LuaArgs& luaArgs, int32_t extensionId
+#define hksEnvExpansionLambdaArgs ChrIns& senderCharacter, LuaArgs& luaArgs, int32_t extensionId
+
+//Lambda Defines
+#define taeExpansionLambda std::function<void(taeExpansionLambaArgs)>
+#define taeJumptableExpansionLambda std::function<void(taeJumptableExpansionLambdaArgs)>
+#define hksActExpansionLambda std::function<void(hksActExpansionLambdaArgs)>
+#define hksEnvExpansionLambda std::function<uint64_t(hksEnvExpansionLambdaArgs)>
 	struct JumpTableArguments
 	{
 		int32_t jumpTableId;
@@ -36,12 +48,20 @@ namespace hoodie_script
 	{
 	public:
 		static void registerEmbeddedExtensions();
-		static bool tryRegisterTaeEventExtension(int32_t extensionId, std::function<void(ChrIns& senderCharacter, TaeEvent* eventData, int32_t extensionId)> extensionFunction);
-		static bool tryRegisterTaeJumptableExtension(int32_t extensionId, std::function<void(ChrIns& senderCharacter, TaeEvent* eventData, JumpTableArguments* jumpTableData, int32_t extensionId)> extensionFunction);
-		static std::optional<std::function<void(ChrIns& senderCharacter, TaeEvent* eventData, int32_t extensionId)>> tryGetTaeEventExtension(int32_t extensionId);
-		static std::optional<std::function<void(ChrIns& senderCharacter, TaeEvent* eventData, JumpTableArguments* jumpTableData, int32_t extensionId)>> tryGetTaeJumptablExtension(int32_t extensionId);
+		//RegisterExtensionMethods
+		static bool tryRegisterHksActExtension(int32_t extensionId, hksActExpansionLambda);
+		static bool tryRegisterHksEnvExtension(int32_t extensionId, hksEnvExpansionLambda);
+		static bool tryRegisterTaeEventExtension(int32_t extensionId, taeExpansionLambda extensionFunction);
+		static bool tryRegisterTaeJumptableExtension(int32_t extensionId, taeJumptableExpansionLambda extensionFunction);
+		//GetExtensionMethods
+		static std::optional<hksActExpansionLambda> tryGetHksActExpansionLambda(int32_t extensionId);
+		static std::optional<hksEnvExpansionLambda> tryGetHksEnvExpansionLambda(int32_t extensionId);
+		static std::optional<taeExpansionLambda> tryGetTaeEventExtension(int32_t extensionId);
+		static std::optional<taeJumptableExpansionLambda> tryGetTaeJumptablExtension(int32_t extensionId);
 	private:
-		static std::unordered_map<int32_t, std::function<void(ChrIns& senderCharacter, TaeEvent* eventData, JumpTableArguments* jumpTableData, int32_t extensionId)>> taejumptableExtensions;
-		static std::unordered_map<int32_t, std::function<void(ChrIns& senderCharacter, TaeEvent* eventData, int32_t extensionId)>> taeEventExtensions;
+		static std::unordered_map<int32_t, hksActExpansionLambda> hksActExtensions;
+		static std::unordered_map<int32_t, hksEnvExpansionLambda> hksEnvExtensions;
+		static std::unordered_map<int32_t, taeJumptableExpansionLambda> taejumptableExtensions;
+		static std::unordered_map<int32_t, taeExpansionLambda> taeEventExtensions;
 	};
 }

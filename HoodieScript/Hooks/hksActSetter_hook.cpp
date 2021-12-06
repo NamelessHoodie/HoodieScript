@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "hksActSetter_hook.h"
-#include "script_runtime.h"
+#include "GameExtensions/GameExtensionsManager.h"
+//#include "script_runtime.h"
 
 namespace hoodie_script {
 	hksActSetter_hook* hksActSetter_hook::_instance = nullptr;
@@ -17,34 +18,18 @@ namespace hoodie_script {
 		const char* str;
 
 		ChrIns characterInstance(*chrInsPtr);
-		switch (actId)
+		LuaArgs luaArgs(luaStatePtr);
+		auto extension = GameExtensionManager::tryGetHksActExpansionLambda(actId);
+		if (extension.has_value())
 		{
-		case 421:
-			meme = call(0x140d9cca0, luaStatePtr, 2, 0x5a); //get second argument from lua function
-			if (meme != 0x5a)
-			{
-				logging::write_line(std::format("HKSAct Print = {0}", meme));
-			}
-			break;
-		case 666:
-			meme = call(0x140d9cca0, luaStatePtr, 2, 0x5a); //get second argument from lua function
-			if (meme != 0x5a)
-			{
-				//std::wcout << characterInstance.getCharacterString() << "-HPAct = " << meme << std::endl;
-
-				auto chrData = SprjChrDataModule(characterInstance.getSprjChrDataModule());
-				chrData.setHealth((const uint32_t)meme);
-			}
-			break;
-		case 9000:
-			str = (const char*)call(0x140d9cd00, luaStatePtr, 2);
-			logging::write_line(std::format("HKS Act9000 Print = {0}", str));
-			break;
-		default:
+			extension.value()(characterInstance, luaArgs, actId);
+		}
+		else
+		{
 			uint64_t(*originalFunction)(uintptr_t * chrInsPtr, int32_t actId, uintptr_t luaStatePtr);
 			*(uintptr_t*)&originalFunction = _instance->get_original();
 			originalFunction(chrInsPtr, actId, luaStatePtr);
-			break;
 		}
+		static bool once = false;
 	}
 }
