@@ -61,13 +61,12 @@ namespace hoodie_script
 
 		tryRegisterHksActExtension(9000,
 		[](hksActExpansionLambdaArgs) {
-				logging::write_line(std::format("HKS Act9000 Print = {0}", luaArgs.GetString0(2)));
+			logging::write_line(std::format("HKS Act9000 Print = {0}", luaArgs.GetString0(2)));
 		});
 
 		tryRegisterHksEnvExtension(420,
 		[](hksEnvExpansionLambdaArgs) {
 			return SprjChrDataModule(senderCharacter.getSprjChrDataModule()).getHealth();
-			//logging::write_line(std::format("HKS Act9000 Print = {0}", luaArgs.GetString0(2)));
 		});
 
 		tryRegisterHksEnvExtension(421,

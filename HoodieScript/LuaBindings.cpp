@@ -203,8 +203,6 @@ namespace hoodie_script
 		luaSol.set_function("WasKeyReleased", HotKeyManager::WasKeyReleased);
 		luaSol.set_function("TryLockGameInputs", TryLockGameInputs);
 		luaSol.set_function("TryUnlockGameInputs", TryUnlockGameInputs);
-		luaSol.set_function("PMAF", LuaMemory::GetPtrLua);
-		luaSol.set_function("IsPtrValid", LuaMemory::IsPtrValid);	
 
 		sol_ImGui::Init(luaSol);
 	}
@@ -416,6 +414,33 @@ namespace hoodie_script
 		sol_InventoryItem["quantity"] = &InventoryItemLua::quantity;
 		sol_InventoryItem["unknown1"] = &InventoryItemLua::unknown1;
 		sol_InventoryItem["itemType"] = &InventoryItemLua::itemType;
+
+		sol::usertype<LuaMemory> sol_luamemory = luaSol.new_usertype<LuaMemory>("Memory");
+		sol_luamemory["MultiLevelPointer"] = LuaMemory::MultiLevelPointer;
+		sol_luamemory["DereferencePointer"] = LuaMemory::DereferencePointer;
+		sol_luamemory["IsPtrValid"] = LuaMemory::IsPtrValid;
+		sol_luamemory["ReadInt8"] = LuaMemory::ReadInt8;
+		sol_luamemory["ReadInt16"] = LuaMemory::ReadInt16;
+		sol_luamemory["ReadInt32"] = LuaMemory::ReadInt32;
+		sol_luamemory["ReadInt64"] = LuaMemory::ReadInt64;
+		sol_luamemory["ReadUint8"] = LuaMemory::ReadUint8;
+		sol_luamemory["ReadUint16"] = LuaMemory::ReadUint16;
+		sol_luamemory["ReadUint32"] = LuaMemory::ReadUint32;
+		sol_luamemory["ReadUint64"] = LuaMemory::ReadUint64;
+		sol_luamemory["ReadFloat"] = LuaMemory::ReadFloat;
+		sol_luamemory["ReadDouble"] = LuaMemory::ReadDouble;
+		sol_luamemory["ReadString"] = LuaMemory::ReadString;
+		sol_luamemory["WriteInt8"] = LuaMemory::WriteInt8;
+		sol_luamemory["WriteInt16"] = LuaMemory::WriteInt16;
+		sol_luamemory["WriteInt32"] = LuaMemory::WriteInt32;
+		sol_luamemory["WriteInt64"] = LuaMemory::WriteInt64;
+		sol_luamemory["WriteUint8"] = LuaMemory::WriteUint8;
+		sol_luamemory["WriteUint16"] = LuaMemory::WriteUint16;
+		sol_luamemory["WriteUint32"] = LuaMemory::WriteUint32;
+		sol_luamemory["WriteUint64"] = LuaMemory::WriteUint64;
+		sol_luamemory["WriteFloat"] = LuaMemory::WriteFloat;
+		sol_luamemory["WriteDouble"] = LuaMemory::WriteDouble;
+		sol_luamemory["WriteString"] = LuaMemory::WriteString;
 
 	}
 	void LuaBindings::Luaprint(sol::variadic_args va) {

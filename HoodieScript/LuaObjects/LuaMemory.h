@@ -5,7 +5,7 @@ namespace hoodie_script
 	class LuaMemory
 	{
 	public:
-		static uintptr_t GetPtrLua(uintptr_t base, sol::variadic_args vargs);
+		static uintptr_t MultiLevelPointer(uintptr_t base, sol::variadic_args vargs);
 		static uintptr_t DereferencePointer(uintptr_t address);
 		static bool IsPtrValid(uintptr_t address);
 		static int8_t ReadInt8(uintptr_t address);
@@ -18,7 +18,7 @@ namespace hoodie_script
 		static uint64_t ReadUint64(uintptr_t address);
 		static float ReadFloat(uintptr_t address);
 		static double ReadDouble(uintptr_t address);
-		static std::string ReadString(uintptr_t address, size_t lenght);
+		static std::string ReadString(uintptr_t address);
 		static void WriteInt8(uintptr_t address, int8_t newValue);
 		static void WriteInt16(uintptr_t address, int16_t newValue);
 		static void WriteInt32(uintptr_t address, int32_t newValue);
