@@ -1,11 +1,5012 @@
-{    
-    " Broader description goes here" : { 
-       
-      "prefix": "test", 
-       
-      "body": [  
-  
-        "snippet bodyline1",
-        "snippet bodyline2",      
-        "last line"
-      ],      "description": "Here, input simple description. It will show up as you start type the prefix on VS Code editing window"    }}
+{
+  "ImGui.Begin": {
+		"prefix": "ImGui.Begin",
+		"body": "ImGui.Begin(${1:name})",
+		"description": "bool ImGui.Begin (name)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Begin1": {
+		"prefix": "ImGui.Begin",
+		"body": "ImGui.Begin(${1:name}, ${2:open})",
+		"description": "std::tuple<bool, bool> ImGui.Begin (name, open)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Begin2": {
+		"prefix": "ImGui.Begin",
+		"body": "ImGui.Begin(${1:name}, ${2:open}, ${3:flags})",
+		"description": "std::tuple<bool, bool> ImGui.Begin (name, open, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.End": {
+		"prefix": "ImGui.End",
+		"body": "ImGui.End()",
+		"description": "void ImGui.End ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginChild": {
+		"prefix": "ImGui.BeginChild",
+		"body": "ImGui.BeginChild(${1:name})",
+		"description": "bool ImGui.BeginChild (name)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginChild1": {
+		"prefix": "ImGui.BeginChild",
+		"body": "ImGui.BeginChild(${1:name}, ${2:sizeX})",
+		"description": "bool ImGui.BeginChild (name, sizeX)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginChild2": {
+		"prefix": "ImGui.BeginChild",
+		"body": "ImGui.BeginChild(${1:name}, ${2:sizeX}, ${3:sizeY})",
+		"description": "bool ImGui.BeginChild (name, sizeX, sizeY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginChild3": {
+		"prefix": "ImGui.BeginChild",
+		"body": "ImGui.BeginChild(${1:name}, ${2:sizeX}, ${3:sizeY}, ${4:border})",
+		"description": "bool ImGui.BeginChild (name, sizeX, sizeY, border)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginChild4": {
+		"prefix": "ImGui.BeginChild",
+		"body": "ImGui.BeginChild(${1:name}, ${2:sizeX}, ${3:sizeY}, ${4:border}, ${5:flags})",
+		"description": "bool ImGui.BeginChild (name, sizeX, sizeY, border, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.EndChild": {
+		"prefix": "ImGui.EndChild",
+		"body": "ImGui.EndChild()",
+		"description": "void ImGui.EndChild ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsWindowAppearing": {
+		"prefix": "ImGui.IsWindowAppearing",
+		"body": "ImGui.IsWindowAppearing()",
+		"description": "bool ImGui.IsWindowAppearing ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsWindowCollapsed": {
+		"prefix": "ImGui.IsWindowCollapsed",
+		"body": "ImGui.IsWindowCollapsed()",
+		"description": "bool ImGui.IsWindowCollapsed ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsWindowFocused": {
+		"prefix": "ImGui.IsWindowFocused",
+		"body": "ImGui.IsWindowFocused()",
+		"description": "bool ImGui.IsWindowFocused ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsWindowFocused1": {
+		"prefix": "ImGui.IsWindowFocused",
+		"body": "ImGui.IsWindowFocused(${1:flags})",
+		"description": "bool ImGui.IsWindowFocused (flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsWindowHovered": {
+		"prefix": "ImGui.IsWindowHovered",
+		"body": "ImGui.IsWindowHovered()",
+		"description": "bool ImGui.IsWindowHovered ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsWindowHovered1": {
+		"prefix": "ImGui.IsWindowHovered",
+		"body": "ImGui.IsWindowHovered(${1:flags})",
+		"description": "bool ImGui.IsWindowHovered (flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetWindowDrawList": {
+		"prefix": "ImGui.GetWindowDrawList",
+		"body": "ImGui.GetWindowDrawList()",
+		"description": "ImDrawList* ImGui.GetWindowDrawList ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetWindowDpiScale": {
+		"prefix": "ImGui.GetWindowDpiScale",
+		"body": "ImGui.GetWindowDpiScale()",
+		"description": "float ImGui.GetWindowDpiScale ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetWindowViewport": {
+		"prefix": "ImGui.GetWindowViewport",
+		"body": "ImGui.GetWindowViewport()",
+		"description": "ImGuiViewport* ImGui.GetWindowViewport ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetWindowPos": {
+		"prefix": "ImGui.GetWindowPos",
+		"body": "ImGui.GetWindowPos()",
+		"description": "std::tuple<float, float> ImGui.GetWindowPos ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetWindowSize": {
+		"prefix": "ImGui.GetWindowSize",
+		"body": "ImGui.GetWindowSize()",
+		"description": "std::tuple<float, float> ImGui.GetWindowSize ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetWindowWidth": {
+		"prefix": "ImGui.GetWindowWidth",
+		"body": "ImGui.GetWindowWidth()",
+		"description": "float ImGui.GetWindowWidth ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetWindowHeight": {
+		"prefix": "ImGui.GetWindowHeight",
+		"body": "ImGui.GetWindowHeight()",
+		"description": "float ImGui.GetWindowHeight ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetNextWindowPos": {
+		"prefix": "ImGui.SetNextWindowPos",
+		"body": "ImGui.SetNextWindowPos(${1:posX}, ${2:posY})",
+		"description": "void ImGui.SetNextWindowPos (posX, posY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetNextWindowPos1": {
+		"prefix": "ImGui.SetNextWindowPos",
+		"body": "ImGui.SetNextWindowPos(${1:posX}, ${2:posY}, ${3:cond})",
+		"description": "void ImGui.SetNextWindowPos (posX, posY, cond)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetNextWindowPos2": {
+		"prefix": "ImGui.SetNextWindowPos",
+		"body": "ImGui.SetNextWindowPos(${1:posX}, ${2:posY}, ${3:cond}, ${4:pivotX}, ${5:pivotY})",
+		"description": "void ImGui.SetNextWindowPos (posX, posY, cond, pivotX, pivotY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetNextWindowSize": {
+		"prefix": "ImGui.SetNextWindowSize",
+		"body": "ImGui.SetNextWindowSize(${1:sizeX}, ${2:sizeY})",
+		"description": "void ImGui.SetNextWindowSize (sizeX, sizeY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetNextWindowSize1": {
+		"prefix": "ImGui.SetNextWindowSize",
+		"body": "ImGui.SetNextWindowSize(${1:sizeX}, ${2:sizeY}, ${3:cond})",
+		"description": "void ImGui.SetNextWindowSize (sizeX, sizeY, cond)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetNextWindowSizeConstraints": {
+		"prefix": "ImGui.SetNextWindowSizeConstraints",
+		"body": "ImGui.SetNextWindowSizeConstraints(${1:minX}, ${2:minY}, ${3:maxX}, ${4:maxY})",
+		"description": "void ImGui.SetNextWindowSizeConstraints (minX, minY, maxX, maxY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetNextWindowContentSize": {
+		"prefix": "ImGui.SetNextWindowContentSize",
+		"body": "ImGui.SetNextWindowContentSize(${1:sizeX}, ${2:sizeY})",
+		"description": "void ImGui.SetNextWindowContentSize (sizeX, sizeY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetNextWindowCollapsed": {
+		"prefix": "ImGui.SetNextWindowCollapsed",
+		"body": "ImGui.SetNextWindowCollapsed(${1:collapsed})",
+		"description": "void ImGui.SetNextWindowCollapsed (collapsed)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetNextWindowCollapsed1": {
+		"prefix": "ImGui.SetNextWindowCollapsed",
+		"body": "ImGui.SetNextWindowCollapsed(${1:collapsed}, ${2:cond})",
+		"description": "void ImGui.SetNextWindowCollapsed (collapsed, cond)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetNextWindowFocus": {
+		"prefix": "ImGui.SetNextWindowFocus",
+		"body": "ImGui.SetNextWindowFocus()",
+		"description": "void ImGui.SetNextWindowFocus ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetNextWindowBgAlpha": {
+		"prefix": "ImGui.SetNextWindowBgAlpha",
+		"body": "ImGui.SetNextWindowBgAlpha(${1:alpha})",
+		"description": "void ImGui.SetNextWindowBgAlpha (alpha)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetWindowPos": {
+		"prefix": "ImGui.SetWindowPos",
+		"body": "ImGui.SetWindowPos(${1:posX}, ${2:posY})",
+		"description": "void ImGui.SetWindowPos (posX, posY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetWindowPos1": {
+		"prefix": "ImGui.SetWindowPos",
+		"body": "ImGui.SetWindowPos(${1:posX}, ${2:posY}, ${3:cond})",
+		"description": "void ImGui.SetWindowPos (posX, posY, cond)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetWindowPos2": {
+		"prefix": "ImGui.SetWindowPos",
+		"body": "ImGui.SetWindowPos(${1:name}, ${2:posX}, ${3:posY})",
+		"description": "void ImGui.SetWindowPos (name, posX, posY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetWindowPos3": {
+		"prefix": "ImGui.SetWindowPos",
+		"body": "ImGui.SetWindowPos(${1:name}, ${2:posX}, ${3:posY}, ${4:cond})",
+		"description": "void ImGui.SetWindowPos (name, posX, posY, cond)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetWindowSize": {
+		"prefix": "ImGui.SetWindowSize",
+		"body": "ImGui.SetWindowSize(${1:sizeX}, ${2:sizeY})",
+		"description": "void ImGui.SetWindowSize (sizeX, sizeY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetWindowSize1": {
+		"prefix": "ImGui.SetWindowSize",
+		"body": "ImGui.SetWindowSize(${1:sizeX}, ${2:sizeY}, ${3:cond})",
+		"description": "void ImGui.SetWindowSize (sizeX, sizeY, cond)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetWindowSize2": {
+		"prefix": "ImGui.SetWindowSize",
+		"body": "ImGui.SetWindowSize(${1:name}, ${2:sizeX}, ${3:sizeY})",
+		"description": "void ImGui.SetWindowSize (name, sizeX, sizeY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetWindowSize3": {
+		"prefix": "ImGui.SetWindowSize",
+		"body": "ImGui.SetWindowSize(${1:name}, ${2:sizeX}, ${3:sizeY}, ${4:cond})",
+		"description": "void ImGui.SetWindowSize (name, sizeX, sizeY, cond)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetWindowCollapsed": {
+		"prefix": "ImGui.SetWindowCollapsed",
+		"body": "ImGui.SetWindowCollapsed(${1:collapsed})",
+		"description": "void ImGui.SetWindowCollapsed (collapsed)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetWindowCollapsed1": {
+		"prefix": "ImGui.SetWindowCollapsed",
+		"body": "ImGui.SetWindowCollapsed(${1:collapsed}, ${2:cond})",
+		"description": "void ImGui.SetWindowCollapsed (collapsed, cond)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetWindowCollapsed2": {
+		"prefix": "ImGui.SetWindowCollapsed",
+		"body": "ImGui.SetWindowCollapsed(${1:name}, ${2:collapsed})",
+		"description": "void ImGui.SetWindowCollapsed (name, collapsed)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetWindowCollapsed3": {
+		"prefix": "ImGui.SetWindowCollapsed",
+		"body": "ImGui.SetWindowCollapsed(${1:name}, ${2:collapsed}, ${3:cond})",
+		"description": "void ImGui.SetWindowCollapsed (name, collapsed, cond)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetWindowFocus": {
+		"prefix": "ImGui.SetWindowFocus",
+		"body": "ImGui.SetWindowFocus()",
+		"description": "void ImGui.SetWindowFocus ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetWindowFocus1": {
+		"prefix": "ImGui.SetWindowFocus",
+		"body": "ImGui.SetWindowFocus(${1:name})",
+		"description": "void ImGui.SetWindowFocus (name)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetWindowFontScale": {
+		"prefix": "ImGui.SetWindowFontScale",
+		"body": "ImGui.SetWindowFontScale(${1:scale})",
+		"description": "void ImGui.SetWindowFontScale (scale)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetContentRegionMax": {
+		"prefix": "ImGui.GetContentRegionMax",
+		"body": "ImGui.GetContentRegionMax()",
+		"description": "std::tuple<float, float> ImGui.GetContentRegionMax ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetContentRegionAvail": {
+		"prefix": "ImGui.GetContentRegionAvail",
+		"body": "ImGui.GetContentRegionAvail()",
+		"description": "std::tuple<float, float> ImGui.GetContentRegionAvail ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetWindowContentRegionMin": {
+		"prefix": "ImGui.GetWindowContentRegionMin",
+		"body": "ImGui.GetWindowContentRegionMin()",
+		"description": "std::tuple<float, float> ImGui.GetWindowContentRegionMin ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetWindowContentRegionMax": {
+		"prefix": "ImGui.GetWindowContentRegionMax",
+		"body": "ImGui.GetWindowContentRegionMax()",
+		"description": "std::tuple<float, float> ImGui.GetWindowContentRegionMax ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetWindowContentRegionWidth": {
+		"prefix": "ImGui.GetWindowContentRegionWidth",
+		"body": "ImGui.GetWindowContentRegionWidth()",
+		"description": "float ImGui.GetWindowContentRegionWidth ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetScrollX": {
+		"prefix": "ImGui.GetScrollX",
+		"body": "ImGui.GetScrollX()",
+		"description": "float ImGui.GetScrollX ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetScrollY": {
+		"prefix": "ImGui.GetScrollY",
+		"body": "ImGui.GetScrollY()",
+		"description": "float ImGui.GetScrollY ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetScrollMaxX": {
+		"prefix": "ImGui.GetScrollMaxX",
+		"body": "ImGui.GetScrollMaxX()",
+		"description": "float ImGui.GetScrollMaxX ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetScrollMaxY": {
+		"prefix": "ImGui.GetScrollMaxY",
+		"body": "ImGui.GetScrollMaxY()",
+		"description": "float ImGui.GetScrollMaxY ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetScrollX": {
+		"prefix": "ImGui.SetScrollX",
+		"body": "ImGui.SetScrollX(${1:scrollX})",
+		"description": "void ImGui.SetScrollX (scrollX)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetScrollY": {
+		"prefix": "ImGui.SetScrollY",
+		"body": "ImGui.SetScrollY(${1:scrollY})",
+		"description": "void ImGui.SetScrollY (scrollY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetScrollHereX": {
+		"prefix": "ImGui.SetScrollHereX",
+		"body": "ImGui.SetScrollHereX()",
+		"description": "void ImGui.SetScrollHereX ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetScrollHereX1": {
+		"prefix": "ImGui.SetScrollHereX",
+		"body": "ImGui.SetScrollHereX(${1:centerXRatio})",
+		"description": "void ImGui.SetScrollHereX (centerXRatio)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetScrollHereY": {
+		"prefix": "ImGui.SetScrollHereY",
+		"body": "ImGui.SetScrollHereY()",
+		"description": "void ImGui.SetScrollHereY ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetScrollHereY1": {
+		"prefix": "ImGui.SetScrollHereY",
+		"body": "ImGui.SetScrollHereY(${1:centerYRatio})",
+		"description": "void ImGui.SetScrollHereY (centerYRatio)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetScrollFromPosX": {
+		"prefix": "ImGui.SetScrollFromPosX",
+		"body": "ImGui.SetScrollFromPosX(${1:localX})",
+		"description": "void ImGui.SetScrollFromPosX (localX)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetScrollFromPosX1": {
+		"prefix": "ImGui.SetScrollFromPosX",
+		"body": "ImGui.SetScrollFromPosX(${1:localX}, ${2:centerXRatio})",
+		"description": "void ImGui.SetScrollFromPosX (localX, centerXRatio)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetScrollFromPosY": {
+		"prefix": "ImGui.SetScrollFromPosY",
+		"body": "ImGui.SetScrollFromPosY(${1:localY})",
+		"description": "void ImGui.SetScrollFromPosY (localY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetScrollFromPosY1": {
+		"prefix": "ImGui.SetScrollFromPosY",
+		"body": "ImGui.SetScrollFromPosY(${1:localY}, ${2:centerYRatio})",
+		"description": "void ImGui.SetScrollFromPosY (localY, centerYRatio)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PushFont": {
+		"prefix": "ImGui.PushFont",
+		"body": "ImGui.PushFont(${1:pFont})",
+		"description": "void ImGui.PushFont (pFont)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PopFont": {
+		"prefix": "ImGui.PopFont",
+		"body": "ImGui.PopFont()",
+		"description": "void ImGui.PopFont ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PushStyleColor": {
+		"prefix": "ImGui.PushStyleColor",
+		"body": "ImGui.PushStyleColor(${1:idx}, ${2:col})",
+		"description": "void ImGui.PushStyleColor (idx, col)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PushStyleColor1": {
+		"prefix": "ImGui.PushStyleColor",
+		"body": "ImGui.PushStyleColor(${1:idx}, ${2:colR}, ${3:colG}, ${4:colB}, ${5:colA})",
+		"description": "void ImGui.PushStyleColor (idx, colR, colG, colB, colA)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PopStyleColor": {
+		"prefix": "ImGui.PopStyleColor",
+		"body": "ImGui.PopStyleColor()",
+		"description": "void ImGui.PopStyleColor ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PopStyleColor1": {
+		"prefix": "ImGui.PopStyleColor",
+		"body": "ImGui.PopStyleColor(${1:count})",
+		"description": "void ImGui.PopStyleColor (count)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PushStyleVar": {
+		"prefix": "ImGui.PushStyleVar",
+		"body": "ImGui.PushStyleVar(${1:idx}, ${2:val})",
+		"description": "void ImGui.PushStyleVar (idx, val)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PushStyleVar1": {
+		"prefix": "ImGui.PushStyleVar",
+		"body": "ImGui.PushStyleVar(${1:idx}, ${2:valX}, ${3:valY})",
+		"description": "void ImGui.PushStyleVar (idx, valX, valY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PopStyleVar": {
+		"prefix": "ImGui.PopStyleVar",
+		"body": "ImGui.PopStyleVar()",
+		"description": "void ImGui.PopStyleVar ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PopStyleVar1": {
+		"prefix": "ImGui.PopStyleVar",
+		"body": "ImGui.PopStyleVar(${1:count})",
+		"description": "void ImGui.PopStyleVar (count)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetStyleColorVec4": {
+		"prefix": "ImGui.GetStyleColorVec4",
+		"body": "ImGui.GetStyleColorVec4(${1:idx})",
+		"description": "std::tuple<float, float, float, float> ImGui.GetStyleColorVec4 (idx)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetFont": {
+		"prefix": "ImGui.GetFont",
+		"body": "ImGui.GetFont()",
+		"description": "ImFont* ImGui.GetFont ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetFontSize": {
+		"prefix": "ImGui.GetFontSize",
+		"body": "ImGui.GetFontSize()",
+		"description": "float ImGui.GetFontSize ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetFontTexUvWhitePixel": {
+		"prefix": "ImGui.GetFontTexUvWhitePixel",
+		"body": "ImGui.GetFontTexUvWhitePixel()",
+		"description": "std::tuple<float, float> ImGui.GetFontTexUvWhitePixel ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetColorU32": {
+		"prefix": "ImGui.GetColorU32",
+		"body": "ImGui.GetColorU32(${1:idx}, ${2:alphaMul})",
+		"description": "int ImGui.GetColorU32 (idx, alphaMul)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetColorU321": {
+		"prefix": "ImGui.GetColorU32",
+		"body": "ImGui.GetColorU32(${1:colR}, ${2:colG}, ${3:colB}, ${4:colA})",
+		"description": "int ImGui.GetColorU32 (colR, colG, colB, colA)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetColorU322": {
+		"prefix": "ImGui.GetColorU32",
+		"body": "ImGui.GetColorU32(${1:col})",
+		"description": "int ImGui.GetColorU32 (col)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PushItemWidth": {
+		"prefix": "ImGui.PushItemWidth",
+		"body": "ImGui.PushItemWidth(${1:itemWidth})",
+		"description": "void ImGui.PushItemWidth (itemWidth)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PopItemWidth": {
+		"prefix": "ImGui.PopItemWidth",
+		"body": "ImGui.PopItemWidth()",
+		"description": "void ImGui.PopItemWidth ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetNextItemWidth": {
+		"prefix": "ImGui.SetNextItemWidth",
+		"body": "ImGui.SetNextItemWidth(${1:itemWidth})",
+		"description": "void ImGui.SetNextItemWidth (itemWidth)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.CalcItemWidth": {
+		"prefix": "ImGui.CalcItemWidth",
+		"body": "ImGui.CalcItemWidth()",
+		"description": "float ImGui.CalcItemWidth ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PushTextWrapPos": {
+		"prefix": "ImGui.PushTextWrapPos",
+		"body": "ImGui.PushTextWrapPos()",
+		"description": "void ImGui.PushTextWrapPos ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PushTextWrapPos1": {
+		"prefix": "ImGui.PushTextWrapPos",
+		"body": "ImGui.PushTextWrapPos(${1:wrapLocalPosX})",
+		"description": "void ImGui.PushTextWrapPos (wrapLocalPosX)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PopTextWrapPos": {
+		"prefix": "ImGui.PopTextWrapPos",
+		"body": "ImGui.PopTextWrapPos()",
+		"description": "void ImGui.PopTextWrapPos ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PushAllowKeyboardFocus": {
+		"prefix": "ImGui.PushAllowKeyboardFocus",
+		"body": "ImGui.PushAllowKeyboardFocus(${1:allowKeyboardFocus})",
+		"description": "void ImGui.PushAllowKeyboardFocus (allowKeyboardFocus)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PopAllowKeyboardFocus": {
+		"prefix": "ImGui.PopAllowKeyboardFocus",
+		"body": "ImGui.PopAllowKeyboardFocus()",
+		"description": "void ImGui.PopAllowKeyboardFocus ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PushButtonRepeat": {
+		"prefix": "ImGui.PushButtonRepeat",
+		"body": "ImGui.PushButtonRepeat(${1:repeat})",
+		"description": "void ImGui.PushButtonRepeat (repeat)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PopButtonRepeat": {
+		"prefix": "ImGui.PopButtonRepeat",
+		"body": "ImGui.PopButtonRepeat()",
+		"description": "void ImGui.PopButtonRepeat ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Separator": {
+		"prefix": "ImGui.Separator",
+		"body": "ImGui.Separator()",
+		"description": "void ImGui.Separator ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SameLine": {
+		"prefix": "ImGui.SameLine",
+		"body": "ImGui.SameLine()",
+		"description": "void ImGui.SameLine ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SameLine1": {
+		"prefix": "ImGui.SameLine",
+		"body": "ImGui.SameLine(${1:offsetFromStartX})",
+		"description": "void ImGui.SameLine (offsetFromStartX)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SameLine2": {
+		"prefix": "ImGui.SameLine",
+		"body": "ImGui.SameLine(${1:offsetFromStartX}, ${2:spacing})",
+		"description": "void ImGui.SameLine (offsetFromStartX, spacing)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.NewLine": {
+		"prefix": "ImGui.NewLine",
+		"body": "ImGui.NewLine()",
+		"description": "void ImGui.NewLine ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Spacing": {
+		"prefix": "ImGui.Spacing",
+		"body": "ImGui.Spacing()",
+		"description": "void ImGui.Spacing ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Dummy": {
+		"prefix": "ImGui.Dummy",
+		"body": "ImGui.Dummy(${1:sizeX}, ${2:sizeY})",
+		"description": "void ImGui.Dummy (sizeX, sizeY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Indent": {
+		"prefix": "ImGui.Indent",
+		"body": "ImGui.Indent()",
+		"description": "void ImGui.Indent ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Indent1": {
+		"prefix": "ImGui.Indent",
+		"body": "ImGui.Indent(${1:indentW})",
+		"description": "void ImGui.Indent (indentW)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Unindent": {
+		"prefix": "ImGui.Unindent",
+		"body": "ImGui.Unindent()",
+		"description": "void ImGui.Unindent ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Unindent1": {
+		"prefix": "ImGui.Unindent",
+		"body": "ImGui.Unindent(${1:indentW})",
+		"description": "void ImGui.Unindent (indentW)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginGroup": {
+		"prefix": "ImGui.BeginGroup",
+		"body": "ImGui.BeginGroup()",
+		"description": "void ImGui.BeginGroup ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.EndGroup": {
+		"prefix": "ImGui.EndGroup",
+		"body": "ImGui.EndGroup()",
+		"description": "void ImGui.EndGroup ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetCursorPos": {
+		"prefix": "ImGui.GetCursorPos",
+		"body": "ImGui.GetCursorPos()",
+		"description": "std::tuple<float, float> ImGui.GetCursorPos ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetCursorPosX": {
+		"prefix": "ImGui.GetCursorPosX",
+		"body": "ImGui.GetCursorPosX()",
+		"description": "float ImGui.GetCursorPosX ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetCursorPosY": {
+		"prefix": "ImGui.GetCursorPosY",
+		"body": "ImGui.GetCursorPosY()",
+		"description": "float ImGui.GetCursorPosY ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetCursorPos": {
+		"prefix": "ImGui.SetCursorPos",
+		"body": "ImGui.SetCursorPos(${1:localX}, ${2:localY})",
+		"description": "void ImGui.SetCursorPos (localX, localY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetCursorPosX": {
+		"prefix": "ImGui.SetCursorPosX",
+		"body": "ImGui.SetCursorPosX(${1:localX})",
+		"description": "void ImGui.SetCursorPosX (localX)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetCursorPosY": {
+		"prefix": "ImGui.SetCursorPosY",
+		"body": "ImGui.SetCursorPosY(${1:localY})",
+		"description": "void ImGui.SetCursorPosY (localY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetCursorStartPos": {
+		"prefix": "ImGui.GetCursorStartPos",
+		"body": "ImGui.GetCursorStartPos()",
+		"description": "std::tuple<float, float> ImGui.GetCursorStartPos ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetCursorScreenPos": {
+		"prefix": "ImGui.GetCursorScreenPos",
+		"body": "ImGui.GetCursorScreenPos()",
+		"description": "std::tuple<float, float> ImGui.GetCursorScreenPos ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetCursorScreenPos": {
+		"prefix": "ImGui.SetCursorScreenPos",
+		"body": "ImGui.SetCursorScreenPos(${1:posX}, ${2:posY})",
+		"description": "void ImGui.SetCursorScreenPos (posX, posY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.AlignTextToFramePadding": {
+		"prefix": "ImGui.AlignTextToFramePadding",
+		"body": "ImGui.AlignTextToFramePadding()",
+		"description": "void ImGui.AlignTextToFramePadding ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetTextLineHeight": {
+		"prefix": "ImGui.GetTextLineHeight",
+		"body": "ImGui.GetTextLineHeight()",
+		"description": "float ImGui.GetTextLineHeight ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetTextLineHeightWithSpacing": {
+		"prefix": "ImGui.GetTextLineHeightWithSpacing",
+		"body": "ImGui.GetTextLineHeightWithSpacing()",
+		"description": "float ImGui.GetTextLineHeightWithSpacing ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetFrameHeight": {
+		"prefix": "ImGui.GetFrameHeight",
+		"body": "ImGui.GetFrameHeight()",
+		"description": "float ImGui.GetFrameHeight ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetFrameHeightWithSpacing": {
+		"prefix": "ImGui.GetFrameHeightWithSpacing",
+		"body": "ImGui.GetFrameHeightWithSpacing()",
+		"description": "float ImGui.GetFrameHeightWithSpacing ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PushID": {
+		"prefix": "ImGui.PushID",
+		"body": "ImGui.PushID(${1:stringID})",
+		"description": "void ImGui.PushID (stringID)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PushID1": {
+		"prefix": "ImGui.PushID",
+		"body": "ImGui.PushID(${1:stringIDBegin}, ${2:stringIDEnd})",
+		"description": "void ImGui.PushID (stringIDBegin, stringIDEnd)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PushID2": {
+		"prefix": "ImGui.PushID",
+		"body": "ImGui.PushID(${1:intID})",
+		"description": "void ImGui.PushID (intID)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PopID": {
+		"prefix": "ImGui.PopID",
+		"body": "ImGui.PopID()",
+		"description": "void ImGui.PopID ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetID": {
+		"prefix": "ImGui.GetID",
+		"body": "ImGui.GetID(${1:stringID})",
+		"description": "int ImGui.GetID (stringID)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetID1": {
+		"prefix": "ImGui.GetID",
+		"body": "ImGui.GetID(${1:stringIDBegin}, ${2:stringIDEnd})",
+		"description": "int ImGui.GetID (stringIDBegin, stringIDEnd)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.TextUnformatted": {
+		"prefix": "ImGui.TextUnformatted",
+		"body": "ImGui.TextUnformatted(${1:text})",
+		"description": "void ImGui.TextUnformatted (text)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.TextUnformatted1": {
+		"prefix": "ImGui.TextUnformatted",
+		"body": "ImGui.TextUnformatted(${1:text}, ${2:textEnd})",
+		"description": "void ImGui.TextUnformatted (text, textEnd)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Text": {
+		"prefix": "ImGui.Text",
+		"body": "ImGui.Text(${1:text})",
+		"description": "void ImGui.Text (text)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.TextColored": {
+		"prefix": "ImGui.TextColored",
+		"body": "ImGui.TextColored(${1:colR}, ${2:colG}, ${3:colB}, ${4:colA}, ${5:text})",
+		"description": "void ImGui.TextColored (colR, colG, colB, colA, text)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.TextDisabled": {
+		"prefix": "ImGui.TextDisabled",
+		"body": "ImGui.TextDisabled(${1:text})",
+		"description": "void ImGui.TextDisabled (text)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.TextWrapped": {
+		"prefix": "ImGui.TextWrapped",
+		"body": "ImGui.TextWrapped(${1:text})",
+		"description": "void ImGui.TextWrapped (text)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.LabelText": {
+		"prefix": "ImGui.LabelText",
+		"body": "ImGui.LabelText(${1:label}, ${2:text})",
+		"description": "void ImGui.LabelText (label, text)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BulletText": {
+		"prefix": "ImGui.BulletText",
+		"body": "ImGui.BulletText(${1:text})",
+		"description": "void ImGui.BulletText (text)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Button": {
+		"prefix": "ImGui.Button",
+		"body": "ImGui.Button(${1:label})",
+		"description": "bool ImGui.Button (label)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Button1": {
+		"prefix": "ImGui.Button",
+		"body": "ImGui.Button(${1:label}, ${2:sizeX}, ${3:sizeY})",
+		"description": "bool ImGui.Button (label, sizeX, sizeY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SmallButton": {
+		"prefix": "ImGui.SmallButton",
+		"body": "ImGui.SmallButton(${1:label})",
+		"description": "bool ImGui.SmallButton (label)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InvisibleButton": {
+		"prefix": "ImGui.InvisibleButton",
+		"body": "ImGui.InvisibleButton(${1:stringID}, ${2:sizeX}, ${3:sizeY})",
+		"description": "bool ImGui.InvisibleButton (stringID, sizeX, sizeY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ArrowButton": {
+		"prefix": "ImGui.ArrowButton",
+		"body": "ImGui.ArrowButton(${1:stringID}, ${2:dir})",
+		"description": "bool ImGui.ArrowButton (stringID, dir)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Checkbox": {
+		"prefix": "ImGui.Checkbox",
+		"body": "ImGui.Checkbox(${1:label}, ${2:v})",
+		"description": "std::tuple<bool, bool> ImGui.Checkbox (label, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.CheckboxFlags": {
+		"prefix": "ImGui.CheckboxFlags",
+		"body": "ImGui.CheckboxFlags()",
+		"description": "bool ImGui.CheckboxFlags ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.RadioButton": {
+		"prefix": "ImGui.RadioButton",
+		"body": "ImGui.RadioButton(${1:label}, ${2:active})",
+		"description": "bool ImGui.RadioButton (label, active)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.RadioButton1": {
+		"prefix": "ImGui.RadioButton",
+		"body": "ImGui.RadioButton(${1:label}, ${2:v}, ${3:vButton})",
+		"description": "std::tuple<int, bool> ImGui.RadioButton (label, v, vButton)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ProgressBar": {
+		"prefix": "ImGui.ProgressBar",
+		"body": "ImGui.ProgressBar(${1:fraction})",
+		"description": "void ImGui.ProgressBar (fraction)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ProgressBar1": {
+		"prefix": "ImGui.ProgressBar",
+		"body": "ImGui.ProgressBar(${1:fraction}, ${2:sizeX}, ${3:sizeY})",
+		"description": "void ImGui.ProgressBar (fraction, sizeX, sizeY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ProgressBar2": {
+		"prefix": "ImGui.ProgressBar",
+		"body": "ImGui.ProgressBar(${1:fraction}, ${2:sizeX}, ${3:sizeY}, ${4:overlay})",
+		"description": "void ImGui.ProgressBar (fraction, sizeX, sizeY, overlay)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Bullet": {
+		"prefix": "ImGui.Bullet",
+		"body": "ImGui.Bullet()",
+		"description": "void ImGui.Bullet ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginCombo": {
+		"prefix": "ImGui.BeginCombo",
+		"body": "ImGui.BeginCombo(${1:label}, ${2:previewValue})",
+		"description": "bool ImGui.BeginCombo (label, previewValue)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginCombo1": {
+		"prefix": "ImGui.BeginCombo",
+		"body": "ImGui.BeginCombo(${1:label}, ${2:previewValue}, ${3:flags})",
+		"description": "bool ImGui.BeginCombo (label, previewValue, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.EndCombo": {
+		"prefix": "ImGui.EndCombo",
+		"body": "ImGui.EndCombo()",
+		"description": "void ImGui.EndCombo ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Combo": {
+		"prefix": "ImGui.Combo",
+		"body": "ImGui.Combo(${1:label}, ${2:currentItem}, ${3:items}, ${4:itemsCount})",
+		"description": "std::tuple<int, bool> ImGui.Combo (label, currentItem, items, itemsCount)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Combo1": {
+		"prefix": "ImGui.Combo",
+		"body": "ImGui.Combo(${1:label}, ${2:currentItem}, ${3:items}, ${4:itemsCount}, ${5:popupMaxHeightInItems})",
+		"description": "std::tuple<int, bool> ImGui.Combo (label, currentItem, items, itemsCount, popupMaxHeightInItems)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Combo2": {
+		"prefix": "ImGui.Combo",
+		"body": "ImGui.Combo(${1:label}, ${2:currentItem}, ${3:itemsSeparatedByZeros})",
+		"description": "std::tuple<int, bool> ImGui.Combo (label, currentItem, itemsSeparatedByZeros)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Combo3": {
+		"prefix": "ImGui.Combo",
+		"body": "ImGui.Combo(${1:label}, ${2:currentItem}, ${3:itemsSeparatedByZeros}, ${4:popupMaxHeightInItems})",
+		"description": "std::tuple<int, bool> ImGui.Combo (label, currentItem, itemsSeparatedByZeros, popupMaxHeightInItems)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat": {
+		"prefix": "ImGui.DragFloat",
+		"body": "ImGui.DragFloat(${1:label}, ${2:v})",
+		"description": "std::tuple<float, bool> ImGui.DragFloat (label, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat1": {
+		"prefix": "ImGui.DragFloat",
+		"body": "ImGui.DragFloat(${1:label}, ${2:v}, ${3:v_speed})",
+		"description": "std::tuple<float, bool> ImGui.DragFloat (label, v, v_speed)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat2": {
+		"prefix": "ImGui.DragFloat",
+		"body": "ImGui.DragFloat(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min})",
+		"description": "std::tuple<float, bool> ImGui.DragFloat (label, v, v_speed, v_min)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat3": {
+		"prefix": "ImGui.DragFloat",
+		"body": "ImGui.DragFloat(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max})",
+		"description": "std::tuple<float, bool> ImGui.DragFloat (label, v, v_speed, v_min, v_max)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat4": {
+		"prefix": "ImGui.DragFloat",
+		"body": "ImGui.DragFloat(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format})",
+		"description": "std::tuple<float, bool> ImGui.DragFloat (label, v, v_speed, v_min, v_max, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat5": {
+		"prefix": "ImGui.DragFloat",
+		"body": "ImGui.DragFloat(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format}, ${7:power})",
+		"description": "std::tuple<float, bool> ImGui.DragFloat (label, v, v_speed, v_min, v_max, format, power)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat2": {
+		"prefix": "ImGui.DragFloat2",
+		"body": "ImGui.DragFloat2(${1:label}, ${2:v})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat2 (label, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat21": {
+		"prefix": "ImGui.DragFloat2",
+		"body": "ImGui.DragFloat2(${1:label}, ${2:v}, ${3:v_speed})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat2 (label, v, v_speed)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat22": {
+		"prefix": "ImGui.DragFloat2",
+		"body": "ImGui.DragFloat2(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat2 (label, v, v_speed, v_min)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat23": {
+		"prefix": "ImGui.DragFloat2",
+		"body": "ImGui.DragFloat2(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat2 (label, v, v_speed, v_min, v_max)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat24": {
+		"prefix": "ImGui.DragFloat2",
+		"body": "ImGui.DragFloat2(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat2 (label, v, v_speed, v_min, v_max, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat25": {
+		"prefix": "ImGui.DragFloat2",
+		"body": "ImGui.DragFloat2(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format}, ${7:power})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat2 (label, v, v_speed, v_min, v_max, format, power)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat3": {
+		"prefix": "ImGui.DragFloat3",
+		"body": "ImGui.DragFloat3(${1:label}, ${2:v})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat3 (label, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat31": {
+		"prefix": "ImGui.DragFloat3",
+		"body": "ImGui.DragFloat3(${1:label}, ${2:v}, ${3:v_speed})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat3 (label, v, v_speed)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat32": {
+		"prefix": "ImGui.DragFloat3",
+		"body": "ImGui.DragFloat3(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat3 (label, v, v_speed, v_min)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat33": {
+		"prefix": "ImGui.DragFloat3",
+		"body": "ImGui.DragFloat3(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat3 (label, v, v_speed, v_min, v_max)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat34": {
+		"prefix": "ImGui.DragFloat3",
+		"body": "ImGui.DragFloat3(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat3 (label, v, v_speed, v_min, v_max, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat35": {
+		"prefix": "ImGui.DragFloat3",
+		"body": "ImGui.DragFloat3(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format}, ${7:power})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat3 (label, v, v_speed, v_min, v_max, format, power)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat4": {
+		"prefix": "ImGui.DragFloat4",
+		"body": "ImGui.DragFloat4(${1:label}, ${2:v})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat4 (label, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat41": {
+		"prefix": "ImGui.DragFloat4",
+		"body": "ImGui.DragFloat4(${1:label}, ${2:v}, ${3:v_speed})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat4 (label, v, v_speed)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat42": {
+		"prefix": "ImGui.DragFloat4",
+		"body": "ImGui.DragFloat4(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat4 (label, v, v_speed, v_min)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat43": {
+		"prefix": "ImGui.DragFloat4",
+		"body": "ImGui.DragFloat4(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat4 (label, v, v_speed, v_min, v_max)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat44": {
+		"prefix": "ImGui.DragFloat4",
+		"body": "ImGui.DragFloat4(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat4 (label, v, v_speed, v_min, v_max, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragFloat45": {
+		"prefix": "ImGui.DragFloat4",
+		"body": "ImGui.DragFloat4(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format}, ${7:power})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat4 (label, v, v_speed, v_min, v_max, format, power)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt": {
+		"prefix": "ImGui.DragInt",
+		"body": "ImGui.DragInt(${1:label}, ${2:v})",
+		"description": "std::tuple<int, bool> ImGui.DragInt (label, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt1": {
+		"prefix": "ImGui.DragInt",
+		"body": "ImGui.DragInt(${1:label}, ${2:v}, ${3:v_speed})",
+		"description": "std::tuple<int, bool> ImGui.DragInt (label, v, v_speed)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt2": {
+		"prefix": "ImGui.DragInt",
+		"body": "ImGui.DragInt(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min})",
+		"description": "std::tuple<int, bool> ImGui.DragInt (label, v, v_speed, v_min)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt3": {
+		"prefix": "ImGui.DragInt",
+		"body": "ImGui.DragInt(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max})",
+		"description": "std::tuple<int, bool> ImGui.DragInt (label, v, v_speed, v_min, v_max)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt4": {
+		"prefix": "ImGui.DragInt",
+		"body": "ImGui.DragInt(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format})",
+		"description": "std::tuple<int, bool> ImGui.DragInt (label, v, v_speed, v_min, v_max, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt2": {
+		"prefix": "ImGui.DragInt2",
+		"body": "ImGui.DragInt2(${1:label}, ${2:v})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt2 (label, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt21": {
+		"prefix": "ImGui.DragInt2",
+		"body": "ImGui.DragInt2(${1:label}, ${2:v}, ${3:v_speed})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt2 (label, v, v_speed)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt22": {
+		"prefix": "ImGui.DragInt2",
+		"body": "ImGui.DragInt2(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt2 (label, v, v_speed, v_min)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt23": {
+		"prefix": "ImGui.DragInt2",
+		"body": "ImGui.DragInt2(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt2 (label, v, v_speed, v_min, v_max)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt24": {
+		"prefix": "ImGui.DragInt2",
+		"body": "ImGui.DragInt2(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt2 (label, v, v_speed, v_min, v_max, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt3": {
+		"prefix": "ImGui.DragInt3",
+		"body": "ImGui.DragInt3(${1:label}, ${2:v})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt3 (label, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt31": {
+		"prefix": "ImGui.DragInt3",
+		"body": "ImGui.DragInt3(${1:label}, ${2:v}, ${3:v_speed})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt3 (label, v, v_speed)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt32": {
+		"prefix": "ImGui.DragInt3",
+		"body": "ImGui.DragInt3(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt3 (label, v, v_speed, v_min)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt33": {
+		"prefix": "ImGui.DragInt3",
+		"body": "ImGui.DragInt3(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt3 (label, v, v_speed, v_min, v_max)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt34": {
+		"prefix": "ImGui.DragInt3",
+		"body": "ImGui.DragInt3(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt3 (label, v, v_speed, v_min, v_max, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt4": {
+		"prefix": "ImGui.DragInt4",
+		"body": "ImGui.DragInt4(${1:label}, ${2:v})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt4 (label, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt41": {
+		"prefix": "ImGui.DragInt4",
+		"body": "ImGui.DragInt4(${1:label}, ${2:v}, ${3:v_speed})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt4 (label, v, v_speed)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt42": {
+		"prefix": "ImGui.DragInt4",
+		"body": "ImGui.DragInt4(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt4 (label, v, v_speed, v_min)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt43": {
+		"prefix": "ImGui.DragInt4",
+		"body": "ImGui.DragInt4(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt4 (label, v, v_speed, v_min, v_max)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DragInt44": {
+		"prefix": "ImGui.DragInt4",
+		"body": "ImGui.DragInt4(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt4 (label, v, v_speed, v_min, v_max, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderFloat": {
+		"prefix": "ImGui.SliderFloat",
+		"body": "ImGui.SliderFloat(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max})",
+		"description": "std::tuple<float, bool> ImGui.SliderFloat (label, v, v_min, v_max)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderFloat1": {
+		"prefix": "ImGui.SliderFloat",
+		"body": "ImGui.SliderFloat(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max}, ${5:format})",
+		"description": "std::tuple<float, bool> ImGui.SliderFloat (label, v, v_min, v_max, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderFloat2": {
+		"prefix": "ImGui.SliderFloat",
+		"body": "ImGui.SliderFloat(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max}, ${5:format}, ${6:power})",
+		"description": "std::tuple<float, bool> ImGui.SliderFloat (label, v, v_min, v_max, format, power)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderFloat2": {
+		"prefix": "ImGui.SliderFloat2",
+		"body": "ImGui.SliderFloat2(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.SliderFloat2 (label, v, v_min, v_max)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderFloat21": {
+		"prefix": "ImGui.SliderFloat2",
+		"body": "ImGui.SliderFloat2(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max}, ${5:format})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.SliderFloat2 (label, v, v_min, v_max, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderFloat22": {
+		"prefix": "ImGui.SliderFloat2",
+		"body": "ImGui.SliderFloat2(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max}, ${5:format}, ${6:power})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.SliderFloat2 (label, v, v_min, v_max, format, power)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderFloat3": {
+		"prefix": "ImGui.SliderFloat3",
+		"body": "ImGui.SliderFloat3(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.SliderFloat3 (label, v, v_min, v_max)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderFloat31": {
+		"prefix": "ImGui.SliderFloat3",
+		"body": "ImGui.SliderFloat3(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max}, ${5:format})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.SliderFloat3 (label, v, v_min, v_max, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderFloat32": {
+		"prefix": "ImGui.SliderFloat3",
+		"body": "ImGui.SliderFloat3(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max}, ${5:format}, ${6:power})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.SliderFloat3 (label, v, v_min, v_max, format, power)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderFloat4": {
+		"prefix": "ImGui.SliderFloat4",
+		"body": "ImGui.SliderFloat4(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.SliderFloat4 (label, v, v_min, v_max)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderFloat41": {
+		"prefix": "ImGui.SliderFloat4",
+		"body": "ImGui.SliderFloat4(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max}, ${5:format})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.SliderFloat4 (label, v, v_min, v_max, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderFloat42": {
+		"prefix": "ImGui.SliderFloat4",
+		"body": "ImGui.SliderFloat4(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max}, ${5:format}, ${6:power})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.SliderFloat4 (label, v, v_min, v_max, format, power)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderAngle": {
+		"prefix": "ImGui.SliderAngle",
+		"body": "ImGui.SliderAngle(${1:label}, ${2:v_rad})",
+		"description": "std::tuple<float, bool> ImGui.SliderAngle (label, v_rad)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderAngle1": {
+		"prefix": "ImGui.SliderAngle",
+		"body": "ImGui.SliderAngle(${1:label}, ${2:v_rad}, ${3:v_degrees_min})",
+		"description": "std::tuple<float, bool> ImGui.SliderAngle (label, v_rad, v_degrees_min)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderAngle2": {
+		"prefix": "ImGui.SliderAngle",
+		"body": "ImGui.SliderAngle(${1:label}, ${2:v_rad}, ${3:v_degrees_min}, ${4:v_degrees_max})",
+		"description": "std::tuple<float, bool> ImGui.SliderAngle (label, v_rad, v_degrees_min, v_degrees_max)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderAngle3": {
+		"prefix": "ImGui.SliderAngle",
+		"body": "ImGui.SliderAngle(${1:label}, ${2:v_rad}, ${3:v_degrees_min}, ${4:v_degrees_max}, ${5:format})",
+		"description": "std::tuple<float, bool> ImGui.SliderAngle (label, v_rad, v_degrees_min, v_degrees_max, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderInt": {
+		"prefix": "ImGui.SliderInt",
+		"body": "ImGui.SliderInt(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max})",
+		"description": "std::tuple<int, bool> ImGui.SliderInt (label, v, v_min, v_max)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderInt1": {
+		"prefix": "ImGui.SliderInt",
+		"body": "ImGui.SliderInt(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max}, ${5:format})",
+		"description": "std::tuple<int, bool> ImGui.SliderInt (label, v, v_min, v_max, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderInt2": {
+		"prefix": "ImGui.SliderInt2",
+		"body": "ImGui.SliderInt2(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.SliderInt2 (label, v, v_min, v_max)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderInt21": {
+		"prefix": "ImGui.SliderInt2",
+		"body": "ImGui.SliderInt2(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max}, ${5:format})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.SliderInt2 (label, v, v_min, v_max, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderInt3": {
+		"prefix": "ImGui.SliderInt3",
+		"body": "ImGui.SliderInt3(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.SliderInt3 (label, v, v_min, v_max)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderInt31": {
+		"prefix": "ImGui.SliderInt3",
+		"body": "ImGui.SliderInt3(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max}, ${5:format})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.SliderInt3 (label, v, v_min, v_max, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderInt4": {
+		"prefix": "ImGui.SliderInt4",
+		"body": "ImGui.SliderInt4(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.SliderInt4 (label, v, v_min, v_max)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SliderInt41": {
+		"prefix": "ImGui.SliderInt4",
+		"body": "ImGui.SliderInt4(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max}, ${5:format})",
+		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.SliderInt4 (label, v, v_min, v_max, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.VSliderFloat": {
+		"prefix": "ImGui.VSliderFloat",
+		"body": "ImGui.VSliderFloat(${1:label}, ${2:sizeX}, ${3:sizeY}, ${4:v}, ${5:v_min}, ${6:v_max})",
+		"description": "std::tuple<float, bool> ImGui.VSliderFloat (label, sizeX, sizeY, v, v_min, v_max)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.VSliderFloat1": {
+		"prefix": "ImGui.VSliderFloat",
+		"body": "ImGui.VSliderFloat(${1:label}, ${2:sizeX}, ${3:sizeY}, ${4:v}, ${5:v_min}, ${6:v_max}, ${7:format})",
+		"description": "std::tuple<float, bool> ImGui.VSliderFloat (label, sizeX, sizeY, v, v_min, v_max, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.VSliderFloat2": {
+		"prefix": "ImGui.VSliderFloat",
+		"body": "ImGui.VSliderFloat(${1:label}, ${2:sizeX}, ${3:sizeY}, ${4:v}, ${5:v_min}, ${6:v_max}, ${7:format}, ${8:power})",
+		"description": "std::tuple<float, bool> ImGui.VSliderFloat (label, sizeX, sizeY, v, v_min, v_max, format, power)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.VSliderInt": {
+		"prefix": "ImGui.VSliderInt",
+		"body": "ImGui.VSliderInt(${1:label}, ${2:sizeX}, ${3:sizeY}, ${4:v}, ${5:v_min}, ${6:v_max})",
+		"description": "std::tuple<int, bool> ImGui.VSliderInt (label, sizeX, sizeY, v, v_min, v_max)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.VSliderInt1": {
+		"prefix": "ImGui.VSliderInt",
+		"body": "ImGui.VSliderInt(${1:label}, ${2:sizeX}, ${3:sizeY}, ${4:v}, ${5:v_min}, ${6:v_max}, ${7:format})",
+		"description": "std::tuple<int, bool> ImGui.VSliderInt (label, sizeX, sizeY, v, v_min, v_max, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputText": {
+		"prefix": "ImGui.InputText",
+		"body": "ImGui.InputText(${1:label}, ${2:text}, ${3:int})",
+		"description": "std::tuple<std::string, bool> ImGui.InputText (label, text, int)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputText1": {
+		"prefix": "ImGui.InputText",
+		"body": "ImGui.InputText(${1:label}, ${2:text}, ${3:int}, ${4:flags})",
+		"description": "std::tuple<std::string, bool> ImGui.InputText (label, text, int, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputTextMultiline": {
+		"prefix": "ImGui.InputTextMultiline",
+		"body": "ImGui.InputTextMultiline(${1:label}, ${2:text}, ${3:int})",
+		"description": "std::tuple<std::string, bool> ImGui.InputTextMultiline (label, text, int)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputTextMultiline1": {
+		"prefix": "ImGui.InputTextMultiline",
+		"body": "ImGui.InputTextMultiline(${1:label}, ${2:text}, ${3:int}, ${4:sizeX}, ${5:sizeY})",
+		"description": "std::tuple<std::string, bool> ImGui.InputTextMultiline (label, text, int, sizeX, sizeY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputTextMultiline2": {
+		"prefix": "ImGui.InputTextMultiline",
+		"body": "ImGui.InputTextMultiline(${1:label}, ${2:text}, ${3:int}, ${4:sizeX}, ${5:sizeY}, ${6:flags})",
+		"description": "std::tuple<std::string, bool> ImGui.InputTextMultiline (label, text, int, sizeX, sizeY, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputTextWithHint": {
+		"prefix": "ImGui.InputTextWithHint",
+		"body": "ImGui.InputTextWithHint(${1:label}, ${2:hint}, ${3:text}, ${4:int})",
+		"description": "std::tuple<std::string, bool> ImGui.InputTextWithHint (label, hint, text, int)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputTextWithHint1": {
+		"prefix": "ImGui.InputTextWithHint",
+		"body": "ImGui.InputTextWithHint(${1:label}, ${2:hint}, ${3:text}, ${4:int}, ${5:flags})",
+		"description": "std::tuple<std::string, bool> ImGui.InputTextWithHint (label, hint, text, int, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputFloat": {
+		"prefix": "ImGui.InputFloat",
+		"body": "ImGui.InputFloat(${1:label}, ${2:v})",
+		"description": "std::tuple<float, bool> ImGui.InputFloat (label, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputFloat1": {
+		"prefix": "ImGui.InputFloat",
+		"body": "ImGui.InputFloat(${1:label}, ${2:v}, ${3:step})",
+		"description": "std::tuple<float, bool> ImGui.InputFloat (label, v, step)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputFloat2": {
+		"prefix": "ImGui.InputFloat",
+		"body": "ImGui.InputFloat(${1:label}, ${2:v}, ${3:step}, ${4:step_fast})",
+		"description": "std::tuple<float, bool> ImGui.InputFloat (label, v, step, step_fast)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputFloat3": {
+		"prefix": "ImGui.InputFloat",
+		"body": "ImGui.InputFloat(${1:label}, ${2:v}, ${3:step}, ${4:step_fast}, ${5:format})",
+		"description": "std::tuple<float, bool> ImGui.InputFloat (label, v, step, step_fast, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputFloat4": {
+		"prefix": "ImGui.InputFloat",
+		"body": "ImGui.InputFloat(${1:label}, ${2:v}, ${3:step}, ${4:step_fast}, ${5:format}, ${6:flags})",
+		"description": "std::tuple<float, bool> ImGui.InputFloat (label, v, step, step_fast, format, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputFloat2": {
+		"prefix": "ImGui.InputFloat2",
+		"body": "ImGui.InputFloat2(${1:label}, ${2:v})",
+		"description": "std::tuple <sol::as_table_t<std::vector<float>>, bool> ImGui.InputFloat2 (label, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputFloat21": {
+		"prefix": "ImGui.InputFloat2",
+		"body": "ImGui.InputFloat2(${1:label}, ${2:v}, ${3:format})",
+		"description": "std::tuple <sol::as_table_t<std::vector<float>>, bool> ImGui.InputFloat2 (label, v, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputFloat22": {
+		"prefix": "ImGui.InputFloat2",
+		"body": "ImGui.InputFloat2(${1:label}, ${2:v}, ${3:format}, ${4:flags})",
+		"description": "std::tuple <sol::as_table_t<std::vector<float>>, bool> ImGui.InputFloat2 (label, v, format, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputFloat3": {
+		"prefix": "ImGui.InputFloat3",
+		"body": "ImGui.InputFloat3(${1:label}, ${2:v})",
+		"description": "std::tuple <sol::as_table_t<std::vector<float>>, bool> ImGui.InputFloat3 (label, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputFloat31": {
+		"prefix": "ImGui.InputFloat3",
+		"body": "ImGui.InputFloat3(${1:label}, ${2:v}, ${3:format})",
+		"description": "std::tuple <sol::as_table_t<std::vector<float>>, bool> ImGui.InputFloat3 (label, v, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputFloat32": {
+		"prefix": "ImGui.InputFloat3",
+		"body": "ImGui.InputFloat3(${1:label}, ${2:v}, ${3:format}, ${4:flags})",
+		"description": "std::tuple <sol::as_table_t<std::vector<float>>, bool> ImGui.InputFloat3 (label, v, format, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputFloat4": {
+		"prefix": "ImGui.InputFloat4",
+		"body": "ImGui.InputFloat4(${1:label}, ${2:v})",
+		"description": "std::tuple <sol::as_table_t<std::vector<float>>, bool> ImGui.InputFloat4 (label, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputFloat41": {
+		"prefix": "ImGui.InputFloat4",
+		"body": "ImGui.InputFloat4(${1:label}, ${2:v}, ${3:format})",
+		"description": "std::tuple <sol::as_table_t<std::vector<float>>, bool> ImGui.InputFloat4 (label, v, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputFloat42": {
+		"prefix": "ImGui.InputFloat4",
+		"body": "ImGui.InputFloat4(${1:label}, ${2:v}, ${3:format}, ${4:flags})",
+		"description": "std::tuple <sol::as_table_t<std::vector<float>>, bool> ImGui.InputFloat4 (label, v, format, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputInt": {
+		"prefix": "ImGui.InputInt",
+		"body": "ImGui.InputInt(${1:label}, ${2:v})",
+		"description": "std::tuple<int, bool> ImGui.InputInt (label, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputInt1": {
+		"prefix": "ImGui.InputInt",
+		"body": "ImGui.InputInt(${1:label}, ${2:v}, ${3:step})",
+		"description": "std::tuple<int, bool> ImGui.InputInt (label, v, step)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputInt2": {
+		"prefix": "ImGui.InputInt",
+		"body": "ImGui.InputInt(${1:label}, ${2:v}, ${3:step}, ${4:step_fast})",
+		"description": "std::tuple<int, bool> ImGui.InputInt (label, v, step, step_fast)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputInt3": {
+		"prefix": "ImGui.InputInt",
+		"body": "ImGui.InputInt(${1:label}, ${2:v}, ${3:step}, ${4:step_fast}, ${5:flags})",
+		"description": "std::tuple<int, bool> ImGui.InputInt (label, v, step, step_fast, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputInt2": {
+		"prefix": "ImGui.InputInt2",
+		"body": "ImGui.InputInt2(${1:label}, ${2:v})",
+		"description": "std::tuple <sol::as_table_t<std::vector<int>>, bool> ImGui.InputInt2 (label, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputInt21": {
+		"prefix": "ImGui.InputInt2",
+		"body": "ImGui.InputInt2(${1:label}, ${2:v}, ${3:flags})",
+		"description": "std::tuple <sol::as_table_t<std::vector<int>>, bool> ImGui.InputInt2 (label, v, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputInt3": {
+		"prefix": "ImGui.InputInt3",
+		"body": "ImGui.InputInt3(${1:label}, ${2:v})",
+		"description": "std::tuple <sol::as_table_t<std::vector<int>>, bool> ImGui.InputInt3 (label, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputInt31": {
+		"prefix": "ImGui.InputInt3",
+		"body": "ImGui.InputInt3(${1:label}, ${2:v}, ${3:flags})",
+		"description": "std::tuple <sol::as_table_t<std::vector<int>>, bool> ImGui.InputInt3 (label, v, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputInt4": {
+		"prefix": "ImGui.InputInt4",
+		"body": "ImGui.InputInt4(${1:label}, ${2:v})",
+		"description": "std::tuple <sol::as_table_t<std::vector<int>>, bool> ImGui.InputInt4 (label, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputInt41": {
+		"prefix": "ImGui.InputInt4",
+		"body": "ImGui.InputInt4(${1:label}, ${2:v}, ${3:flags})",
+		"description": "std::tuple <sol::as_table_t<std::vector<int>>, bool> ImGui.InputInt4 (label, v, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputDouble": {
+		"prefix": "ImGui.InputDouble",
+		"body": "ImGui.InputDouble(${1:label}, ${2:v})",
+		"description": "std::tuple<double, bool> ImGui.InputDouble (label, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputDouble1": {
+		"prefix": "ImGui.InputDouble",
+		"body": "ImGui.InputDouble(${1:label}, ${2:v}, ${3:step})",
+		"description": "std::tuple<double, bool> ImGui.InputDouble (label, v, step)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputDouble2": {
+		"prefix": "ImGui.InputDouble",
+		"body": "ImGui.InputDouble(${1:label}, ${2:v}, ${3:step}, ${4:step_fast})",
+		"description": "std::tuple<double, bool> ImGui.InputDouble (label, v, step, step_fast)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputDouble3": {
+		"prefix": "ImGui.InputDouble",
+		"body": "ImGui.InputDouble(${1:label}, ${2:v}, ${3:step}, ${4:step_fast}, ${5:format})",
+		"description": "std::tuple<double, bool> ImGui.InputDouble (label, v, step, step_fast, format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputDouble4": {
+		"prefix": "ImGui.InputDouble",
+		"body": "ImGui.InputDouble(${1:label}, ${2:v}, ${3:step}, ${4:step_fast}, ${5:format}, ${6:flags})",
+		"description": "std::tuple<double, bool> ImGui.InputDouble (label, v, step, step_fast, format, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputScalar": {
+		"prefix": "ImGui.InputScalar",
+		"body": "ImGui.InputScalar()",
+		"description": "void ImGui.InputScalar ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.InputScalarN": {
+		"prefix": "ImGui.InputScalarN",
+		"body": "ImGui.InputScalarN()",
+		"description": "void ImGui.InputScalarN ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ColorEdit3": {
+		"prefix": "ImGui.ColorEdit3",
+		"body": "ImGui.ColorEdit3(${1:label}, ${2:col})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.ColorEdit3 (label, col)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ColorEdit31": {
+		"prefix": "ImGui.ColorEdit3",
+		"body": "ImGui.ColorEdit3(${1:label}, ${2:col}, ${3:flags})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.ColorEdit3 (label, col, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ColorEdit4": {
+		"prefix": "ImGui.ColorEdit4",
+		"body": "ImGui.ColorEdit4(${1:label}, ${2:col})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.ColorEdit4 (label, col)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ColorEdit41": {
+		"prefix": "ImGui.ColorEdit4",
+		"body": "ImGui.ColorEdit4(${1:label}, ${2:col}, ${3:flags})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.ColorEdit4 (label, col, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ColorPicker3": {
+		"prefix": "ImGui.ColorPicker3",
+		"body": "ImGui.ColorPicker3(${1:label}, ${2:col})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.ColorPicker3 (label, col)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ColorPicker31": {
+		"prefix": "ImGui.ColorPicker3",
+		"body": "ImGui.ColorPicker3(${1:label}, ${2:col}, ${3:flags})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.ColorPicker3 (label, col, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ColorPicker4": {
+		"prefix": "ImGui.ColorPicker4",
+		"body": "ImGui.ColorPicker4(${1:label}, ${2:col})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.ColorPicker4 (label, col)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ColorPicker41": {
+		"prefix": "ImGui.ColorPicker4",
+		"body": "ImGui.ColorPicker4(${1:label}, ${2:col}, ${3:flags})",
+		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.ColorPicker4 (label, col, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ColorButton": {
+		"prefix": "ImGui.ColorButton",
+		"body": "ImGui.ColorButton(${1:desc_id}, ${2:col})",
+		"description": "bool ImGui.ColorButton (desc_id, col)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ColorButton1": {
+		"prefix": "ImGui.ColorButton",
+		"body": "ImGui.ColorButton(${1:desc_id}, ${2:col}, ${3:flags})",
+		"description": "bool ImGui.ColorButton (desc_id, col, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ColorButton2": {
+		"prefix": "ImGui.ColorButton",
+		"body": "ImGui.ColorButton(${1:desc_id}, ${2:col}, ${3:flags}, ${4:sizeX}, ${5:sizeY})",
+		"description": "bool ImGui.ColorButton (desc_id, col, flags, sizeX, sizeY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetColorEditOptions": {
+		"prefix": "ImGui.SetColorEditOptions",
+		"body": "ImGui.SetColorEditOptions(${1:flags})",
+		"description": "void ImGui.SetColorEditOptions (flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.TreeNode": {
+		"prefix": "ImGui.TreeNode",
+		"body": "ImGui.TreeNode(${1:label})",
+		"description": "bool ImGui.TreeNode (label)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.TreeNode1": {
+		"prefix": "ImGui.TreeNode",
+		"body": "ImGui.TreeNode(${1:label}, ${2:fmt})",
+		"description": "bool ImGui.TreeNode (label, fmt)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.TreeNodeEx": {
+		"prefix": "ImGui.TreeNodeEx",
+		"body": "ImGui.TreeNodeEx(${1:label})",
+		"description": "bool ImGui.TreeNodeEx (label)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.TreeNodeEx1": {
+		"prefix": "ImGui.TreeNodeEx",
+		"body": "ImGui.TreeNodeEx(${1:label}, ${2:flags})",
+		"description": "bool ImGui.TreeNodeEx (label, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.TreeNodeEx2": {
+		"prefix": "ImGui.TreeNodeEx",
+		"body": "ImGui.TreeNodeEx(${1:label}, ${2:flags}, ${3:fmt})",
+		"description": "bool ImGui.TreeNodeEx (label, flags, fmt)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.TreePush": {
+		"prefix": "ImGui.TreePush",
+		"body": "ImGui.TreePush(${1:str_id})",
+		"description": "void ImGui.TreePush (str_id)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.TreePop": {
+		"prefix": "ImGui.TreePop",
+		"body": "ImGui.TreePop()",
+		"description": "void ImGui.TreePop ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetTreeNodeToLabelSpacing": {
+		"prefix": "ImGui.GetTreeNodeToLabelSpacing",
+		"body": "ImGui.GetTreeNodeToLabelSpacing()",
+		"description": "float ImGui.GetTreeNodeToLabelSpacing ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.CollapsingHeader": {
+		"prefix": "ImGui.CollapsingHeader",
+		"body": "ImGui.CollapsingHeader(${1:label})",
+		"description": "bool ImGui.CollapsingHeader (label)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.CollapsingHeader1": {
+		"prefix": "ImGui.CollapsingHeader",
+		"body": "ImGui.CollapsingHeader(${1:label}, ${2:flags})",
+		"description": "bool ImGui.CollapsingHeader (label, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.CollapsingHeader2": {
+		"prefix": "ImGui.CollapsingHeader",
+		"body": "ImGui.CollapsingHeader(${1:label}, ${2:open})",
+		"description": "std::tuple<bool, bool> ImGui.CollapsingHeader (label, open)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.CollapsingHeader3": {
+		"prefix": "ImGui.CollapsingHeader",
+		"body": "ImGui.CollapsingHeader(${1:label}, ${2:open}, ${3:flags})",
+		"description": "std::tuple<bool, bool> ImGui.CollapsingHeader (label, open, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetNextItemOpen": {
+		"prefix": "ImGui.SetNextItemOpen",
+		"body": "ImGui.SetNextItemOpen(${1:is_open})",
+		"description": "void ImGui.SetNextItemOpen (is_open)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetNextItemOpen1": {
+		"prefix": "ImGui.SetNextItemOpen",
+		"body": "ImGui.SetNextItemOpen(${1:is_open}, ${2:cond})",
+		"description": "void ImGui.SetNextItemOpen (is_open, cond)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Selectable": {
+		"prefix": "ImGui.Selectable",
+		"body": "ImGui.Selectable(${1:label})",
+		"description": "bool ImGui.Selectable (label)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Selectable1": {
+		"prefix": "ImGui.Selectable",
+		"body": "ImGui.Selectable(${1:label}, ${2:selected})",
+		"description": "bool ImGui.Selectable (label, selected)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Selectable2": {
+		"prefix": "ImGui.Selectable",
+		"body": "ImGui.Selectable(${1:label}, ${2:selected}, ${3:flags})",
+		"description": "bool ImGui.Selectable (label, selected, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Selectable3": {
+		"prefix": "ImGui.Selectable",
+		"body": "ImGui.Selectable(${1:label}, ${2:selected}, ${3:flags}, ${4:sizeX}, ${5:sizeY})",
+		"description": "bool ImGui.Selectable (label, selected, flags, sizeX, sizeY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ListBox": {
+		"prefix": "ImGui.ListBox",
+		"body": "ImGui.ListBox(${1:label}, ${2:current_item}, ${3:items}, ${4:items_count})",
+		"description": "std::tuple<int, bool> ImGui.ListBox (label, current_item, items, items_count)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ListBox1": {
+		"prefix": "ImGui.ListBox",
+		"body": "ImGui.ListBox(${1:label}, ${2:current_item}, ${3:items}, ${4:items_count}, ${5:height_in_items})",
+		"description": "std::tuple<int, bool> ImGui.ListBox (label, current_item, items, items_count, height_in_items)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ListBoxHeader": {
+		"prefix": "ImGui.ListBoxHeader",
+		"body": "ImGui.ListBoxHeader(${1:label}, ${2:sizeX}, ${3:sizeY})",
+		"description": "bool ImGui.ListBoxHeader (label, sizeX, sizeY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ListBoxHeader1": {
+		"prefix": "ImGui.ListBoxHeader",
+		"body": "ImGui.ListBoxHeader(${1:label}, ${2:items_count})",
+		"description": "bool ImGui.ListBoxHeader (label, items_count)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ListBoxHeader2": {
+		"prefix": "ImGui.ListBoxHeader",
+		"body": "ImGui.ListBoxHeader(${1:label}, ${2:items_count}, ${3:height_in_items})",
+		"description": "bool ImGui.ListBoxHeader (label, items_count, height_in_items)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ListBoxFooter": {
+		"prefix": "ImGui.ListBoxFooter",
+		"body": "ImGui.ListBoxFooter()",
+		"description": "void ImGui.ListBoxFooter ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Value": {
+		"prefix": "ImGui.Value",
+		"body": "ImGui.Value()",
+		"description": "// Widgets: ImGui.Value ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Value1": {
+		"prefix": "ImGui.Value",
+		"body": "ImGui.Value(${1:prefix}, ${2:b})",
+		"description": "void ImGui.Value (prefix, b)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Value2": {
+		"prefix": "ImGui.Value",
+		"body": "ImGui.Value(${1:prefix}, ${2:v})",
+		"description": "void ImGui.Value (prefix, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Value3": {
+		"prefix": "ImGui.Value",
+		"body": "ImGui.Value(${1:prefix}, ${2:int})",
+		"description": "void ImGui.Value (prefix, int)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Value4": {
+		"prefix": "ImGui.Value",
+		"body": "ImGui.Value(${1:prefix}, ${2:v})",
+		"description": "void ImGui.Value (prefix, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Value5": {
+		"prefix": "ImGui.Value",
+		"body": "ImGui.Value(${1:prefix}, ${2:v}, ${3:float_format})",
+		"description": "void ImGui.Value (prefix, v, float_format)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginMenuBar": {
+		"prefix": "ImGui.BeginMenuBar",
+		"body": "ImGui.BeginMenuBar()",
+		"description": "bool ImGui.BeginMenuBar ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.EndMenuBar": {
+		"prefix": "ImGui.EndMenuBar",
+		"body": "ImGui.EndMenuBar()",
+		"description": "void ImGui.EndMenuBar ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginMainMenuBar": {
+		"prefix": "ImGui.BeginMainMenuBar",
+		"body": "ImGui.BeginMainMenuBar()",
+		"description": "bool ImGui.BeginMainMenuBar ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.EndMainMenuBar": {
+		"prefix": "ImGui.EndMainMenuBar",
+		"body": "ImGui.EndMainMenuBar()",
+		"description": "void ImGui.EndMainMenuBar ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginMenu": {
+		"prefix": "ImGui.BeginMenu",
+		"body": "ImGui.BeginMenu(${1:label})",
+		"description": "bool ImGui.BeginMenu (label)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginMenu1": {
+		"prefix": "ImGui.BeginMenu",
+		"body": "ImGui.BeginMenu(${1:label}, ${2:enabled})",
+		"description": "bool ImGui.BeginMenu (label, enabled)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.EndMenu": {
+		"prefix": "ImGui.EndMenu",
+		"body": "ImGui.EndMenu()",
+		"description": "void ImGui.EndMenu ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.MenuItem": {
+		"prefix": "ImGui.MenuItem",
+		"body": "ImGui.MenuItem(${1:label})",
+		"description": "bool ImGui.MenuItem (label)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.MenuItem1": {
+		"prefix": "ImGui.MenuItem",
+		"body": "ImGui.MenuItem(${1:label}, ${2:shortcut})",
+		"description": "bool ImGui.MenuItem (label, shortcut)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.MenuItem2": {
+		"prefix": "ImGui.MenuItem",
+		"body": "ImGui.MenuItem(${1:label}, ${2:shortcut}, ${3:selected})",
+		"description": "std::tuple<bool, bool> ImGui.MenuItem (label, shortcut, selected)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.MenuItem3": {
+		"prefix": "ImGui.MenuItem",
+		"body": "ImGui.MenuItem(${1:label}, ${2:shortcut}, ${3:selected}, ${4:enabled})",
+		"description": "std::tuple<bool, bool> ImGui.MenuItem (label, shortcut, selected, enabled)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginTooltip": {
+		"prefix": "ImGui.BeginTooltip",
+		"body": "ImGui.BeginTooltip()",
+		"description": "void ImGui.BeginTooltip ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.EndTooltip": {
+		"prefix": "ImGui.EndTooltip",
+		"body": "ImGui.EndTooltip()",
+		"description": "void ImGui.EndTooltip ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetTooltip": {
+		"prefix": "ImGui.SetTooltip",
+		"body": "ImGui.SetTooltip(${1:fmt})",
+		"description": "void ImGui.SetTooltip (fmt)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetTooltipV": {
+		"prefix": "ImGui.SetTooltipV",
+		"body": "ImGui.SetTooltipV()",
+		"description": "void ImGui.SetTooltipV ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginPopup": {
+		"prefix": "ImGui.BeginPopup",
+		"body": "ImGui.BeginPopup(${1:str_id})",
+		"description": "bool ImGui.BeginPopup (str_id)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginPopup1": {
+		"prefix": "ImGui.BeginPopup",
+		"body": "ImGui.BeginPopup(${1:str_id}, ${2:flags})",
+		"description": "bool ImGui.BeginPopup (str_id, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginPopupModal": {
+		"prefix": "ImGui.BeginPopupModal",
+		"body": "ImGui.BeginPopupModal(${1:name})",
+		"description": "bool ImGui.BeginPopupModal (name)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginPopupModal1": {
+		"prefix": "ImGui.BeginPopupModal",
+		"body": "ImGui.BeginPopupModal(${1:name}, ${2:open})",
+		"description": "bool ImGui.BeginPopupModal (name, open)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginPopupModal2": {
+		"prefix": "ImGui.BeginPopupModal",
+		"body": "ImGui.BeginPopupModal(${1:name}, ${2:open}, ${3:flags})",
+		"description": "bool ImGui.BeginPopupModal (name, open, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.EndPopup": {
+		"prefix": "ImGui.EndPopup",
+		"body": "ImGui.EndPopup()",
+		"description": "void ImGui.EndPopup ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.OpenPopup": {
+		"prefix": "ImGui.OpenPopup",
+		"body": "ImGui.OpenPopup(${1:str_id})",
+		"description": "void ImGui.OpenPopup (str_id)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.OpenPopup1": {
+		"prefix": "ImGui.OpenPopup",
+		"body": "ImGui.OpenPopup(${1:str_id}, ${2:popup_flags})",
+		"description": "void ImGui.OpenPopup (str_id, popup_flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.CloseCurrentPopup": {
+		"prefix": "ImGui.CloseCurrentPopup",
+		"body": "ImGui.CloseCurrentPopup()",
+		"description": "void ImGui.CloseCurrentPopup ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginPopupContextItem": {
+		"prefix": "ImGui.BeginPopupContextItem",
+		"body": "ImGui.BeginPopupContextItem()",
+		"description": "bool ImGui.BeginPopupContextItem ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginPopupContextItem1": {
+		"prefix": "ImGui.BeginPopupContextItem",
+		"body": "ImGui.BeginPopupContextItem(${1:str_id})",
+		"description": "bool ImGui.BeginPopupContextItem (str_id)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginPopupContextItem2": {
+		"prefix": "ImGui.BeginPopupContextItem",
+		"body": "ImGui.BeginPopupContextItem(${1:str_id}, ${2:popup_flags})",
+		"description": "bool ImGui.BeginPopupContextItem (str_id, popup_flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginPopupContextWindow": {
+		"prefix": "ImGui.BeginPopupContextWindow",
+		"body": "ImGui.BeginPopupContextWindow()",
+		"description": "bool ImGui.BeginPopupContextWindow ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginPopupContextWindow1": {
+		"prefix": "ImGui.BeginPopupContextWindow",
+		"body": "ImGui.BeginPopupContextWindow(${1:str_id})",
+		"description": "bool ImGui.BeginPopupContextWindow (str_id)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginPopupContextWindow2": {
+		"prefix": "ImGui.BeginPopupContextWindow",
+		"body": "ImGui.BeginPopupContextWindow(${1:str_id}, ${2:popup_flags})",
+		"description": "bool ImGui.BeginPopupContextWindow (str_id, popup_flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginPopupContextVoid": {
+		"prefix": "ImGui.BeginPopupContextVoid",
+		"body": "ImGui.BeginPopupContextVoid()",
+		"description": "bool ImGui.BeginPopupContextVoid ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginPopupContextVoid1": {
+		"prefix": "ImGui.BeginPopupContextVoid",
+		"body": "ImGui.BeginPopupContextVoid(${1:str_id})",
+		"description": "bool ImGui.BeginPopupContextVoid (str_id)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginPopupContextVoid2": {
+		"prefix": "ImGui.BeginPopupContextVoid",
+		"body": "ImGui.BeginPopupContextVoid(${1:str_id}, ${2:popup_flags})",
+		"description": "bool ImGui.BeginPopupContextVoid (str_id, popup_flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsPopupOpen": {
+		"prefix": "ImGui.IsPopupOpen",
+		"body": "ImGui.IsPopupOpen(${1:str_id})",
+		"description": "bool ImGui.IsPopupOpen (str_id)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsPopupOpen1": {
+		"prefix": "ImGui.IsPopupOpen",
+		"body": "ImGui.IsPopupOpen(${1:str_id}, ${2:popup_flags})",
+		"description": "bool ImGui.IsPopupOpen (str_id, popup_flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Columns": {
+		"prefix": "ImGui.Columns",
+		"body": "ImGui.Columns()",
+		"description": "void ImGui.Columns ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Columns1": {
+		"prefix": "ImGui.Columns",
+		"body": "ImGui.Columns(${1:count})",
+		"description": "void ImGui.Columns (count)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Columns2": {
+		"prefix": "ImGui.Columns",
+		"body": "ImGui.Columns(${1:count}, ${2:id})",
+		"description": "void ImGui.Columns (count, id)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.Columns3": {
+		"prefix": "ImGui.Columns",
+		"body": "ImGui.Columns(${1:count}, ${2:id}, ${3:border})",
+		"description": "void ImGui.Columns (count, id, border)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.NextColumn": {
+		"prefix": "ImGui.NextColumn",
+		"body": "ImGui.NextColumn()",
+		"description": "void ImGui.NextColumn ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetColumnIndex": {
+		"prefix": "ImGui.GetColumnIndex",
+		"body": "ImGui.GetColumnIndex()",
+		"description": "int ImGui.GetColumnIndex ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetColumnWidth": {
+		"prefix": "ImGui.GetColumnWidth",
+		"body": "ImGui.GetColumnWidth()",
+		"description": "float ImGui.GetColumnWidth ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetColumnWidth1": {
+		"prefix": "ImGui.GetColumnWidth",
+		"body": "ImGui.GetColumnWidth(${1:column_index})",
+		"description": "float ImGui.GetColumnWidth (column_index)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetColumnWidth": {
+		"prefix": "ImGui.SetColumnWidth",
+		"body": "ImGui.SetColumnWidth(${1:column_index}, ${2:width})",
+		"description": "void ImGui.SetColumnWidth (column_index, width)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetColumnOffset": {
+		"prefix": "ImGui.GetColumnOffset",
+		"body": "ImGui.GetColumnOffset()",
+		"description": "float ImGui.GetColumnOffset ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetColumnOffset1": {
+		"prefix": "ImGui.GetColumnOffset",
+		"body": "ImGui.GetColumnOffset(${1:column_index})",
+		"description": "float ImGui.GetColumnOffset (column_index)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetColumnOffset": {
+		"prefix": "ImGui.SetColumnOffset",
+		"body": "ImGui.SetColumnOffset(${1:column_index}, ${2:offset_x})",
+		"description": "void ImGui.SetColumnOffset (column_index, offset_x)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetColumnsCount": {
+		"prefix": "ImGui.GetColumnsCount",
+		"body": "ImGui.GetColumnsCount()",
+		"description": "int ImGui.GetColumnsCount ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginTabBar": {
+		"prefix": "ImGui.BeginTabBar",
+		"body": "ImGui.BeginTabBar(${1:str_id})",
+		"description": "bool ImGui.BeginTabBar (str_id)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginTabBar1": {
+		"prefix": "ImGui.BeginTabBar",
+		"body": "ImGui.BeginTabBar(${1:str_id}, ${2:flags})",
+		"description": "bool ImGui.BeginTabBar (str_id, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.EndTabBar": {
+		"prefix": "ImGui.EndTabBar",
+		"body": "ImGui.EndTabBar()",
+		"description": "void ImGui.EndTabBar ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginTabItem": {
+		"prefix": "ImGui.BeginTabItem",
+		"body": "ImGui.BeginTabItem(${1:label})",
+		"description": "bool ImGui.BeginTabItem (label)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginTabItem1": {
+		"prefix": "ImGui.BeginTabItem",
+		"body": "ImGui.BeginTabItem(${1:label}, ${2:open})",
+		"description": "std::tuple<bool, bool> ImGui.BeginTabItem (label, open)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginTabItem2": {
+		"prefix": "ImGui.BeginTabItem",
+		"body": "ImGui.BeginTabItem(${1:label}, ${2:open}, ${3:flags})",
+		"description": "std::tuple<bool, bool> ImGui.BeginTabItem (label, open, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.EndTabItem": {
+		"prefix": "ImGui.EndTabItem",
+		"body": "ImGui.EndTabItem()",
+		"description": "void ImGui.EndTabItem ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetTabItemClosed": {
+		"prefix": "ImGui.SetTabItemClosed",
+		"body": "ImGui.SetTabItemClosed(${1:tab_or_docked_window_label})",
+		"description": "void ImGui.SetTabItemClosed (tab_or_docked_window_label)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DockSpace": {
+		"prefix": "ImGui.DockSpace",
+		"body": "ImGui.DockSpace(${1:int})",
+		"description": "void ImGui.DockSpace (int)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DockSpace1": {
+		"prefix": "ImGui.DockSpace",
+		"body": "ImGui.DockSpace(${1:int}, ${2:sizeX}, ${3:sizeY})",
+		"description": "void ImGui.DockSpace (int, sizeX, sizeY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DockSpace2": {
+		"prefix": "ImGui.DockSpace",
+		"body": "ImGui.DockSpace(${1:int}, ${2:sizeX}, ${3:sizeY}, ${4:flags})",
+		"description": "void ImGui.DockSpace (int, sizeX, sizeY, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.DockSpaceOverViewport": {
+		"prefix": "ImGui.DockSpaceOverViewport",
+		"body": "ImGui.DockSpaceOverViewport()",
+		"description": "unsigned int ImGui.DockSpaceOverViewport ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetNextWindowDockID": {
+		"prefix": "ImGui.SetNextWindowDockID",
+		"body": "ImGui.SetNextWindowDockID(${1:int})",
+		"description": "void ImGui.SetNextWindowDockID (int)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetNextWindowDockID1": {
+		"prefix": "ImGui.SetNextWindowDockID",
+		"body": "ImGui.SetNextWindowDockID(${1:int}, ${2:cond})",
+		"description": "void ImGui.SetNextWindowDockID (int, cond)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetNextWindowClass": {
+		"prefix": "ImGui.SetNextWindowClass",
+		"body": "ImGui.SetNextWindowClass()",
+		"description": "void ImGui.SetNextWindowClass ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetWindowDockID": {
+		"prefix": "ImGui.GetWindowDockID",
+		"body": "ImGui.GetWindowDockID()",
+		"description": "unsigned int ImGui.GetWindowDockID ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsWindowDocked": {
+		"prefix": "ImGui.IsWindowDocked",
+		"body": "ImGui.IsWindowDocked()",
+		"description": "bool ImGui.IsWindowDocked ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.LogToTTY": {
+		"prefix": "ImGui.LogToTTY",
+		"body": "ImGui.LogToTTY()",
+		"description": "void ImGui.LogToTTY ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.LogToTTY1": {
+		"prefix": "ImGui.LogToTTY",
+		"body": "ImGui.LogToTTY(${1:auto_open_depth})",
+		"description": "void ImGui.LogToTTY (auto_open_depth)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.LogToFile": {
+		"prefix": "ImGui.LogToFile",
+		"body": "ImGui.LogToFile()",
+		"description": "void ImGui.LogToFile ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.LogToFile1": {
+		"prefix": "ImGui.LogToFile",
+		"body": "ImGui.LogToFile(${1:auto_open_depth})",
+		"description": "void ImGui.LogToFile (auto_open_depth)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.LogToFile2": {
+		"prefix": "ImGui.LogToFile",
+		"body": "ImGui.LogToFile(${1:auto_open_depth}, ${2:filename})",
+		"description": "void ImGui.LogToFile (auto_open_depth, filename)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.LogToClipboard": {
+		"prefix": "ImGui.LogToClipboard",
+		"body": "ImGui.LogToClipboard()",
+		"description": "void ImGui.LogToClipboard ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.LogToClipboard1": {
+		"prefix": "ImGui.LogToClipboard",
+		"body": "ImGui.LogToClipboard(${1:auto_open_depth})",
+		"description": "void ImGui.LogToClipboard (auto_open_depth)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.LogFinish": {
+		"prefix": "ImGui.LogFinish",
+		"body": "ImGui.LogFinish()",
+		"description": "void ImGui.LogFinish ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.LogButtons": {
+		"prefix": "ImGui.LogButtons",
+		"body": "ImGui.LogButtons()",
+		"description": "void ImGui.LogButtons ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.LogText": {
+		"prefix": "ImGui.LogText",
+		"body": "ImGui.LogText(${1:fmt})",
+		"description": "void ImGui.LogText (fmt)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PushClipRect": {
+		"prefix": "ImGui.PushClipRect",
+		"body": "ImGui.PushClipRect(${1:min_x}, ${2:min_y}, ${3:max_x}, ${4:max_y}, ${5:intersect_current})",
+		"description": "void ImGui.PushClipRect (min_x, min_y, max_x, max_y, intersect_current)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.PopClipRect": {
+		"prefix": "ImGui.PopClipRect",
+		"body": "ImGui.PopClipRect()",
+		"description": "void ImGui.PopClipRect ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetItemDefaultFocus": {
+		"prefix": "ImGui.SetItemDefaultFocus",
+		"body": "ImGui.SetItemDefaultFocus()",
+		"description": "void ImGui.SetItemDefaultFocus ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetKeyboardFocusHere": {
+		"prefix": "ImGui.SetKeyboardFocusHere",
+		"body": "ImGui.SetKeyboardFocusHere()",
+		"description": "void ImGui.SetKeyboardFocusHere ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetKeyboardFocusHere1": {
+		"prefix": "ImGui.SetKeyboardFocusHere",
+		"body": "ImGui.SetKeyboardFocusHere(${1:offset})",
+		"description": "void ImGui.SetKeyboardFocusHere (offset)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsItemHovered": {
+		"prefix": "ImGui.IsItemHovered",
+		"body": "ImGui.IsItemHovered()",
+		"description": "bool ImGui.IsItemHovered ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsItemHovered1": {
+		"prefix": "ImGui.IsItemHovered",
+		"body": "ImGui.IsItemHovered(${1:flags})",
+		"description": "bool ImGui.IsItemHovered (flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsItemActive": {
+		"prefix": "ImGui.IsItemActive",
+		"body": "ImGui.IsItemActive()",
+		"description": "bool ImGui.IsItemActive ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsItemFocused": {
+		"prefix": "ImGui.IsItemFocused",
+		"body": "ImGui.IsItemFocused()",
+		"description": "bool ImGui.IsItemFocused ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsItemClicked": {
+		"prefix": "ImGui.IsItemClicked",
+		"body": "ImGui.IsItemClicked()",
+		"description": "bool ImGui.IsItemClicked ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsItemClicked1": {
+		"prefix": "ImGui.IsItemClicked",
+		"body": "ImGui.IsItemClicked(${1:mouse_button})",
+		"description": "bool ImGui.IsItemClicked (mouse_button)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsItemVisible": {
+		"prefix": "ImGui.IsItemVisible",
+		"body": "ImGui.IsItemVisible()",
+		"description": "bool ImGui.IsItemVisible ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsItemEdited": {
+		"prefix": "ImGui.IsItemEdited",
+		"body": "ImGui.IsItemEdited()",
+		"description": "bool ImGui.IsItemEdited ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsItemActivated": {
+		"prefix": "ImGui.IsItemActivated",
+		"body": "ImGui.IsItemActivated()",
+		"description": "bool ImGui.IsItemActivated ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsItemDeactivated": {
+		"prefix": "ImGui.IsItemDeactivated",
+		"body": "ImGui.IsItemDeactivated()",
+		"description": "bool ImGui.IsItemDeactivated ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsItemDeactivatedAfterEdit": {
+		"prefix": "ImGui.IsItemDeactivatedAfterEdit",
+		"body": "ImGui.IsItemDeactivatedAfterEdit()",
+		"description": "bool ImGui.IsItemDeactivatedAfterEdit ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsItemToggledOpen": {
+		"prefix": "ImGui.IsItemToggledOpen",
+		"body": "ImGui.IsItemToggledOpen()",
+		"description": "bool ImGui.IsItemToggledOpen ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsAnyItemHovered": {
+		"prefix": "ImGui.IsAnyItemHovered",
+		"body": "ImGui.IsAnyItemHovered()",
+		"description": "bool ImGui.IsAnyItemHovered ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsAnyItemActive": {
+		"prefix": "ImGui.IsAnyItemActive",
+		"body": "ImGui.IsAnyItemActive()",
+		"description": "bool ImGui.IsAnyItemActive ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsAnyItemFocused": {
+		"prefix": "ImGui.IsAnyItemFocused",
+		"body": "ImGui.IsAnyItemFocused()",
+		"description": "bool ImGui.IsAnyItemFocused ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetItemRectMin": {
+		"prefix": "ImGui.GetItemRectMin",
+		"body": "ImGui.GetItemRectMin()",
+		"description": "std::tuple<float, float> ImGui.GetItemRectMin ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetItemRectMax": {
+		"prefix": "ImGui.GetItemRectMax",
+		"body": "ImGui.GetItemRectMax()",
+		"description": "std::tuple<float, float> ImGui.GetItemRectMax ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetItemRectSize": {
+		"prefix": "ImGui.GetItemRectSize",
+		"body": "ImGui.GetItemRectSize()",
+		"description": "std::tuple<float, float> ImGui.GetItemRectSize ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetItemAllowOverlap": {
+		"prefix": "ImGui.SetItemAllowOverlap",
+		"body": "ImGui.SetItemAllowOverlap()",
+		"description": "void ImGui.SetItemAllowOverlap ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsRectVisible": {
+		"prefix": "ImGui.IsRectVisible",
+		"body": "ImGui.IsRectVisible(${1:sizeX}, ${2:sizeY})",
+		"description": "bool ImGui.IsRectVisible (sizeX, sizeY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsRectVisible1": {
+		"prefix": "ImGui.IsRectVisible",
+		"body": "ImGui.IsRectVisible(${1:minX}, ${2:minY}, ${3:maxX}, ${4:maxY})",
+		"description": "bool ImGui.IsRectVisible (minX, minY, maxX, maxY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetTime": {
+		"prefix": "ImGui.GetTime",
+		"body": "ImGui.GetTime()",
+		"description": "double ImGui.GetTime ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetFrameCount": {
+		"prefix": "ImGui.GetFrameCount",
+		"body": "ImGui.GetFrameCount()",
+		"description": "int ImGui.GetFrameCount ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetDrawListSharedData": {
+		"prefix": "ImGui.GetDrawListSharedData",
+		"body": "ImGui.GetDrawListSharedData()",
+		"description": "/* TODO: GetBackgroundDrawList(), GetForeGroundDrawList(), ImGui.GetDrawListSharedData ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetStyleColorName": {
+		"prefix": "ImGui.GetStyleColorName",
+		"body": "ImGui.GetStyleColorName(${1:idx})",
+		"description": "std::string ImGui.GetStyleColorName (idx)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.CalcListClipping": {
+		"prefix": "ImGui.CalcListClipping",
+		"body": "ImGui.CalcListClipping()",
+		"description": "/* TODO: SetStateStorage(), GetStateStorage(), ImGui.CalcListClipping ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginChildFrame": {
+		"prefix": "ImGui.BeginChildFrame",
+		"body": "ImGui.BeginChildFrame(${1:int}, ${2:sizeX}, ${3:sizeY})",
+		"description": "bool ImGui.BeginChildFrame (int, sizeX, sizeY)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.BeginChildFrame1": {
+		"prefix": "ImGui.BeginChildFrame",
+		"body": "ImGui.BeginChildFrame(${1:int}, ${2:sizeX}, ${3:sizeY}, ${4:flags})",
+		"description": "bool ImGui.BeginChildFrame (int, sizeX, sizeY, flags)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.EndChildFrame": {
+		"prefix": "ImGui.EndChildFrame",
+		"body": "ImGui.EndChildFrame()",
+		"description": "void ImGui.EndChildFrame ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.CalcTextSize": {
+		"prefix": "ImGui.CalcTextSize",
+		"body": "ImGui.CalcTextSize(${1:text})",
+		"description": "std::tuple<float, float> ImGui.CalcTextSize (text)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.CalcTextSize1": {
+		"prefix": "ImGui.CalcTextSize",
+		"body": "ImGui.CalcTextSize(${1:text}, ${2:text_end})",
+		"description": "std::tuple<float, float> ImGui.CalcTextSize (text, text_end)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.CalcTextSize2": {
+		"prefix": "ImGui.CalcTextSize",
+		"body": "ImGui.CalcTextSize(${1:text}, ${2:text_end}, ${3:hide_text_after_double_hash})",
+		"description": "std::tuple<float, float> ImGui.CalcTextSize (text, text_end, hide_text_after_double_hash)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.CalcTextSize3": {
+		"prefix": "ImGui.CalcTextSize",
+		"body": "ImGui.CalcTextSize(${1:text}, ${2:text_end}, ${3:hide_text_after_double_hash}, ${4:wrap_width})",
+		"description": "std::tuple<float, float> ImGui.CalcTextSize (text, text_end, hide_text_after_double_hash, wrap_width)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ColorConvertU32ToFloat4": {
+		"prefix": "ImGui.ColorConvertU32ToFloat4",
+		"body": "ImGui.ColorConvertU32ToFloat4(${1:int})",
+		"description": "sol::as_table_t<std::vector<float>> ImGui.ColorConvertU32ToFloat4 (int)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ColorConvertFloat4ToU32": {
+		"prefix": "ImGui.ColorConvertFloat4ToU32",
+		"body": "ImGui.ColorConvertFloat4ToU32(${1:rgba})",
+		"description": "unsigned int ImGui.ColorConvertFloat4ToU32 (rgba)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ColorConvertRGBtoHSV": {
+		"prefix": "ImGui.ColorConvertRGBtoHSV",
+		"body": "ImGui.ColorConvertRGBtoHSV(${1:r}, ${2:g}, ${3:b})",
+		"description": "std::tuple<float, float, float> ImGui.ColorConvertRGBtoHSV (r, g, b)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ColorConvertHSVtoRGB": {
+		"prefix": "ImGui.ColorConvertHSVtoRGB",
+		"body": "ImGui.ColorConvertHSVtoRGB(${1:h}, ${2:s}, ${3:v})",
+		"description": "std::tuple<float, float, float> ImGui.ColorConvertHSVtoRGB (h, s, v)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetKeyIndex": {
+		"prefix": "ImGui.GetKeyIndex",
+		"body": "ImGui.GetKeyIndex(${1:imgui_key})",
+		"description": "int ImGui.GetKeyIndex (imgui_key)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsKeyDown": {
+		"prefix": "ImGui.IsKeyDown",
+		"body": "ImGui.IsKeyDown(${1:user_key_index})",
+		"description": "bool ImGui.IsKeyDown (user_key_index)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsKeyPressed": {
+		"prefix": "ImGui.IsKeyPressed",
+		"body": "ImGui.IsKeyPressed(${1:user_key_index})",
+		"description": "bool ImGui.IsKeyPressed (user_key_index)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsKeyPressed1": {
+		"prefix": "ImGui.IsKeyPressed",
+		"body": "ImGui.IsKeyPressed(${1:user_key_index}, ${2:repeat})",
+		"description": "bool ImGui.IsKeyPressed (user_key_index, repeat)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsKeyReleased": {
+		"prefix": "ImGui.IsKeyReleased",
+		"body": "ImGui.IsKeyReleased(${1:user_key_index})",
+		"description": "bool ImGui.IsKeyReleased (user_key_index)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetKeyPressedAmount": {
+		"prefix": "ImGui.GetKeyPressedAmount",
+		"body": "ImGui.GetKeyPressedAmount(${1:key_index}, ${2:repeat_delay}, ${3:rate})",
+		"description": "int ImGui.GetKeyPressedAmount (key_index, repeat_delay, rate)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.CaptureKeyboardFromApp": {
+		"prefix": "ImGui.CaptureKeyboardFromApp",
+		"body": "ImGui.CaptureKeyboardFromApp()",
+		"description": "void ImGui.CaptureKeyboardFromApp ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.CaptureKeyboardFromApp1": {
+		"prefix": "ImGui.CaptureKeyboardFromApp",
+		"body": "ImGui.CaptureKeyboardFromApp(${1:want_capture_keyboard_value})",
+		"description": "void ImGui.CaptureKeyboardFromApp (want_capture_keyboard_value)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsMouseDown": {
+		"prefix": "ImGui.IsMouseDown",
+		"body": "ImGui.IsMouseDown(${1:button})",
+		"description": "bool ImGui.IsMouseDown (button)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsMouseClicked": {
+		"prefix": "ImGui.IsMouseClicked",
+		"body": "ImGui.IsMouseClicked(${1:button})",
+		"description": "bool ImGui.IsMouseClicked (button)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsMouseClicked1": {
+		"prefix": "ImGui.IsMouseClicked",
+		"body": "ImGui.IsMouseClicked(${1:button}, ${2:repeat})",
+		"description": "bool ImGui.IsMouseClicked (button, repeat)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsMouseReleased": {
+		"prefix": "ImGui.IsMouseReleased",
+		"body": "ImGui.IsMouseReleased(${1:button})",
+		"description": "bool ImGui.IsMouseReleased (button)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsMouseDoubleClicked": {
+		"prefix": "ImGui.IsMouseDoubleClicked",
+		"body": "ImGui.IsMouseDoubleClicked(${1:button})",
+		"description": "bool ImGui.IsMouseDoubleClicked (button)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsMouseHoveringRect": {
+		"prefix": "ImGui.IsMouseHoveringRect",
+		"body": "ImGui.IsMouseHoveringRect(${1:min_x}, ${2:min_y}, ${3:max_x}, ${4:max_y})",
+		"description": "bool ImGui.IsMouseHoveringRect (min_x, min_y, max_x, max_y)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsMouseHoveringRect1": {
+		"prefix": "ImGui.IsMouseHoveringRect",
+		"body": "ImGui.IsMouseHoveringRect(${1:min_x}, ${2:min_y}, ${3:max_x}, ${4:max_y}, ${5:clip})",
+		"description": "bool ImGui.IsMouseHoveringRect (min_x, min_y, max_x, max_y, clip)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsMousePosValid": {
+		"prefix": "ImGui.IsMousePosValid",
+		"body": "ImGui.IsMousePosValid()",
+		"description": "bool ImGui.IsMousePosValid ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsAnyMouseDown": {
+		"prefix": "ImGui.IsAnyMouseDown",
+		"body": "ImGui.IsAnyMouseDown()",
+		"description": "bool ImGui.IsAnyMouseDown ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetMousePos": {
+		"prefix": "ImGui.GetMousePos",
+		"body": "ImGui.GetMousePos()",
+		"description": "std::tuple<float, float> ImGui.GetMousePos ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetMousePosOnOpeningCurrentPopup": {
+		"prefix": "ImGui.GetMousePosOnOpeningCurrentPopup",
+		"body": "ImGui.GetMousePosOnOpeningCurrentPopup()",
+		"description": "std::tuple<float, float> ImGui.GetMousePosOnOpeningCurrentPopup ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsMouseDragging": {
+		"prefix": "ImGui.IsMouseDragging",
+		"body": "ImGui.IsMouseDragging(${1:button})",
+		"description": "bool ImGui.IsMouseDragging (button)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.IsMouseDragging1": {
+		"prefix": "ImGui.IsMouseDragging",
+		"body": "ImGui.IsMouseDragging(${1:button}, ${2:lock_threshold})",
+		"description": "bool ImGui.IsMouseDragging (button, lock_threshold)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetMouseDragDelta": {
+		"prefix": "ImGui.GetMouseDragDelta",
+		"body": "ImGui.GetMouseDragDelta()",
+		"description": "std::tuple<float, float> ImGui.GetMouseDragDelta ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetMouseDragDelta1": {
+		"prefix": "ImGui.GetMouseDragDelta",
+		"body": "ImGui.GetMouseDragDelta(${1:button})",
+		"description": "std::tuple<float, float> ImGui.GetMouseDragDelta (button)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetMouseDragDelta2": {
+		"prefix": "ImGui.GetMouseDragDelta",
+		"body": "ImGui.GetMouseDragDelta(${1:button}, ${2:lock_threshold})",
+		"description": "std::tuple<float, float> ImGui.GetMouseDragDelta (button, lock_threshold)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ResetMouseDragDelta": {
+		"prefix": "ImGui.ResetMouseDragDelta",
+		"body": "ImGui.ResetMouseDragDelta()",
+		"description": "void ImGui.ResetMouseDragDelta ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.ResetMouseDragDelta1": {
+		"prefix": "ImGui.ResetMouseDragDelta",
+		"body": "ImGui.ResetMouseDragDelta(${1:button})",
+		"description": "void ImGui.ResetMouseDragDelta (button)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetMouseCursor": {
+		"prefix": "ImGui.GetMouseCursor",
+		"body": "ImGui.GetMouseCursor()",
+		"description": "int ImGui.GetMouseCursor ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetMouseCursor": {
+		"prefix": "ImGui.SetMouseCursor",
+		"body": "ImGui.SetMouseCursor(${1:cursor_type})",
+		"description": "void ImGui.SetMouseCursor (cursor_type)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.CaptureMouseFromApp": {
+		"prefix": "ImGui.CaptureMouseFromApp",
+		"body": "ImGui.CaptureMouseFromApp()",
+		"description": "void ImGui.CaptureMouseFromApp ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.CaptureMouseFromApp1": {
+		"prefix": "ImGui.CaptureMouseFromApp",
+		"body": "ImGui.CaptureMouseFromApp(${1:want_capture_mouse_value})",
+		"description": "void ImGui.CaptureMouseFromApp (want_capture_mouse_value)",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetClipboardText": {
+		"prefix": "ImGui.GetClipboardText",
+		"body": "ImGui.GetClipboardText()",
+		"description": "std::string ImGui.GetClipboardText ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.SetClipboardText": {
+		"prefix": "ImGui.SetClipboardText",
+		"body": "ImGui.SetClipboardText(${1:text})",
+		"description": "void ImGui.SetClipboardText (text)",
+		"scope": "ImGui.h"
+	},
+	"VK.NONE": {
+		"prefix": "VK.NONE",
+		"body": "VK.NONE",
+		"description": "VK Enum - This Enum value Means no key.",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.LBUTTON": {
+		"prefix": "VK.LBUTTON",
+		"body": "VK.LBUTTON",
+		"description": "VK Enum - Left mouse button",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.RBUTTON": {
+		"prefix": "VK.RBUTTON",
+		"body": "VK.RBUTTON",
+		"description": "VK Enum - Right mouse button",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.CANCEL": {
+		"prefix": "VK.CANCEL",
+		"body": "VK.CANCEL",
+		"description": "VK Enum - Control-break processing",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.MBUTTON": {
+		"prefix": "VK.MBUTTON",
+		"body": "VK.MBUTTON",
+		"description": "VK Enum - Middle mouse button (three-button mouse)",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.XBUTTON1M": {
+		"prefix": "VK.XBUTTON1M",
+		"body": "VK.XBUTTON1M",
+		"description": "VK Enum - Windows 2000/XP: X1 mouse button",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.XBUTTON2M": {
+		"prefix": "VK.XBUTTON2M",
+		"body": "VK.XBUTTON2M",
+		"description": "VK Enum - Windows 2000/XP: X2 mouse button",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.BACK": {
+		"prefix": "VK.BACK",
+		"body": "VK.BACK",
+		"description": "VK Enum - BACKSPACE key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.TAB": {
+		"prefix": "VK.TAB",
+		"body": "VK.TAB",
+		"description": "VK Enum - TAB key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.CLEAR": {
+		"prefix": "VK.CLEAR",
+		"body": "VK.CLEAR",
+		"description": "VK Enum - CLEAR key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.RETURN": {
+		"prefix": "VK.RETURN",
+		"body": "VK.RETURN",
+		"description": "VK Enum - ENTER key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.SHIFT": {
+		"prefix": "VK.SHIFT",
+		"body": "VK.SHIFT",
+		"description": "VK Enum - SHIFT key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.CONTROL": {
+		"prefix": "VK.CONTROL",
+		"body": "VK.CONTROL",
+		"description": "VK Enum - CTRL key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.MENU": {
+		"prefix": "VK.MENU",
+		"body": "VK.MENU",
+		"description": "VK Enum - ALT key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.PAUSE": {
+		"prefix": "VK.PAUSE",
+		"body": "VK.PAUSE",
+		"description": "VK Enum - PAUSE key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.CAPITAL": {
+		"prefix": "VK.CAPITAL",
+		"body": "VK.CAPITAL",
+		"description": "VK Enum - CAPS LOCK key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KANA": {
+		"prefix": "VK.KANA",
+		"body": "VK.KANA",
+		"description": "VK Enum - Input Method Editor (IME) Kana mode",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.HANGUL": {
+		"prefix": "VK.HANGUL",
+		"body": "VK.HANGUL",
+		"description": "VK Enum - IME Hangul mode",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.JUNJA": {
+		"prefix": "VK.JUNJA",
+		"body": "VK.JUNJA",
+		"description": "VK Enum - IME Junja mode",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.FINAL": {
+		"prefix": "VK.FINAL",
+		"body": "VK.FINAL",
+		"description": "VK Enum - IME final mode",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.HANJA": {
+		"prefix": "VK.HANJA",
+		"body": "VK.HANJA",
+		"description": "VK Enum - IME Hanja mode",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KANJI": {
+		"prefix": "VK.KANJI",
+		"body": "VK.KANJI",
+		"description": "VK Enum - IME Kanji mode",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.ESCAPE": {
+		"prefix": "VK.ESCAPE",
+		"body": "VK.ESCAPE",
+		"description": "VK Enum - ESC key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.CONVERT": {
+		"prefix": "VK.CONVERT",
+		"body": "VK.CONVERT",
+		"description": "VK Enum - IME convert",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.NONCONVERT": {
+		"prefix": "VK.NONCONVERT",
+		"body": "VK.NONCONVERT",
+		"description": "VK Enum - IME nonconvert",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.ACCEPT": {
+		"prefix": "VK.ACCEPT",
+		"body": "VK.ACCEPT",
+		"description": "VK Enum - IME accept",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.MODECHANGE": {
+		"prefix": "VK.MODECHANGE",
+		"body": "VK.MODECHANGE",
+		"description": "VK Enum - IME mode change request",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.SPACE": {
+		"prefix": "VK.SPACE",
+		"body": "VK.SPACE",
+		"description": "VK Enum - SPACEBAR",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.PRIOR": {
+		"prefix": "VK.PRIOR",
+		"body": "VK.PRIOR",
+		"description": "VK Enum - PAGE UP key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.NEXT": {
+		"prefix": "VK.NEXT",
+		"body": "VK.NEXT",
+		"description": "VK Enum - PAGE DOWN key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.END": {
+		"prefix": "VK.END",
+		"body": "VK.END",
+		"description": "VK Enum - END key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.HOME": {
+		"prefix": "VK.HOME",
+		"body": "VK.HOME",
+		"description": "VK Enum - HOME key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.LEFT": {
+		"prefix": "VK.LEFT",
+		"body": "VK.LEFT",
+		"description": "VK Enum - LEFT ARROW key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.UP": {
+		"prefix": "VK.UP",
+		"body": "VK.UP",
+		"description": "VK Enum - UP ARROW key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.RIGHT": {
+		"prefix": "VK.RIGHT",
+		"body": "VK.RIGHT",
+		"description": "VK Enum - RIGHT ARROW key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.DOWN": {
+		"prefix": "VK.DOWN",
+		"body": "VK.DOWN",
+		"description": "VK Enum - DOWN ARROW key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.SELECT": {
+		"prefix": "VK.SELECT",
+		"body": "VK.SELECT",
+		"description": "VK Enum - SELECT key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.PRINT": {
+		"prefix": "VK.PRINT",
+		"body": "VK.PRINT",
+		"description": "VK Enum - PRINT key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.EXECUTE": {
+		"prefix": "VK.EXECUTE",
+		"body": "VK.EXECUTE",
+		"description": "VK Enum - EXECUTE key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.SNAPSHOT": {
+		"prefix": "VK.SNAPSHOT",
+		"body": "VK.SNAPSHOT",
+		"description": "VK Enum - PRINT SCREEN key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.INSERT": {
+		"prefix": "VK.INSERT",
+		"body": "VK.INSERT",
+		"description": "VK Enum - INS key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.DEL": {
+		"prefix": "VK.DEL",
+		"body": "VK.DEL",
+		"description": "VK Enum - DEL key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.HELP": {
+		"prefix": "VK.HELP",
+		"body": "VK.HELP",
+		"description": "VK Enum - HELP key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_0": {
+		"prefix": "VK.KEY_0",
+		"body": "VK.KEY_0",
+		"description": "VK Enum - 0 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_1": {
+		"prefix": "VK.KEY_1",
+		"body": "VK.KEY_1",
+		"description": "VK Enum - 1 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_2": {
+		"prefix": "VK.KEY_2",
+		"body": "VK.KEY_2",
+		"description": "VK Enum - 2 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_3": {
+		"prefix": "VK.KEY_3",
+		"body": "VK.KEY_3",
+		"description": "VK Enum - 3 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_4": {
+		"prefix": "VK.KEY_4",
+		"body": "VK.KEY_4",
+		"description": "VK Enum - 4 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_5": {
+		"prefix": "VK.KEY_5",
+		"body": "VK.KEY_5",
+		"description": "VK Enum - 5 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_6": {
+		"prefix": "VK.KEY_6",
+		"body": "VK.KEY_6",
+		"description": "VK Enum - 6 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_7": {
+		"prefix": "VK.KEY_7",
+		"body": "VK.KEY_7",
+		"description": "VK Enum - 7 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_8": {
+		"prefix": "VK.KEY_8",
+		"body": "VK.KEY_8",
+		"description": "VK Enum - 8 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_9": {
+		"prefix": "VK.KEY_9",
+		"body": "VK.KEY_9",
+		"description": "VK Enum - 9 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_A": {
+		"prefix": "VK.KEY_A",
+		"body": "VK.KEY_A",
+		"description": "VK Enum - A key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_B": {
+		"prefix": "VK.KEY_B",
+		"body": "VK.KEY_B",
+		"description": "VK Enum - B key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_C": {
+		"prefix": "VK.KEY_C",
+		"body": "VK.KEY_C",
+		"description": "VK Enum - C key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_D": {
+		"prefix": "VK.KEY_D",
+		"body": "VK.KEY_D",
+		"description": "VK Enum - D key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_E": {
+		"prefix": "VK.KEY_E",
+		"body": "VK.KEY_E",
+		"description": "VK Enum - E key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_F": {
+		"prefix": "VK.KEY_F",
+		"body": "VK.KEY_F",
+		"description": "VK Enum - F key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_G": {
+		"prefix": "VK.KEY_G",
+		"body": "VK.KEY_G",
+		"description": "VK Enum - G key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_H": {
+		"prefix": "VK.KEY_H",
+		"body": "VK.KEY_H",
+		"description": "VK Enum - H key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_I": {
+		"prefix": "VK.KEY_I",
+		"body": "VK.KEY_I",
+		"description": "VK Enum - I key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_J": {
+		"prefix": "VK.KEY_J",
+		"body": "VK.KEY_J",
+		"description": "VK Enum - J key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_K": {
+		"prefix": "VK.KEY_K",
+		"body": "VK.KEY_K",
+		"description": "VK Enum - K key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_L": {
+		"prefix": "VK.KEY_L",
+		"body": "VK.KEY_L",
+		"description": "VK Enum - L key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_M": {
+		"prefix": "VK.KEY_M",
+		"body": "VK.KEY_M",
+		"description": "VK Enum - M key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_N": {
+		"prefix": "VK.KEY_N",
+		"body": "VK.KEY_N",
+		"description": "VK Enum - N key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_O": {
+		"prefix": "VK.KEY_O",
+		"body": "VK.KEY_O",
+		"description": "VK Enum - O key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_P": {
+		"prefix": "VK.KEY_P",
+		"body": "VK.KEY_P",
+		"description": "VK Enum - P key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_Q": {
+		"prefix": "VK.KEY_Q",
+		"body": "VK.KEY_Q",
+		"description": "VK Enum - Q key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_R": {
+		"prefix": "VK.KEY_R",
+		"body": "VK.KEY_R",
+		"description": "VK Enum - R key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_S": {
+		"prefix": "VK.KEY_S",
+		"body": "VK.KEY_S",
+		"description": "VK Enum - S key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_T": {
+		"prefix": "VK.KEY_T",
+		"body": "VK.KEY_T",
+		"description": "VK Enum - T key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_U": {
+		"prefix": "VK.KEY_U",
+		"body": "VK.KEY_U",
+		"description": "VK Enum - U key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_V": {
+		"prefix": "VK.KEY_V",
+		"body": "VK.KEY_V",
+		"description": "VK Enum - V key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_W": {
+		"prefix": "VK.KEY_W",
+		"body": "VK.KEY_W",
+		"description": "VK Enum - W key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_X": {
+		"prefix": "VK.KEY_X",
+		"body": "VK.KEY_X",
+		"description": "VK Enum - X key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_Y": {
+		"prefix": "VK.KEY_Y",
+		"body": "VK.KEY_Y",
+		"description": "VK Enum - Y key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.KEY_Z": {
+		"prefix": "VK.KEY_Z",
+		"body": "VK.KEY_Z",
+		"description": "VK Enum - Z key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.LWIN": {
+		"prefix": "VK.LWIN",
+		"body": "VK.LWIN",
+		"description": "VK Enum - Left Windows key (Microsoft Natural keyboard)",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.RWIN": {
+		"prefix": "VK.RWIN",
+		"body": "VK.RWIN",
+		"description": "VK Enum - Right Windows key (Natural keyboard)",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.APPS": {
+		"prefix": "VK.APPS",
+		"body": "VK.APPS",
+		"description": "VK Enum - Applications key (Natural keyboard)",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.SLEEP": {
+		"prefix": "VK.SLEEP",
+		"body": "VK.SLEEP",
+		"description": "VK Enum - Computer Sleep key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.NUMPAD0": {
+		"prefix": "VK.NUMPAD0",
+		"body": "VK.NUMPAD0",
+		"description": "VK Enum - Numeric keypad 0 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.NUMPAD1": {
+		"prefix": "VK.NUMPAD1",
+		"body": "VK.NUMPAD1",
+		"description": "VK Enum - Numeric keypad 1 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.NUMPAD2": {
+		"prefix": "VK.NUMPAD2",
+		"body": "VK.NUMPAD2",
+		"description": "VK Enum - Numeric keypad 2 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.NUMPAD3": {
+		"prefix": "VK.NUMPAD3",
+		"body": "VK.NUMPAD3",
+		"description": "VK Enum - Numeric keypad 3 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.NUMPAD4": {
+		"prefix": "VK.NUMPAD4",
+		"body": "VK.NUMPAD4",
+		"description": "VK Enum - Numeric keypad 4 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.NUMPAD5": {
+		"prefix": "VK.NUMPAD5",
+		"body": "VK.NUMPAD5",
+		"description": "VK Enum - Numeric keypad 5 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.NUMPAD6": {
+		"prefix": "VK.NUMPAD6",
+		"body": "VK.NUMPAD6",
+		"description": "VK Enum - Numeric keypad 6 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.NUMPAD7": {
+		"prefix": "VK.NUMPAD7",
+		"body": "VK.NUMPAD7",
+		"description": "VK Enum - Numeric keypad 7 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.NUMPAD8": {
+		"prefix": "VK.NUMPAD8",
+		"body": "VK.NUMPAD8",
+		"description": "VK Enum - Numeric keypad 8 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.NUMPAD9": {
+		"prefix": "VK.NUMPAD9",
+		"body": "VK.NUMPAD9",
+		"description": "VK Enum - Numeric keypad 9 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.MULTIPLY": {
+		"prefix": "VK.MULTIPLY",
+		"body": "VK.MULTIPLY",
+		"description": "VK Enum - Multiply key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.ADD": {
+		"prefix": "VK.ADD",
+		"body": "VK.ADD",
+		"description": "VK Enum - Add key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.SEPARATOR": {
+		"prefix": "VK.SEPARATOR",
+		"body": "VK.SEPARATOR",
+		"description": "VK Enum - Separator key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.SUBTRACT": {
+		"prefix": "VK.SUBTRACT",
+		"body": "VK.SUBTRACT",
+		"description": "VK Enum - Subtract key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.DECIMAL": {
+		"prefix": "VK.DECIMAL",
+		"body": "VK.DECIMAL",
+		"description": "VK Enum - Decimal key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.DIVIDE": {
+		"prefix": "VK.DIVIDE",
+		"body": "VK.DIVIDE",
+		"description": "VK Enum - Divide key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F1": {
+		"prefix": "VK.F1",
+		"body": "VK.F1",
+		"description": "VK Enum - F1 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F2": {
+		"prefix": "VK.F2",
+		"body": "VK.F2",
+		"description": "VK Enum - F2 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F3": {
+		"prefix": "VK.F3",
+		"body": "VK.F3",
+		"description": "VK Enum - F3 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F4": {
+		"prefix": "VK.F4",
+		"body": "VK.F4",
+		"description": "VK Enum - F4 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F5": {
+		"prefix": "VK.F5",
+		"body": "VK.F5",
+		"description": "VK Enum - F5 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F6": {
+		"prefix": "VK.F6",
+		"body": "VK.F6",
+		"description": "VK Enum - F6 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F7": {
+		"prefix": "VK.F7",
+		"body": "VK.F7",
+		"description": "VK Enum - F7 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F8": {
+		"prefix": "VK.F8",
+		"body": "VK.F8",
+		"description": "VK Enum - F8 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F9": {
+		"prefix": "VK.F9",
+		"body": "VK.F9",
+		"description": "VK Enum - F9 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F10": {
+		"prefix": "VK.F10",
+		"body": "VK.F10",
+		"description": "VK Enum - F10 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F11": {
+		"prefix": "VK.F11",
+		"body": "VK.F11",
+		"description": "VK Enum - F11 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F12": {
+		"prefix": "VK.F12",
+		"body": "VK.F12",
+		"description": "VK Enum - F12 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F13": {
+		"prefix": "VK.F13",
+		"body": "VK.F13",
+		"description": "VK Enum - F13 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F14": {
+		"prefix": "VK.F14",
+		"body": "VK.F14",
+		"description": "VK Enum - F14 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F15": {
+		"prefix": "VK.F15",
+		"body": "VK.F15",
+		"description": "VK Enum - F15 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F16": {
+		"prefix": "VK.F16",
+		"body": "VK.F16",
+		"description": "VK Enum - F16 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F17": {
+		"prefix": "VK.F17",
+		"body": "VK.F17",
+		"description": "VK Enum - F17 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F18": {
+		"prefix": "VK.F18",
+		"body": "VK.F18",
+		"description": "VK Enum - F18 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F19": {
+		"prefix": "VK.F19",
+		"body": "VK.F19",
+		"description": "VK Enum - F19 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F20": {
+		"prefix": "VK.F20",
+		"body": "VK.F20",
+		"description": "VK Enum - F20 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F21": {
+		"prefix": "VK.F21",
+		"body": "VK.F21",
+		"description": "VK Enum - F21 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F22": {
+		"prefix": "VK.F22",
+		"body": "VK.F22",
+		"description": "VK Enum - F22 key, (PPC only) Key used to lock device.",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F23": {
+		"prefix": "VK.F23",
+		"body": "VK.F23",
+		"description": "VK Enum - F23 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.F24": {
+		"prefix": "VK.F24",
+		"body": "VK.F24",
+		"description": "VK Enum - F24 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.NUMLOCK": {
+		"prefix": "VK.NUMLOCK",
+		"body": "VK.NUMLOCK",
+		"description": "VK Enum - NUM LOCK key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.SCROLL": {
+		"prefix": "VK.SCROLL",
+		"body": "VK.SCROLL",
+		"description": "VK Enum - SCROLL LOCK key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.LSHIFT": {
+		"prefix": "VK.LSHIFT",
+		"body": "VK.LSHIFT",
+		"description": "VK Enum - Left SHIFT key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.RSHIFT": {
+		"prefix": "VK.RSHIFT",
+		"body": "VK.RSHIFT",
+		"description": "VK Enum - Right SHIFT key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.LCONTROL": {
+		"prefix": "VK.LCONTROL",
+		"body": "VK.LCONTROL",
+		"description": "VK Enum - Left CONTROL key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.RCONTROL": {
+		"prefix": "VK.RCONTROL",
+		"body": "VK.RCONTROL",
+		"description": "VK Enum - Right CONTROL key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.LMENU": {
+		"prefix": "VK.LMENU",
+		"body": "VK.LMENU",
+		"description": "VK Enum - Left MENU key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.RMENU": {
+		"prefix": "VK.RMENU",
+		"body": "VK.RMENU",
+		"description": "VK Enum - Right MENU key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.BROWSER_BACK": {
+		"prefix": "VK.BROWSER_BACK",
+		"body": "VK.BROWSER_BACK",
+		"description": "VK Enum - Windows 2000/XP: Browser Back key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.BROWSER_FORWARD": {
+		"prefix": "VK.BROWSER_FORWARD",
+		"body": "VK.BROWSER_FORWARD",
+		"description": "VK Enum - Windows 2000/XP: Browser Forward key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.BROWSER_REFRESH": {
+		"prefix": "VK.BROWSER_REFRESH",
+		"body": "VK.BROWSER_REFRESH",
+		"description": "VK Enum - Windows 2000/XP: Browser Refresh key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.BROWSER_STOP": {
+		"prefix": "VK.BROWSER_STOP",
+		"body": "VK.BROWSER_STOP",
+		"description": "VK Enum - Windows 2000/XP: Browser Stop key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.BROWSER_SEARCH": {
+		"prefix": "VK.BROWSER_SEARCH",
+		"body": "VK.BROWSER_SEARCH",
+		"description": "VK Enum - Windows 2000/XP: Browser Search key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.BROWSER_FAVORITES": {
+		"prefix": "VK.BROWSER_FAVORITES",
+		"body": "VK.BROWSER_FAVORITES",
+		"description": "VK Enum - Windows 2000/XP: Browser Favorites key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.BROWSER_HOME": {
+		"prefix": "VK.BROWSER_HOME",
+		"body": "VK.BROWSER_HOME",
+		"description": "VK Enum - Windows 2000/XP: Browser Start and Home key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.VOLUME_MUTE": {
+		"prefix": "VK.VOLUME_MUTE",
+		"body": "VK.VOLUME_MUTE",
+		"description": "VK Enum - Windows 2000/XP: Volume Mute key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.VOLUME_DOWN": {
+		"prefix": "VK.VOLUME_DOWN",
+		"body": "VK.VOLUME_DOWN",
+		"description": "VK Enum - Windows 2000/XP: Volume Down key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.VOLUME_UP": {
+		"prefix": "VK.VOLUME_UP",
+		"body": "VK.VOLUME_UP",
+		"description": "VK Enum - Windows 2000/XP: Volume Up key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.MEDIA_NEXT_TRACK": {
+		"prefix": "VK.MEDIA_NEXT_TRACK",
+		"body": "VK.MEDIA_NEXT_TRACK",
+		"description": "VK Enum - Windows 2000/XP: Next Track key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.MEDIA_PREV_TRACK": {
+		"prefix": "VK.MEDIA_PREV_TRACK",
+		"body": "VK.MEDIA_PREV_TRACK",
+		"description": "VK Enum - Windows 2000/XP: Previous Track key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.MEDIA_STOP": {
+		"prefix": "VK.MEDIA_STOP",
+		"body": "VK.MEDIA_STOP",
+		"description": "VK Enum - Windows 2000/XP: Stop Media key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.MEDIA_PLAY_PAUSE": {
+		"prefix": "VK.MEDIA_PLAY_PAUSE",
+		"body": "VK.MEDIA_PLAY_PAUSE",
+		"description": "VK Enum - Windows 2000/XP: Play/Pause Media key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.LAUNCH_MAIL": {
+		"prefix": "VK.LAUNCH_MAIL",
+		"body": "VK.LAUNCH_MAIL",
+		"description": "VK Enum - Windows 2000/XP: Start Mail key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.LAUNCH_MEDIA_SELECT": {
+		"prefix": "VK.LAUNCH_MEDIA_SELECT",
+		"body": "VK.LAUNCH_MEDIA_SELECT",
+		"description": "VK Enum - Windows 2000/XP: Select Media key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.LAUNCH_APP1": {
+		"prefix": "VK.LAUNCH_APP1",
+		"body": "VK.LAUNCH_APP1",
+		"description": "VK Enum - Windows 2000/XP: Start Application 1 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.LAUNCH_APP2": {
+		"prefix": "VK.LAUNCH_APP2",
+		"body": "VK.LAUNCH_APP2",
+		"description": "VK Enum - Windows 2000/XP: Start Application 2 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.OEM_1": {
+		"prefix": "VK.OEM_1",
+		"body": "VK.OEM_1",
+		"description": "VK Enum - Used for miscellaneous characters; it can vary by keyboard.",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.OEM_PLUS": {
+		"prefix": "VK.OEM_PLUS",
+		"body": "VK.OEM_PLUS",
+		"description": "VK Enum - Windows 2000/XP: For any country/region, the '+' key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.OEM_COMMA": {
+		"prefix": "VK.OEM_COMMA",
+		"body": "VK.OEM_COMMA",
+		"description": "VK Enum - Windows 2000/XP: For any country/region, the ',' key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.OEM_MINUS": {
+		"prefix": "VK.OEM_MINUS",
+		"body": "VK.OEM_MINUS",
+		"description": "VK Enum - Windows 2000/XP: For any country/region, the '-' key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.OEM_PERIOD": {
+		"prefix": "VK.OEM_PERIOD",
+		"body": "VK.OEM_PERIOD",
+		"description": "VK Enum - Windows 2000/XP: For any country/region, the '.' key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.OEM_2": {
+		"prefix": "VK.OEM_2",
+		"body": "VK.OEM_2",
+		"description": "VK Enum - Used for miscellaneous characters; it can vary by keyboard.",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.OEM_3": {
+		"prefix": "VK.OEM_3",
+		"body": "VK.OEM_3",
+		"description": "VK Enum - Used for miscellaneous characters; it can vary by keyboard.",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.OEM_4": {
+		"prefix": "VK.OEM_4",
+		"body": "VK.OEM_4",
+		"description": "VK Enum - Used for miscellaneous characters; it can vary by keyboard.",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.OEM_5": {
+		"prefix": "VK.OEM_5",
+		"body": "VK.OEM_5",
+		"description": "VK Enum - Used for miscellaneous characters; it can vary by keyboard.",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.OEM_6": {
+		"prefix": "VK.OEM_6",
+		"body": "VK.OEM_6",
+		"description": "VK Enum - Used for miscellaneous characters; it can vary by keyboard.",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.OEM_7": {
+		"prefix": "VK.OEM_7",
+		"body": "VK.OEM_7",
+		"description": "VK Enum - Used for miscellaneous characters; it can vary by keyboard.",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.OEM_8": {
+		"prefix": "VK.OEM_8",
+		"body": "VK.OEM_8",
+		"description": "VK Enum - Used for miscellaneous characters; it can vary by keyboard.",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.OEM_102": {
+		"prefix": "VK.OEM_102",
+		"body": "VK.OEM_102",
+		"description": "VK Enum - Windows 2000/XP: Either the angle bracket key or the backslash key on the RT 102-key keyboard",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.PROCESSKEY": {
+		"prefix": "VK.PROCESSKEY",
+		"body": "VK.PROCESSKEY",
+		"description": "VK Enum - Windows 95/98/Me, Windows NT 4.0, Windows 2000/XP: IME PROCESS key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.PACKET": {
+		"prefix": "VK.PACKET",
+		"body": "VK.PACKET",
+		"description": "VK Enum - Windows 2000/XP: Used to pass Unicode characters as if they were keystrokes. The VK_PACKET key is the low word of a 32-bit Virtual Key value used for non-keyboard input methods. For more information, see Remark in KEYBDINPUT, SendInput, WM_KEYDOWN, and WM_KEYUP",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.ATTN": {
+		"prefix": "VK.ATTN",
+		"body": "VK.ATTN",
+		"description": "VK Enum - Attn key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.CRSEL": {
+		"prefix": "VK.CRSEL",
+		"body": "VK.CRSEL",
+		"description": "VK Enum - CrSel key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.EXSEL": {
+		"prefix": "VK.EXSEL",
+		"body": "VK.EXSEL",
+		"description": "VK Enum - ExSel key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.EREOF": {
+		"prefix": "VK.EREOF",
+		"body": "VK.EREOF",
+		"description": "VK Enum - Erase EOF key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.PLAY": {
+		"prefix": "VK.PLAY",
+		"body": "VK.PLAY",
+		"description": "VK Enum - Play key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.ZOOM": {
+		"prefix": "VK.ZOOM",
+		"body": "VK.ZOOM",
+		"description": "VK Enum - Zoom key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.NONAME": {
+		"prefix": "VK.NONAME",
+		"body": "VK.NONAME",
+		"description": "VK Enum - Reserved",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.PA1": {
+		"prefix": "VK.PA1",
+		"body": "VK.PA1",
+		"description": "VK Enum - PA1 key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"VK.OEM_CLEAR": {
+		"prefix": "VK.OEM_CLEAR",
+		"body": "VK.OEM_CLEAR",
+		"description": "VK Enum - Clear key",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"WorldChrMan.getCurrentMapEnemies": {
+		"prefix": "WorldChrMan.getCurrentMapEnemies",
+		"body": "WorldChrMan.getCurrentMapEnemies()",
+		"description": "WorldChrMan.getCurrentMapEnemies ()",
+		"scope": "hoodiescript.lua"
+	},
+	"WorldChrMan.reloadCharacterFiles": {
+		"prefix": "WorldChrMan.reloadCharacterFiles",
+		"body": "WorldChrMan.reloadCharacterFiles(${1:characterId})",
+		"description": "WorldChrMan.reloadCharacterFiles (characterId)",
+		"scope": "hoodiescript.lua"
+	},
+	"WorldChrMan.findEntityTest": {
+		"prefix": "WorldChrMan.findEntityTest",
+		"body": "WorldChrMan.findEntityTest(${1:id})",
+		"description": "WorldChrMan.findEntityTest (id)",
+		"scope": "hoodiescript.lua"
+	},
+	"WorldChrMan.getInsByHandle": {
+		"prefix": "WorldChrMan.getInsByHandle",
+		"body": "WorldChrMan.getInsByHandle(${1:handle})",
+		"description": "WorldChrMan.getInsByHandle (handle)",
+		"scope": "hoodiescript.lua"
+	},
+	"WorldChrMan.getCamVector": {
+		"prefix": "WorldChrMan.getCamVector",
+		"body": "WorldChrMan.getCamVector()",
+		"description": "WorldChrMan.getCamVector ()",
+		"scope": "hoodiescript.lua"
+	},
+	"WorldChrMan.getInstance": {
+		"prefix": "WorldChrMan.getInstance",
+		"body": "WorldChrMan.getInstance()",
+		"description": "WorldChrMan.getInstance ()",
+		"scope": "hoodiescript.lua"
+	},
+	"WorldChrMan.hasInstance": {
+		"prefix": "WorldChrMan.hasInstance",
+		"body": "WorldChrMan.hasInstance()",
+		"description": "WorldChrMan.hasInstance ()",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.new0": {
+		"prefix": "ChrIns.new",
+		"body": "ChrIns.new(${1:ChrInsPtr})",
+		"description": "ChrIns.new(ChrInsPtr)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.isValid": {
+		"prefix": "ChrIns.isValid",
+		"body": "ChrIns.isValid(${1:this})",
+		"description": "bool ChrIns.isValid (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getHandle": {
+		"prefix": "ChrIns.getHandle",
+		"body": "ChrIns.getHandle(${1:this})",
+		"description": "Handle ChrIns.getHandle (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getChrType": {
+		"prefix": "ChrIns.getChrType",
+		"body": "ChrIns.getChrType(${1:this})",
+		"description": "ChrType ChrIns.getChrType (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.setChrType": {
+		"prefix": "ChrIns.setChrType",
+		"body": "ChrIns.setChrType(${1:this}, ${2:chrType})",
+		"description": "void ChrIns.setChrType (this, chrType)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getTeam": {
+		"prefix": "ChrIns.getTeam",
+		"body": "ChrIns.getTeam(${1:this})",
+		"description": "Team ChrIns.getTeam (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.setTeam": {
+		"prefix": "ChrIns.setTeam",
+		"body": "ChrIns.setTeam(${1:this}, ${2:team})",
+		"description": "void ChrIns.setTeam (this, team)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getForwardId": {
+		"prefix": "ChrIns.getForwardId",
+		"body": "ChrIns.getForwardId(${1:this})",
+		"description": "unsigned short ChrIns.getForwardId (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getCharacterString": {
+		"prefix": "ChrIns.getCharacterString",
+		"body": "ChrIns.getCharacterString(${1:this})",
+		"description": "std::wstring ChrIns.getCharacterString (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getAnimationString": {
+		"prefix": "ChrIns.getAnimationString",
+		"body": "ChrIns.getAnimationString(${1:this})",
+		"description": "std::wstring ChrIns.getAnimationString (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getAnimationTime": {
+		"prefix": "ChrIns.getAnimationTime",
+		"body": "ChrIns.getAnimationTime(${1:this})",
+		"description": "float ChrIns.getAnimationTime (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getMaxAnimationTime": {
+		"prefix": "ChrIns.getMaxAnimationTime",
+		"body": "ChrIns.getMaxAnimationTime(${1:this})",
+		"description": "float ChrIns.getMaxAnimationTime (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getTurnRate": {
+		"prefix": "ChrIns.getTurnRate",
+		"body": "ChrIns.getTurnRate(${1:this})",
+		"description": "float ChrIns.getTurnRate (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getPosition": {
+		"prefix": "ChrIns.getPosition",
+		"body": "ChrIns.getPosition(${1:this})",
+		"description": "std::vector<float> ChrIns.getPosition (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.setPosition": {
+		"prefix": "ChrIns.setPosition",
+		"body": "ChrIns.setPosition(${1:this}, ${2:position})",
+		"description": "void ChrIns.setPosition (this, position)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getAngle": {
+		"prefix": "ChrIns.getAngle",
+		"body": "ChrIns.getAngle(${1:this})",
+		"description": "float ChrIns.getAngle (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getCrossbowAngle": {
+		"prefix": "ChrIns.getCrossbowAngle",
+		"body": "ChrIns.getCrossbowAngle(${1:this})",
+		"description": "float ChrIns.getCrossbowAngle (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.setAngle": {
+		"prefix": "ChrIns.setAngle",
+		"body": "ChrIns.setAngle(${1:this}, ${2:angle})",
+		"description": "void ChrIns.setAngle (this, angle)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getSprjChrDataModule": {
+		"prefix": "ChrIns.getSprjChrDataModule",
+		"body": "ChrIns.getSprjChrDataModule(${1:this})",
+		"description": "uintptr_t ChrIns.getSprjChrDataModule (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getSprjChrDamageModule": {
+		"prefix": "ChrIns.getSprjChrDamageModule",
+		"body": "ChrIns.getSprjChrDamageModule(${1:this})",
+		"description": "uintptr_t ChrIns.getSprjChrDamageModule (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.isDead": {
+		"prefix": "ChrIns.isDead",
+		"body": "ChrIns.isDead(${1:this})",
+		"description": "int32_t ChrIns.isDead (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.setIsDead": {
+		"prefix": "ChrIns.setIsDead",
+		"body": "ChrIns.setIsDead(${1:this}, ${2:isDead})",
+		"description": "void ChrIns.setIsDead (this, isDead)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.isNoGravity": {
+		"prefix": "ChrIns.isNoGravity",
+		"body": "ChrIns.isNoGravity(${1:this})",
+		"description": "bool ChrIns.isNoGravity (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.setNoGravity": {
+		"prefix": "ChrIns.setNoGravity",
+		"body": "ChrIns.setNoGravity(${1:this}, ${2:value})",
+		"description": "void ChrIns.setNoGravity (this, value)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.isDodging": {
+		"prefix": "ChrIns.isDodging",
+		"body": "ChrIns.isDodging(${1:this})",
+		"description": "bool ChrIns.isDodging (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getHkbCharacter": {
+		"prefix": "ChrIns.getHkbCharacter",
+		"body": "ChrIns.getHkbCharacter(${1:this})",
+		"description": "uintptr_t ChrIns.getHkbCharacter (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.hasHkbCharacter": {
+		"prefix": "ChrIns.hasHkbCharacter",
+		"body": "ChrIns.hasHkbCharacter(${1:this})",
+		"description": "bool ChrIns.hasHkbCharacter (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.playAnimation": {
+		"prefix": "ChrIns.playAnimation",
+		"body": "ChrIns.playAnimation(${1:this}, ${2:animationStringId})",
+		"description": "void ChrIns.playAnimation (this, animationStringId)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.playAnimationString": {
+		"prefix": "ChrIns.playAnimationString",
+		"body": "ChrIns.playAnimationString(${1:this}, ${2:animationString})",
+		"description": "void ChrIns.playAnimationString (this, animationString)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getHkbIdFromString": {
+		"prefix": "ChrIns.getHkbIdFromString",
+		"body": "ChrIns.getHkbIdFromString(${1:this}, ${2:animationString})",
+		"description": "int32_t ChrIns.getHkbIdFromString (this, animationString)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getHkbStringFromId": {
+		"prefix": "ChrIns.getHkbStringFromId",
+		"body": "ChrIns.getHkbStringFromId(${1:this}, ${2:id})",
+		"description": "std::wstring ChrIns.getHkbStringFromId (this, id)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getWeightIndex": {
+		"prefix": "ChrIns.getWeightIndex",
+		"body": "ChrIns.getWeightIndex(${1:this})",
+		"description": "int32_t ChrIns.getWeightIndex (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.hasSpEffect": {
+		"prefix": "ChrIns.hasSpEffect",
+		"body": "ChrIns.hasSpEffect(${1:this}, ${2:spEffectId})",
+		"description": "bool ChrIns.hasSpEffect (this, spEffectId)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.setWeightIndex": {
+		"prefix": "ChrIns.setWeightIndex",
+		"body": "ChrIns.setWeightIndex(${1:this}, ${2:weightIndex})",
+		"description": "void ChrIns.setWeightIndex (this, weightIndex)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.setDebugAnimSpeed": {
+		"prefix": "ChrIns.setDebugAnimSpeed",
+		"body": "ChrIns.setDebugAnimSpeed(${1:this}, ${2:speedModifier})",
+		"description": "void ChrIns.setDebugAnimSpeed (this, speedModifier)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getDummyPolyPositions": {
+		"prefix": "ChrIns.getDummyPolyPositions",
+		"body": "ChrIns.getDummyPolyPositions(${1:this}, ${2:dummyPolyId}, ${3:uint32_t&})",
+		"description": "std::vector<std::array<float, 4>> ChrIns.getDummyPolyPositions (this, dummyPolyId, uint32_t&)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getAddress": {
+		"prefix": "ChrIns.getAddress",
+		"body": "ChrIns.getAddress(${1:this})",
+		"description": "uintptr_t ChrIns.getAddress (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.isChrIns": {
+		"prefix": "ChrIns.isChrIns",
+		"body": "ChrIns.isChrIns(${1:address})",
+		"description": "bool ChrIns.isChrIns (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.new0": {
+		"prefix": "PlayerIns.new",
+		"body": "PlayerIns.new(${1:address})",
+		"description": " PlayerIns.new (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getPlayerGameData": {
+		"prefix": "PlayerIns.getPlayerGameData",
+		"body": "PlayerIns.getPlayerGameData(${1:this})",
+		"description": "PlayerGameData PlayerIns.getPlayerGameData (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.hasPlayerGameData": {
+		"prefix": "PlayerIns.hasPlayerGameData",
+		"body": "PlayerIns.hasPlayerGameData(${1:this})",
+		"description": "bool PlayerIns.hasPlayerGameData (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getNetworkPointer": {
+		"prefix": "PlayerIns.getNetworkPointer",
+		"body": "PlayerIns.getNetworkPointer(${1:this})",
+		"description": "uintptr_t* PlayerIns.getNetworkPointer (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getLeftHandWeapon": {
+		"prefix": "PlayerIns.getLeftHandWeapon",
+		"body": "PlayerIns.getLeftHandWeapon(${1:this}, ${2:slotNumber})",
+		"description": "int32_t PlayerIns.getLeftHandWeapon (this, slotNumber)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getLeftHandWeaponActive": {
+		"prefix": "PlayerIns.getLeftHandWeaponActive",
+		"body": "PlayerIns.getLeftHandWeaponActive(${1:this})",
+		"description": "int32_t PlayerIns.getLeftHandWeaponActive (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setLeftHandWeapon": {
+		"prefix": "PlayerIns.setLeftHandWeapon",
+		"body": "PlayerIns.setLeftHandWeapon(${1:this}, ${2:slotNumber}, ${3:int32_t&})",
+		"description": "void PlayerIns.setLeftHandWeapon (this, slotNumber, int32_t&)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setLeftHandWeaponActive": {
+		"prefix": "PlayerIns.setLeftHandWeaponActive",
+		"body": "PlayerIns.setLeftHandWeaponActive(${1:this}, ${2:equipParamWeaponId})",
+		"description": "void PlayerIns.setLeftHandWeaponActive (this, equipParamWeaponId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getRightHandWeapon": {
+		"prefix": "PlayerIns.getRightHandWeapon",
+		"body": "PlayerIns.getRightHandWeapon(${1:this}, ${2:slotNumber})",
+		"description": "int32_t PlayerIns.getRightHandWeapon (this, slotNumber)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setWeaponSheathState": {
+		"prefix": "PlayerIns.setWeaponSheathState",
+		"body": "PlayerIns.setWeaponSheathState(${1:this}, ${2:slot})",
+		"description": "void PlayerIns.setWeaponSheathState (this, slot)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.ReplaceWeapon": {
+		"prefix": "PlayerIns.ReplaceWeapon",
+		"body": "PlayerIns.ReplaceWeapon(${1:this}, ${2:equipParamWeaponTarget}, ${3:int32_t}, ${4:index})",
+		"description": "void PlayerIns.ReplaceWeapon (this, equipParamWeaponTarget, int32_t, index)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.ReplaceWeaponActiveRight": {
+		"prefix": "PlayerIns.ReplaceWeaponActiveRight",
+		"body": "PlayerIns.ReplaceWeaponActiveRight(${1:this}, ${2:equipParamWeaponTarget}, ${3:int32_t})",
+		"description": "void PlayerIns.ReplaceWeaponActiveRight (this, equipParamWeaponTarget, int32_t)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getWeaponSheathState": {
+		"prefix": "PlayerIns.getWeaponSheathState",
+		"body": "PlayerIns.getWeaponSheathState(${1:this})",
+		"description": "int32_t PlayerIns.getWeaponSheathState (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getRightHandWeaponActive": {
+		"prefix": "PlayerIns.getRightHandWeaponActive",
+		"body": "PlayerIns.getRightHandWeaponActive(${1:this})",
+		"description": "int32_t PlayerIns.getRightHandWeaponActive (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setRightHandWeapon": {
+		"prefix": "PlayerIns.setRightHandWeapon",
+		"body": "PlayerIns.setRightHandWeapon(${1:this}, ${2:slotNumber}, ${3:int32_t&})",
+		"description": "void PlayerIns.setRightHandWeapon (this, slotNumber, int32_t&)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setRightHandWeaponActive": {
+		"prefix": "PlayerIns.setRightHandWeaponActive",
+		"body": "PlayerIns.setRightHandWeaponActive(${1:this}, ${2:equipParamWeaponId})",
+		"description": "void PlayerIns.setRightHandWeaponActive (this, equipParamWeaponId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setRightHandWeaponActiveNetworked": {
+		"prefix": "PlayerIns.setRightHandWeaponActiveNetworked",
+		"body": "PlayerIns.setRightHandWeaponActiveNetworked(${1:this}, ${2:equipParamWeaponId})",
+		"description": "void PlayerIns.setRightHandWeaponActiveNetworked (this, equipParamWeaponId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setRightHandWeaponNetworked": {
+		"prefix": "PlayerIns.setRightHandWeaponNetworked",
+		"body": "PlayerIns.setRightHandWeaponNetworked(${1:this}, ${2:equipParamWeaponId}, ${3:index})",
+		"description": "void PlayerIns.setRightHandWeaponNetworked (this, equipParamWeaponId, index)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.removeWeaponFromInventory": {
+		"prefix": "PlayerIns.removeWeaponFromInventory",
+		"body": "PlayerIns.removeWeaponFromInventory(${1:this}, ${2:equipParamWeaponId})",
+		"description": "bool PlayerIns.removeWeaponFromInventory (this, equipParamWeaponId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getHead": {
+		"prefix": "PlayerIns.getHead",
+		"body": "PlayerIns.getHead(${1:this})",
+		"description": "int32_t PlayerIns.getHead (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setHead": {
+		"prefix": "PlayerIns.setHead",
+		"body": "PlayerIns.setHead(${1:this}, ${2:equipParamProtectorId})",
+		"description": "void PlayerIns.setHead (this, equipParamProtectorId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getChest": {
+		"prefix": "PlayerIns.getChest",
+		"body": "PlayerIns.getChest(${1:this})",
+		"description": "int32_t PlayerIns.getChest (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setChest": {
+		"prefix": "PlayerIns.setChest",
+		"body": "PlayerIns.setChest(${1:this}, ${2:equipParamProtectorId})",
+		"description": "void PlayerIns.setChest (this, equipParamProtectorId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getHands": {
+		"prefix": "PlayerIns.getHands",
+		"body": "PlayerIns.getHands(${1:this})",
+		"description": "int32_t PlayerIns.getHands (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setHands": {
+		"prefix": "PlayerIns.setHands",
+		"body": "PlayerIns.setHands(${1:this}, ${2:equipParamProtectorId})",
+		"description": "void PlayerIns.setHands (this, equipParamProtectorId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getLegs": {
+		"prefix": "PlayerIns.getLegs",
+		"body": "PlayerIns.getLegs(${1:this})",
+		"description": "int32_t PlayerIns.getLegs (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setLegs": {
+		"prefix": "PlayerIns.setLegs",
+		"body": "PlayerIns.setLegs(${1:this}, ${2:equipParamProtectorId})",
+		"description": "void PlayerIns.setLegs (this, equipParamProtectorId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getRing": {
+		"prefix": "PlayerIns.getRing",
+		"body": "PlayerIns.getRing(${1:this}, ${2:slotNumber})",
+		"description": "int32_t PlayerIns.getRing (this, slotNumber)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setRing": {
+		"prefix": "PlayerIns.setRing",
+		"body": "PlayerIns.setRing(${1:this}, ${2:slotNumber}, ${3:int32_t&})",
+		"description": "void PlayerIns.setRing (this, slotNumber, int32_t&)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getAmmo": {
+		"prefix": "PlayerIns.getAmmo",
+		"body": "PlayerIns.getAmmo(${1:this}, ${2:slotNumber})",
+		"description": "int32_t PlayerIns.getAmmo (this, slotNumber)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setAmmo": {
+		"prefix": "PlayerIns.setAmmo",
+		"body": "PlayerIns.setAmmo(${1:this}, ${2:slotNumber}, ${3:int32_t&})",
+		"description": "void PlayerIns.setAmmo (this, slotNumber, int32_t&)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getCovenant": {
+		"prefix": "PlayerIns.getCovenant",
+		"body": "PlayerIns.getCovenant(${1:this})",
+		"description": "int32_t PlayerIns.getCovenant (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setCovenant": {
+		"prefix": "PlayerIns.setCovenant",
+		"body": "PlayerIns.setCovenant(${1:this}, ${2:equipParamAccessoryId})",
+		"description": "void PlayerIns.setCovenant (this, equipParamAccessoryId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isNoGoodsConsume": {
+		"prefix": "PlayerIns.isNoGoodsConsume",
+		"body": "PlayerIns.isNoGoodsConsume(${1:this})",
+		"description": "bool PlayerIns.isNoGoodsConsume (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setNoGoodsConsume": {
+		"prefix": "PlayerIns.setNoGoodsConsume",
+		"body": "PlayerIns.setNoGoodsConsume(${1:this}, ${2:value})",
+		"description": "void PlayerIns.setNoGoodsConsume (this, value)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getPlayerCtrl": {
+		"prefix": "PlayerIns.getPlayerCtrl",
+		"body": "PlayerIns.getPlayerCtrl(${1:this})",
+		"description": "uintptr_t PlayerIns.getPlayerCtrl (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getNetworkHandle": {
+		"prefix": "PlayerIns.getNetworkHandle",
+		"body": "PlayerIns.getNetworkHandle(${1:this})",
+		"description": "uintptr_t* PlayerIns.getNetworkHandle (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getAddressByOffsetNumber": {
+		"prefix": "PlayerIns.getAddressByOffsetNumber",
+		"body": "PlayerIns.getAddressByOffsetNumber(${1:offsetNumber})",
+		"description": "uintptr_t PlayerIns.getAddressByOffsetNumber (offsetNumber)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isChrWithOffsetNumber": {
+		"prefix": "PlayerIns.isChrWithOffsetNumber",
+		"body": "PlayerIns.isChrWithOffsetNumber(${1:offsetNumber})",
+		"description": "bool PlayerIns.isChrWithOffsetNumber (offsetNumber)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isPlayer": {
+		"prefix": "PlayerIns.isPlayer",
+		"body": "PlayerIns.isPlayer(${1:address})",
+		"description": "bool PlayerIns.isPlayer (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getMainChrAddress": {
+		"prefix": "PlayerIns.getMainChrAddress",
+		"body": "PlayerIns.getMainChrAddress()",
+		"description": "uintptr_t PlayerIns.getMainChrAddress ()",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isMainChr": {
+		"prefix": "PlayerIns.isMainChr",
+		"body": "PlayerIns.isMainChr(${1:address})",
+		"description": "bool PlayerIns.isMainChr (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isMainChrLoaded": {
+		"prefix": "PlayerIns.isMainChrLoaded",
+		"body": "PlayerIns.isMainChrLoaded()",
+		"description": "bool PlayerIns.isMainChrLoaded ()",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isValid": {
+		"prefix": "PlayerIns.isValid",
+		"body": "PlayerIns.isValid(${1:this})",
+		"description": "bool PlayerIns.isValid (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getHandle": {
+		"prefix": "PlayerIns.getHandle",
+		"body": "PlayerIns.getHandle(${1:this})",
+		"description": "Handle PlayerIns.getHandle (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getChrType": {
+		"prefix": "PlayerIns.getChrType",
+		"body": "PlayerIns.getChrType(${1:this})",
+		"description": "ChrType PlayerIns.getChrType (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setChrType": {
+		"prefix": "PlayerIns.setChrType",
+		"body": "PlayerIns.setChrType(${1:this}, ${2:chrType})",
+		"description": "void PlayerIns.setChrType (this, chrType)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getTeam": {
+		"prefix": "PlayerIns.getTeam",
+		"body": "PlayerIns.getTeam(${1:this})",
+		"description": "Team PlayerIns.getTeam (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setTeam": {
+		"prefix": "PlayerIns.setTeam",
+		"body": "PlayerIns.setTeam(${1:this}, ${2:team})",
+		"description": "void PlayerIns.setTeam (this, team)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getForwardId": {
+		"prefix": "PlayerIns.getForwardId",
+		"body": "PlayerIns.getForwardId(${1:this})",
+		"description": "unsigned short PlayerIns.getForwardId (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getCharacterString": {
+		"prefix": "PlayerIns.getCharacterString",
+		"body": "PlayerIns.getCharacterString(${1:this})",
+		"description": "std::wstring PlayerIns.getCharacterString (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getAnimationString": {
+		"prefix": "PlayerIns.getAnimationString",
+		"body": "PlayerIns.getAnimationString(${1:this})",
+		"description": "std::wstring PlayerIns.getAnimationString (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getAnimationTime": {
+		"prefix": "PlayerIns.getAnimationTime",
+		"body": "PlayerIns.getAnimationTime(${1:this})",
+		"description": "float PlayerIns.getAnimationTime (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getMaxAnimationTime": {
+		"prefix": "PlayerIns.getMaxAnimationTime",
+		"body": "PlayerIns.getMaxAnimationTime(${1:this})",
+		"description": "float PlayerIns.getMaxAnimationTime (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getTurnRate": {
+		"prefix": "PlayerIns.getTurnRate",
+		"body": "PlayerIns.getTurnRate(${1:this})",
+		"description": "float PlayerIns.getTurnRate (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getPosition": {
+		"prefix": "PlayerIns.getPosition",
+		"body": "PlayerIns.getPosition(${1:this})",
+		"description": "std::vector<float> PlayerIns.getPosition (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setPosition": {
+		"prefix": "PlayerIns.setPosition",
+		"body": "PlayerIns.setPosition(${1:this}, ${2:position})",
+		"description": "void PlayerIns.setPosition (this, position)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getAngle": {
+		"prefix": "PlayerIns.getAngle",
+		"body": "PlayerIns.getAngle(${1:this})",
+		"description": "float PlayerIns.getAngle (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getCrossbowAngle": {
+		"prefix": "PlayerIns.getCrossbowAngle",
+		"body": "PlayerIns.getCrossbowAngle(${1:this})",
+		"description": "float PlayerIns.getCrossbowAngle (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setAngle": {
+		"prefix": "PlayerIns.setAngle",
+		"body": "PlayerIns.setAngle(${1:this}, ${2:angle})",
+		"description": "void PlayerIns.setAngle (this, angle)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getSprjChrDataModule": {
+		"prefix": "PlayerIns.getSprjChrDataModule",
+		"body": "PlayerIns.getSprjChrDataModule(${1:this})",
+		"description": "uintptr_t PlayerIns.getSprjChrDataModule (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getSprjChrDamageModule": {
+		"prefix": "PlayerIns.getSprjChrDamageModule",
+		"body": "PlayerIns.getSprjChrDamageModule(${1:this})",
+		"description": "uintptr_t PlayerIns.getSprjChrDamageModule (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isDead": {
+		"prefix": "PlayerIns.isDead",
+		"body": "PlayerIns.isDead(${1:this})",
+		"description": "int32_t PlayerIns.isDead (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setIsDead": {
+		"prefix": "PlayerIns.setIsDead",
+		"body": "PlayerIns.setIsDead(${1:this}, ${2:isDead})",
+		"description": "void PlayerIns.setIsDead (this, isDead)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isNoGravity": {
+		"prefix": "PlayerIns.isNoGravity",
+		"body": "PlayerIns.isNoGravity(${1:this})",
+		"description": "bool PlayerIns.isNoGravity (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setNoGravity": {
+		"prefix": "PlayerIns.setNoGravity",
+		"body": "PlayerIns.setNoGravity(${1:this}, ${2:value})",
+		"description": "void PlayerIns.setNoGravity (this, value)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isDodging": {
+		"prefix": "PlayerIns.isDodging",
+		"body": "PlayerIns.isDodging(${1:this})",
+		"description": "bool PlayerIns.isDodging (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getHkbCharacter": {
+		"prefix": "PlayerIns.getHkbCharacter",
+		"body": "PlayerIns.getHkbCharacter(${1:this})",
+		"description": "uintptr_t PlayerIns.getHkbCharacter (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.hasHkbCharacter": {
+		"prefix": "PlayerIns.hasHkbCharacter",
+		"body": "PlayerIns.hasHkbCharacter(${1:this})",
+		"description": "bool PlayerIns.hasHkbCharacter (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.playAnimation": {
+		"prefix": "PlayerIns.playAnimation",
+		"body": "PlayerIns.playAnimation(${1:this}, ${2:animationStringId})",
+		"description": "void PlayerIns.playAnimation (this, animationStringId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.playAnimationString": {
+		"prefix": "PlayerIns.playAnimationString",
+		"body": "PlayerIns.playAnimationString(${1:this}, ${2:animationString})",
+		"description": "void PlayerIns.playAnimationString (this, animationString)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getHkbIdFromString": {
+		"prefix": "PlayerIns.getHkbIdFromString",
+		"body": "PlayerIns.getHkbIdFromString(${1:this}, ${2:animationString})",
+		"description": "int32_t PlayerIns.getHkbIdFromString (this, animationString)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getHkbStringFromId": {
+		"prefix": "PlayerIns.getHkbStringFromId",
+		"body": "PlayerIns.getHkbStringFromId(${1:this}, ${2:id})",
+		"description": "std::wstring PlayerIns.getHkbStringFromId (this, id)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.playDebugIdle": {
+		"prefix": "PlayerIns.playDebugIdle",
+		"body": "PlayerIns.playDebugIdle(${1:this}, ${2:animationId})",
+		"description": "//void PlayerIns.playDebugIdle (this, animationId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getWeightIndex": {
+		"prefix": "PlayerIns.getWeightIndex",
+		"body": "PlayerIns.getWeightIndex(${1:this})",
+		"description": "int32_t PlayerIns.getWeightIndex (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.hasSpEffect": {
+		"prefix": "PlayerIns.hasSpEffect",
+		"body": "PlayerIns.hasSpEffect(${1:this}, ${2:spEffectId})",
+		"description": "bool PlayerIns.hasSpEffect (this, spEffectId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setWeightIndex": {
+		"prefix": "PlayerIns.setWeightIndex",
+		"body": "PlayerIns.setWeightIndex(${1:this}, ${2:weightIndex})",
+		"description": "void PlayerIns.setWeightIndex (this, weightIndex)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setDebugAnimSpeed": {
+		"prefix": "PlayerIns.setDebugAnimSpeed",
+		"body": "PlayerIns.setDebugAnimSpeed(${1:this}, ${2:speedModifier})",
+		"description": "void PlayerIns.setDebugAnimSpeed (this, speedModifier)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getDummyPolyPositions": {
+		"prefix": "PlayerIns.getDummyPolyPositions",
+		"body": "PlayerIns.getDummyPolyPositions(${1:this}, ${2:dummyPolyId}, ${3:uint32_t&})",
+		"description": "std::vector<std::array<float, 4>> PlayerIns.getDummyPolyPositions (this, dummyPolyId, uint32_t&)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getAddress": {
+		"prefix": "PlayerIns.getAddress",
+		"body": "PlayerIns.getAddress(${1:this})",
+		"description": "uintptr_t PlayerIns.getAddress (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isChrIns": {
+		"prefix": "PlayerIns.isChrIns",
+		"body": "PlayerIns.isChrIns(${1:address})",
+		"description": "bool PlayerIns.isChrIns (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"EquipInventoryData.new0": {
+		"prefix": "EquipInventoryData.new",
+		"body": "EquipInventoryData.new(${1:address})",
+		"description": " EquipInventoryData.EquipInventoryData (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"EquipInventoryData.discardInventoryItems": {
+		"prefix": "EquipInventoryData.discardInventoryItems",
+		"body": "EquipInventoryData.discardInventoryItems(${1:this}, ${2:inventoryItemId}, ${3:quantity})",
+		"description": "void EquipInventoryData.discardInventoryItems (this, inventoryItemId, quantity)",
+		"scope": "hoodiescript.lua"
+	},
+	"EquipInventoryData.addItem": {
+		"prefix": "EquipInventoryData.addItem",
+		"body": "EquipInventoryData.addItem(${1:this}, ${2:paramIdPrefix}, ${3:paramId}, ${4:quantity}, ${5:durability})",
+		"description": "void EquipInventoryData.addItem (this, paramIdPrefix, paramId, quantity, durability)",
+		"scope": "hoodiescript.lua"
+	},
+	"EquipInventoryData.getInventoryItemById": {
+		"prefix": "EquipInventoryData.getInventoryItemById",
+		"body": "EquipInventoryData.getInventoryItemById(${1:this}, ${2:inventoryItemId})",
+		"description": "InventoryItem* EquipInventoryData.getInventoryItemById (this, inventoryItemId)",
+		"scope": "hoodiescript.lua"
+	},
+	"EquipInventoryData.getInventoryItemCount": {
+		"prefix": "EquipInventoryData.getInventoryItemCount",
+		"body": "EquipInventoryData.getInventoryItemCount(${1:this})",
+		"description": "int32_t EquipInventoryData.getInventoryItemCount (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"EquipGameData.new0": {
+		"prefix": "EquipGameData.new",
+		"body": "EquipGameData.EquipGameData(${1:address})",
+		"description": " EquipGameData.EquipGameData (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"EquipGameData.getInventoryItemIdBySlot": {
+		"prefix": "EquipGameData.getInventoryItemIdBySlot",
+		"body": "EquipGameData.getInventoryItemIdBySlot(${1:this}, ${2:EquipGameData})",
+		"description": "int32_t EquipGameData.getInventoryItemIdBySlot (this, EquipGameData)",
+		"scope": "hoodiescript.lua"
+	},
+	"EquipGameData.getInventoryItemIdByQuickSlot": {
+		"prefix": "EquipGameData.getInventoryItemIdByQuickSlot",
+		"body": "EquipGameData.getInventoryItemIdByQuickSlot(${1:this}, ${2:goodsSlot})",
+		"description": "int32_t EquipGameData.getInventoryItemIdByQuickSlot (this, goodsSlot)",
+		"scope": "hoodiescript.lua"
+	},
+	"EquipGameData.getInventoryItemIdByToolbeltSlot": {
+		"prefix": "EquipGameData.getInventoryItemIdByToolbeltSlot",
+		"body": "EquipGameData.getInventoryItemIdByToolbeltSlot(${1:this}, ${2:goodsSlot})",
+		"description": "int32_t EquipGameData.getInventoryItemIdByToolbeltSlot (this, goodsSlot)",
+		"scope": "hoodiescript.lua"
+	},
+	"EquipGameData.equipInventoryItem": {
+		"prefix": "EquipGameData.equipInventoryItem",
+		"body": "EquipGameData.equipInventoryItem(${1:this}, ${2:EquipGameData}, ${3:inventoryItemId})",
+		"description": "void EquipGameData.equipInventoryItem (this, EquipGameData, inventoryItemId)",
+		"scope": "hoodiescript.lua"
+	},
+	"EquipGameData.equipGoodsInventoryItem": {
+		"prefix": "EquipGameData.equipGoodsInventoryItem",
+		"body": "EquipGameData.equipGoodsInventoryItem(${1:this}, ${2:goodsSlot}, ${3:inventoryItemId})",
+		"description": "void EquipGameData.equipGoodsInventoryItem (this, goodsSlot, inventoryItemId)",
+		"scope": "hoodiescript.lua"
+	},
+	"EquipGameData.modifyInventoryItemQuantity": {
+		"prefix": "EquipGameData.modifyInventoryItemQuantity",
+		"body": "EquipGameData.modifyInventoryItemQuantity(${1:this}, ${2:inventoryItemId}, ${3:quantityDelta})",
+		"description": "void EquipGameData.modifyInventoryItemQuantity (this, inventoryItemId, quantityDelta)",
+		"scope": "hoodiescript.lua"
+	},
+	"EquipGameData.getEquipInventoryData": {
+		"prefix": "EquipGameData.getEquipInventoryData",
+		"body": "EquipGameData.getEquipInventoryData(${1:this})",
+		"description": "uintptr_t EquipGameData.getEquipInventoryData (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.new0": {
+		"prefix": "PlayerGameData.new",
+		"body": "PlayerGameData.new(${1:address})",
+		"description": " PlayerGameData.new (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getPlayerNo": {
+		"prefix": "PlayerGameData.getPlayerNo",
+		"body": "PlayerGameData.getPlayerNo(${1:this})",
+		"description": "int32_t PlayerGameData.getPlayerNo (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getVoice": {
+		"prefix": "PlayerGameData.getVoice",
+		"body": "PlayerGameData.getVoice(${1:this})",
+		"description": "Voice PlayerGameData.getVoice (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setVoice": {
+		"prefix": "PlayerGameData.setVoice",
+		"body": "PlayerGameData.setVoice(${1:this}, ${2:voice})",
+		"description": "void PlayerGameData.setVoice (this, voice)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getClass": {
+		"prefix": "PlayerGameData.getClass",
+		"body": "PlayerGameData.getClass(${1:this})",
+		"description": "Class PlayerGameData.getClass (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setClass": {
+		"prefix": "PlayerGameData.setClass",
+		"body": "PlayerGameData.setClass(${1:this}, ${2:chrClass})",
+		"description": "void PlayerGameData.setClass (this, chrClass)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getGender": {
+		"prefix": "PlayerGameData.getGender",
+		"body": "PlayerGameData.getGender(${1:this})",
+		"description": "Gender PlayerGameData.getGender (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setGender": {
+		"prefix": "PlayerGameData.setGender",
+		"body": "PlayerGameData.setGender(${1:this}, ${2:gender})",
+		"description": "void PlayerGameData.setGender (this, gender)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getAge": {
+		"prefix": "PlayerGameData.getAge",
+		"body": "PlayerGameData.getAge(${1:this})",
+		"description": "Age PlayerGameData.getAge (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setAge": {
+		"prefix": "PlayerGameData.setAge",
+		"body": "PlayerGameData.setAge(${1:this}, ${2:age})",
+		"description": "void PlayerGameData.setAge (this, age)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getFaceData": {
+		"prefix": "PlayerGameData.getFaceData",
+		"body": "PlayerGameData.getFaceData(${1:this})",
+		"description": "std::array<uint8_t, 256> PlayerGameData.getFaceData (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getBodyProportions": {
+		"prefix": "PlayerGameData.getBodyProportions",
+		"body": "PlayerGameData.getBodyProportions(${1:this})",
+		"description": "BodyProportions PlayerGameData.getBodyProportions (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setBodyPreportions": {
+		"prefix": "PlayerGameData.setBodyPreportions",
+		"body": "PlayerGameData.setBodyPreportions(${1:this}, ${2:bodyPreportions})",
+		"description": "void PlayerGameData.setBodyPreportions (this, bodyPreportions)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getAttributes": {
+		"prefix": "PlayerGameData.getAttributes",
+		"body": "PlayerGameData.getAttributes(${1:this})",
+		"description": "Attributes PlayerGameData.getAttributes (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setAttributes": {
+		"prefix": "PlayerGameData.setAttributes",
+		"body": "PlayerGameData.setAttributes(${1:this}, ${2:attributes})",
+		"description": "void PlayerGameData.setAttributes (this, attributes)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getName": {
+		"prefix": "PlayerGameData.getName",
+		"body": "PlayerGameData.getName(${1:this})",
+		"description": "std::wstring PlayerGameData.getName (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setName": {
+		"prefix": "PlayerGameData.setName",
+		"body": "PlayerGameData.setName(${1:this}, ${2:name})",
+		"description": "void PlayerGameData.setName (this, name)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getCovenant": {
+		"prefix": "PlayerGameData.getCovenant",
+		"body": "PlayerGameData.getCovenant(${1:this})",
+		"description": "Covenant PlayerGameData.getCovenant (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setCovenant": {
+		"prefix": "PlayerGameData.setCovenant",
+		"body": "PlayerGameData.setCovenant(${1:this}, ${2:covenant})",
+		"description": "void PlayerGameData.setCovenant (this, covenant)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getInvadeType": {
+		"prefix": "PlayerGameData.getInvadeType",
+		"body": "PlayerGameData.getInvadeType(${1:this})",
+		"description": "InvadeType PlayerGameData.getInvadeType (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setInvadeType": {
+		"prefix": "PlayerGameData.setInvadeType",
+		"body": "PlayerGameData.setInvadeType(${1:this}, ${2:invadeType})",
+		"description": "void PlayerGameData.setInvadeType (this, invadeType)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getSpell": {
+		"prefix": "PlayerGameData.getSpell",
+		"body": "PlayerGameData.getSpell(${1:this}, ${2:slotNumber})",
+		"description": "int32_t PlayerGameData.getSpell (this, slotNumber)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setSpell": {
+		"prefix": "PlayerGameData.setSpell",
+		"body": "PlayerGameData.setSpell(${1:this}, ${2:slotNumber}, ${3:int32_t&})",
+		"description": "void PlayerGameData.setSpell (this, slotNumber, int32_t&)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getGesture": {
+		"prefix": "PlayerGameData.getGesture",
+		"body": "PlayerGameData.getGesture(${1:this}, ${2:slotNumber})",
+		"description": "uint8_t PlayerGameData.getGesture (this, slotNumber)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setGesture": {
+		"prefix": "PlayerGameData.setGesture",
+		"body": "PlayerGameData.setGesture(${1:this}, ${2:slotNumber}, ${3:uint8_t&})",
+		"description": "void PlayerGameData.setGesture (this, slotNumber, uint8_t&)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getEquipGameData": {
+		"prefix": "PlayerGameData.getEquipGameData",
+		"body": "PlayerGameData.getEquipGameData(${1:this})",
+		"description": "uintptr_t PlayerGameData.getEquipGameData (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getWeaponSheathData": {
+		"prefix": "PlayerGameData.getWeaponSheathData",
+		"body": "PlayerGameData.getWeaponSheathData(${1:this})",
+		"description": "uint16_t PlayerGameData.getWeaponSheathData (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getRightHandSlot": {
+		"prefix": "PlayerGameData.getRightHandSlot",
+		"body": "PlayerGameData.getRightHandSlot(${1:this})",
+		"description": "int32_t PlayerGameData.getRightHandSlot (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setRightHandSlot": {
+		"prefix": "PlayerGameData.setRightHandSlot",
+		"body": "PlayerGameData.setRightHandSlot(${1:this}, ${2:slot})",
+		"description": "void PlayerGameData.setRightHandSlot (this, slot)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getLeftHandSlot": {
+		"prefix": "PlayerGameData.getLeftHandSlot",
+		"body": "PlayerGameData.getLeftHandSlot(${1:this})",
+		"description": "int32_t PlayerGameData.getLeftHandSlot (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setLeftHandSlot": {
+		"prefix": "PlayerGameData.setLeftHandSlot",
+		"body": "PlayerGameData.setLeftHandSlot(${1:this}, ${2:slot})",
+		"description": "void PlayerGameData.setLeftHandSlot (this, slot)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getWeaponSheathState": {
+		"prefix": "PlayerGameData.getWeaponSheathState",
+		"body": "PlayerGameData.getWeaponSheathState(${1:this})",
+		"description": "int32_t PlayerGameData.getWeaponSheathState (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setWeaponSheathState": {
+		"prefix": "PlayerGameData.setWeaponSheathState",
+		"body": "PlayerGameData.setWeaponSheathState(${1:this}, ${2:state})",
+		"description": "void PlayerGameData.setWeaponSheathState (this, state)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getAddress": {
+		"prefix": "PlayerGameData.getAddress",
+		"body": "PlayerGameData.getAddress(${1:this})",
+		"description": "void PlayerGameData.getAddress (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ItemType.Weapon": {
+		"prefix": "ItemType.Weapon",
+		"body": "ItemType.Weapon",
+		"description": "ItemType Enum - ",
+		"scope": "hoodiescript.lua"
+	},
+	"ItemType.Protector": {
+		"prefix": "ItemType.Protector",
+		"body": "ItemType.Protector",
+		"description": "ItemType Enum - ",
+		"scope": "hoodiescript.lua"
+	},
+	"ItemType.Accessory": {
+		"prefix": "ItemType.Accessory",
+		"body": "ItemType.Accessory",
+		"description": "ItemType Enum - ",
+		"scope": "hoodiescript.lua"
+	},
+	"ItemType.Goods": {
+		"prefix": "ItemType.Goods",
+		"body": "ItemType.Goods",
+		"description": "ItemType Enum - ",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.GetPtrLua": {
+		"prefix": "Memory.GetPtrLua",
+		"body": "Memory.GetPtrLua(${1:base}, ${2:vargs})",
+		"description": "uintptr_t Memory.GetPtrLua (base, vargs)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.DereferencePointer": {
+		"prefix": "Memory.DereferencePointer",
+		"body": "Memory.DereferencePointer(${1:address})",
+		"description": "uintptr_t Memory.DereferencePointer (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.MultiLevelPointer": {
+		"prefix": "Memory.MultiLevelPointer",
+		"body": "Memory.MultiLevelPointer(${1:address})",
+		"description": "bool Memory.MultiLevelPointer (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.ReadInt8": {
+		"prefix": "Memory.ReadInt8",
+		"body": "Memory.ReadInt8(${1:address})",
+		"description": "int8_t Memory.ReadInt8 (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.ReadInt16": {
+		"prefix": "Memory.ReadInt16",
+		"body": "Memory.ReadInt16(${1:address})",
+		"description": "int16_t Memory.ReadInt16 (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.ReadInt32": {
+		"prefix": "Memory.ReadInt32",
+		"body": "Memory.ReadInt32(${1:address})",
+		"description": "int32_t Memory.ReadInt32 (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.ReadInt64": {
+		"prefix": "Memory.ReadInt64",
+		"body": "Memory.ReadInt64(${1:address})",
+		"description": "int64_t Memory.ReadInt64 (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.ReadUint8": {
+		"prefix": "Memory.ReadUint8",
+		"body": "Memory.ReadUint8(${1:address})",
+		"description": "uint8_t Memory.ReadUint8 (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.ReadUint16": {
+		"prefix": "Memory.ReadUint16",
+		"body": "Memory.ReadUint16(${1:address})",
+		"description": "uint16_t Memory.ReadUint16 (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.ReadUint32": {
+		"prefix": "Memory.ReadUint32",
+		"body": "Memory.ReadUint32(${1:address})",
+		"description": "uint32_t Memory.ReadUint32 (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.ReadUint64": {
+		"prefix": "Memory.ReadUint64",
+		"body": "Memory.ReadUint64(${1:address})",
+		"description": "uint64_t Memory.ReadUint64 (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.ReadFloat": {
+		"prefix": "Memory.ReadFloat",
+		"body": "Memory.ReadFloat(${1:address})",
+		"description": "float Memory.ReadFloat (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.ReadDouble": {
+		"prefix": "Memory.ReadDouble",
+		"body": "Memory.ReadDouble(${1:address})",
+		"description": "double Memory.ReadDouble (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.ReadString": {
+		"prefix": "Memory.ReadString",
+		"body": "Memory.ReadString(${1:address})",
+		"description": "std::string Memory.ReadString (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.WriteInt8": {
+		"prefix": "Memory.WriteInt8",
+		"body": "Memory.WriteInt8(${1:address}, ${2:newValue})",
+		"description": "void Memory.WriteInt8 (address, newValue)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.WriteInt16": {
+		"prefix": "Memory.WriteInt16",
+		"body": "Memory.WriteInt16(${1:address}, ${2:newValue})",
+		"description": "void Memory.WriteInt16 (address, newValue)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.WriteInt32": {
+		"prefix": "Memory.WriteInt32",
+		"body": "Memory.WriteInt32(${1:address}, ${2:newValue})",
+		"description": "void Memory.WriteInt32 (address, newValue)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.WriteInt64": {
+		"prefix": "Memory.WriteInt64",
+		"body": "Memory.WriteInt64(${1:address}, ${2:newValue})",
+		"description": "void Memory.WriteInt64 (address, newValue)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.WriteUint8": {
+		"prefix": "Memory.WriteUint8",
+		"body": "Memory.WriteUint8(${1:address}, ${2:newValue})",
+		"description": "void Memory.WriteUint8 (address, newValue)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.WriteUint16": {
+		"prefix": "Memory.WriteUint16",
+		"body": "Memory.WriteUint16(${1:address}, ${2:newValue})",
+		"description": "void Memory.WriteUint16 (address, newValue)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.WriteUint32": {
+		"prefix": "Memory.WriteUint32",
+		"body": "Memory.WriteUint32(${1:address}, ${2:newValue})",
+		"description": "void Memory.WriteUint32 (address, newValue)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.WriteUint64": {
+		"prefix": "Memory.WriteUint64",
+		"body": "Memory.WriteUint64(${1:address}, ${2:newValue})",
+		"description": "void Memory.WriteUint64 (address, newValue)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.WriteFloat": {
+		"prefix": "Memory.WriteFloat",
+		"body": "Memory.WriteFloat(${1:address}, ${2:newValue})",
+		"description": "void Memory.WriteFloat (address, newValue)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.WriteDouble": {
+		"prefix": "Memory.WriteDouble",
+		"body": "Memory.WriteDouble(${1:address}, ${2:newValue})",
+		"description": "void Memory.WriteDouble (address, newValue)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.WriteString": {
+		"prefix": "Memory.WriteString",
+		"body": "Memory.WriteString(${1:address}, ${2:newValue})",
+		"description": "void Memory.WriteString (address, newValue)",
+		"scope": "hoodiescript.lua"
+	},
+	"GiveMeTits": {
+		"prefix": "Tits",
+		"body": "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⠛⠋⠉⠙⠻⠿⠿⠿⠿⢿⣿⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠄⠄⠄⠄⠄⠄⠄⠄⠹⣿⣿⣶⣶⣦⣬⢹⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠄⠄⠄⣰⣧⡀⠄⠄⠄⠄⠈⢙⡋⣿⣿⣿⢸⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠄⠄⠰⠼⢯⣿⣿⣦⣄⠄⠄⠄⠈⢡⣿⣿⣿⢸⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠄⠄⠸⠤⠕⠛⠙⠷⣿⡆⠄⠄⠄⣸⣿⣿⡏⣼⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣴⣿⣿⣿⢡⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⡟⠄⠄⠄⠄⠄⣄⠄⢀⠄⠄⢀⣤⣾⣿⣿⣿⢃⣾⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⠿⣛⣡⣄⣀⠄⠠⢴⣿⣿⡿⣄⣴⣿⣿⣿⣿⣿⢃⣾⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⡏⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣩⡽⡁⢸⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⢃⣿⣿⢟⣿⣿⣿⣿⣿⣮⢫⣿⣿⣿⣿⣿⣟⢿⠃⠄⢻⣿⣿⣿⣿\n⣿⣿⣿⣿⡿⣸⠟⣵⣿⣿⣿⣿⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣷⣄⢰⡄⢿⣿⣿⣿\n⣿⣿⣿⣿⡇⠏⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠹⡎⣿⣿⣿\n⣭⣍⠛⠿⠄⢰⠋⡉⠹⣿⣿⣿⣿⣿⣿⠙⣿⣿⣿⣿⣿⣿⡟⢁⠙⡆⢡⣿⣿⣿\n⠻⣿⡆⠄⣤⠈⢣⣈⣠⣿⣿⣿⣿⣿⠏⣄⠻⣿⣿⣿⣿⣿⣆⣈⣴⠃⣿⣿⣿⣿\n⡀⠈⢿⠄⣿⡇⠄⠙⠿⣿⡿⠿⢋⣥⣾⣿⣷⣌⠻⢿⣿⣿⡿⠟⣡⣾⣿⣿⠿⢋\n⠛⠳⠄⢠⣿⠇⠄⣷⡑⢶⣶⢿⣿⣿⣿⣽⣿⣿⣿⣶⣶⡐⣶⣿⠿⠛⣩⡄⠄⢸",
+		"description": "ChainFailure is responsible for this",
+		"scope": "tits.tits"
+	}
+}

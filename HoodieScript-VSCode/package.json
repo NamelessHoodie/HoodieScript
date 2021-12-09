@@ -1,7 +1,7 @@
 {
     "name": "hoodiescript-vscode",
     "displayName": "HoodieScript-vscode",
-    "description": "Send help",
+    "description": "Visual Studio Code extension for HoodieScript",
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.62.0"
@@ -9,6 +9,11 @@
     "categories": [
         "Snippets"
     ],
+    "activationEvents": [
+        "onLanguage:lua"
+    ],
+    "console": "integratedTerminal",
+    "main": "main.js",
     "contributes": {
         "snippets": [
             {
