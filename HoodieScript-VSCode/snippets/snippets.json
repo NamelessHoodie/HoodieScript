@@ -1,5 +1,5 @@
 {
-  "ImGui.Begin": {
+	"ImGui.Begin": {
 		"prefix": "ImGui.Begin",
 		"body": "ImGui.Begin(${1:name})",
 		"description": "bool ImGui.Begin (name)",
@@ -2752,6 +2752,1722 @@
 		"body": "ImGui.SetClipboardText(${1:text})",
 		"description": "void ImGui.SetClipboardText (text)",
 		"scope": "ImGui.h"
+	},
+	"ImGuiWindowFlags.None": {
+		"prefix": "ImGuiWindowFlags.None",
+		"body": "ImGuiWindowFlags.None",
+		"description": "ImGuiWindowFlags.None",
+		"scope": ""
+	},
+	"ImGuiWindowFlags.NoTitleBar": {
+		"prefix": "ImGuiWindowFlags.NoTitleBar",
+		"body": "ImGuiWindowFlags.NoTitleBar",
+		"description": "ImGuiWindowFlags.NoTitleBar",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.NoResize": {
+		"prefix": "ImGuiWindowFlags.NoResize",
+		"body": "ImGuiWindowFlags.NoResize",
+		"description": "ImGuiWindowFlags.NoResize",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.NoMove": {
+		"prefix": "ImGuiWindowFlags.NoMove",
+		"body": "ImGuiWindowFlags.NoMove",
+		"description": "ImGuiWindowFlags.NoMove",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.NoScrollbar": {
+		"prefix": "ImGuiWindowFlags.NoScrollbar",
+		"body": "ImGuiWindowFlags.NoScrollbar",
+		"description": "ImGuiWindowFlags.NoScrollbar",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.NoScrollWithMouse": {
+		"prefix": "ImGuiWindowFlags.NoScrollWithMouse",
+		"body": "ImGuiWindowFlags.NoScrollWithMouse",
+		"description": "ImGuiWindowFlags.NoScrollWithMouse",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.NoCollapse": {
+		"prefix": "ImGuiWindowFlags.NoCollapse",
+		"body": "ImGuiWindowFlags.NoCollapse",
+		"description": "ImGuiWindowFlags.NoCollapse",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.AlwaysAutoResize": {
+		"prefix": "ImGuiWindowFlags.AlwaysAutoResize",
+		"body": "ImGuiWindowFlags.AlwaysAutoResize",
+		"description": "ImGuiWindowFlags.AlwaysAutoResize",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.NoBackground": {
+		"prefix": "ImGuiWindowFlags.NoBackground",
+		"body": "ImGuiWindowFlags.NoBackground",
+		"description": "ImGuiWindowFlags.NoBackground",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.NoSavedSettings": {
+		"prefix": "ImGuiWindowFlags.NoSavedSettings",
+		"body": "ImGuiWindowFlags.NoSavedSettings",
+		"description": "ImGuiWindowFlags.NoSavedSettings",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.NoMouseInputs": {
+		"prefix": "ImGuiWindowFlags.NoMouseInputs",
+		"body": "ImGuiWindowFlags.NoMouseInputs",
+		"description": "ImGuiWindowFlags.NoMouseInputs",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.MenuBar": {
+		"prefix": "ImGuiWindowFlags.MenuBar",
+		"body": "ImGuiWindowFlags.MenuBar",
+		"description": "ImGuiWindowFlags.MenuBar",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.HorizontalScrollbar": {
+		"prefix": "ImGuiWindowFlags.HorizontalScrollbar",
+		"body": "ImGuiWindowFlags.HorizontalScrollbar",
+		"description": "ImGuiWindowFlags.HorizontalScrollbar",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.NoFocusOnAppearing": {
+		"prefix": "ImGuiWindowFlags.NoFocusOnAppearing",
+		"body": "ImGuiWindowFlags.NoFocusOnAppearing",
+		"description": "ImGuiWindowFlags.NoFocusOnAppearing",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.NoBringToFrontOnFocus": {
+		"prefix": "ImGuiWindowFlags.NoBringToFrontOnFocus",
+		"body": "ImGuiWindowFlags.NoBringToFrontOnFocus",
+		"description": "ImGuiWindowFlags.NoBringToFrontOnFocus",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.AlwaysVerticalScrollbar": {
+		"prefix": "ImGuiWindowFlags.AlwaysVerticalScrollbar",
+		"body": "ImGuiWindowFlags.AlwaysVerticalScrollbar",
+		"description": "ImGuiWindowFlags.AlwaysVerticalScrollbar",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.AlwaysHorizontalScrollbar": {
+		"prefix": "ImGuiWindowFlags.AlwaysHorizontalScrollbar",
+		"body": "ImGuiWindowFlags.AlwaysHorizontalScrollbar",
+		"description": "ImGuiWindowFlags.AlwaysHorizontalScrollbar",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.AlwaysUseWindowPadding": {
+		"prefix": "ImGuiWindowFlags.AlwaysUseWindowPadding",
+		"body": "ImGuiWindowFlags.AlwaysUseWindowPadding",
+		"description": "ImGuiWindowFlags.AlwaysUseWindowPadding",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.NoNavInputs": {
+		"prefix": "ImGuiWindowFlags.NoNavInputs",
+		"body": "ImGuiWindowFlags.NoNavInputs",
+		"description": "ImGuiWindowFlags.NoNavInputs",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.NoNavFocus": {
+		"prefix": "ImGuiWindowFlags.NoNavFocus",
+		"body": "ImGuiWindowFlags.NoNavFocus",
+		"description": "ImGuiWindowFlags.NoNavFocus",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.UnsavedDocument": {
+		"prefix": "ImGuiWindowFlags.UnsavedDocument",
+		"body": "ImGuiWindowFlags.UnsavedDocument",
+		"description": "ImGuiWindowFlags.UnsavedDocument",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.NoDocking": {
+		"prefix": "ImGuiWindowFlags.NoDocking",
+		"body": "ImGuiWindowFlags.NoDocking",
+		"description": "ImGuiWindowFlags.NoDocking",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.NoNav": {
+		"prefix": "ImGuiWindowFlags.NoNav",
+		"body": "ImGuiWindowFlags.NoNav",
+		"description": "ImGuiWindowFlags.NoNav",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.NoDecoration": {
+		"prefix": "ImGuiWindowFlags.NoDecoration",
+		"body": "ImGuiWindowFlags.NoDecoration",
+		"description": "ImGuiWindowFlags.NoDecoration",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.NoInputs": {
+		"prefix": "ImGuiWindowFlags.NoInputs",
+		"body": "ImGuiWindowFlags.NoInputs",
+		"description": "ImGuiWindowFlags.NoInputs",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.NavFlattened": {
+		"prefix": "ImGuiWindowFlags.NavFlattened",
+		"body": "ImGuiWindowFlags.NavFlattened",
+		"description": "ImGuiWindowFlags.NavFlattened",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.ChildWindow": {
+		"prefix": "ImGuiWindowFlags.ChildWindow",
+		"body": "ImGuiWindowFlags.ChildWindow",
+		"description": "ImGuiWindowFlags.ChildWindow",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.Tooltip": {
+		"prefix": "ImGuiWindowFlags.Tooltip",
+		"body": "ImGuiWindowFlags.Tooltip",
+		"description": "ImGuiWindowFlags.Tooltip",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.Popup": {
+		"prefix": "ImGuiWindowFlags.Popup",
+		"body": "ImGuiWindowFlags.Popup",
+		"description": "ImGuiWindowFlags.Popup",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.Modal": {
+		"prefix": "ImGuiWindowFlags.Modal",
+		"body": "ImGuiWindowFlags.Modal",
+		"description": "ImGuiWindowFlags.Modal",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.ChildMenu": {
+		"prefix": "ImGuiWindowFlags.ChildMenu",
+		"body": "ImGuiWindowFlags.ChildMenu",
+		"description": "ImGuiWindowFlags.ChildMenu",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.DockNodeHost": {
+		"prefix": "ImGuiWindowFlags.DockNodeHost",
+		"body": "ImGuiWindowFlags.DockNodeHost",
+		"description": "ImGuiWindowFlags.DockNodeHost",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.NoClose": {
+		"prefix": "ImGuiWindowFlags.NoClose",
+		"body": "ImGuiWindowFlags.NoClose",
+		"description": "ImGuiWindowFlags.NoClose",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.NoDockTab": {
+		"prefix": "ImGuiWindowFlags.NoDockTab",
+		"body": "ImGuiWindowFlags.NoDockTab",
+		"description": "ImGuiWindowFlags.NoDockTab",
+		"scope": "imgui.h"
+	},
+	"ImGuiWindowFlags.DockNodeHost": {
+		"prefix": "ImGuiWindowFlags.DockNodeHost",
+		"body": "ImGuiWindowFlags.DockNodeHost",
+		"description": "ImGuiWindowFlags.DockNodeHost",
+		"scope": "imgui.h"
+	},
+	"ImGuiFocusedFlags.None": {
+		"prefix": "ImGuiFocusedFlags.None",
+		"body": "ImGuiFocusedFlags.None",
+		"description": "ImGuiFocusedFlags.None",
+		"scope": "imgui.h"
+	},
+	"ImGuiFocusedFlags.ChildWindows": {
+		"prefix": "ImGuiFocusedFlags.ChildWindows",
+		"body": "ImGuiFocusedFlags.ChildWindows",
+		"description": "ImGuiFocusedFlags.ChildWindows",
+		"scope": "imgui.h"
+	},
+	"ImGuiFocusedFlags.RootWindow": {
+		"prefix": "ImGuiFocusedFlags.RootWindow",
+		"body": "ImGuiFocusedFlags.RootWindow",
+		"description": "ImGuiFocusedFlags.RootWindow",
+		"scope": "imgui.h"
+	},
+	"ImGuiFocusedFlags.AnyWindow": {
+		"prefix": "ImGuiFocusedFlags.AnyWindow",
+		"body": "ImGuiFocusedFlags.AnyWindow",
+		"description": "ImGuiFocusedFlags.AnyWindow",
+		"scope": "imgui.h"
+	},
+	"ImGuiFocusedFlags.RootAndChildWindows": {
+		"prefix": "ImGuiFocusedFlags.RootAndChildWindows",
+		"body": "ImGuiFocusedFlags.RootAndChildWindows",
+		"description": "ImGuiFocusedFlags.RootAndChildWindows",
+		"scope": "imgui.h"
+	},
+	"ImGuiHoveredFlags.None": {
+		"prefix": "ImGuiHoveredFlags.None",
+		"body": "ImGuiHoveredFlags.None",
+		"description": "ImGuiHoveredFlags.None",
+		"scope": "imgui.h"
+	},
+	"ImGuiHoveredFlags.ChildWindows": {
+		"prefix": "ImGuiHoveredFlags.ChildWindows",
+		"body": "ImGuiHoveredFlags.ChildWindows",
+		"description": "ImGuiHoveredFlags.ChildWindows",
+		"scope": "imgui.h"
+	},
+	"ImGuiHoveredFlags.RootWindow": {
+		"prefix": "ImGuiHoveredFlags.RootWindow",
+		"body": "ImGuiHoveredFlags.RootWindow",
+		"description": "ImGuiHoveredFlags.RootWindow",
+		"scope": "imgui.h"
+	},
+	"ImGuiHoveredFlags.AnyWindow": {
+		"prefix": "ImGuiHoveredFlags.AnyWindow",
+		"body": "ImGuiHoveredFlags.AnyWindow",
+		"description": "ImGuiHoveredFlags.AnyWindow",
+		"scope": "imgui.h"
+	},
+	"ImGuiHoveredFlags.AllowWhenBlockedByPopup": {
+		"prefix": "ImGuiHoveredFlags.AllowWhenBlockedByPopup",
+		"body": "ImGuiHoveredFlags.AllowWhenBlockedByPopup",
+		"description": "ImGuiHoveredFlags.AllowWhenBlockedByPopup",
+		"scope": "imgui.h"
+	},
+	"ImGuiHoveredFlags.AllowWhenBlockedByActiveItem": {
+		"prefix": "ImGuiHoveredFlags.AllowWhenBlockedByActiveItem",
+		"body": "ImGuiHoveredFlags.AllowWhenBlockedByActiveItem",
+		"description": "ImGuiHoveredFlags.AllowWhenBlockedByActiveItem",
+		"scope": "imgui.h"
+	},
+	"ImGuiHoveredFlags.AllowWhenOverlapped": {
+		"prefix": "ImGuiHoveredFlags.AllowWhenOverlapped",
+		"body": "ImGuiHoveredFlags.AllowWhenOverlapped",
+		"description": "ImGuiHoveredFlags.AllowWhenOverlapped",
+		"scope": "imgui.h"
+	},
+	"ImGuiHoveredFlags.AllowWhenDisabled": {
+		"prefix": "ImGuiHoveredFlags.AllowWhenDisabled",
+		"body": "ImGuiHoveredFlags.AllowWhenDisabled",
+		"description": "ImGuiHoveredFlags.AllowWhenDisabled",
+		"scope": "imgui.h"
+	},
+	"ImGuiHoveredFlags.RectOnly": {
+		"prefix": "ImGuiHoveredFlags.RectOnly",
+		"body": "ImGuiHoveredFlags.RectOnly",
+		"description": "ImGuiHoveredFlags.RectOnly",
+		"scope": "imgui.h"
+	},
+	"ImGuiHoveredFlags.RootAndChildWindows": {
+		"prefix": "ImGuiHoveredFlags.RootAndChildWindows",
+		"body": "ImGuiHoveredFlags.RootAndChildWindows",
+		"description": "ImGuiHoveredFlags.RootAndChildWindows",
+		"scope": "imgui.h"
+	},
+	"ImGuiCond.None": {
+		"prefix": "ImGuiCond.None",
+		"body": "ImGuiCond.None",
+		"description": "ImGuiCond.None",
+		"scope": "imgui.h"
+	},
+	"ImGuiCond.Always": {
+		"prefix": "ImGuiCond.Always",
+		"body": "ImGuiCond.Always",
+		"description": "ImGuiCond.Always",
+		"scope": "imgui.h"
+	},
+	"ImGuiCond.Once": {
+		"prefix": "ImGuiCond.Once",
+		"body": "ImGuiCond.Once",
+		"description": "ImGuiCond.Once",
+		"scope": "imgui.h"
+	},
+	"ImGuiCond.FirstUseEver": {
+		"prefix": "ImGuiCond.FirstUseEver",
+		"body": "ImGuiCond.FirstUseEver",
+		"description": "ImGuiCond.FirstUseEver",
+		"scope": "imgui.h"
+	},
+	"ImGuiCond.Appearing": {
+		"prefix": "ImGuiCond.Appearing",
+		"body": "ImGuiCond.Appearing",
+		"description": "ImGuiCond.Appearing",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.Text": {
+		"prefix": "ImGuiCol.Text",
+		"body": "ImGuiCol.Text",
+		"description": "ImGuiCol.Text",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.TextDisabled": {
+		"prefix": "ImGuiCol.TextDisabled",
+		"body": "ImGuiCol.TextDisabled",
+		"description": "ImGuiCol.TextDisabled",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.WindowBg": {
+		"prefix": "ImGuiCol.WindowBg",
+		"body": "ImGuiCol.WindowBg",
+		"description": "ImGuiCol.WindowBg",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.ChildBg": {
+		"prefix": "ImGuiCol.ChildBg",
+		"body": "ImGuiCol.ChildBg",
+		"description": "ImGuiCol.ChildBg",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.PopupBg": {
+		"prefix": "ImGuiCol.PopupBg",
+		"body": "ImGuiCol.PopupBg",
+		"description": "ImGuiCol.PopupBg",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.Border": {
+		"prefix": "ImGuiCol.Border",
+		"body": "ImGuiCol.Border",
+		"description": "ImGuiCol.Border",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.BorderShadow": {
+		"prefix": "ImGuiCol.BorderShadow",
+		"body": "ImGuiCol.BorderShadow",
+		"description": "ImGuiCol.BorderShadow",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.FrameBg": {
+		"prefix": "ImGuiCol.FrameBg",
+		"body": "ImGuiCol.FrameBg",
+		"description": "ImGuiCol.FrameBg",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.FrameBgHovered": {
+		"prefix": "ImGuiCol.FrameBgHovered",
+		"body": "ImGuiCol.FrameBgHovered",
+		"description": "ImGuiCol.FrameBgHovered",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.FrameBgActive": {
+		"prefix": "ImGuiCol.FrameBgActive",
+		"body": "ImGuiCol.FrameBgActive",
+		"description": "ImGuiCol.FrameBgActive",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.TitleBg": {
+		"prefix": "ImGuiCol.TitleBg",
+		"body": "ImGuiCol.TitleBg",
+		"description": "ImGuiCol.TitleBg",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.TitleBgActive": {
+		"prefix": "ImGuiCol.TitleBgActive",
+		"body": "ImGuiCol.TitleBgActive",
+		"description": "ImGuiCol.TitleBgActive",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.TitleBgCollapsed": {
+		"prefix": "ImGuiCol.TitleBgCollapsed",
+		"body": "ImGuiCol.TitleBgCollapsed",
+		"description": "ImGuiCol.TitleBgCollapsed",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.MenuBarBg": {
+		"prefix": "ImGuiCol.MenuBarBg",
+		"body": "ImGuiCol.MenuBarBg",
+		"description": "ImGuiCol.MenuBarBg",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.ScrollbarBg": {
+		"prefix": "ImGuiCol.ScrollbarBg",
+		"body": "ImGuiCol.ScrollbarBg",
+		"description": "ImGuiCol.ScrollbarBg",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.ScrollbarGrab": {
+		"prefix": "ImGuiCol.ScrollbarGrab",
+		"body": "ImGuiCol.ScrollbarGrab",
+		"description": "ImGuiCol.ScrollbarGrab",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.ScrollbarGrabHovered": {
+		"prefix": "ImGuiCol.ScrollbarGrabHovered",
+		"body": "ImGuiCol.ScrollbarGrabHovered",
+		"description": "ImGuiCol.ScrollbarGrabHovered",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.ScrollbarGrabActive": {
+		"prefix": "ImGuiCol.ScrollbarGrabActive",
+		"body": "ImGuiCol.ScrollbarGrabActive",
+		"description": "ImGuiCol.ScrollbarGrabActive",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.CheckMark": {
+		"prefix": "ImGuiCol.CheckMark",
+		"body": "ImGuiCol.CheckMark",
+		"description": "ImGuiCol.CheckMark",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.SliderGrab": {
+		"prefix": "ImGuiCol.SliderGrab",
+		"body": "ImGuiCol.SliderGrab",
+		"description": "ImGuiCol.SliderGrab",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.SliderGrabActive": {
+		"prefix": "ImGuiCol.SliderGrabActive",
+		"body": "ImGuiCol.SliderGrabActive",
+		"description": "ImGuiCol.SliderGrabActive",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.Button": {
+		"prefix": "ImGuiCol.Button",
+		"body": "ImGuiCol.Button",
+		"description": "ImGuiCol.Button",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.ButtonHovered": {
+		"prefix": "ImGuiCol.ButtonHovered",
+		"body": "ImGuiCol.ButtonHovered",
+		"description": "ImGuiCol.ButtonHovered",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.ButtonActive": {
+		"prefix": "ImGuiCol.ButtonActive",
+		"body": "ImGuiCol.ButtonActive",
+		"description": "ImGuiCol.ButtonActive",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.Header": {
+		"prefix": "ImGuiCol.Header",
+		"body": "ImGuiCol.Header",
+		"description": "ImGuiCol.Header",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.HeaderHovered": {
+		"prefix": "ImGuiCol.HeaderHovered",
+		"body": "ImGuiCol.HeaderHovered",
+		"description": "ImGuiCol.HeaderHovered",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.HeaderActive": {
+		"prefix": "ImGuiCol.HeaderActive",
+		"body": "ImGuiCol.HeaderActive",
+		"description": "ImGuiCol.HeaderActive",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.Separator": {
+		"prefix": "ImGuiCol.Separator",
+		"body": "ImGuiCol.Separator",
+		"description": "ImGuiCol.Separator",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.SeparatorHovered": {
+		"prefix": "ImGuiCol.SeparatorHovered",
+		"body": "ImGuiCol.SeparatorHovered",
+		"description": "ImGuiCol.SeparatorHovered",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.SeparatorActive": {
+		"prefix": "ImGuiCol.SeparatorActive",
+		"body": "ImGuiCol.SeparatorActive",
+		"description": "ImGuiCol.SeparatorActive",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.ResizeGrip": {
+		"prefix": "ImGuiCol.ResizeGrip",
+		"body": "ImGuiCol.ResizeGrip",
+		"description": "ImGuiCol.ResizeGrip",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.ResizeGripHovered": {
+		"prefix": "ImGuiCol.ResizeGripHovered",
+		"body": "ImGuiCol.ResizeGripHovered",
+		"description": "ImGuiCol.ResizeGripHovered",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.ResizeGripActive": {
+		"prefix": "ImGuiCol.ResizeGripActive",
+		"body": "ImGuiCol.ResizeGripActive",
+		"description": "ImGuiCol.ResizeGripActive",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.Tab": {
+		"prefix": "ImGuiCol.Tab",
+		"body": "ImGuiCol.Tab",
+		"description": "ImGuiCol.Tab",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.TabHovered": {
+		"prefix": "ImGuiCol.TabHovered",
+		"body": "ImGuiCol.TabHovered",
+		"description": "ImGuiCol.TabHovered",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.TabActive": {
+		"prefix": "ImGuiCol.TabActive",
+		"body": "ImGuiCol.TabActive",
+		"description": "ImGuiCol.TabActive",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.TabUnfocused": {
+		"prefix": "ImGuiCol.TabUnfocused",
+		"body": "ImGuiCol.TabUnfocused",
+		"description": "ImGuiCol.TabUnfocused",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.TabUnfocusedActive": {
+		"prefix": "ImGuiCol.TabUnfocusedActive",
+		"body": "ImGuiCol.TabUnfocusedActive",
+		"description": "ImGuiCol.TabUnfocusedActive",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.DockingPreview": {
+		"prefix": "ImGuiCol.DockingPreview",
+		"body": "ImGuiCol.DockingPreview",
+		"description": "ImGuiCol.DockingPreview",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.DockingEmptyBg": {
+		"prefix": "ImGuiCol.DockingEmptyBg",
+		"body": "ImGuiCol.DockingEmptyBg",
+		"description": "ImGuiCol.DockingEmptyBg",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.PlotLines": {
+		"prefix": "ImGuiCol.PlotLines",
+		"body": "ImGuiCol.PlotLines",
+		"description": "ImGuiCol.PlotLines",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.PlotLinesHovered": {
+		"prefix": "ImGuiCol.PlotLinesHovered",
+		"body": "ImGuiCol.PlotLinesHovered",
+		"description": "ImGuiCol.PlotLinesHovered",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.PlotHistogram": {
+		"prefix": "ImGuiCol.PlotHistogram",
+		"body": "ImGuiCol.PlotHistogram",
+		"description": "ImGuiCol.PlotHistogram",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.PlotHistogramHovered": {
+		"prefix": "ImGuiCol.PlotHistogramHovered",
+		"body": "ImGuiCol.PlotHistogramHovered",
+		"description": "ImGuiCol.PlotHistogramHovered",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.TextSelectedBg": {
+		"prefix": "ImGuiCol.TextSelectedBg",
+		"body": "ImGuiCol.TextSelectedBg",
+		"description": "ImGuiCol.TextSelectedBg",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.DragDropTarget": {
+		"prefix": "ImGuiCol.DragDropTarget",
+		"body": "ImGuiCol.DragDropTarget",
+		"description": "ImGuiCol.DragDropTarget",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.NavHighlight": {
+		"prefix": "ImGuiCol.NavHighlight",
+		"body": "ImGuiCol.NavHighlight",
+		"description": "ImGuiCol.NavHighlight",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.NavWindowingHighlight": {
+		"prefix": "ImGuiCol.NavWindowingHighlight",
+		"body": "ImGuiCol.NavWindowingHighlight",
+		"description": "ImGuiCol.NavWindowingHighlight",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.NavWindowingDimBg": {
+		"prefix": "ImGuiCol.NavWindowingDimBg",
+		"body": "ImGuiCol.NavWindowingDimBg",
+		"description": "ImGuiCol.NavWindowingDimBg",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.ModalWindowDimBg": {
+		"prefix": "ImGuiCol.ModalWindowDimBg",
+		"body": "ImGuiCol.ModalWindowDimBg",
+		"description": "ImGuiCol.ModalWindowDimBg",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.ModalWindowDarkening": {
+		"prefix": "ImGuiCol.ModalWindowDarkening",
+		"body": "ImGuiCol.ModalWindowDarkening",
+		"description": "ImGuiCol.ModalWindowDarkening",
+		"scope": "imgui.h"
+	},
+	"ImGuiCol.COUNT": {
+		"prefix": "ImGuiCol.COUNT",
+		"body": "ImGuiCol.COUNT",
+		"description": "ImGuiCol.COUNT",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.Alpha": {
+		"prefix": "ImGuiStyleVar.Alpha",
+		"body": "ImGuiStyleVar.Alpha",
+		"description": "ImGuiStyleVar.Alpha",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.WindowPadding": {
+		"prefix": "ImGuiStyleVar.WindowPadding",
+		"body": "ImGuiStyleVar.WindowPadding",
+		"description": "ImGuiStyleVar.WindowPadding",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.WindowRounding": {
+		"prefix": "ImGuiStyleVar.WindowRounding",
+		"body": "ImGuiStyleVar.WindowRounding",
+		"description": "ImGuiStyleVar.WindowRounding",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.WindowBorderSize": {
+		"prefix": "ImGuiStyleVar.WindowBorderSize",
+		"body": "ImGuiStyleVar.WindowBorderSize",
+		"description": "ImGuiStyleVar.WindowBorderSize",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.WindowMinSize": {
+		"prefix": "ImGuiStyleVar.WindowMinSize",
+		"body": "ImGuiStyleVar.WindowMinSize",
+		"description": "ImGuiStyleVar.WindowMinSize",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.WindowTitleAlign": {
+		"prefix": "ImGuiStyleVar.WindowTitleAlign",
+		"body": "ImGuiStyleVar.WindowTitleAlign",
+		"description": "ImGuiStyleVar.WindowTitleAlign",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.ChildRounding": {
+		"prefix": "ImGuiStyleVar.ChildRounding",
+		"body": "ImGuiStyleVar.ChildRounding",
+		"description": "ImGuiStyleVar.ChildRounding",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.ChildBorderSize": {
+		"prefix": "ImGuiStyleVar.ChildBorderSize",
+		"body": "ImGuiStyleVar.ChildBorderSize",
+		"description": "ImGuiStyleVar.ChildBorderSize",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.PopupRounding": {
+		"prefix": "ImGuiStyleVar.PopupRounding",
+		"body": "ImGuiStyleVar.PopupRounding",
+		"description": "ImGuiStyleVar.PopupRounding",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.PopupBorderSize": {
+		"prefix": "ImGuiStyleVar.PopupBorderSize",
+		"body": "ImGuiStyleVar.PopupBorderSize",
+		"description": "ImGuiStyleVar.PopupBorderSize",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.FramePadding": {
+		"prefix": "ImGuiStyleVar.FramePadding",
+		"body": "ImGuiStyleVar.FramePadding",
+		"description": "ImGuiStyleVar.FramePadding",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.FrameRounding": {
+		"prefix": "ImGuiStyleVar.FrameRounding",
+		"body": "ImGuiStyleVar.FrameRounding",
+		"description": "ImGuiStyleVar.FrameRounding",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.FrameBorderSize": {
+		"prefix": "ImGuiStyleVar.FrameBorderSize",
+		"body": "ImGuiStyleVar.FrameBorderSize",
+		"description": "ImGuiStyleVar.FrameBorderSize",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.ItemSpacing": {
+		"prefix": "ImGuiStyleVar.ItemSpacing",
+		"body": "ImGuiStyleVar.ItemSpacing",
+		"description": "ImGuiStyleVar.ItemSpacing",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.ItemInnerSpacing": {
+		"prefix": "ImGuiStyleVar.ItemInnerSpacing",
+		"body": "ImGuiStyleVar.ItemInnerSpacing",
+		"description": "ImGuiStyleVar.ItemInnerSpacing",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.IndentSpacing": {
+		"prefix": "ImGuiStyleVar.IndentSpacing",
+		"body": "ImGuiStyleVar.IndentSpacing",
+		"description": "ImGuiStyleVar.IndentSpacing",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.ScrollbarSize": {
+		"prefix": "ImGuiStyleVar.ScrollbarSize",
+		"body": "ImGuiStyleVar.ScrollbarSize",
+		"description": "ImGuiStyleVar.ScrollbarSize",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.ScrollbarRounding": {
+		"prefix": "ImGuiStyleVar.ScrollbarRounding",
+		"body": "ImGuiStyleVar.ScrollbarRounding",
+		"description": "ImGuiStyleVar.ScrollbarRounding",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.GrabMinSize": {
+		"prefix": "ImGuiStyleVar.GrabMinSize",
+		"body": "ImGuiStyleVar.GrabMinSize",
+		"description": "ImGuiStyleVar.GrabMinSize",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.GrabRounding": {
+		"prefix": "ImGuiStyleVar.GrabRounding",
+		"body": "ImGuiStyleVar.GrabRounding",
+		"description": "ImGuiStyleVar.GrabRounding",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.TabRounding": {
+		"prefix": "ImGuiStyleVar.TabRounding",
+		"body": "ImGuiStyleVar.TabRounding",
+		"description": "ImGuiStyleVar.TabRounding",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.SelectableTextAlign": {
+		"prefix": "ImGuiStyleVar.SelectableTextAlign",
+		"body": "ImGuiStyleVar.SelectableTextAlign",
+		"description": "ImGuiStyleVar.SelectableTextAlign",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.ButtonTextAlign": {
+		"prefix": "ImGuiStyleVar.ButtonTextAlign",
+		"body": "ImGuiStyleVar.ButtonTextAlign",
+		"description": "ImGuiStyleVar.ButtonTextAlign",
+		"scope": "imgui.h"
+	},
+	"ImGuiStyleVar.COUNT": {
+		"prefix": "ImGuiStyleVar.COUNT",
+		"body": "ImGuiStyleVar.COUNT",
+		"description": "ImGuiStyleVar.COUNT",
+		"scope": "imgui.h"
+	},
+	"ImGuiDir.None": {
+		"prefix": "ImGuiDir.None",
+		"body": "ImGuiDir.None",
+		"description": "ImGuiDir.None",
+		"scope": "imgui.h"
+	},
+	"ImGuiDir.Left": {
+		"prefix": "ImGuiDir.Left",
+		"body": "ImGuiDir.Left",
+		"description": "ImGuiDir.Left",
+		"scope": "imgui.h"
+	},
+	"ImGuiDir.Right": {
+		"prefix": "ImGuiDir.Right",
+		"body": "ImGuiDir.Right",
+		"description": "ImGuiDir.Right",
+		"scope": "imgui.h"
+	},
+	"ImGuiDir.Up": {
+		"prefix": "ImGuiDir.Up",
+		"body": "ImGuiDir.Up",
+		"description": "ImGuiDir.Up",
+		"scope": "imgui.h"
+	},
+	"ImGuiDir.Down": {
+		"prefix": "ImGuiDir.Down",
+		"body": "ImGuiDir.Down",
+		"description": "ImGuiDir.Down",
+		"scope": "imgui.h"
+	},
+	"ImGuiDir.COUNT": {
+		"prefix": "ImGuiDir.COUNT",
+		"body": "ImGuiDir.COUNT",
+		"description": "ImGuiDir.COUNT",
+		"scope": "imgui.h"
+	},
+	"ImGuiComboFlags.None": {
+		"prefix": "ImGuiComboFlags.None",
+		"body": "ImGuiComboFlags.None",
+		"description": "ImGuiComboFlags.None",
+		"scope": "imgui.h"
+	},
+	"ImGuiComboFlags.PopupAlignLeft": {
+		"prefix": "ImGuiComboFlags.PopupAlignLeft",
+		"body": "ImGuiComboFlags.PopupAlignLeft",
+		"description": "ImGuiComboFlags.PopupAlignLeft",
+		"scope": "imgui.h"
+	},
+	"ImGuiComboFlags.HeightSmall": {
+		"prefix": "ImGuiComboFlags.HeightSmall",
+		"body": "ImGuiComboFlags.HeightSmall",
+		"description": "ImGuiComboFlags.HeightSmall",
+		"scope": "imgui.h"
+	},
+	"ImGuiComboFlags.HeightRegular": {
+		"prefix": "ImGuiComboFlags.HeightRegular",
+		"body": "ImGuiComboFlags.HeightRegular",
+		"description": "ImGuiComboFlags.HeightRegular",
+		"scope": "imgui.h"
+	},
+	"ImGuiComboFlags.HeightLarge": {
+		"prefix": "ImGuiComboFlags.HeightLarge",
+		"body": "ImGuiComboFlags.HeightLarge",
+		"description": "ImGuiComboFlags.HeightLarge",
+		"scope": "imgui.h"
+	},
+	"ImGuiComboFlags.HeightLargest": {
+		"prefix": "ImGuiComboFlags.HeightLargest",
+		"body": "ImGuiComboFlags.HeightLargest",
+		"description": "ImGuiComboFlags.HeightLargest",
+		"scope": "imgui.h"
+	},
+	"ImGuiComboFlags.NoArrowButton": {
+		"prefix": "ImGuiComboFlags.NoArrowButton",
+		"body": "ImGuiComboFlags.NoArrowButton",
+		"description": "ImGuiComboFlags.NoArrowButton",
+		"scope": "imgui.h"
+	},
+	"ImGuiComboFlags.NoPreview": {
+		"prefix": "ImGuiComboFlags.NoPreview",
+		"body": "ImGuiComboFlags.NoPreview",
+		"description": "ImGuiComboFlags.NoPreview",
+		"scope": "imgui.h"
+	},
+	"ImGuiComboFlags.HeightMask": {
+		"prefix": "ImGuiComboFlags.HeightMask",
+		"body": "ImGuiComboFlags.HeightMask",
+		"description": "ImGuiComboFlags.HeightMask",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.None": {
+		"prefix": "ImGuiInputTextFlags.None",
+		"body": "ImGuiInputTextFlags.None",
+		"description": "ImGuiInputTextFlags.None",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.CharsDecimal": {
+		"prefix": "ImGuiInputTextFlags.CharsDecimal",
+		"body": "ImGuiInputTextFlags.CharsDecimal",
+		"description": "ImGuiInputTextFlags.CharsDecimal",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.CharsHexadecimal": {
+		"prefix": "ImGuiInputTextFlags.CharsHexadecimal",
+		"body": "ImGuiInputTextFlags.CharsHexadecimal",
+		"description": "ImGuiInputTextFlags.CharsHexadecimal",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.CharsUppercase": {
+		"prefix": "ImGuiInputTextFlags.CharsUppercase",
+		"body": "ImGuiInputTextFlags.CharsUppercase",
+		"description": "ImGuiInputTextFlags.CharsUppercase",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.CharsNoBlank": {
+		"prefix": "ImGuiInputTextFlags.CharsNoBlank",
+		"body": "ImGuiInputTextFlags.CharsNoBlank",
+		"description": "ImGuiInputTextFlags.CharsNoBlank",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.AutoSelectAll": {
+		"prefix": "ImGuiInputTextFlags.AutoSelectAll",
+		"body": "ImGuiInputTextFlags.AutoSelectAll",
+		"description": "ImGuiInputTextFlags.AutoSelectAll",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.EnterReturnsTrue": {
+		"prefix": "ImGuiInputTextFlags.EnterReturnsTrue",
+		"body": "ImGuiInputTextFlags.EnterReturnsTrue",
+		"description": "ImGuiInputTextFlags.EnterReturnsTrue",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.CallbackCompletion": {
+		"prefix": "ImGuiInputTextFlags.CallbackCompletion",
+		"body": "ImGuiInputTextFlags.CallbackCompletion",
+		"description": "ImGuiInputTextFlags.CallbackCompletion",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.CallbackHistory": {
+		"prefix": "ImGuiInputTextFlags.CallbackHistory",
+		"body": "ImGuiInputTextFlags.CallbackHistory",
+		"description": "ImGuiInputTextFlags.CallbackHistory",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.CallbackAlways": {
+		"prefix": "ImGuiInputTextFlags.CallbackAlways",
+		"body": "ImGuiInputTextFlags.CallbackAlways",
+		"description": "ImGuiInputTextFlags.CallbackAlways",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.CallbackCharFilter": {
+		"prefix": "ImGuiInputTextFlags.CallbackCharFilter",
+		"body": "ImGuiInputTextFlags.CallbackCharFilter",
+		"description": "ImGuiInputTextFlags.CallbackCharFilter",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.AllowTabInput": {
+		"prefix": "ImGuiInputTextFlags.AllowTabInput",
+		"body": "ImGuiInputTextFlags.AllowTabInput",
+		"description": "ImGuiInputTextFlags.AllowTabInput",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.CtrlEnterForNewLine": {
+		"prefix": "ImGuiInputTextFlags.CtrlEnterForNewLine",
+		"body": "ImGuiInputTextFlags.CtrlEnterForNewLine",
+		"description": "ImGuiInputTextFlags.CtrlEnterForNewLine",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.NoHorizontalScroll": {
+		"prefix": "ImGuiInputTextFlags.NoHorizontalScroll",
+		"body": "ImGuiInputTextFlags.NoHorizontalScroll",
+		"description": "ImGuiInputTextFlags.NoHorizontalScroll",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.AlwaysInsertMode": {
+		"prefix": "ImGuiInputTextFlags.AlwaysInsertMode",
+		"body": "ImGuiInputTextFlags.AlwaysInsertMode",
+		"description": "ImGuiInputTextFlags.AlwaysInsertMode",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.ReadOnly": {
+		"prefix": "ImGuiInputTextFlags.ReadOnly",
+		"body": "ImGuiInputTextFlags.ReadOnly",
+		"description": "ImGuiInputTextFlags.ReadOnly",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.Password": {
+		"prefix": "ImGuiInputTextFlags.Password",
+		"body": "ImGuiInputTextFlags.Password",
+		"description": "ImGuiInputTextFlags.Password",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.NoUndoRedo": {
+		"prefix": "ImGuiInputTextFlags.NoUndoRedo",
+		"body": "ImGuiInputTextFlags.NoUndoRedo",
+		"description": "ImGuiInputTextFlags.NoUndoRedo",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.CharsScientific": {
+		"prefix": "ImGuiInputTextFlags.CharsScientific",
+		"body": "ImGuiInputTextFlags.CharsScientific",
+		"description": "ImGuiInputTextFlags.CharsScientific",
+		"scope": "imgui.h"
+	},
+	"ImGuiInputTextFlags.CallbackResize": {
+		"prefix": "ImGuiInputTextFlags.CallbackResize",
+		"body": "ImGuiInputTextFlags.CallbackResize",
+		"description": "ImGuiInputTextFlags.CallbackResize",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.None": {
+		"prefix": "ImGuiColorEditFlags.None",
+		"body": "ImGuiColorEditFlags.None",
+		"description": "ImGuiColorEditFlags.None",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.NoAlpha": {
+		"prefix": "ImGuiColorEditFlags.NoAlpha",
+		"body": "ImGuiColorEditFlags.NoAlpha",
+		"description": "ImGuiColorEditFlags.NoAlpha",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.NoPicker": {
+		"prefix": "ImGuiColorEditFlags.NoPicker",
+		"body": "ImGuiColorEditFlags.NoPicker",
+		"description": "ImGuiColorEditFlags.NoPicker",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.NoOptions": {
+		"prefix": "ImGuiColorEditFlags.NoOptions",
+		"body": "ImGuiColorEditFlags.NoOptions",
+		"description": "ImGuiColorEditFlags.NoOptions",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.NoSmallPreview": {
+		"prefix": "ImGuiColorEditFlags.NoSmallPreview",
+		"body": "ImGuiColorEditFlags.NoSmallPreview",
+		"description": "ImGuiColorEditFlags.NoSmallPreview",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.NoInputs": {
+		"prefix": "ImGuiColorEditFlags.NoInputs",
+		"body": "ImGuiColorEditFlags.NoInputs",
+		"description": "ImGuiColorEditFlags.NoInputs",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.NoTooltip": {
+		"prefix": "ImGuiColorEditFlags.NoTooltip",
+		"body": "ImGuiColorEditFlags.NoTooltip",
+		"description": "ImGuiColorEditFlags.NoTooltip",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.NoLabel": {
+		"prefix": "ImGuiColorEditFlags.NoLabel",
+		"body": "ImGuiColorEditFlags.NoLabel",
+		"description": "ImGuiColorEditFlags.NoLabel",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.NoSidePreview": {
+		"prefix": "ImGuiColorEditFlags.NoSidePreview",
+		"body": "ImGuiColorEditFlags.NoSidePreview",
+		"description": "ImGuiColorEditFlags.NoSidePreview",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.NoDragDrop": {
+		"prefix": "ImGuiColorEditFlags.NoDragDrop",
+		"body": "ImGuiColorEditFlags.NoDragDrop",
+		"description": "ImGuiColorEditFlags.NoDragDrop",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.NoBorder": {
+		"prefix": "ImGuiColorEditFlags.NoBorder",
+		"body": "ImGuiColorEditFlags.NoBorder",
+		"description": "ImGuiColorEditFlags.NoBorder",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.AlphaBar": {
+		"prefix": "ImGuiColorEditFlags.AlphaBar",
+		"body": "ImGuiColorEditFlags.AlphaBar",
+		"description": "ImGuiColorEditFlags.AlphaBar",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.AlphaPreview": {
+		"prefix": "ImGuiColorEditFlags.AlphaPreview",
+		"body": "ImGuiColorEditFlags.AlphaPreview",
+		"description": "ImGuiColorEditFlags.AlphaPreview",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.AlphaPreviewHalf": {
+		"prefix": "ImGuiColorEditFlags.AlphaPreviewHalf",
+		"body": "ImGuiColorEditFlags.AlphaPreviewHalf",
+		"description": "ImGuiColorEditFlags.AlphaPreviewHalf",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.HDR": {
+		"prefix": "ImGuiColorEditFlags.HDR",
+		"body": "ImGuiColorEditFlags.HDR",
+		"description": "ImGuiColorEditFlags.HDR",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.DisplayRGB": {
+		"prefix": "ImGuiColorEditFlags.DisplayRGB",
+		"body": "ImGuiColorEditFlags.DisplayRGB",
+		"description": "ImGuiColorEditFlags.DisplayRGB",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.DisplayHSV": {
+		"prefix": "ImGuiColorEditFlags.DisplayHSV",
+		"body": "ImGuiColorEditFlags.DisplayHSV",
+		"description": "ImGuiColorEditFlags.DisplayHSV",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.DisplayHex": {
+		"prefix": "ImGuiColorEditFlags.DisplayHex",
+		"body": "ImGuiColorEditFlags.DisplayHex",
+		"description": "ImGuiColorEditFlags.DisplayHex",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.Uint8": {
+		"prefix": "ImGuiColorEditFlags.Uint8",
+		"body": "ImGuiColorEditFlags.Uint8",
+		"description": "ImGuiColorEditFlags.Uint8",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.Float": {
+		"prefix": "ImGuiColorEditFlags.Float",
+		"body": "ImGuiColorEditFlags.Float",
+		"description": "ImGuiColorEditFlags.Float",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.PickerHueBar": {
+		"prefix": "ImGuiColorEditFlags.PickerHueBar",
+		"body": "ImGuiColorEditFlags.PickerHueBar",
+		"description": "ImGuiColorEditFlags.PickerHueBar",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.PickerHueWheel": {
+		"prefix": "ImGuiColorEditFlags.PickerHueWheel",
+		"body": "ImGuiColorEditFlags.PickerHueWheel",
+		"description": "ImGuiColorEditFlags.PickerHueWheel",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.InputRGB": {
+		"prefix": "ImGuiColorEditFlags.InputRGB",
+		"body": "ImGuiColorEditFlags.InputRGB",
+		"description": "ImGuiColorEditFlags.InputRGB",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.InputHSV": {
+		"prefix": "ImGuiColorEditFlags.InputHSV",
+		"body": "ImGuiColorEditFlags.InputHSV",
+		"description": "ImGuiColorEditFlags.InputHSV",
+		"scope": "imgui.h"
+	},
+	"ImGuiColorEditFlags.RGB": {
+		"prefix": "ImGuiColorEditFlags.RGB",
+		"body": "ImGuiColorEditFlags.RGB",
+		"description": "ImGuiColorEditFlags.RGB",
+		"scope": "imgui.h"
+	},
+	"ImGuiTreeNodeFlags.None": {
+		"prefix": "ImGuiTreeNodeFlags.None",
+		"body": "ImGuiTreeNodeFlags.None",
+		"description": "ImGuiTreeNodeFlags.None",
+		"scope": "imgui.h"
+	},
+	"ImGuiTreeNodeFlags.Selected": {
+		"prefix": "ImGuiTreeNodeFlags.Selected",
+		"body": "ImGuiTreeNodeFlags.Selected",
+		"description": "ImGuiTreeNodeFlags.Selected",
+		"scope": "imgui.h"
+	},
+	"ImGuiTreeNodeFlags.Framed": {
+		"prefix": "ImGuiTreeNodeFlags.Framed",
+		"body": "ImGuiTreeNodeFlags.Framed",
+		"description": "ImGuiTreeNodeFlags.Framed",
+		"scope": "imgui.h"
+	},
+	"ImGuiTreeNodeFlags.AllowItemOverlap": {
+		"prefix": "ImGuiTreeNodeFlags.AllowItemOverlap",
+		"body": "ImGuiTreeNodeFlags.AllowItemOverlap",
+		"description": "ImGuiTreeNodeFlags.AllowItemOverlap",
+		"scope": "imgui.h"
+	},
+	"ImGuiTreeNodeFlags.NoTreePushOnOpen": {
+		"prefix": "ImGuiTreeNodeFlags.NoTreePushOnOpen",
+		"body": "ImGuiTreeNodeFlags.NoTreePushOnOpen",
+		"description": "ImGuiTreeNodeFlags.NoTreePushOnOpen",
+		"scope": "imgui.h"
+	},
+	"ImGuiTreeNodeFlags.NoAutoOpenOnLog": {
+		"prefix": "ImGuiTreeNodeFlags.NoAutoOpenOnLog",
+		"body": "ImGuiTreeNodeFlags.NoAutoOpenOnLog",
+		"description": "ImGuiTreeNodeFlags.NoAutoOpenOnLog",
+		"scope": "imgui.h"
+	},
+	"ImGuiTreeNodeFlags.DefaultOpen": {
+		"prefix": "ImGuiTreeNodeFlags.DefaultOpen",
+		"body": "ImGuiTreeNodeFlags.DefaultOpen",
+		"description": "ImGuiTreeNodeFlags.DefaultOpen",
+		"scope": "imgui.h"
+	},
+	"ImGuiTreeNodeFlags.OpenOnDoubleClick": {
+		"prefix": "ImGuiTreeNodeFlags.OpenOnDoubleClick",
+		"body": "ImGuiTreeNodeFlags.OpenOnDoubleClick",
+		"description": "ImGuiTreeNodeFlags.OpenOnDoubleClick",
+		"scope": "imgui.h"
+	},
+	"ImGuiTreeNodeFlags.OpenOnArrow": {
+		"prefix": "ImGuiTreeNodeFlags.OpenOnArrow",
+		"body": "ImGuiTreeNodeFlags.OpenOnArrow",
+		"description": "ImGuiTreeNodeFlags.OpenOnArrow",
+		"scope": "imgui.h"
+	},
+	"ImGuiTreeNodeFlags.Leaf": {
+		"prefix": "ImGuiTreeNodeFlags.Leaf",
+		"body": "ImGuiTreeNodeFlags.Leaf",
+		"description": "ImGuiTreeNodeFlags.Leaf",
+		"scope": "imgui.h"
+	},
+	"ImGuiTreeNodeFlags.Bullet": {
+		"prefix": "ImGuiTreeNodeFlags.Bullet",
+		"body": "ImGuiTreeNodeFlags.Bullet",
+		"description": "ImGuiTreeNodeFlags.Bullet",
+		"scope": "imgui.h"
+	},
+	"ImGuiTreeNodeFlags.FramePadding": {
+		"prefix": "ImGuiTreeNodeFlags.FramePadding",
+		"body": "ImGuiTreeNodeFlags.FramePadding",
+		"description": "ImGuiTreeNodeFlags.FramePadding",
+		"scope": "imgui.h"
+	},
+	"ImGuiTreeNodeFlags.SpanAvailWidth": {
+		"prefix": "ImGuiTreeNodeFlags.SpanAvailWidth",
+		"body": "ImGuiTreeNodeFlags.SpanAvailWidth",
+		"description": "ImGuiTreeNodeFlags.SpanAvailWidth",
+		"scope": "imgui.h"
+	},
+	"ImGuiTreeNodeFlags.SpanFullWidth": {
+		"prefix": "ImGuiTreeNodeFlags.SpanFullWidth",
+		"body": "ImGuiTreeNodeFlags.SpanFullWidth",
+		"description": "ImGuiTreeNodeFlags.SpanFullWidth",
+		"scope": "imgui.h"
+	},
+	"ImGuiTreeNodeFlags.NavLeftJumpsBackHere": {
+		"prefix": "ImGuiTreeNodeFlags.NavLeftJumpsBackHere",
+		"body": "ImGuiTreeNodeFlags.NavLeftJumpsBackHere",
+		"description": "ImGuiTreeNodeFlags.NavLeftJumpsBackHere",
+		"scope": "imgui.h"
+	},
+	"ImGuiTreeNodeFlags.CollapsingHeader": {
+		"prefix": "ImGuiTreeNodeFlags.CollapsingHeader",
+		"body": "ImGuiTreeNodeFlags.CollapsingHeader",
+		"description": "ImGuiTreeNodeFlags.CollapsingHeader",
+		"scope": "imgui.h"
+	},
+	"ImGuiSelectableFlags.None": {
+		"prefix": "ImGuiSelectableFlags.None",
+		"body": "ImGuiSelectableFlags.None",
+		"description": "ImGuiSelectableFlags.None",
+		"scope": "imgui.h"
+	},
+	"ImGuiSelectableFlags.DontClosePopups": {
+		"prefix": "ImGuiSelectableFlags.DontClosePopups",
+		"body": "ImGuiSelectableFlags.DontClosePopups",
+		"description": "ImGuiSelectableFlags.DontClosePopups",
+		"scope": "imgui.h"
+	},
+	"ImGuiSelectableFlags.SpanAllColumns": {
+		"prefix": "ImGuiSelectableFlags.SpanAllColumns",
+		"body": "ImGuiSelectableFlags.SpanAllColumns",
+		"description": "ImGuiSelectableFlags.SpanAllColumns",
+		"scope": "imgui.h"
+	},
+	"ImGuiSelectableFlags.AllowDoubleClick": {
+		"prefix": "ImGuiSelectableFlags.AllowDoubleClick",
+		"body": "ImGuiSelectableFlags.AllowDoubleClick",
+		"description": "ImGuiSelectableFlags.AllowDoubleClick",
+		"scope": "imgui.h"
+	},
+	"ImGuiSelectableFlags.Disabled": {
+		"prefix": "ImGuiSelectableFlags.Disabled",
+		"body": "ImGuiSelectableFlags.Disabled",
+		"description": "ImGuiSelectableFlags.Disabled",
+		"scope": "imgui.h"
+	},
+	"ImGuiSelectableFlags.AllowItemOverlap": {
+		"prefix": "ImGuiSelectableFlags.AllowItemOverlap",
+		"body": "ImGuiSelectableFlags.AllowItemOverlap",
+		"description": "ImGuiSelectableFlags.AllowItemOverlap",
+		"scope": "imgui.h"
+	},
+	"ImGuiPopupFlags.None": {
+		"prefix": "ImGuiPopupFlags.None",
+		"body": "ImGuiPopupFlags.None",
+		"description": "ImGuiPopupFlags.None",
+		"scope": "imgui.h"
+	},
+	"ImGuiPopupFlags.MouseButtonLeft": {
+		"prefix": "ImGuiPopupFlags.MouseButtonLeft",
+		"body": "ImGuiPopupFlags.MouseButtonLeft",
+		"description": "ImGuiPopupFlags.MouseButtonLeft",
+		"scope": "imgui.h"
+	},
+	"ImGuiPopupFlags.MouseButtonRight": {
+		"prefix": "ImGuiPopupFlags.MouseButtonRight",
+		"body": "ImGuiPopupFlags.MouseButtonRight",
+		"description": "ImGuiPopupFlags.MouseButtonRight",
+		"scope": "imgui.h"
+	},
+	"ImGuiPopupFlags.MouseButtonMiddle": {
+		"prefix": "ImGuiPopupFlags.MouseButtonMiddle",
+		"body": "ImGuiPopupFlags.MouseButtonMiddle",
+		"description": "ImGuiPopupFlags.MouseButtonMiddle",
+		"scope": "imgui.h"
+	},
+	"ImGuiPopupFlags.MouseButtonMask_": {
+		"prefix": "ImGuiPopupFlags.MouseButtonMask_",
+		"body": "ImGuiPopupFlags.MouseButtonMask_",
+		"description": "ImGuiPopupFlags.MouseButtonMask_",
+		"scope": "imgui.h"
+	},
+	"ImGuiPopupFlags.MouseButtonDefault_": {
+		"prefix": "ImGuiPopupFlags.MouseButtonDefault_",
+		"body": "ImGuiPopupFlags.MouseButtonDefault_",
+		"description": "ImGuiPopupFlags.MouseButtonDefault_",
+		"scope": "imgui.h"
+	},
+	"ImGuiPopupFlags.NoOpenOverExistingPopup": {
+		"prefix": "ImGuiPopupFlags.NoOpenOverExistingPopup",
+		"body": "ImGuiPopupFlags.NoOpenOverExistingPopup",
+		"description": "ImGuiPopupFlags.NoOpenOverExistingPopup",
+		"scope": "imgui.h"
+	},
+	"ImGuiPopupFlags.NoOpenOverItems": {
+		"prefix": "ImGuiPopupFlags.NoOpenOverItems",
+		"body": "ImGuiPopupFlags.NoOpenOverItems",
+		"description": "ImGuiPopupFlags.NoOpenOverItems",
+		"scope": "imgui.h"
+	},
+	"ImGuiPopupFlags.AnyPopupId": {
+		"prefix": "ImGuiPopupFlags.AnyPopupId",
+		"body": "ImGuiPopupFlags.AnyPopupId",
+		"description": "ImGuiPopupFlags.AnyPopupId",
+		"scope": "imgui.h"
+	},
+	"ImGuiPopupFlags.AnyPopupLevel": {
+		"prefix": "ImGuiPopupFlags.AnyPopupLevel",
+		"body": "ImGuiPopupFlags.AnyPopupLevel",
+		"description": "ImGuiPopupFlags.AnyPopupLevel",
+		"scope": "imgui.h"
+	},
+	"ImGuiPopupFlags.AnyPopup": {
+		"prefix": "ImGuiPopupFlags.AnyPopup",
+		"body": "ImGuiPopupFlags.AnyPopup",
+		"description": "ImGuiPopupFlags.AnyPopup",
+		"scope": "imgui.h"
+	},
+	"ImGuiTabBarFlags.None": {
+		"prefix": "ImGuiTabBarFlags.None",
+		"body": "ImGuiTabBarFlags.None",
+		"description": "ImGuiTabBarFlags.None",
+		"scope": "imgui.h"
+	},
+	"ImGuiTabBarFlags.Reorderable": {
+		"prefix": "ImGuiTabBarFlags.Reorderable",
+		"body": "ImGuiTabBarFlags.Reorderable",
+		"description": "ImGuiTabBarFlags.Reorderable",
+		"scope": "imgui.h"
+	},
+	"ImGuiTabBarFlags.AutoSelectNewTabs": {
+		"prefix": "ImGuiTabBarFlags.AutoSelectNewTabs",
+		"body": "ImGuiTabBarFlags.AutoSelectNewTabs",
+		"description": "ImGuiTabBarFlags.AutoSelectNewTabs",
+		"scope": "imgui.h"
+	},
+	"ImGuiTabBarFlags.TabListPopupButton": {
+		"prefix": "ImGuiTabBarFlags.TabListPopupButton",
+		"body": "ImGuiTabBarFlags.TabListPopupButton",
+		"description": "ImGuiTabBarFlags.TabListPopupButton",
+		"scope": "imgui.h"
+	},
+	"ImGuiTabBarFlags.NoCloseWithMiddleMouseButton": {
+		"prefix": "ImGuiTabBarFlags.NoCloseWithMiddleMouseButton",
+		"body": "ImGuiTabBarFlags.NoCloseWithMiddleMouseButton",
+		"description": "ImGuiTabBarFlags.NoCloseWithMiddleMouseButton",
+		"scope": "imgui.h"
+	},
+	"ImGuiTabBarFlags.NoTabListScrollingButtons": {
+		"prefix": "ImGuiTabBarFlags.NoTabListScrollingButtons",
+		"body": "ImGuiTabBarFlags.NoTabListScrollingButtons",
+		"description": "ImGuiTabBarFlags.NoTabListScrollingButtons",
+		"scope": "imgui.h"
+	},
+	"ImGuiTabBarFlags.NoTooltip": {
+		"prefix": "ImGuiTabBarFlags.NoTooltip",
+		"body": "ImGuiTabBarFlags.NoTooltip",
+		"description": "ImGuiTabBarFlags.NoTooltip",
+		"scope": "imgui.h"
+	},
+	"ImGuiTabBarFlags.FittingPolicyResizeDown": {
+		"prefix": "ImGuiTabBarFlags.FittingPolicyResizeDown",
+		"body": "ImGuiTabBarFlags.FittingPolicyResizeDown",
+		"description": "ImGuiTabBarFlags.FittingPolicyResizeDown",
+		"scope": "imgui.h"
+	},
+	"ImGuiTabBarFlags.FittingPolicyScroll": {
+		"prefix": "ImGuiTabBarFlags.FittingPolicyScroll",
+		"body": "ImGuiTabBarFlags.FittingPolicyScroll",
+		"description": "ImGuiTabBarFlags.FittingPolicyScroll",
+		"scope": "imgui.h"
+	},
+	"ImGuiTabBarFlags.FittingPolicyMask_": {
+		"prefix": "ImGuiTabBarFlags.FittingPolicyMask_",
+		"body": "ImGuiTabBarFlags.FittingPolicyMask_",
+		"description": "ImGuiTabBarFlags.FittingPolicyMask_",
+		"scope": "imgui.h"
+	},
+	"ImGuiTabBarFlags.FittingPolicyDefault_": {
+		"prefix": "ImGuiTabBarFlags.FittingPolicyDefault_",
+		"body": "ImGuiTabBarFlags.FittingPolicyDefault_",
+		"description": "ImGuiTabBarFlags.FittingPolicyDefault_",
+		"scope": "imgui.h"
+	},
+	"ImGuiTabItemFlags.None": {
+		"prefix": "ImGuiTabItemFlags.None",
+		"body": "ImGuiTabItemFlags.None",
+		"description": "ImGuiTabItemFlags.None",
+		"scope": "imgui.h"
+	},
+	"ImGuiTabItemFlags.UnsavedDocument": {
+		"prefix": "ImGuiTabItemFlags.UnsavedDocument",
+		"body": "ImGuiTabItemFlags.UnsavedDocument",
+		"description": "ImGuiTabItemFlags.UnsavedDocument",
+		"scope": "imgui.h"
+	},
+	"ImGuiTabItemFlags.SetSelected": {
+		"prefix": "ImGuiTabItemFlags.SetSelected",
+		"body": "ImGuiTabItemFlags.SetSelected",
+		"description": "ImGuiTabItemFlags.SetSelected",
+		"scope": "imgui.h"
+	},
+	"ImGuiTabItemFlags.NoCloseWithMiddleMouseButton": {
+		"prefix": "ImGuiTabItemFlags.NoCloseWithMiddleMouseButton",
+		"body": "ImGuiTabItemFlags.NoCloseWithMiddleMouseButton",
+		"description": "ImGuiTabItemFlags.NoCloseWithMiddleMouseButton",
+		"scope": "imgui.h"
+	},
+	"ImGuiTabItemFlags.NoPushId": {
+		"prefix": "ImGuiTabItemFlags.NoPushId",
+		"body": "ImGuiTabItemFlags.NoPushId",
+		"description": "ImGuiTabItemFlags.NoPushId",
+		"scope": "imgui.h"
+	},
+	"ImGuiTabItemFlags.NoTooltip": {
+		"prefix": "ImGuiTabItemFlags.NoTooltip",
+		"body": "ImGuiTabItemFlags.NoTooltip",
+		"description": "ImGuiTabItemFlags.NoTooltip",
+		"scope": "imgui.h"
+	},
+	"ImGuiDockNodeFlags.None": {
+		"prefix": "ImGuiDockNodeFlags.None",
+		"body": "ImGuiDockNodeFlags.None",
+		"description": "ImGuiDockNodeFlags.None",
+		"scope": "imgui.h"
+	},
+	"ImGuiDockNodeFlags.KeepAliveOnly": {
+		"prefix": "ImGuiDockNodeFlags.KeepAliveOnly",
+		"body": "ImGuiDockNodeFlags.KeepAliveOnly",
+		"description": "ImGuiDockNodeFlags.KeepAliveOnly",
+		"scope": "imgui.h"
+	},
+	"ImGuiDockNodeFlags.NoDockingInCentralNode": {
+		"prefix": "ImGuiDockNodeFlags.NoDockingInCentralNode",
+		"body": "ImGuiDockNodeFlags.NoDockingInCentralNode",
+		"description": "ImGuiDockNodeFlags.NoDockingInCentralNode",
+		"scope": "imgui.h"
+	},
+	"ImGuiDockNodeFlags.PassthruCentralNode": {
+		"prefix": "ImGuiDockNodeFlags.PassthruCentralNode",
+		"body": "ImGuiDockNodeFlags.PassthruCentralNode",
+		"description": "ImGuiDockNodeFlags.PassthruCentralNode",
+		"scope": "imgui.h"
+	},
+	"ImGuiDockNodeFlags.NoSplit": {
+		"prefix": "ImGuiDockNodeFlags.NoSplit",
+		"body": "ImGuiDockNodeFlags.NoSplit",
+		"description": "ImGuiDockNodeFlags.NoSplit",
+		"scope": "imgui.h"
+	},
+	"ImGuiDockNodeFlags.NoResize": {
+		"prefix": "ImGuiDockNodeFlags.NoResize",
+		"body": "ImGuiDockNodeFlags.NoResize",
+		"description": "ImGuiDockNodeFlags.NoResize",
+		"scope": "imgui.h"
+	},
+	"ImGuiDockNodeFlags.AutoHideTabBar": {
+		"prefix": "ImGuiDockNodeFlags.AutoHideTabBar",
+		"body": "ImGuiDockNodeFlags.AutoHideTabBar",
+		"description": "ImGuiDockNodeFlags.AutoHideTabBar",
+		"scope": "imgui.h"
+	},
+	"ImGuiMouseButton.ImGuiMouseButton_Left": {
+		"prefix": "ImGuiMouseButton.ImGuiMouseButton_Left",
+		"body": "ImGuiMouseButton.ImGuiMouseButton_Left",
+		"description": "ImGuiMouseButton.ImGuiMouseButton_Left",
+		"scope": "imgui.h"
+	},
+	"ImGuiMouseButton.ImGuiMouseButton_Right": {
+		"prefix": "ImGuiMouseButton.ImGuiMouseButton_Right",
+		"body": "ImGuiMouseButton.ImGuiMouseButton_Right",
+		"description": "ImGuiMouseButton.ImGuiMouseButton_Right",
+		"scope": "imgui.h"
+	},
+	"ImGuiMouseButton.ImGuiMouseButton_Middle": {
+		"prefix": "ImGuiMouseButton.ImGuiMouseButton_Middle",
+		"body": "ImGuiMouseButton.ImGuiMouseButton_Middle",
+		"description": "ImGuiMouseButton.ImGuiMouseButton_Middle",
+		"scope": "imgui.h"
+	},
+	"ImGuiMouseButton.ImGuiMouseButton_COUNT": {
+		"prefix": "ImGuiMouseButton.ImGuiMouseButton_COUNT",
+		"body": "ImGuiMouseButton.ImGuiMouseButton_COUNT",
+		"description": "ImGuiMouseButton.ImGuiMouseButton_COUNT",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.Tab": {
+		"prefix": "ImGuiKey.Tab",
+		"body": "ImGuiKey.Tab",
+		"description": "ImGuiKey.Tab",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.LeftArrow": {
+		"prefix": "ImGuiKey.LeftArrow",
+		"body": "ImGuiKey.LeftArrow",
+		"description": "ImGuiKey.LeftArrow",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.RightArrow": {
+		"prefix": "ImGuiKey.RightArrow",
+		"body": "ImGuiKey.RightArrow",
+		"description": "ImGuiKey.RightArrow",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.UpArrow": {
+		"prefix": "ImGuiKey.UpArrow",
+		"body": "ImGuiKey.UpArrow",
+		"description": "ImGuiKey.UpArrow",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.DownArrow": {
+		"prefix": "ImGuiKey.DownArrow",
+		"body": "ImGuiKey.DownArrow",
+		"description": "ImGuiKey.DownArrow",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.PageUp": {
+		"prefix": "ImGuiKey.PageUp",
+		"body": "ImGuiKey.PageUp",
+		"description": "ImGuiKey.PageUp",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.PageDown": {
+		"prefix": "ImGuiKey.PageDown",
+		"body": "ImGuiKey.PageDown",
+		"description": "ImGuiKey.PageDown",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.Home": {
+		"prefix": "ImGuiKey.Home",
+		"body": "ImGuiKey.Home",
+		"description": "ImGuiKey.Home",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.End": {
+		"prefix": "ImGuiKey.End",
+		"body": "ImGuiKey.End",
+		"description": "ImGuiKey.End",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.Insert": {
+		"prefix": "ImGuiKey.Insert",
+		"body": "ImGuiKey.Insert",
+		"description": "ImGuiKey.Insert",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.Delete": {
+		"prefix": "ImGuiKey.Delete",
+		"body": "ImGuiKey.Delete",
+		"description": "ImGuiKey.Delete",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.Backspace": {
+		"prefix": "ImGuiKey.Backspace",
+		"body": "ImGuiKey.Backspace",
+		"description": "ImGuiKey.Backspace",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.Space": {
+		"prefix": "ImGuiKey.Space",
+		"body": "ImGuiKey.Space",
+		"description": "ImGuiKey.Space",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.Enter": {
+		"prefix": "ImGuiKey.Enter",
+		"body": "ImGuiKey.Enter",
+		"description": "ImGuiKey.Enter",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.Escape": {
+		"prefix": "ImGuiKey.Escape",
+		"body": "ImGuiKey.Escape",
+		"description": "ImGuiKey.Escape",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.KeyPadEnter": {
+		"prefix": "ImGuiKey.KeyPadEnter",
+		"body": "ImGuiKey.KeyPadEnter",
+		"description": "ImGuiKey.KeyPadEnter",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.A": {
+		"prefix": "ImGuiKey.A",
+		"body": "ImGuiKey.A",
+		"description": "ImGuiKey.A",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.C": {
+		"prefix": "ImGuiKey.C",
+		"body": "ImGuiKey.C",
+		"description": "ImGuiKey.C",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.V": {
+		"prefix": "ImGuiKey.V",
+		"body": "ImGuiKey.V",
+		"description": "ImGuiKey.V",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.X": {
+		"prefix": "ImGuiKey.X",
+		"body": "ImGuiKey.X",
+		"description": "ImGuiKey.X",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.Y": {
+		"prefix": "ImGuiKey.Y",
+		"body": "ImGuiKey.Y",
+		"description": "ImGuiKey.Y",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.Z": {
+		"prefix": "ImGuiKey.Z",
+		"body": "ImGuiKey.Z",
+		"description": "ImGuiKey.Z",
+		"scope": "imgui.h"
+	},
+	"ImGuiKey.COUNT": {
+		"prefix": "ImGuiKey.COUNT",
+		"body": "ImGuiKey.COUNT",
+		"description": "ImGuiKey.COUNT",
+		"scope": "imgui.h"
+	},
+	"ImGuiMouseCursor.None": {
+		"prefix": "ImGuiMouseCursor.None",
+		"body": "ImGuiMouseCursor.None",
+		"description": "ImGuiMouseCursor.None",
+		"scope": "imgui.h"
+	},
+	"ImGuiMouseCursor.Arrow": {
+		"prefix": "ImGuiMouseCursor.Arrow",
+		"body": "ImGuiMouseCursor.Arrow",
+		"description": "ImGuiMouseCursor.Arrow",
+		"scope": "imgui.h"
+	},
+	"ImGuiMouseCursor.TextInput": {
+		"prefix": "ImGuiMouseCursor.TextInput",
+		"body": "ImGuiMouseCursor.TextInput",
+		"description": "ImGuiMouseCursor.TextInput",
+		"scope": "imgui.h"
+	},
+	"ImGuiMouseCursor.ResizeAll": {
+		"prefix": "ImGuiMouseCursor.ResizeAll",
+		"body": "ImGuiMouseCursor.ResizeAll",
+		"description": "ImGuiMouseCursor.ResizeAll",
+		"scope": "imgui.h"
+	},
+	"ImGuiMouseCursor.ResizeNS": {
+		"prefix": "ImGuiMouseCursor.ResizeNS",
+		"body": "ImGuiMouseCursor.ResizeNS",
+		"description": "ImGuiMouseCursor.ResizeNS",
+		"scope": "imgui.h"
+	},
+	"ImGuiMouseCursor.ResizeEW": {
+		"prefix": "ImGuiMouseCursor.ResizeEW",
+		"body": "ImGuiMouseCursor.ResizeEW",
+		"description": "ImGuiMouseCursor.ResizeEW",
+		"scope": "imgui.h"
+	},
+	"ImGuiMouseCursor.ResizeNESW": {
+		"prefix": "ImGuiMouseCursor.ResizeNESW",
+		"body": "ImGuiMouseCursor.ResizeNESW",
+		"description": "ImGuiMouseCursor.ResizeNESW",
+		"scope": "imgui.h"
+	},
+	"ImGuiMouseCursor.ResizeNWSE": {
+		"prefix": "ImGuiMouseCursor.ResizeNWSE",
+		"body": "ImGuiMouseCursor.ResizeNWSE",
+		"description": "ImGuiMouseCursor.ResizeNWSE",
+		"scope": "imgui.h"
+	},
+	"ImGuiMouseCursor.Hand": {
+		"prefix": "ImGuiMouseCursor.Hand",
+		"body": "ImGuiMouseCursor.Hand",
+		"description": "ImGuiMouseCursor.Hand",
+		"scope": "imgui.h"
+	},
+	"ImGuiMouseCursor.NotAllowed": {
+		"prefix": "ImGuiMouseCursor.NotAllowed",
+		"body": "ImGuiMouseCursor.NotAllowed",
+		"description": "ImGuiMouseCursor.NotAllowed",
+		"scope": "imgui.h"
+	},
+	"ImGuiMouseCursor.COUNT": {
+		"prefix": "ImGuiMouseCursor.COUNT",
+		"body": "ImGuiMouseCursor.COUNT",
+		"description": "ImGuiMouseCursor.COUNT",
+		"scope": "imgui.h"
 	},
 	"VK.NONE": {
 		"prefix": "VK.NONE",
