@@ -58,7 +58,7 @@ bool FOLWisHiddenItem(const uint32_t itemId)
 	return false;
 }
 
-std::vector<InventoryItemLua> EquipInventoryData::IISDeref()
+std::vector<InventoryItemLua> EquipInventoryData::GetInventoryItems()
 {
 	std::vector<InventoryItemLua> lst;
 	for (int32_t i = 0; i < getInventoryItemCount(); i++) {

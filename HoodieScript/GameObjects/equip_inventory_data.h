@@ -54,7 +54,7 @@ public:
 	InventoryItem* getInventoryItemById(int32_t inventoryItemId);
 
 	int32_t getInventoryItemCount();
-	std::vector<InventoryItemLua> IISDeref();
+	std::vector<InventoryItemLua> GetInventoryItems();
 private:
 	uintptr_t address;
 };

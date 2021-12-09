@@ -4577,6 +4577,12 @@
 		"description": "int32_t EquipInventoryData.getInventoryItemCount (this)",
 		"scope": "hoodiescript.lua"
 	},
+	"EquipInventoryData.GetInventoryItems": {
+		"prefix": "EquipInventoryData.GetInventoryItems",
+		"body": "EquipInventoryData.GetInventoryItems(${1:this})",
+		"description": "std::vector<InventoryItemLua> EquipInventoryData.GetInventoryItems (this)",
+		"scope": "hoodiescript.lua"
+	},
 	"EquipGameData.new0": {
 		"prefix": "EquipGameData.new",
 		"body": "EquipGameData.EquipGameData(${1:address})",
@@ -5001,6 +5007,246 @@
 		"prefix": "Memory.WriteString",
 		"body": "Memory.WriteString(${1:address}, ${2:newValue})",
 		"description": "void Memory.WriteString (address, newValue)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.new0": {
+		"prefix": "FMGRepository.new",
+		"body": "FMGRepository.new(${1:address})",
+		"description": " FMGRepository.new (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getTalkMsg": {
+		"prefix": "FMGRepository.getTalkMsg",
+		"body": "FMGRepository.getTalkMsg(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getTalkMsg (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getBloodMsg": {
+		"prefix": "FMGRepository.getBloodMsg",
+		"body": "FMGRepository.getBloodMsg(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getBloodMsg (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getMovieSubtitle": {
+		"prefix": "FMGRepository.getMovieSubtitle",
+		"body": "FMGRepository.getMovieSubtitle(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getMovieSubtitle (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getGoodsName": {
+		"prefix": "FMGRepository.getGoodsName",
+		"body": "FMGRepository.getGoodsName(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getGoodsName (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getGoodsInfo": {
+		"prefix": "FMGRepository.getGoodsInfo",
+		"body": "FMGRepository.getGoodsInfo(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getGoodsInfo (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getGoodsCaption": {
+		"prefix": "FMGRepository.getGoodsCaption",
+		"body": "FMGRepository.getGoodsCaption(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getGoodsCaption (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getWeaponName": {
+		"prefix": "FMGRepository.getWeaponName",
+		"body": "FMGRepository.getWeaponName(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getWeaponName (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getWeaponInfo": {
+		"prefix": "FMGRepository.getWeaponInfo",
+		"body": "FMGRepository.getWeaponInfo(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getWeaponInfo (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getWeaponCaption": {
+		"prefix": "FMGRepository.getWeaponCaption",
+		"body": "FMGRepository.getWeaponCaption(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getWeaponCaption (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getProtectorName": {
+		"prefix": "FMGRepository.getProtectorName",
+		"body": "FMGRepository.getProtectorName(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getProtectorName (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getProtectorInfo": {
+		"prefix": "FMGRepository.getProtectorInfo",
+		"body": "FMGRepository.getProtectorInfo(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getProtectorInfo (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getProtectorCaption": {
+		"prefix": "FMGRepository.getProtectorCaption",
+		"body": "FMGRepository.getProtectorCaption(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getProtectorCaption (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getAccessoryName": {
+		"prefix": "FMGRepository.getAccessoryName",
+		"body": "FMGRepository.getAccessoryName(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getAccessoryName (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getAccessoryInfo": {
+		"prefix": "FMGRepository.getAccessoryInfo",
+		"body": "FMGRepository.getAccessoryInfo(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getAccessoryInfo (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getAccessoryCaption": {
+		"prefix": "FMGRepository.getAccessoryCaption",
+		"body": "FMGRepository.getAccessoryCaption(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getAccessoryCaption (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getGemName": {
+		"prefix": "FMGRepository.getGemName",
+		"body": "FMGRepository.getGemName(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getGemName (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getGemInfo": {
+		"prefix": "FMGRepository.getGemInfo",
+		"body": "FMGRepository.getGemInfo(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getGemInfo (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getGemCaption": {
+		"prefix": "FMGRepository.getGemCaption",
+		"body": "FMGRepository.getGemCaption(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getGemCaption (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getMagicName": {
+		"prefix": "FMGRepository.getMagicName",
+		"body": "FMGRepository.getMagicName(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getMagicName (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getMagicCaption": {
+		"prefix": "FMGRepository.getMagicCaption",
+		"body": "FMGRepository.getMagicCaption(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getMagicCaption (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getActionEventInfo": {
+		"prefix": "FMGRepository.getActionEventInfo",
+		"body": "FMGRepository.getActionEventInfo(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getActionEventInfo (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getInGameMenu": {
+		"prefix": "FMGRepository.getInGameMenu",
+		"body": "FMGRepository.getInGameMenu(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getInGameMenu (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getLineHelp": {
+		"prefix": "FMGRepository.getLineHelp",
+		"body": "FMGRepository.getLineHelp(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getLineHelp (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getKeyGuide": {
+		"prefix": "FMGRepository.getKeyGuide",
+		"body": "FMGRepository.getKeyGuide(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getKeyGuide (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getContentsHelp": {
+		"prefix": "FMGRepository.getContentsHelp",
+		"body": "FMGRepository.getContentsHelp(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getContentsHelp (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getDialog": {
+		"prefix": "FMGRepository.getDialog",
+		"body": "FMGRepository.getDialog(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getDialog (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getMenuOther": {
+		"prefix": "FMGRepository.getMenuOther",
+		"body": "FMGRepository.getMenuOther(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getMenuOther (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getMenuCommon": {
+		"prefix": "FMGRepository.getMenuCommon",
+		"body": "FMGRepository.getMenuCommon(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getMenuCommon (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getTestError": {
+		"prefix": "FMGRepository.getTestError",
+		"body": "FMGRepository.getTestError(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getTestError (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getTagError": {
+		"prefix": "FMGRepository.getTagError",
+		"body": "FMGRepository.getTagError(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getTagError (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getSysMsg": {
+		"prefix": "FMGRepository.getSysMsg",
+		"body": "FMGRepository.getSysMsg(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getSysMsg (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getNpcName": {
+		"prefix": "FMGRepository.getNpcName",
+		"body": "FMGRepository.getNpcName(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getNpcName (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getPlaceName": {
+		"prefix": "FMGRepository.getPlaceName",
+		"body": "FMGRepository.getPlaceName(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getPlaceName (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getMenuText": {
+		"prefix": "FMGRepository.getMenuText",
+		"body": "FMGRepository.getMenuText(${1:this}, ${2:long})",
+		"description": "const std::wstring FMGRepository.getMenuText (this, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getInventoryItemName": {
+		"prefix": "FMGRepository.getInventoryItemName",
+		"body": "FMGRepository.getInventoryItemName(${1:this}, ${2:itemType}, ${3:long})",
+		"description": "const std::wstring FMGRepository.getInventoryItemName (this, itemType, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getInventoryItemInfo": {
+		"prefix": "FMGRepository.getInventoryItemInfo",
+		"body": "FMGRepository.getInventoryItemInfo(${1:this}, ${2:itemType}, ${3:long})",
+		"description": "const std::wstring FMGRepository.getInventoryItemInfo (this, itemType, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.getInventoryItemCaption": {
+		"prefix": "FMGRepository.getInventoryItemCaption",
+		"body": "FMGRepository.getInventoryItemCaption(${1:this}, ${2:itemType}, ${3:long})",
+		"description": "const std::wstring FMGRepository.getInventoryItemCaption (this, itemType, long)",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.GameHasInstance": {
+		"prefix": "FMGRepository.GameHasInstance",
+		"body": "FMGRepository.GameHasInstance()",
+		"description": "bool FMGRepository.GameHasInstance ()",
+		"scope": "hoodiescript.lua"
+	},
+	"FMGRepository.GameGetInstance": {
+		"prefix": "FMGRepository.GameGetInstance",
+		"body": "FMGRepository.GameGetInstance()",
+		"description": "FMGRepository FMGRepository.GameGetInstance ()",
 		"scope": "hoodiescript.lua"
 	},
 	"GiveMeTits": {

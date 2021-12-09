@@ -45,7 +45,6 @@ namespace hoodie_script
 		const std::wstring getInventoryItemName(ItemParamIdPrefix itemType, long long fmgId);
 		const std::wstring getInventoryItemInfo(ItemParamIdPrefix itemType, long long fmgId);
 		const std::wstring getInventoryItemCaption(ItemParamIdPrefix itemType, long long fmgId);
-		uintptr_t getAddress();
 		static bool GameHasInstance();
 		static SprjMsgRepositoryImp GameGetInstance();
 	private:

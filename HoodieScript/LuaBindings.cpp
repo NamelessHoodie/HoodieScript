@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "LuaBindings.h"
+#include <GameObjects/SprjMsgRepositoryImp.h>
 
 namespace hoodie_script
 {
@@ -361,7 +362,7 @@ namespace hoodie_script
 		sol_EquipInventoryData["addItem"] = &EquipInventoryData::addItem;
 		sol_EquipInventoryData["getInventoryItemById"] = &EquipInventoryData::getInventoryItemById;
 		sol_EquipInventoryData["getInventoryItemCount"] = &EquipInventoryData::getInventoryItemCount;
-		sol_EquipInventoryData["IISDeref"] = &EquipInventoryData::IISDeref;
+		sol_EquipInventoryData["GetInventoryItems"] = &EquipInventoryData::GetInventoryItems;
 
 		sol::usertype<PlayerGameData> sol_playergamedata = luaSol.new_usertype<PlayerGameData>("PlayerGameData", sol::constructors<PlayerGameData(uintptr_t)>());
 		sol_playergamedata["getPlayerNo"] = &PlayerGameData::getPlayerNo;
@@ -442,6 +443,46 @@ namespace hoodie_script
 		sol_luamemory["WriteDouble"] = LuaMemory::WriteDouble;
 		sol_luamemory["WriteString"] = LuaMemory::WriteString;
 
+		sol::usertype<SprjMsgRepositoryImp> sol_sprjmsgrepositoryimp = luaSol.new_usertype<SprjMsgRepositoryImp>("FMGRepository", sol::constructors<SprjMsgRepositoryImp(uintptr_t)>());
+		sol_sprjmsgrepositoryimp["getTalkMsg"] = &SprjMsgRepositoryImp::getTalkMsg;
+		sol_sprjmsgrepositoryimp["getBloodMsg"] = &SprjMsgRepositoryImp::getBloodMsg;
+		sol_sprjmsgrepositoryimp["getMovieSubtitle"] = &SprjMsgRepositoryImp::getMovieSubtitle;
+		sol_sprjmsgrepositoryimp["getGoodsName"] = &SprjMsgRepositoryImp::getGoodsName;
+		sol_sprjmsgrepositoryimp["getGoodsInfo"] = &SprjMsgRepositoryImp::getGoodsInfo;
+		sol_sprjmsgrepositoryimp["getGoodsCaption"] = &SprjMsgRepositoryImp::getGoodsCaption;
+		sol_sprjmsgrepositoryimp["getWeaponName"] = &SprjMsgRepositoryImp::getWeaponName;
+		sol_sprjmsgrepositoryimp["getWeaponInfo"] = &SprjMsgRepositoryImp::getWeaponInfo;
+		sol_sprjmsgrepositoryimp["getWeaponCaption"] = &SprjMsgRepositoryImp::getWeaponCaption;
+		sol_sprjmsgrepositoryimp["getProtectorName"] = &SprjMsgRepositoryImp::getProtectorName;
+		sol_sprjmsgrepositoryimp["getProtectorInfo"] = &SprjMsgRepositoryImp::getProtectorInfo;
+		sol_sprjmsgrepositoryimp["getProtectorCaption"] = &SprjMsgRepositoryImp::getProtectorCaption;
+		sol_sprjmsgrepositoryimp["getAccessoryName"] = &SprjMsgRepositoryImp::getAccessoryName;
+		sol_sprjmsgrepositoryimp["getAccessoryInfo"] = &SprjMsgRepositoryImp::getAccessoryInfo;
+		sol_sprjmsgrepositoryimp["getAccessoryCaption"] = &SprjMsgRepositoryImp::getAccessoryCaption;
+		sol_sprjmsgrepositoryimp["getGemName"] = &SprjMsgRepositoryImp::getGemName;
+		sol_sprjmsgrepositoryimp["getGemInfo"] = &SprjMsgRepositoryImp::getGemInfo;
+		sol_sprjmsgrepositoryimp["getGemCaption"] = &SprjMsgRepositoryImp::getGemCaption;
+		sol_sprjmsgrepositoryimp["getMagicName"] = &SprjMsgRepositoryImp::getMagicName;
+		sol_sprjmsgrepositoryimp["getMagicCaption"] = &SprjMsgRepositoryImp::getMagicCaption;
+		sol_sprjmsgrepositoryimp["getActionEventInfo"] = &SprjMsgRepositoryImp::getActionEventInfo;
+		sol_sprjmsgrepositoryimp["getInGameMenu"] = &SprjMsgRepositoryImp::getInGameMenu;
+		sol_sprjmsgrepositoryimp["getLineHelp"] = &SprjMsgRepositoryImp::getLineHelp;
+		sol_sprjmsgrepositoryimp["getKeyGuide"] = &SprjMsgRepositoryImp::getKeyGuide;
+		sol_sprjmsgrepositoryimp["getContentsHelp"] = &SprjMsgRepositoryImp::getContentsHelp;
+		sol_sprjmsgrepositoryimp["getDialog"] = &SprjMsgRepositoryImp::getDialog;
+		sol_sprjmsgrepositoryimp["getMenuOther"] = &SprjMsgRepositoryImp::getMenuOther;
+		sol_sprjmsgrepositoryimp["getMenuCommon"] = &SprjMsgRepositoryImp::getMenuCommon;
+		sol_sprjmsgrepositoryimp["getTestError"] = &SprjMsgRepositoryImp::getTestError;
+		sol_sprjmsgrepositoryimp["getTagError"] = &SprjMsgRepositoryImp::getTagError;
+		sol_sprjmsgrepositoryimp["getSysMsg"] = &SprjMsgRepositoryImp::getSysMsg;
+		sol_sprjmsgrepositoryimp["getNpcName"] = &SprjMsgRepositoryImp::getNpcName;
+		sol_sprjmsgrepositoryimp["getPlaceName"] = &SprjMsgRepositoryImp::getPlaceName;
+		sol_sprjmsgrepositoryimp["getMenuText"] = &SprjMsgRepositoryImp::getMenuText;
+		sol_sprjmsgrepositoryimp["getInventoryItemName"] = &SprjMsgRepositoryImp::getInventoryItemName;
+		sol_sprjmsgrepositoryimp["getInventoryItemInfo"] = &SprjMsgRepositoryImp::getInventoryItemInfo;
+		sol_sprjmsgrepositoryimp["getInventoryItemCaption"] = &SprjMsgRepositoryImp::getInventoryItemCaption;
+		sol_sprjmsgrepositoryimp["GameHasInstance"] = SprjMsgRepositoryImp::GameHasInstance;
+		sol_sprjmsgrepositoryimp["GameGetInstance"] = SprjMsgRepositoryImp::GameGetInstance;
 	}
 	void LuaBindings::Luaprint(sol::variadic_args va) {
 		std::string r = "";
