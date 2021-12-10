@@ -6551,6 +6551,42 @@
 		"description": "void PlayerGameData.getAddress (this)",
 		"scope": "hoodiescript.lua"
 	},
+	"InventoryItem.inventoryIndex": {
+		"prefix": "InventoryItem.inventoryIndex",
+		"body": "InventoryItem.inventoryIndex",
+		"description": "int32_t InventoryItem Struct - ",
+		"scope": "hoodiescript.lua"
+	},
+	"InventoryItem.uniqueId": {
+		"prefix": "InventoryItem.uniqueId",
+		"body": "InventoryItem.uniqueId",
+		"description": "int32_t InventoryItem Struct - ",
+		"scope": "hoodiescript.lua"
+	},
+	"InventoryItem.itemId": {
+		"prefix": "InventoryItem.itemId",
+		"body": "InventoryItem.itemId",
+		"description": "int32_t InventoryItem Struct - ",
+		"scope": "hoodiescript.lua"
+	},
+	"InventoryItem.quantity": {
+		"prefix": "InventoryItem.quantity",
+		"body": "InventoryItem.quantity",
+		"description": "uint32_t InventoryItem Struct - ",
+		"scope": "hoodiescript.lua"
+	},
+	"InventoryItem.unknown1": {
+		"prefix": "InventoryItem.unknown1",
+		"body": "InventoryItem.unknown1",
+		"description": "int32_t InventoryItem Struct - ",
+		"scope": "hoodiescript.lua"
+	},
+	"InventoryItem.itemType": {
+		"prefix": "InventoryItem.itemType",
+		"body": "InventoryItem.itemType",
+		"description": "ItemType InventoryItem Struct - ",
+		"scope": "hoodiescript.lua"
+	},
 	"ItemType.Weapon": {
 		"prefix": "ItemType.Weapon",
 		"body": "ItemType.Weapon",

@@ -7,6 +7,15 @@ namespace hoodie_script
 	class SprjMsgRepositoryImp
 	{
 	public:
+		struct ItemIdStruct
+		{
+			const char padding[15] = {0};
+			int32_t itemId;
+			ItemIdStruct(int32_t itemId)
+			{
+				this->itemId = itemId;
+			}
+		};
 		SprjMsgRepositoryImp(uintptr_t address);
 		const std::wstring getTalkMsg(long long fmgId);
 		const std::wstring getBloodMsg(long long fmgId);
@@ -48,6 +57,8 @@ namespace hoodie_script
 		static bool GameHasInstance();
 		static SprjMsgRepositoryImp GameGetInstance();
 	private:
+		std::wstring multiTryGetFmgString(long long fmgId, const wchar_t* defaultVal, uintptr_t offsets...);
+		const wchar_t* tryGetFmgString(uintptr_t offset, long long fmgId);
 		uintptr_t address;
 	};
 

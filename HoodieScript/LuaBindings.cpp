@@ -243,6 +243,7 @@ namespace hoodie_script
 		player_type["getAddress"] = &PlayerIns::getAddress;
 		player_type["isChrIns"] = &PlayerIns::isChrIns;
 		//PlayerIns Members
+		player_type["hasPlayerGameData"] = &PlayerIns::hasPlayerGameData;
 		player_type["getPlayerGameData"] = &PlayerIns::getPlayerGameData;
 		player_type["getNetworkPointer"] = &PlayerIns::getNetworkPointer;
 		player_type["ActiveLeftHandWeapon"] = sol::property(&PlayerIns::getLeftHandWeaponActive, &PlayerIns::setLeftHandWeaponActive);

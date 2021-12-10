@@ -27,11 +27,13 @@ const std::wstring SprjMsgRepositoryImp::getGoodsName(long long fmgId)
 }
 const std::wstring SprjMsgRepositoryImp::getGoodsInfo(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e221d0, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e221d0, &fmgId));
+	//return multiTryGetFmgString(fmgId, L"?GoodsInfo?", 0x6e, 0x14, 0xd9, 0x101);
 }
 const std::wstring SprjMsgRepositoryImp::getGoodsCaption(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e22180, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e22180, &fmgId));
+	//return multiTryGetFmgString(fmgId, L"?GoodsCaption?", 100, 0x18, 0xdd, 0x105);
 }
 const std::wstring SprjMsgRepositoryImp::getWeaponName(long long fmgId)
 {
@@ -39,11 +41,16 @@ const std::wstring SprjMsgRepositoryImp::getWeaponName(long long fmgId)
 }
 const std::wstring SprjMsgRepositoryImp::getWeaponInfo(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e33090, address, fmgId));
+	auto itemStruct = ItemIdStruct(fmgId);
+	return std::wstring((const wchar_t*)call(0x140e33090, &itemStruct));
+	//return multiTryGetFmgString(fmgId, L"?WeaponInfo?", 0x72, 0x15, 0xda, 0x102);
 }
 const std::wstring SprjMsgRepositoryImp::getWeaponCaption(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e33040, address, fmgId));
+	auto itemStruct = ItemIdStruct(fmgId);
+	return std::wstring((const wchar_t*)call(0x140e33040, &itemStruct));
+	//return multiTryGetFmgString(fmgId, L"?WeaponCaption?", 0x6a, 0x19, 0xde, 0x106);
+	//return std::wstring((const wchar_t*)call(0x140e33040, address, fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getProtectorName(long long fmgId)
 {
@@ -51,11 +58,15 @@ const std::wstring SprjMsgRepositoryImp::getProtectorName(long long fmgId)
 }
 const std::wstring SprjMsgRepositoryImp::getProtectorInfo(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e2c850, address, fmgId));
+	auto itemStruct = ItemIdStruct(fmgId);
+	return std::wstring((const wchar_t*)call(0x140e2c850, &itemStruct));
+	//return multiTryGetFmgString(fmgId, L"?ProtectorInfo?", 0x74, 0x16, 0xdb, 0x103);
 }
 const std::wstring SprjMsgRepositoryImp::getProtectorCaption(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e2c800, address, fmgId));
+	auto itemStruct = ItemIdStruct(fmgId);
+	return std::wstring((const wchar_t*)call(0x140e2c800, &itemStruct));
+	//return multiTryGetFmgString(fmgId, L"?ProtectorCaption?", 0x6c, 0x1a, 0xdf, 0x107);
 }
 const std::wstring SprjMsgRepositoryImp::getAccessoryName(long long fmgId)
 {
@@ -63,23 +74,28 @@ const std::wstring SprjMsgRepositoryImp::getAccessoryName(long long fmgId)
 }
 const std::wstring SprjMsgRepositoryImp::getAccessoryInfo(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e16990, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e16990, &fmgId));
+	//return multiTryGetFmgString(fmgId, L"?AccessoryInfo?", 0x70, 0x17, 0xdc, 0x104);
 }
 const std::wstring SprjMsgRepositoryImp::getAccessoryCaption(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e16940, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e16940, &fmgId));
+	//return multiTryGetFmgString(fmgId, L"?AccessoryCaption?", 0x6d, 0x1b, 0xe0, 0x108);
 }
 const std::wstring SprjMsgRepositoryImp::getGemName(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e21db0, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e21db0, &fmgId));
+	//return multiTryGetFmgString(fmgId, L"?GemName?", 0x1f);
 }
 const std::wstring SprjMsgRepositoryImp::getGemInfo(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e21d60, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e21d60, &fmgId));
+	//return multiTryGetFmgString(fmgId, L"?GemInfo?", 0x20);
 }
 const std::wstring SprjMsgRepositoryImp::getGemCaption(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e21d10, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e21d10, &fmgId));
+	//return multiTryGetFmgString(fmgId, L"?GemCaption?", 0x21);
 }
 const std::wstring SprjMsgRepositoryImp::getMagicName(long long fmgId)
 {
@@ -87,7 +103,8 @@ const std::wstring SprjMsgRepositoryImp::getMagicName(long long fmgId)
 }
 const std::wstring SprjMsgRepositoryImp::getMagicCaption(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e25620, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e25620, &fmgId));
+	//return multiTryGetFmgString(fmgId, L"?MagicCaption?", 0x69, 0x1d, 0xe2, 0x10a);
 }
 const std::wstring SprjMsgRepositoryImp::getActionEventInfo(long long fmgId)
 {
@@ -178,6 +195,33 @@ const std::wstring SprjMsgRepositoryImp::getInventoryItemCaption(ItemParamIdPref
 		return getProtectorCaption(fmgId);
 	else
 		return getWeaponCaption(fmgId);
+}
+
+std::wstring SprjMsgRepositoryImp::multiTryGetFmgString(long long fmgId, const wchar_t* defaultVal, uintptr_t offsets ...)
+{
+	va_list args;
+	va_start(args, offsets);
+
+	while (offsets != NULL)
+	{
+		auto offset = va_arg(args, uintptr_t);
+		const wchar_t* tryGetVal = tryGetFmgString(offset, fmgId);
+
+		if (tryGetVal != nullptr)
+			return std::wstring(tryGetVal);
+
+		offsets++;
+	}
+
+	va_end(args);
+	return std::wstring(defaultVal);
+}
+
+const wchar_t* SprjMsgRepositoryImp::tryGetFmgString(uintptr_t offset, long long fmgId)
+{
+	uintptr_t unkOffset = 0;
+	const wchar_t* attempt = (const wchar_t*)call(0x1423458a0, address, unkOffset, offset, fmgId);
+	return attempt;
 }
 
 bool SprjMsgRepositoryImp::GameHasInstance()
