@@ -6611,12 +6611,6 @@
 		"description": "ItemType Enum - ",
 		"scope": "hoodiescript.lua"
 	},
-	"Memory.GetPtrLua": {
-		"prefix": "Memory.GetPtrLua",
-		"body": "Memory.GetPtrLua(${1:base}, ${2:vargs})",
-		"description": "uintptr_t Memory.GetPtrLua (base, vargs)",
-		"scope": "hoodiescript.lua"
-	},
 	"Memory.DereferencePointer": {
 		"prefix": "Memory.DereferencePointer",
 		"body": "Memory.DereferencePointer(${1:address})",
