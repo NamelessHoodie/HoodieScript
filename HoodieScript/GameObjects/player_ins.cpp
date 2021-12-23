@@ -255,6 +255,8 @@ namespace hoodie_script {
 	bool PlayerIns::isValid() const
 	{
 		bool isPlayer = false;
+		if (getAddress() == 0)
+			return false;
 		for (int i = 0; i < 5; i++) if (getAddressByOffsetNumber(static_cast<OffsetNumber>(i)) == getAddress()) isPlayer = true;
 		return isPlayer && accessMultilevelPointer<uint32_t>(getAddress() + 0x1FA0, 0xFC);
 	}
