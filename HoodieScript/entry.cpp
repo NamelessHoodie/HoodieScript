@@ -160,11 +160,6 @@ DWORD WINAPI init_thread(void* lpParam)
 		
 	//MH_CreateHook((LPVOID)0x1410a08e0, MemeHelp, &memeHelp);
 	//MH_EnableHook((LPVOID)0x1410a08e0);
-	if (hoodie_script::SprjMsgRepositoryImp::GameHasInstance())
-	{
-		hoodie_script::SprjMsgRepositoryImp helpMe = hoodie_script::SprjMsgRepositoryImp::GameGetInstance();
-		std::wcout << L"LeMemeSS = " << helpMe.getWeaponName(2010000) << "\n";
-	}
 	hoodie_script::script_runtime::initializeHooks();
 	return S_OK;
 }

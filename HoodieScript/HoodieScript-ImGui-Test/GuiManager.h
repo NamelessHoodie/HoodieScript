@@ -11,6 +11,7 @@ namespace hoodie_script
 		static HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags);
 		static LRESULT __stdcall WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 		static void InitImGui();
+		static void PushDefaultTheme();
 		static Present oPresent;
 		static HWND window;
 		static WNDPROC oWndProc;

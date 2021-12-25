@@ -1794,6 +1794,7 @@ namespace sol_ImGui
 			"PopupRounding", ImGuiStyleVar_PopupRounding,
 			"PopupBorderSize", ImGuiStyleVar_PopupBorderSize,
 			"FramePadding", ImGuiStyleVar_FramePadding,
+			"CellPadding", ImGuiStyleVar_CellPadding,
 			"FrameRounding", ImGuiStyleVar_FrameRounding,
 			"FrameBorderSize", ImGuiStyleVar_FrameBorderSize,
 			"ItemSpacing", ImGuiStyleVar_ItemSpacing,
@@ -2177,6 +2178,14 @@ namespace sol_ImGui
 			sol::resolve<int(int)>(GetColorU32)
 		));
 #endif
+		ImGui.set_function("PopStyleVar", sol::overload(
+			sol::resolve<void()>(PopStyleVar),
+			sol::resolve<void(int)>(PopStyleVar)
+		));
+		ImGui.set_function("PushStyleVar", sol::overload(
+			sol::resolve<void(int,float,float)>(PushStyleVar),
+			sol::resolve<void(int,float)>(PushStyleVar)
+		));
 #pragma endregion Parameters stacks (shared)
 
 #pragma region Parameters stacks (current window)

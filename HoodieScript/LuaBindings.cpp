@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "LuaBindings.h"
 #include <GameObjects/SprjMsgRepositoryImp.h>
+#include <GameDebugClasses/GameFlags.h>
 
 namespace hoodie_script
 {
@@ -484,6 +485,10 @@ namespace hoodie_script
 		sol_sprjmsgrepositoryimp["getInventoryItemCaption"] = &SprjMsgRepositoryImp::getInventoryItemCaption;
 		sol_sprjmsgrepositoryimp["GameHasInstance"] = SprjMsgRepositoryImp::GameHasInstance;
 		sol_sprjmsgrepositoryimp["GameGetInstance"] = SprjMsgRepositoryImp::GameGetInstance;
+
+		sol::usertype<GameFlags> sol_gameflags = luaSol.new_usertype<GameFlags>("GameFlags");
+		sol_gameflags["SetFlagState"] = GameFlags::SetFlagState;
+		sol_gameflags["GetFlagState"] = GameFlags::GetFlagState;
 	}
 	void LuaBindings::Luaprint(sol::variadic_args va) {
 		std::string r = "";
