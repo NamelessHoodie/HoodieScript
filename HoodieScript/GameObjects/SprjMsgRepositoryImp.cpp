@@ -1,29 +1,24 @@
-//Thank you church guard for the addresses, impplementation from NamelessHoodie[2].
+//Thank you church guard for the GetInstanceAddress()es, impplementation from NamelessHoodie[2].
 #include "pch.h"
 #include "SprjMsgRepositoryImp.h"
 namespace hoodie_script
 {
 
-SprjMsgRepositoryImp::SprjMsgRepositoryImp(uintptr_t address)
-{
-	this->address = address;
-}
-
 const std::wstring SprjMsgRepositoryImp::getTalkMsg(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0d420, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0d420, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getBloodMsg(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0c780, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0c780, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getMovieSubtitle(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0cfc0, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0cfc0, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getGoodsName(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0cab0, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0cab0, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getGoodsInfo(long long fmgId)
 {
@@ -37,7 +32,7 @@ const std::wstring SprjMsgRepositoryImp::getGoodsCaption(long long fmgId)
 }
 const std::wstring SprjMsgRepositoryImp::getWeaponName(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0d5d0, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0d5d0, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getWeaponInfo(long long fmgId)
 {
@@ -50,11 +45,11 @@ const std::wstring SprjMsgRepositoryImp::getWeaponCaption(long long fmgId)
 	auto itemStruct = ItemIdStruct(fmgId);
 	return std::wstring((const wchar_t*)call(0x140e33040, &itemStruct));
 	//return multiTryGetFmgString(fmgId, L"?WeaponCaption?", 0x6a, 0x19, 0xde, 0x106);
-	//return std::wstring((const wchar_t*)call(0x140e33040, address, fmgId));
+	//return std::wstring((const wchar_t*)call(0x140e33040, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getProtectorName(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0d280, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0d280, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getProtectorInfo(long long fmgId)
 {
@@ -70,7 +65,7 @@ const std::wstring SprjMsgRepositoryImp::getProtectorCaption(long long fmgId)
 }
 const std::wstring SprjMsgRepositoryImp::getAccessoryName(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0c610, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0c610, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getAccessoryInfo(long long fmgId)
 {
@@ -99,7 +94,7 @@ const std::wstring SprjMsgRepositoryImp::getGemCaption(long long fmgId)
 }
 const std::wstring SprjMsgRepositoryImp::getMagicName(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0ce30, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0ce30, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getMagicCaption(long long fmgId)
 {
@@ -108,59 +103,59 @@ const std::wstring SprjMsgRepositoryImp::getMagicCaption(long long fmgId)
 }
 const std::wstring SprjMsgRepositoryImp::getActionEventInfo(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0c690, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0c690, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getInGameMenu(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0cb30, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0cb30, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getLineHelp(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0cd60, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0cd60, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getKeyGuide(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0cc70, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0cc70, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getContentsHelp(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0c830, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0c830, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getDialog(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0c860, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0c860, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getMenuOther(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0cf00, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0cf00, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getMenuCommon(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0ceb0, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0ceb0, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getTestError(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0d020, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0d020, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getTagError(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0cff0, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0cff0, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getSysMsg(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0d150, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0d150, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getNpcName(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0d050, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0d050, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getPlaceName(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0d0d0, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0d0d0, GetInstanceAddress(), fmgId));
 }
 const std::wstring SprjMsgRepositoryImp::getMenuText(long long fmgId)
 {
-	return std::wstring((const wchar_t*)call(0x140e0cf50, address, fmgId));
+	return std::wstring((const wchar_t*)call(0x140e0cf50, GetInstanceAddress(), fmgId));
 }
 
 const std::wstring SprjMsgRepositoryImp::getInventoryItemName(ItemParamIdPrefix itemType, long long fmgId)
@@ -220,18 +215,18 @@ std::wstring SprjMsgRepositoryImp::multiTryGetFmgString(long long fmgId, const w
 const wchar_t* SprjMsgRepositoryImp::tryGetFmgString(uintptr_t offset, long long fmgId)
 {
 	uintptr_t unkOffset = 0;
-	const wchar_t* attempt = (const wchar_t*)call(0x1423458a0, address, unkOffset, offset, fmgId);
+	const wchar_t* attempt = (const wchar_t*)call(0x1423458a0, GetInstanceAddress(), unkOffset, offset, fmgId);
 	return attempt;
 }
 
-bool SprjMsgRepositoryImp::GameHasInstance()
+bool SprjMsgRepositoryImp::IsLoaded()
 {
 	return *(uintptr_t**)0x1447819d0 != nullptr;
 }
 
-SprjMsgRepositoryImp SprjMsgRepositoryImp::GameGetInstance()
+uintptr_t SprjMsgRepositoryImp::GetInstanceAddress()
 {
-	return SprjMsgRepositoryImp(*(uintptr_t*)0x1447819d0);
+	return *(uintptr_t*)0x1447819d0;
 }
 
 }
