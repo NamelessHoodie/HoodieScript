@@ -2747,6 +2747,18 @@
 		"description": "std::string ImGui.GetClipboardText ()",
 		"scope": "ImGui.h"
 	},
+	"ImGui.GetMainViewPortPos": {
+		"prefix": "ImGui.GetMainViewPortPos",
+		"body": "ImGui.GetMainViewPortPos()",
+		"description": "std::tuple<float, float> ImGui.GetMainViewPortPos ()",
+		"scope": "ImGui.h"
+	},
+	"ImGui.GetMainViewPortSize": {
+		"prefix": "ImGui.GetMainViewPortSize",
+		"body": "ImGui.GetMainViewPortSize()",
+		"description": "std::tuple<float, float> ImGui.GetMainViewPortSize ()",
+		"scope": "ImGui.h"
+	},
 	"ImGui.SetClipboardText": {
 		"prefix": "ImGui.SetClipboardText",
 		"body": "ImGui.SetClipboardText(${1:text})",

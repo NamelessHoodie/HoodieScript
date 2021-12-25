@@ -53,6 +53,8 @@ namespace sol_ImGui
 	inline ImDrawList* GetWindowDrawList() { return nullptr; /* TODO: GetWindowDrawList() ==> UNSUPPORTED */ }
 	inline float GetWindowDpiScale() { return ImGui::GetWindowDpiScale(); }
 	inline ImGuiViewport* GetWindowViewport() { return nullptr; /* TODO: GetWindowViewport() ==> UNSUPPORTED */ }
+	inline std::tuple<float, float> GetMainViewPortSize() { auto a = ImGui::GetMainViewport()->Size; return std::make_tuple(a.x, a.y); }
+	inline std::tuple<float, float> GetMainViewPortPos() { auto a = ImGui::GetMainViewport()->Pos; return std::make_tuple(a.x, a.y); }
 	inline std::tuple<float, float> GetWindowPos() { const auto vec2{ ImGui::GetWindowPos() };  return std::make_tuple(vec2.x, vec2.y); }
 	inline std::tuple<float, float> GetWindowSize() { const auto vec2{ ImGui::GetWindowSize() };  return std::make_tuple(vec2.x, vec2.y); }
 	inline float GetWindowWidth() { return ImGui::GetWindowWidth(); }
@@ -2117,6 +2119,9 @@ namespace sol_ImGui
 			sol::resolve<void(const std::string&)>(SetWindowFocus)
 		));
 		ImGui.set_function("SetWindowFontScale", SetWindowFontScale);
+		ImGui.set_function("GetMainViewPortPos", GetMainViewPortPos);
+		ImGui.set_function("GetMainViewPortSize", GetMainViewPortSize);
+
 #pragma endregion Window Utilities
 
 #pragma region Content Region
