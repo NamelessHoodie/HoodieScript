@@ -3,10 +3,9 @@
 namespace hoodie_script {
 	class OnGameFrame {
 		public:
-			static int SubscribeToEventOnGameFrame(lua_State* L);
+			static int SubscribeToEventOnGameFrame(sol::function function);
 			static void DoOnGameFrame(lua_State* L);
 		private:
-			static int OnGameFrameHandlers[1024];
-			static int OnGameFrameEventSubscribersCount;
+			static std::deque<std::tuple<sol::function>> OnGameFrameHandlers;
 	};
 }

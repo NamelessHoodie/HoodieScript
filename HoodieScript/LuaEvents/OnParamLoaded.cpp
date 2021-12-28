@@ -3,24 +3,26 @@
 
 namespace hoodie_script {
 
-    int OnParamLoaded::OnParamLoadedHandlers[1024];
-    int OnParamLoaded::OnParamLoadedEventSubscribersCount = 0;
+    std::deque<std::tuple<sol::function>> OnParamLoaded::OnParamLoadedHandlers;
 
-    int OnParamLoaded::SubscribeToEventOnParamLoaded(lua_State* L)
+
+    int OnParamLoaded::SubscribeToEventOnParamLoaded(sol::function function)
     {
-        if (!lua_isfunction(L, 1)) {
-            luaL_argerror(L, 1, "expected function");
-        }
-        lua_pushvalue(L, -1);
-        OnParamLoadedHandlers[OnParamLoadedEventSubscribersCount++] = luaL_ref(L, LUA_REGISTRYINDEX);
+        OnParamLoadedHandlers.push_back(std::tuple<sol::function>{ function});
         return 0;
     }
 
     void OnParamLoaded::DoOnParamLoaded(lua_State* L) {
-        int i;
-        for (i = 0; i < OnParamLoadedEventSubscribersCount; ++i) {
-            lua_rawgeti(L, LUA_REGISTRYINDEX, OnParamLoadedHandlers[i]);
-            lua_pcall(L, 0, 0, 0);
+        sol::state_view sol(L);
+        for (size_t i = 0; i < OnParamLoadedHandlers.size(); ++i) {
+            auto& [funRef] = OnParamLoaded::OnParamLoadedHandlers[i];
+            sol::protected_function fun = funRef;
+            sol::protected_function_result result = fun();
+            if (!result.valid())
+            {
+                sol::error error = result;
+                logging::write_line(error.what());
+            }
         }
     }
 }
