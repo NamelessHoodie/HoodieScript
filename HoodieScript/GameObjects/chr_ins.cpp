@@ -1,6 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "chr_ins.h"
+#include "GameDebugClasses/Bullet_Spawn.h"
 #include "Hooks/hkb_animation_hook.h"
 
 namespace hoodie_script {
@@ -169,6 +170,17 @@ int32_t ChrIns::getHkbIdFromString(const std::wstring& animationString) const
 	int32_t(*function)(...);
 	*reinterpret_cast<uintptr_t*>(&function) = 0x141049BD0;
 	return function(*accessMultilevelPointer<uintptr_t>(address + 0x1F90, 0x28, 0x10, 0x28, 0xA0), ds3runtime_global->utf8_encode(animationString).c_str());
+}
+
+void ChrIns::SpawnBullet(int32_t bulletId, std::vector<float> spawnPosition, std::vector<float> direction)
+{
+	auto entryBullet = bullet_spawn_request();
+	entryBullet.set_bullet_param_id((bullet_type)bulletId);
+	entryBullet.set_owner((int32_t)getHandle());
+	entryBullet.set_direction(direction);
+	//entryBullet.set_homing_flag(-1);
+	entryBullet.set_coordinates(spawnPosition);
+	bullet_facade::spawn(&entryBullet);
 }
 
 std::wstring ChrIns::getHkbStringFromId(const int32_t& id) const

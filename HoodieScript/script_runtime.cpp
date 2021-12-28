@@ -43,9 +43,25 @@ namespace hoodie_script {
 		luaL_openlibs(L);
 		_luaState = L;
 		InitializeFunctionLuaBindings();
+		LuaSetPath(L);
 		script_runtime::paramPatcher = new ParamPatcher();
 		GameExtensionManager::registerEmbeddedExtensions();
 		OnParamLoaded::DoOnParamLoaded(_luaState);
+	}
+
+	void script_runtime::LuaSetPath(lua_State* L)
+	{
+		state_view a(L);
+		//Read path values
+		std::string pathValue = a["package"]["path"];
+		std::string cpathValue = a["package"]["cpath"];
+
+		//Declare new paths
+		std::string lua_pathStrHoodieScriptsFolder = ";" + script_repository::get_scripts_path() + "/?.lua";
+		std::string lua_cpathStrHoodieScriptsFolder = ";" + script_repository::get_scripts_path() + "/?.dll";
+
+		//Assign new paths
+		a["package"]["path"] = pathValue + lua_pathStrHoodieScriptsFolder + lua_cpathStrHoodieScriptsFolder;
 	}
 
 	void script_runtime::initializeHooks()
@@ -121,6 +137,8 @@ namespace hoodie_script {
 		lua_setfield(_luaState, LUA_REGISTRYINDEX, filePath);
 		lua_getfield(_luaState, LUA_REGISTRYINDEX, filePath);
 		lua_setupvalue(_luaState, 1, 1);
+
+
 
 		if (lua_pcall(_luaState, 0, LUA_MULTRET, 0)) {
 			logging::write_line("Could not init LUA file %s", file.string().c_str());
@@ -214,7 +232,14 @@ namespace hoodie_script {
 		//		bullet_facade::spawn(entryBullet);
 		//	}
 		//}
-
+		//auto plr = PlayerIns(PlayerIns::getMainChrAddress());
+		//auto memes = plr.getDummyPolyPositions(12, 99);
+		//for (auto i = memes.begin(); i != memes.end(); i++)
+		//{
+		//	auto meme = *i;
+		//	plr.SpawnBullet(150, {meme[0], meme[1], meme[2], meme[3]});
+		//}
+		//plr.
 		uniqueFrameClock++;
 		if (uniqueFrameClock % 2 == 0) {
 			OnGameFrame::DoOnGameFrame(_luaState);

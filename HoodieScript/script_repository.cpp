@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "script_repository.h"
+#include <vendor/Sol2/sol.hpp>
+#include <vendor/Sol2/forward.hpp>
 
 namespace hoodie_script {
 	std::vector<std::filesystem::path> script_repository::_luaFiles;
@@ -8,6 +10,7 @@ namespace hoodie_script {
 	{
 		auto pathStr = get_scripts_path();
 		logging::write_line("Found lua file %s", pathStr.c_str());
+
 		for (const auto& entry : std::filesystem::directory_iterator(pathStr)) {
 			if (entry.path().string().ends_with(".lua")) {
 				auto path = entry.path();

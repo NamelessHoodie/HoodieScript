@@ -9,7 +9,6 @@
 #include "LuaEvents/OnHotkey.h"
 #include "GameDebugClasses/world_chr_man.h"
 #include "GameObjects/sprj_chr_data_module.h"
-#include "GameDebugClasses/Bullet_Spawn.h"
 #include "LuaBindings.h"
 #include <random>
 #include "HotKeyManager.h"
@@ -39,6 +38,7 @@ namespace hoodie_script {
 		static bool initialize_file(std::filesystem::path file);
 		static void InitializeFunctionLuaBindings();
 		static void initialize();
+		static void LuaSetPath(lua_State* L);
 		static void initializeHooks();
 		static void refreshHooks();
 		static void deinitializeHooks();

@@ -382,6 +382,8 @@ public:
 	* @return The integer repersentation of the specified Havok Behaivor.
 	*/
 	int32_t getHkbIdFromString(const std::wstring& animationString) const;
+
+	void SpawnBullet(int32_t bulletId, std::vector<float> spawnPosition, std::vector<float> direction  = {0,0,0});
 	
 	/**
 	* Gets the string which matches a specified Havok Behaivor Id.

@@ -6425,6 +6425,12 @@
 		"description": "std::array<uint8_t, 256> PlayerGameData.getFaceData (this)",
 		"scope": "hoodiescript.lua"
 	},
+	"PlayerGameData.setFaceData": {
+		"prefix": "PlayerGameData.setFaceData",
+		"body": "PlayerGameData.setFaceData(${1:this})",
+		"description": "std::array<uint8_t, 256> PlayerGameData.setFaceData (this)",
+		"scope": "hoodiescript.lua"
+	},
 	"PlayerGameData.getBodyProportions": {
 		"prefix": "PlayerGameData.getBodyProportions",
 		"body": "PlayerGameData.getBodyProportions(${1:this})",
@@ -6623,16 +6629,52 @@
 		"description": "ItemType Enum - ",
 		"scope": "hoodiescript.lua"
 	},
+	"Memory.MultiLevelPointer": {
+		"prefix": "Memory.MultiLevelPointer",
+		"body": "Memory.MultiLevelPointer(${1:base}, ${2:vargs})",
+		"description": "uintptr_t Memory.MultiLevelPointer (base, vargs)",
+		"scope": "hoodiescript.lua"
+	},
 	"Memory.DereferencePointer": {
 		"prefix": "Memory.DereferencePointer",
 		"body": "Memory.DereferencePointer(${1:address})",
 		"description": "uintptr_t Memory.DereferencePointer (address)",
 		"scope": "hoodiescript.lua"
 	},
-	"Memory.MultiLevelPointer": {
-		"prefix": "Memory.MultiLevelPointer",
-		"body": "Memory.MultiLevelPointer(${1:address})",
-		"description": "bool Memory.MultiLevelPointer (address)",
+	"Memory.Allocate": {
+		"prefix": "Memory.Allocate",
+		"body": "Memory.Allocate(${1:size})",
+		"description": "uintptr_t Memory.Allocate (size)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.AllocateBytes": {
+		"prefix": "Memory.AllocateBytes",
+		"body": "Memory.AllocateBytes(${1:bytes})",
+		"description": "uintptr_t Memory.AllocateBytes (bytes)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.AllocateNear": {
+		"prefix": "Memory.AllocateNear",
+		"body": "Memory.AllocateNear(${1:address}, ${2:size})",
+		"description": "uintptr_t Memory.AllocateNear (address, size)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.AllocateBytesNear": {
+		"prefix": "Memory.AllocateBytesNear",
+		"body": "Memory.AllocateBytesNear(${1:address}, ${2:bytes})",
+		"description": "uintptr_t Memory.AllocateBytesNear (address, bytes)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.Deallocate": {
+		"prefix": "Memory.Deallocate",
+		"body": "Memory.Deallocate(${1:address})",
+		"description": "void Memory.Deallocate (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.IsPtrValid": {
+		"prefix": "Memory.IsPtrValid",
+		"body": "Memory.IsPtrValid(${1:address})",
+		"description": "bool Memory.IsPtrValid (address)",
 		"scope": "hoodiescript.lua"
 	},
 	"Memory.ReadInt8": {
@@ -6701,6 +6743,12 @@
 		"description": "std::string Memory.ReadString (address)",
 		"scope": "hoodiescript.lua"
 	},
+	"Memory.ReadBytes": {
+		"prefix": "Memory.ReadBytes",
+		"body": "Memory.ReadBytes(${1:address}, ${2:size})",
+		"description": "std::vector<byte> Memory.ReadBytes (address, size)",
+		"scope": "hoodiescript.lua"
+	},
 	"Memory.WriteInt8": {
 		"prefix": "Memory.WriteInt8",
 		"body": "Memory.WriteInt8(${1:address}, ${2:newValue})",
@@ -6765,6 +6813,12 @@
 		"prefix": "Memory.WriteString",
 		"body": "Memory.WriteString(${1:address}, ${2:newValue})",
 		"description": "void Memory.WriteString (address, newValue)",
+		"scope": "hoodiescript.lua"
+	},
+	"Memory.WriteBytes": {
+		"prefix": "Memory.WriteBytes",
+		"body": "Memory.WriteBytes(${1:address}, ${2:bytes})",
+		"description": "void Memory.WriteBytes (address, bytes)",
 		"scope": "hoodiescript.lua"
 	},
 	"FMGRepository.getTalkMsg": {

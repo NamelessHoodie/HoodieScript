@@ -377,6 +377,7 @@ namespace hoodie_script
 		sol_playergamedata["getAge"] = &PlayerGameData::getAge;
 		sol_playergamedata["setAge"] = &PlayerGameData::setAge;
 		sol_playergamedata["getFaceData"] = &PlayerGameData::getFaceData;
+		sol_playergamedata["setFaceData"] = &PlayerGameData::setFaceData;
 		sol_playergamedata["getBodyProportions"] = &PlayerGameData::getBodyProportions;
 		sol_playergamedata["setBodyPreportions"] = &PlayerGameData::setBodyPreportions;
 		sol_playergamedata["getAttributes"] = &PlayerGameData::getAttributes;
@@ -421,6 +422,11 @@ namespace hoodie_script
 		sol::usertype<LuaMemory> sol_luamemory = luaSol.new_usertype<LuaMemory>("Memory");
 		sol_luamemory["MultiLevelPointer"] = LuaMemory::MultiLevelPointer;
 		sol_luamemory["DereferencePointer"] = LuaMemory::DereferencePointer;
+		sol_luamemory["Allocate"] = LuaMemory::Allocate;
+		sol_luamemory["AllocateBytes"] = LuaMemory::AllocateBytes;
+		sol_luamemory["AllocateNear"] = LuaMemory::AllocateNear;
+		sol_luamemory["AllocateBytesNear"] = LuaMemory::AllocateBytesNear;
+		sol_luamemory["Deallocate"] = LuaMemory::Deallocate;
 		sol_luamemory["IsPtrValid"] = LuaMemory::IsPtrValid;
 		sol_luamemory["ReadInt8"] = LuaMemory::ReadInt8;
 		sol_luamemory["ReadInt16"] = LuaMemory::ReadInt16;
@@ -433,6 +439,7 @@ namespace hoodie_script
 		sol_luamemory["ReadFloat"] = LuaMemory::ReadFloat;
 		sol_luamemory["ReadDouble"] = LuaMemory::ReadDouble;
 		sol_luamemory["ReadString"] = LuaMemory::ReadString;
+		sol_luamemory["ReadBytes"] = LuaMemory::ReadBytes;
 		sol_luamemory["WriteInt8"] = LuaMemory::WriteInt8;
 		sol_luamemory["WriteInt16"] = LuaMemory::WriteInt16;
 		sol_luamemory["WriteInt32"] = LuaMemory::WriteInt32;
@@ -444,6 +451,7 @@ namespace hoodie_script
 		sol_luamemory["WriteFloat"] = LuaMemory::WriteFloat;
 		sol_luamemory["WriteDouble"] = LuaMemory::WriteDouble;
 		sol_luamemory["WriteString"] = LuaMemory::WriteString;
+		sol_luamemory["WriteBytes"] = LuaMemory::WriteBytes;
 
 		sol::usertype<SprjMsgRepositoryImp> sol_sprjmsgrepositoryimp = luaSol.new_usertype<SprjMsgRepositoryImp>("FMGRepository");
 		sol_sprjmsgrepositoryimp["getTalkMsg"] = SprjMsgRepositoryImp::getTalkMsg;

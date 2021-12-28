@@ -7,6 +7,11 @@ namespace hoodie_script
 	public:
 		static uintptr_t MultiLevelPointer(uintptr_t base, sol::variadic_args vargs);
 		static uintptr_t DereferencePointer(uintptr_t address);
+		static uintptr_t Allocate(size_t size);
+		static uintptr_t AllocateBytes(std::vector<byte> bytes);
+		static uintptr_t AllocateNear(uintptr_t address, size_t size);
+		static uintptr_t AllocateBytesNear(uintptr_t address, std::vector<uint8_t> bytes);
+		static void Deallocate(uintptr_t address);
 		static bool IsPtrValid(uintptr_t address);
 		static int8_t ReadInt8(uintptr_t address);
 		static int16_t ReadInt16(uintptr_t address);
@@ -19,6 +24,7 @@ namespace hoodie_script
 		static float ReadFloat(uintptr_t address);
 		static double ReadDouble(uintptr_t address);
 		static std::string ReadString(uintptr_t address);
+		static std::vector<byte> ReadBytes(uintptr_t address, size_t size);
 		static void WriteInt8(uintptr_t address, int8_t newValue);
 		static void WriteInt16(uintptr_t address, int16_t newValue);
 		static void WriteInt32(uintptr_t address, int32_t newValue);
@@ -30,6 +36,7 @@ namespace hoodie_script
 		static void WriteFloat(uintptr_t address, float newValue);
 		static void WriteDouble(uintptr_t address, double newValue);
 		static void WriteString(uintptr_t address, std::string newValue);
+		static void WriteBytes(uintptr_t address, std::vector<byte> bytes);
 	private:
 
 	};

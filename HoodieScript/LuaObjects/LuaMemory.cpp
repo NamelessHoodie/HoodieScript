@@ -20,6 +20,36 @@ namespace hoodie_script
 	{
 		return *(uintptr_t*)address;
 	}
+	uintptr_t LuaMemory::Allocate(size_t size)
+	{
+		return (uintptr_t)malloc(size);
+	}
+	uintptr_t LuaMemory::AllocateBytes(std::vector<uint8_t> bytes)
+	{
+		uintptr_t allocatedMemory = Allocate(bytes.size());
+		WriteBytes(allocatedMemory, bytes);
+		return allocatedMemory;
+	}
+	uintptr_t LuaMemory::AllocateNear(uintptr_t address, size_t size)
+	{
+		byte* NewMem = NULL;
+		for (unsigned int Offset = 0; NewMem == NULL && Offset < 0xEFFFFFFF; Offset += 0x1000) {
+			NewMem = (byte*)VirtualAlloc((void*)((long long)address + Offset), size, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+		}
+		return (uintptr_t)NewMem;
+	}
+	uintptr_t LuaMemory::AllocateBytesNear(uintptr_t address, std::vector<uint8_t> bytes)
+	{
+		uintptr_t allocationAddress = AllocateNear(address, bytes.size());
+		if (allocationAddress == NULL)
+			return NULL;
+		WriteBytes(allocationAddress, bytes);
+		return allocationAddress;
+	}
+	void LuaMemory::Deallocate(uintptr_t address)
+	{
+		free((void*)address);
+	}
 	bool LuaMemory::IsPtrValid(uintptr_t address)
 	{
 		return !(address < 65536 || IsBadReadPtr((void*)(address), sizeof(void*)));
@@ -68,6 +98,16 @@ namespace hoodie_script
 	{
 		return std::string((const char*)address);
 	}
+	std::vector<byte> LuaMemory::ReadBytes(uintptr_t address, size_t size)
+	{
+		std::vector<byte> bytes = std::vector<byte>();
+		byte* NewMem = (byte*)address;
+		for (size_t i = 0; i < size; i++)
+		{
+			bytes.push_back(NewMem[i]);
+		}
+		return bytes;
+	}
 	void LuaMemory::WriteInt8(uintptr_t address, int8_t newValue)
 	{
 		*(int8_t*)address = newValue;
@@ -111,5 +151,15 @@ namespace hoodie_script
 	void LuaMemory::WriteString(uintptr_t address, std::string newValue)
 	{
 		memcpy((void*)address, (void*)newValue.c_str(), newValue.size());
+	}
+	void LuaMemory::WriteBytes(uintptr_t address, std::vector<byte> bytes)
+	{
+		byte* memoryAddressByteArray = (byte*)address;
+		int pos = 0;
+		for (auto i = bytes.begin(); i != bytes.end(); i++)
+		{
+			memoryAddressByteArray[pos] = *i;
+			pos++;
+		}
 	}
 }

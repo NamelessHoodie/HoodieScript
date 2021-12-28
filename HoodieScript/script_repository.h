@@ -14,8 +14,8 @@ namespace hoodie_script {
 		void initialize();
 		static void load_files();
 		static std::vector<std::filesystem::path> get_files();
-	private:
 		static std::string get_scripts_path();
+	private:
 		static std::vector<std::filesystem::path> _luaFiles;
 	};
 }
