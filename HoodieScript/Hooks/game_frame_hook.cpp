@@ -15,8 +15,8 @@ namespace hoodie_script {
 		// Thanks Amir
 		void(*originalFunction)(...);
 		*(uintptr_t*)&originalFunction = _instance->get_original();
+		script_runtime::on_game_frame();
 		originalFunction(rcx, rdx, r8, r9, rsp20);
 		//if (ds3runtime_global->getGameThreadId() == 0) ds3runtime_global->setGameThreadId(GetCurrentThreadId());
-		script_runtime::on_game_frame();
 	}
 }
