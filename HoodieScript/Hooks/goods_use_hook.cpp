@@ -14,8 +14,6 @@ namespace hoodie_script
 	uintptr_t goods_use_hook::on_invoke(uintptr_t self, int goodsId)
 	{
 		script_runtime::on_goods_use(goodsId);
-		uintptr_t (*originalFunction)(uintptr_t self, int id);
-		*(uintptr_t*)&originalFunction = _instance->get_original();
-		return originalFunction(self, goodsId);
+		return call(_instance->get_original(), self, goodsId);
 	}
 }

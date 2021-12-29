@@ -17,8 +17,6 @@ namespace hoodie_script
 
 	uint32_t session_send_hook::on_invoke(uintptr_t networkSession, uintptr_t* networkHandle, int32_t id, char* buffer, uint32_t maxLength)
 	{
-		uintptr_t(*originalFunction)(uintptr_t networkSession, uintptr_t * networkHandle, int32_t id, char* buffer, uint32_t maxLength);
-		*(uintptr_t*)&originalFunction = _instance->get_original();
-		return originalFunction(networkSession, networkHandle, id, buffer, maxLength);
+		return call(_instance->get_original(), networkSession, networkHandle, id, buffer, maxLength);
 	}
 }

@@ -13,8 +13,6 @@ namespace hoodie_script {
 	bool has_speffect_hook::on_invoke(unsigned int entityId, int speffect)
 	{
 		script_runtime::on_speffect(entityId, speffect);
-		uintptr_t(*originalFunction)(unsigned int handle, int speffect);
-		*(uintptr_t*)&originalFunction = _instance->get_original();
-		return originalFunction(entityId, speffect);
+		return call(_instance->get_original(), entityId, speffect);
 	}
 }

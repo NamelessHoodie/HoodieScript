@@ -13,8 +13,6 @@ namespace hoodie_script {
 
 	uint64_t hksEnvGetter_hook::on_invoke(uintptr_t* ptrToChrIns, uint32_t envId, int64_t luaStatePtr)
 	{
-		//0x14112df50
-		long long secondArgLua;
 		ChrIns characterInstance(*ptrToChrIns);
 		LuaArgs luaArgs(luaStatePtr);
 		auto extension = GameExtensionManager::tryGetHksEnvExpansionLambda(envId);
@@ -24,9 +22,7 @@ namespace hoodie_script {
 		}
 		else
 		{
-			uint64_t(*originalFunction)(uintptr_t * ptrToChrIns, uint32_t envId, int64_t luaStatePtr);
-			*(uintptr_t*)&originalFunction = _instance->get_original();
-			return originalFunction(ptrToChrIns, envId, luaStatePtr);
+			return call(_instance->get_original(), ptrToChrIns, envId, luaStatePtr);
 		}
 		return NULL;
 	}

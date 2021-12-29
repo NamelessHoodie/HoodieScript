@@ -26,9 +26,7 @@ namespace hoodie_script {
 			}
 			else
 			{
-					uintptr_t(*originalFunction)(uintptr_t sprjChrTaeAnimEvent, uintptr_t * *jumpTableDataAndExtraPointers);
-					*(uintptr_t*)&originalFunction = _instance->get_original();
-					return originalFunction(sprjChrTaeAnimEvent, taeEventData);
+				return call(_instance->get_original(), sprjChrTaeAnimEvent, taeEventData);
 			}
 		}
 		else
@@ -40,9 +38,7 @@ namespace hoodie_script {
 			}
 			else
 			{
-					uintptr_t(*originalFunction)(uintptr_t sprjChrTaeAnimEvent, uintptr_t * *jumpTableDataAndExtraPointers);
-					*(uintptr_t*)&originalFunction = _instance->get_original();
-					return originalFunction(sprjChrTaeAnimEvent, taeEventData);
+				return call(_instance->get_original(), sprjChrTaeAnimEvent, taeEventData);
 			}
 		}
 		return false;

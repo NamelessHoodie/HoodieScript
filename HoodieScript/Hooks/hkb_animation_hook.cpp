@@ -13,11 +13,7 @@ namespace hoodie_script
 
 	void hkb_animation_hook::on_invoke(uintptr_t hkbCharacter, int32_t* animationId)
 	{		
-		auto processedId = script_runtime::on_hkb_animation(hkbCharacter, *animationId);
-
-		*animationId = processedId;
-		void (*originalFunction)(...);
-		*(uintptr_t*)&originalFunction = _instance->get_original();
-		originalFunction(hkbCharacter, animationId);
+		*animationId = script_runtime::on_hkb_animation(hkbCharacter, *animationId);
+		call(_instance->get_original(), hkbCharacter, animationId);
 	}
 }

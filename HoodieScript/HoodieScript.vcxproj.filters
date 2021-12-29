@@ -617,6 +617,9 @@
     <ClCompile Include="GameDebugClasses\GameFlags.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LuaObjects\middleclass.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="DInput.def">

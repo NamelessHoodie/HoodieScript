@@ -13,10 +13,6 @@ namespace hoodie_script {
 
 	void hksActSetter_hook::on_invoke(uintptr_t* chrInsPtr, int32_t actId, uintptr_t luaStatePtr)
 	{
-		//0x14112df50
-		uint64_t meme;
-		const char* str;
-
 		ChrIns characterInstance(*chrInsPtr);
 		LuaArgs luaArgs(luaStatePtr);
 		auto extension = GameExtensionManager::tryGetHksActExpansionLambda(actId);
@@ -26,10 +22,7 @@ namespace hoodie_script {
 		}
 		else
 		{
-			uint64_t(*originalFunction)(uintptr_t * chrInsPtr, int32_t actId, uintptr_t luaStatePtr);
-			*(uintptr_t*)&originalFunction = _instance->get_original();
-			originalFunction(chrInsPtr, actId, luaStatePtr);
+			call(_instance->get_original(), chrInsPtr, actId, luaStatePtr);
 		}
-		static bool once = false;
 	}
 }

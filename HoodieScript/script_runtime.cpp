@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "script_runtime.h"
+#include "LuaObjects/middleclass.c"
 
 using namespace sol;
 
@@ -21,9 +22,17 @@ namespace hoodie_script {
 	void script_runtime::InitializeFunctionLuaBindings()
 	{
 		state_view lua(_luaState);
+
 		LuaBindings::initializeClasses(lua);
 		LuaBindings::initializeEnums(lua);
 		LuaBindings::initializeStaticFunctions(lua);
+	}
+
+	void script_runtime::InitializeLuaEmbeddedFiles()
+	{
+		state_view lua(_luaState);
+
+		lua.require_script("classes", _acmiddleclass);
 	}
 
 	void script_runtime::initialize()
@@ -42,6 +51,7 @@ namespace hoodie_script {
 		lua_State* L = luaL_newstate();
 		luaL_openlibs(L);
 		_luaState = L;
+		InitializeLuaEmbeddedFiles();
 		InitializeFunctionLuaBindings();
 		LuaSetPath(L);
 		script_runtime::paramPatcher = new ParamPatcher();
@@ -52,6 +62,7 @@ namespace hoodie_script {
 	void script_runtime::LuaSetPath(lua_State* L)
 	{
 		state_view a(L);
+
 		//Read path values
 		std::string pathValue = a["package"]["path"];
 		std::string cpathValue = a["package"]["cpath"];

@@ -37,6 +37,7 @@ namespace hoodie_script {
 		static void OnRenderFrame();
 		static bool initialize_file(std::filesystem::path file);
 		static void InitializeFunctionLuaBindings();
+		static void InitializeLuaEmbeddedFiles();
 		static void initialize();
 		static void LuaSetPath(lua_State* L);
 		static void initializeHooks();
