@@ -185,6 +185,7 @@
     <ClInclude Include="GameObjects\chr_ins.h" />
     <ClInclude Include="GameObjects\equip_game_data.h" />
     <ClInclude Include="GameObjects\equip_inventory_data.h" />
+    <ClInclude Include="GameObjects\InventoryItem.h" />
     <ClInclude Include="GameObjects\player_game_data.h" />
     <ClInclude Include="GameObjects\player_ins.h" />
     <ClInclude Include="GameObjects\SprjMsgRepositoryImp.h" />
@@ -290,6 +291,7 @@
     <ClCompile Include="GameObjects\chr_ins.cpp" />
     <ClCompile Include="GameObjects\equip_game_data.cpp" />
     <ClCompile Include="GameObjects\equip_inventory_data.cpp" />
+    <ClCompile Include="GameObjects\InventoryItem.cpp" />
     <ClCompile Include="GameObjects\player_game_data.cpp" />
     <ClCompile Include="GameObjects\player_ins.cpp" />
     <ClCompile Include="GameObjects\SprjMsgRepositoryImp.cpp" />

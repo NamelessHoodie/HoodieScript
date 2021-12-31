@@ -6572,37 +6572,91 @@
 	"InventoryItem.inventoryIndex": {
 		"prefix": "InventoryItem.inventoryIndex",
 		"body": "InventoryItem.inventoryIndex",
-		"description": "int32_t InventoryItem Struct - ",
+		"description": "field int32_t InventoryItem.inventoryIndex",
 		"scope": "hoodiescript.lua"
 	},
 	"InventoryItem.uniqueId": {
 		"prefix": "InventoryItem.uniqueId",
 		"body": "InventoryItem.uniqueId",
-		"description": "int32_t InventoryItem Struct - ",
+		"description": "field int32_t InventoryItem.uniqueId",
 		"scope": "hoodiescript.lua"
 	},
 	"InventoryItem.itemId": {
 		"prefix": "InventoryItem.itemId",
 		"body": "InventoryItem.itemId",
-		"description": "int32_t InventoryItem Struct - ",
+		"description": "field int32_t InventoryItem.itemId",
 		"scope": "hoodiescript.lua"
 	},
 	"InventoryItem.quantity": {
 		"prefix": "InventoryItem.quantity",
 		"body": "InventoryItem.quantity",
-		"description": "uint32_t InventoryItem Struct - ",
+		"description": "field uint32_t InventoryItem.quantity",
 		"scope": "hoodiescript.lua"
 	},
 	"InventoryItem.unknown1": {
 		"prefix": "InventoryItem.unknown1",
 		"body": "InventoryItem.unknown1",
-		"description": "int32_t InventoryItem Struct - ",
+		"description": "field int32_t InventoryItem.unknown1",
 		"scope": "hoodiescript.lua"
 	},
 	"InventoryItem.itemType": {
 		"prefix": "InventoryItem.itemType",
 		"body": "InventoryItem.itemType",
-		"description": "ItemType InventoryItem Struct - ",
+		"description": "field ItemType InventoryItem.itemType",
+		"scope": "hoodiescript.lua"
+	},
+	"InventoryItem.GetGaitemInstance": {
+		"prefix": "InventoryItem.GetGaitemInstance",
+		"body": "InventoryItem.GetGaitemInstance()",
+		"description": "Gaitem InventoryItem.GetGaitemInstance ()",
+		"scope": "hoodiescript.lua"
+	},
+	"Gaitem.new0": {
+		"prefix": "Gaitem.new",
+		"body": "Gaitem.new(${1:address})",
+		"description": " Gaitem.new (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"Gaitem.getDurability": {
+		"prefix": "Gaitem.getDurability",
+		"body": "Gaitem.getDurability(${1:this})",
+		"description": "uint32_t Gaitem.getDurability (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"Gaitem.setDurability": {
+		"prefix": "Gaitem.setDurability",
+		"body": "Gaitem.setDurability(${1:this}, ${2:newDurability})",
+		"description": "void Gaitem.setDurability (this, newDurability)",
+		"scope": "hoodiescript.lua"
+	},
+	"Gaitem.isSprjGaiItemIns": {
+		"prefix": "Gaitem.isSprjGaiItemIns",
+		"body": "Gaitem.isSprjGaiItemIns(${1:this})",
+		"description": "bool Gaitem.isSprjGaiItemIns (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"Gaitem.getId": {
+		"prefix": "Gaitem.getId",
+		"body": "Gaitem.getId(${1:this})",
+		"description": "int32_t Gaitem.getId (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"Gaitem.isValid": {
+		"prefix": "Gaitem.isValid",
+		"body": "Gaitem.isValid(${1:this})",
+		"description": "bool Gaitem.isValid (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"Gaitem.getVtablePtr": {
+		"prefix": "Gaitem.getVtablePtr",
+		"body": "Gaitem.getVtablePtr(${1:this})",
+		"description": "uintptr_t Gaitem.getVtablePtr (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"Gaitem.getAddress": {
+		"prefix": "Gaitem.getAddress",
+		"body": "Gaitem.getAddress(${1:this})",
+		"description": "uintptr_t Gaitem.getAddress (this)",
 		"scope": "hoodiescript.lua"
 	},
 	"ItemType.Weapon": {

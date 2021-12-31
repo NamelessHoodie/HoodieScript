@@ -411,13 +411,14 @@ namespace hoodie_script
 		sol_EquipGameData["modifyInventoryItemQuantity"] = &EquipGameData::modifyInventoryItemQuantity;
 		sol_EquipGameData["getEquipInventoryData"] = &EquipGameData::getEquipInventoryData;
 
-		sol::usertype<InventoryItemLua> sol_InventoryItem = luaSol.new_usertype<InventoryItemLua>("InventoryItem");
-		sol_InventoryItem["inventoryIndex"] = &InventoryItemLua::inventoryIndex;
-		sol_InventoryItem["uniqueId"] = &InventoryItemLua::uniqueId;
-		sol_InventoryItem["itemId"] = &InventoryItemLua::itemId;
-		sol_InventoryItem["quantity"] = &InventoryItemLua::quantity;
-		sol_InventoryItem["unknown1"] = &InventoryItemLua::unknown1;
-		sol_InventoryItem["itemType"] = &InventoryItemLua::itemType;
+		sol::usertype<InventoryItem> sol_InventoryItem = luaSol.new_usertype<InventoryItem>("InventoryItem");
+		sol_InventoryItem["inventoryIndex"] = &InventoryItem::inventoryIndex;
+		sol_InventoryItem["uniqueId"] = &InventoryItem::uniqueId;
+		sol_InventoryItem["itemId"] = &InventoryItem::itemId;
+		sol_InventoryItem["quantity"] = &InventoryItem::quantity;
+		sol_InventoryItem["unknown1"] = &InventoryItem::unknown1;
+		sol_InventoryItem["itemType"] = &InventoryItem::itemType;
+		sol_InventoryItem["GetGaitemInstance"] = &InventoryItem::GetGaitemInstance;
 
 		sol::usertype<LuaMemory> sol_luamemory = luaSol.new_usertype<LuaMemory>("Memory");
 		sol_luamemory["MultiLevelPointer"] = LuaMemory::MultiLevelPointer;
@@ -496,6 +497,15 @@ namespace hoodie_script
 		sol::usertype<GameFlags> sol_gameflags = luaSol.new_usertype<GameFlags>("GameFlags");
 		sol_gameflags["SetFlagState"] = GameFlags::SetFlagState;
 		sol_gameflags["GetFlagState"] = GameFlags::GetFlagState;
+
+		sol::usertype<SprjGaitemIns> sol_sprjgaitemins = luaSol.new_usertype<SprjGaitemIns>("Gaitem", sol::constructors<SprjGaitemIns(uintptr_t)>());
+		sol_sprjgaitemins["getDurability"] = &SprjGaitemIns::getDurability;
+		sol_sprjgaitemins["setDurability"] = &SprjGaitemIns::setDurability;
+		sol_sprjgaitemins["isSprjGaiItemIns"] = &SprjGaitemIns::isSprjGaiItemIns;
+		sol_sprjgaitemins["getId"] = &SprjGaitemIns::getId;
+		sol_sprjgaitemins["isValid"] = &SprjGaitemIns::isValid;
+		sol_sprjgaitemins["getVtablePtr"] = &SprjGaitemIns::getVtablePtr;
+		sol_sprjgaitemins["getAddress"] = &SprjGaitemIns::getAddress;
 	}
 	void LuaBindings::Luaprint(sol::variadic_args va) {
 		std::string r = "";

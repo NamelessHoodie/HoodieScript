@@ -132,7 +132,7 @@ namespace hoodie_script {
 		for (int32_t i = 0; i <= 21; i++) {
 			if (i == 10 || i == 11 || i == 16) continue;
 			const int32_t inventoryItemId = equipGameData.getInventoryItemIdBySlot((InventorySlot)i);
-			std::optional<InventoryItem> item;
+			std::optional<InventoryItemInternal> item;
 
 			if (inventoryItemId != -1) {
 				auto* itemPtr = equipInventoryData.getInventoryItemById(inventoryItemId);;
@@ -147,7 +147,7 @@ namespace hoodie_script {
 			if (i < 10) inventoryItemId = equipGameData.getInventoryItemIdByQuickSlot((GoodsSlot)i);
 			else inventoryItemId = equipGameData.getInventoryItemIdByToolbeltSlot((GoodsSlot)i);
 
-			std::optional<InventoryItem> item;
+			std::optional<InventoryItemInternal> item;
 
 			if (inventoryItemId != -1) {
 				auto* itemPtr = equipInventoryData.getInventoryItemById(inventoryItemId);;

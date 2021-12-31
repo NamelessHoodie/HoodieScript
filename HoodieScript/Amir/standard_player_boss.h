@@ -53,9 +53,9 @@ public:
 	void setSheathState(int32_t slot);
 private:
 	//static uintptr_t* GetRowAddressInParam(int RowID, uintptr_t paramPtr);
-	std::vector<InventoryItem> savedItems;
-	std::unordered_map<InventorySlot, std::optional<InventoryItem>> savedEquipment;
-	std::unordered_map<GoodsSlot, std::optional<InventoryItem>> savedGoods;
+	std::vector<InventoryItemInternal> savedItems;
+	std::unordered_map<InventorySlot, std::optional<InventoryItemInternal>> savedEquipment;
+	std::unordered_map<GoodsSlot, std::optional<InventoryItemInternal>> savedGoods;
 	std::unordered_map<int32_t, int32_t> savedSpells;
 	std::wstring savedName;
 	Attributes savedAttributes;

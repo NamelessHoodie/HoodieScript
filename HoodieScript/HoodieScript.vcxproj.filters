@@ -318,13 +318,16 @@
     <ClInclude Include="vendor\lua\lzio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameObjects\sprj_gaitem_ins.h">
+    <ClInclude Include="GameDebugClasses\GameFlags.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\InventoryItem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameObjects\sprj_gaitem_imp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameDebugClasses\GameFlags.h">
+    <ClInclude Include="GameObjects\sprj_gaitem_ins.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -611,13 +614,16 @@
     <ClCompile Include="GameObjects\sprj_gaitem_imp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameObjects\sprj_gaitem_ins.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameDebugClasses\GameFlags.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LuaObjects\middleclass.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\InventoryItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\sprj_gaitem_ins.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

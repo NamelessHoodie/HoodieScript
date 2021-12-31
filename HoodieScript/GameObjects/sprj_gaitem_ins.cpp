@@ -1,28 +1,52 @@
 #pragma once
 #include "pch.h"
 #include "sprj_gaitem_ins.h"
+#include "memory_util.h"
 
 namespace hoodie_script {
 
-SprjGaitemIns::SprjGaitemIns(uintptr_t address)
+SprjGaitemIns::SprjGaitemIns(uintptr_t addressArg)
 {
-	this->address = address;
+	this->address = addressArg;
 }
 
 int32_t SprjGaitemIns::getId()
 {
-	return *accessMultilevelPointer<int32_t>(address + 0xC);
+	return *(int32_t*)(getAddress() + 0xC);
 }
 
 bool SprjGaitemIns::isValid()
 {
-	auto vtablePtr = accessMultilevelPointer<uintptr_t>(address);
+	if (address == NULL)
+		return false;
+
+	auto a = *(uintptr_t**)address;
+	return a != nullptr;
+}
+
+uint32_t SprjGaitemIns::getDurability()
+{
+	//std::cout << std::hex << "Help Me Please - " << (getAddress() + 0x10) << std::endl;
+	//return *(uint32_t*)(getAddress() + 0x10);
+	//return 0;
+	return call(0x140a27610, getAddress());
+}
+
+void SprjGaitemIns::setDurability(uint32_t newDurability)
+{
+	//*(uint32_t*)(getAddress() + 0x10) = newDurability;
+	call(0x140a27770, getAddress(), newDurability);
+}
+
+bool SprjGaitemIns::isSprjGaiItemIns()
+{
+	auto vtablePtr = (uintptr_t*)getAddress();
 	return vtablePtr && (*vtablePtr == 0x14289A8C8 || *vtablePtr == 0x14289A7D8);
 }
 
 uintptr_t SprjGaitemIns::getVtablePtr()
 {
-	return *accessMultilevelPointer<uintptr_t>(address);
+	return *(uintptr_t*)getAddress();
 }
 
 uintptr_t SprjGaitemIns::getAddress()

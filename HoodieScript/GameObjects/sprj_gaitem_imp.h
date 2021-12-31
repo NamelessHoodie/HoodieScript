@@ -17,7 +17,7 @@ public:
 
 	std::optional<SprjGaitemIns> getItemByUniqueId(uint32_t uniqueId);
 
-	static uintptr_t getInstance();
+	static SprjGaitemImp getInstance();
 
 	static bool hasInstance();
 private:

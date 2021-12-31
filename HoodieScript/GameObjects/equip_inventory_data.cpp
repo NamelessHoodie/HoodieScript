@@ -28,11 +28,11 @@ void EquipInventoryData::addItem(ItemParamIdPrefix paramIdPrefix, int32_t paramI
 	AddItem(address, paramIdPrefix, paramId, quantity, data);
 }
 
-InventoryItem* EquipInventoryData::getInventoryItemById(int32_t inventoryItemId)
+InventoryItemInternal* EquipInventoryData::getInventoryItemById(int32_t inventoryItemId)
 {
 	uintptr_t (*GetInventoryItem)(...);
 	*(uintptr_t*)&GetInventoryItem = 0x14058cb30;
-	return reinterpret_cast<InventoryItem*>(GetInventoryItem(address, inventoryItemId));
+	return reinterpret_cast<InventoryItemInternal*>(GetInventoryItem(address, inventoryItemId));
 }
 
 int32_t EquipInventoryData::getInventoryItemCount()
@@ -58,14 +58,13 @@ bool FOLWisHiddenItem(const uint32_t itemId)
 	return false;
 }
 
-std::vector<InventoryItemLua> EquipInventoryData::GetInventoryItems()
+std::vector<InventoryItem> EquipInventoryData::GetInventoryItems()
 {
-	std::vector<InventoryItemLua> lst;
+	std::vector<InventoryItem> lst;
 	for (int32_t i = 0; i < getInventoryItemCount(); i++) {
 		auto* item = getInventoryItemById(i);
 		if (item == nullptr) continue;
 		int32_t itemId = item->giveId;
-
 		ItemParamIdPrefix itemType;
 
 		if (itemId >= (int32_t)ItemParamIdPrefix::Goods)
@@ -87,7 +86,7 @@ std::vector<InventoryItemLua> EquipInventoryData::GetInventoryItems()
 		{
 			itemType = ItemParamIdPrefix::Weapon;
 		}
-		lst.push_back(InventoryItemLua(i, item->uniqueId, itemId, item->quantity, item->unknown1, itemType));
+		lst.push_back(InventoryItem(i, item->uniqueId, itemId, item->quantity, item->unknown1, itemType));
 	}
 	//std::cout << "Constructing\n";
 	//InventoryItem* structPtr = getInventoryItemById(invId);
