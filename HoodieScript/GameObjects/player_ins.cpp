@@ -26,24 +26,34 @@ namespace hoodie_script {
 
 	int32_t PlayerIns::getLeftHandWeapon(const uint32_t& slotNumber) const
 	{
-		return *accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x32C + (slotNumber - 1) * 8);
+		return *accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x32C + (slotNumber) * 8);
 	}
 
 	int32_t PlayerIns::getLeftHandWeaponActive() const
 	{
-		auto leftHandEquipped = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x2BC);
-		return *accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x32C + leftHandEquipped * 8);
+		auto leftHandActiveWeaponSlot = GetActiveWeaponSlotLeftHand();
+		return getLeftHandWeapon(leftHandActiveWeaponSlot);
 	}
 
 	void PlayerIns::setLeftHandWeapon(const uint32_t& slotNumber, const int32_t& equipParamWeaponId)
 	{
-		*accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x32C + (slotNumber - 1) * 8) = equipParamWeaponId;
+		*accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x32C + (slotNumber) * 8) = equipParamWeaponId;
 	}
 
 	void PlayerIns::setLeftHandWeaponActive(const int32_t& equipParamWeaponId)
 	{
-		auto leftHandEquipped = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x2BC);
-		*accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x32C + leftHandEquipped * 8) = equipParamWeaponId;
+		auto leftHandActiveWeaponSlot = GetActiveWeaponSlotLeftHand();
+		setLeftHandWeapon(leftHandActiveWeaponSlot, equipParamWeaponId);
+	}
+
+	uint32_t PlayerIns::GetActiveWeaponSlotRightHand() const
+	{
+		return *accessMultilevelPointer<uint32_t>(getAddress() + 0x1FA0, 0x2C0);
+	}
+
+	uint32_t PlayerIns::GetActiveWeaponSlotLeftHand() const
+	{
+		return *accessMultilevelPointer<uint32_t>(getAddress() + 0x1FA0, 0x2BC);
 	}
 
 	int32_t PlayerIns::getRightHandWeapon(const uint32_t& slotNumber) const
@@ -53,20 +63,19 @@ namespace hoodie_script {
 
 	int32_t PlayerIns::getRightHandWeaponActive() const
 	{
-		auto rightHandEquipped = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x2C0);
-		return *accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + rightHandEquipped * 8);
+		auto rightHandActiveWeaponSlot = GetActiveWeaponSlotRightHand();
+		return getRightHandWeapon(rightHandActiveWeaponSlot);
 	}
 
 	void PlayerIns::setRightHandWeapon(const uint32_t& slotNumber, const int32_t& equipParamWeaponId)
 	{
-		*accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + (slotNumber - 1) * 8) = equipParamWeaponId;
+		*accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + (slotNumber) * 8) = equipParamWeaponId;
 	}
 
 	void PlayerIns::setRightHandWeaponActive(const int32_t& equipParamWeaponId)
 	{
-		auto rightHandSlot = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x2C0);
-		auto rightHandEquippedPtr = accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + rightHandSlot * 8);
-		*rightHandEquippedPtr = equipParamWeaponId;
+		auto rightHandSlot = GetActiveWeaponSlotRightHand();
+		setRightHandWeapon(rightHandSlot, equipParamWeaponId);
 	}
 
 	void PlayerIns::setWeaponSheathState(int32_t slot)

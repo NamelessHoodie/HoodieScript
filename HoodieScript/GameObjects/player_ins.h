@@ -99,6 +99,10 @@ public:
 	*/
 	void setLeftHandWeaponActive(const int32_t& equipParamWeaponId);
 
+	uint32_t GetActiveWeaponSlotRightHand() const;
+
+	uint32_t GetActiveWeaponSlotLeftHand() const;
+
 	/**
 	* Gets the item in the specified right weapon slot of this PlayerIns in the game's memory. 
 	* 

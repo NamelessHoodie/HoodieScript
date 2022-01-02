@@ -23,19 +23,26 @@ namespace hoodie_script
 
 		tryRegisterTaeJumptableExtension(666,
 		[](taeJumptableExpansionLambdaArgs) {
-			logging::write_line("JumpTable - 666");
-			PlayerIns a(senderCharacter.getAddress());
-			if (PlayerIns::isPlayer(a.getAddress()))
+			if (eventData->isFrameEnteringEvent)
 			{
-				a.ReplaceWeaponActiveRight(a.getRightHandWeaponActive(), jumpTableData->arg2);
-			}
-			else if (a.hasPlayerGameData())
-			{
-				logging::write_line(L"NPC : " + senderCharacter.getCharacterString());
-				//std::cout << a.getRightHandWeapon(0) << std::endl;
-				//std::cout << a.getRightHandWeapon(1) << std::endl;
-				//std::cout << a.getRightHandWeapon(2) << std::endl;
-				//a.setRightHandWeapon(0, jmpTableArgs->arg2);
+				PlayerIns a(senderCharacter.getAddress());
+				if (PlayerIns::isPlayer(a.getAddress()))
+				{
+					logging::write_line("JumpTable : 666 - MainPlayer");
+					a.ReplaceWeaponActiveRight(a.getRightHandWeaponActive(), jumpTableData->arg2);
+				}
+				else if (a.hasPlayerGameData())
+				{
+					logging::write_line(L"JumpTable : 666 - " + senderCharacter.getCharacterString());
+					//std::cout << a.getRightHandWeapon(a.GetActiveWeaponSlotRightHand()) << std::endl;
+					auto slot = a.GetActiveWeaponSlotRightHand();
+					auto currentWeapon = a.getRightHandWeapon(slot);
+					auto newWeapon = jumpTableData->arg2;
+					logging::write_line(std::format("Slot = {0}, CW = {1}, NW = {2}", slot, currentWeapon, newWeapon));
+					a.setRightHandWeapon(slot, newWeapon);
+					logging::write_line(std::format("WP0 = {0}, WP1 = {1}, WP2 = {2}", a.getRightHandWeapon(0), a.getRightHandWeapon(1), a.getRightHandWeapon(2)));
+					//a.setRightHandWeapon(0, jmpTableArgs->arg2);
+				}
 			}
 		});
 
