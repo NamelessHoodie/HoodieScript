@@ -20,8 +20,8 @@ bool SprjGaitemIns::isValid()
 	if (address == NULL)
 		return false;
 
-	auto a = *(uintptr_t**)address;
-	return a != nullptr;
+	//auto a = *(uintptr_t**)address;
+	return true;
 }
 
 uint32_t SprjGaitemIns::getDurability()
@@ -29,7 +29,7 @@ uint32_t SprjGaitemIns::getDurability()
 	//std::cout << std::hex << "Help Me Please - " << (getAddress() + 0x10) << std::endl;
 	//return *(uint32_t*)(getAddress() + 0x10);
 	//return 0;
-	return call(0x140a27610, getAddress());
+	return (uint32_t)call(0x140a27610, getAddress());
 }
 
 void SprjGaitemIns::setDurability(uint32_t newDurability)

@@ -59,8 +59,7 @@ namespace hoodie_script {
 		std::optional<int32_t> indexOfItem = findInventoryIdByGiveId((uint32_t)paramIdPrefix + paramItemId);
 
 		if (!indexOfItem.has_value()) {
-			const int32_t durabilityA = getItemMaxDurability(paramIdPrefix, paramItemId);
-			equipInventoryData.addItem(paramIdPrefix, paramItemId, 1, durabilityA);
+			equipInventoryData.addItem(paramIdPrefix, paramItemId, 1, durability);
 			indexOfItem = findInventoryIdByGiveId((uint32_t)paramIdPrefix + paramItemId);
 			equipGameData.equipInventoryItem(inventorySlot, indexOfItem.value());
 			PlayerNetworkSession::queueEquipmentPacket();
@@ -84,6 +83,26 @@ namespace hoodie_script {
 		}
 	}
 
+	int32_t StandardPlayerBoss::GetInventorySlotDurability(InventorySlot slot, ItemParamIdPrefix paramIdPrefix)
+	{
+		EquipGameData equipGameData = GameDataMan::getInstance().
+												   getPlayerGameData().
+												   getEquipGameData();
+		EquipInventoryData equipInventoryData = GameDataMan::getInstance().
+															 getPlayerGameData().
+			                                                 getEquipGameData().
+			                                                 getEquipInventoryData();
+		auto index = equipGameData.getInventoryItemIdBySlot(slot);
+		auto inventoryItemInternal = equipInventoryData.getInventoryItemById(index);
+		InventoryItem inventoryItem = InventoryItem(inventoryItemInternal, index);
+		auto gaitemIns = inventoryItem.GetGaitemInstance();
+		if (gaitemIns.isValid())
+		{
+			return gaitemIns.getDurability();
+		}
+		return 0;
+	}
+
 	void StandardPlayerBoss::RemoveItemFromInventory(InventorySlot slot, ItemParamIdPrefix paramIdPrefix)
 	{
 		EquipGameData equipGameData = GameDataMan::getInstance().getPlayerGameData().getEquipGameData();
@@ -95,8 +114,17 @@ namespace hoodie_script {
 
 	void StandardPlayerBoss::ReplaceItem(InventorySlot inventorySlot, ItemParamIdPrefix paramIdPrefix, int32_t paramItemIdTarget, int32_t paramItemIdReplacement, int32_t durability)
 	{
-		if (!GameDataMan::hasInstance()
-			|| GameDataMan::getInstance().getPlayerGameData().getAddress() == 0) return;
+		if (!GameDataMan::hasInstance() || 
+			 GameDataMan::getInstance().
+			 getPlayerGameData().
+			 getAddress() == 0) 
+			return;
+		
+		if (durability == -1)
+			durability = GetInventorySlotDurability(inventorySlot, paramIdPrefix);
+		else
+			durability = getItemMaxDurability(paramIdPrefix, paramItemIdReplacement);
+
 		PlayerGameData playerGameData = GameDataMan::getInstance().getPlayerGameData();
 		auto sheatState = playerGameData.getWeaponSheathState();
 		RemoveItemFromInventory(inventorySlot, paramIdPrefix);

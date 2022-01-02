@@ -13,19 +13,15 @@ SprjGaitemImp::SprjGaitemImp(uintptr_t address)
 
 std::optional<SprjGaitemIns> SprjGaitemImp::getItemByUniqueId(uint32_t uniqueId)
 {
-	std::optional<SprjGaitemIns> item;
-	uintptr_t itemOffset = (uniqueId % 0x10000ull) * 8ull + 0x40ull;
+	uintptr_t itemOffset = (uniqueId % 0x10000u) * 8u + 0x40u;
 	uintptr_t* itemPtrPtr = (uintptr_t*)(address + itemOffset);
 	if (itemPtrPtr) {
 		uintptr_t itemPtr = *itemPtrPtr;
-		auto itemCheck = SprjGaitemIns(itemPtr);
-		if (itemCheck.isValid()) 
-		{ 
-			item = itemCheck;
-		}
+		std::optional<SprjGaitemIns> item = SprjGaitemIns(itemPtr);
+		if (item->isValid())
+			return item;
 	}
-
-	return item;
+	return std::optional<SprjGaitemIns>();
 }
 
 SprjGaitemImp SprjGaitemImp::getInstance()

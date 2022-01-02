@@ -64,29 +64,7 @@ std::vector<InventoryItem> EquipInventoryData::GetInventoryItems()
 	for (int32_t i = 0; i < getInventoryItemCount(); i++) {
 		auto* item = getInventoryItemById(i);
 		if (item == nullptr) continue;
-		int32_t itemId = item->giveId;
-		ItemParamIdPrefix itemType;
-
-		if (itemId >= (int32_t)ItemParamIdPrefix::Goods)
-		{
-			itemId -= (int32_t)ItemParamIdPrefix::Goods;
-			itemType = ItemParamIdPrefix::Goods;
-		}
-		else if (itemId >= (int32_t)ItemParamIdPrefix::Accessory)
-		{
-			itemId -= (int32_t)ItemParamIdPrefix::Accessory;
-			itemType = ItemParamIdPrefix::Accessory;
-		}
-		else if (itemId >= (int32_t)ItemParamIdPrefix::Protector)
-		{
-			itemId -= (int32_t)ItemParamIdPrefix::Protector;
-			itemType = ItemParamIdPrefix::Protector;
-		}
-		else
-		{
-			itemType = ItemParamIdPrefix::Weapon;
-		}
-		lst.push_back(InventoryItem(i, item->uniqueId, itemId, item->quantity, item->unknown1, itemType));
+		lst.push_back(InventoryItem(item, i));
 	}
 	//std::cout << "Constructing\n";
 	//InventoryItem* structPtr = getInventoryItemById(invId);

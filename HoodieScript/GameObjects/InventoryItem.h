@@ -22,6 +22,7 @@ namespace hoodie_script
 	{
 	public:
 		InventoryItem(int32_t inventoryIndex, uint32_t uniqueid, int32_t itemId, uint32_t quantity, int32_t unknown1, ItemParamIdPrefix itemType);
+		InventoryItem(InventoryItemInternal* itemStructPtr, size_t gameInventoryIndex);
 		int32_t inventoryIndex;
 		uint32_t uniqueId;
 		int32_t itemId;
