@@ -1,5 +1,5 @@
 #pragma once
-#include "GameObjects/sprj_gaitem_Imp.h"
+#include "GameObjects/sprj_gaitem_ins.h"
 namespace hoodie_script
 {
 	struct InventoryItemInternal

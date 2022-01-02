@@ -1,4 +1,3 @@
-#pragma once
 #include "pch.h"
 #include "sprj_gaitem_imp.h"
 #include "databaseaddress.h"

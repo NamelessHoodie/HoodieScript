@@ -1,19 +1,5 @@
 #pragma once
 
-#include "script_repository.h"
-#include "LuaEvents/OnParamLoaded.h"
-#include "LuaEvents/OnGameFrame.h"
-#include "LuaEvents/OnHkbAnimation.h"
-#include "LuaEvents/OnSpeffectActive.h"
-#include "LuaEvents/OnRenderingFrame.h"
-#include "LuaEvents/OnHotkey.h"
-#include "GameDebugClasses/world_chr_man.h"
-#include "GameObjects/sprj_chr_data_module.h"
-#include "LuaBindings.h"
-#include <random>
-#include "HotKeyManager.h"
-#include "GameExtensions/GameExtensionsManager.h"
-
 //Hooks
 #include "hooks/goods_use_hook.h"
 #include "hooks/game_frame_hook.h"

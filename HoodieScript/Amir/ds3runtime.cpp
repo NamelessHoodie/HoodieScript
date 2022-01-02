@@ -1,5 +1,3 @@
-#pragma once
-
 #include "pch.h"
 #include "ds3runtime.h"
 #include "logging.h"

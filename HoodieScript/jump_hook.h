@@ -1,8 +1,5 @@
 #pragma once
 
-#include <memory>
-#include "minhook/include/MinHook.h"
-
 namespace hoodie_script {
     class jump_hook {
     public:

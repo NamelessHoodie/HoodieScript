@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "InventoryItem.h"
+#include "GameObjects/sprj_gaitem_Imp.h"
 
 namespace hoodie_script
 {

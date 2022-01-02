@@ -1,5 +1,3 @@
-#pragma once
-
 #include "standard_combo_system.h"
 
 namespace ds3runtime::stdcombo {

@@ -1,5 +1,8 @@
 #include "pch.h"
 #include "script_repository.h"
+#include <filesystem>
+#include "logging.h"
+#include "script_runtime.h"
 #include <vendor/Sol2/sol.hpp>
 #include <vendor/Sol2/forward.hpp>
 

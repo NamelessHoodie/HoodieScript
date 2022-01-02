@@ -1,6 +1,6 @@
 #pragma once
-#include "GameObjects/player_ins.h"
 #include "LuaObjects/LuaArgs.h"
+#include "GameObjects/chr_ins.h"
 namespace hoodie_script
 {
 //Lambda Arg Defines 

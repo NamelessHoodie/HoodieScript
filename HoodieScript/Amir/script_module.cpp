@@ -3,7 +3,6 @@
 	* Contributers: Amir
 */
 
-#pragma once
 #include "pch.h"
 #include "script_module.h"
 #include <chrono>

@@ -1,5 +1,3 @@
-#pragma once
-
 #include "pch.h"
 #include "Bullet_Spawn.h"
 

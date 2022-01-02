@@ -1,5 +1,3 @@
-#pragma once
-
 #include "pch.h"
 #include "sprj_chr_data_module.h"
 #include "databaseaddress.h"

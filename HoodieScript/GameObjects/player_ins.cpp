@@ -1,7 +1,9 @@
-#pragma once
-
 #include "pch.h"
 #include "player_ins.h"
+#include "Amir/standard_player_boss.h"
+#include "memory_util.h"
+#include "databaseaddress.h"
+#include "GameDebugClasses/world_chr_man.h"
 
 namespace hoodie_script {
 
@@ -78,54 +80,28 @@ namespace hoodie_script {
 		setRightHandWeapon(rightHandSlot, equipParamWeaponId);
 	}
 
-	void PlayerIns::setWeaponSheathState(int32_t slot)
+	void PlayerIns::setWeaponSheathState(int32_t sheatState)
 	{
-		auto a = new StandardPlayerBoss();
-		a->setSheathState(slot);
+		getPlayerGameData().setWeaponSheathState(sheatState);
 	}
 
 	int32_t PlayerIns::getWeaponSheathState()
 	{
-		if (!GameDataMan::hasInstance()
-			|| GameDataMan::getInstance().getPlayerGameData().getAddress() == 0) return 0;
-		PlayerGameData playerGameData = GameDataMan::getInstance().getPlayerGameData();
-		return playerGameData.getWeaponSheathState();
+		return getPlayerGameData().getWeaponSheathState();
 	}
 
 
 	void PlayerIns::setRightHandWeaponActiveNetworked(const int32_t& equipParamWeaponId)
 	{
-		auto rightHandSlot = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x2C0);
-		//auto rightHandEquippedPtr = accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + rightHandSlot * 8);
-		int array[]{ 1,3,5 };
-		StandardPlayerBoss hello = StandardPlayerBoss();
-		hello.giveItemAndSwap((InventorySlot)array[rightHandSlot], ItemParamIdPrefix::Weapon, equipParamWeaponId, -1);
-		//*rightHandEquippedPtr = equipParamWeaponId;
-
-		//logging::write_line(std::to_string(rightHandSlot));
-		//auto rightHandEquipped = *rightHandEquippedPtr;
-
-
-		//auto wepPlrPtr = *accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + rightHandEquipped * 8);
-		//hello.SwapItem((InventorySlot) array[rightHandSlot], ItemParamIdPrefix::Weapon, rightHandEquipped, -1, false);
-		//hello.DoMeme((InventorySlot)array[rightHandSlot], ItemParamIdPrefix::Weapon, rightHandEquipped, -1, false);
+		auto rightHandSlot = GetActiveWeaponSlotRightHand();
+		setRightHandWeaponNetworked(equipParamWeaponId, rightHandSlot);
 	}
 
 	void PlayerIns::setRightHandWeaponNetworked(const int32_t& equipParamWeaponId, int index)
 	{
-		//auto rightHandEquippedPtr = accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + index * 8);
 		int array[]{ 1,3,5 };
 		StandardPlayerBoss hello = StandardPlayerBoss();
 		hello.giveItemAndSwap((InventorySlot)array[index], ItemParamIdPrefix::Weapon, equipParamWeaponId, -1);
-		//*rightHandEquippedPtr = equipParamWeaponId;
-
-		//logging::write_line(std::to_string(rightHandSlot));
-		//auto rightHandEquipped = *rightHandEquippedPtr;
-
-
-		//auto wepPlrPtr = *accessMultilevelPointer<int32_t>(getAddress() + 0x1FA0, 0x330 + rightHandEquipped * 8);
-		//hello.SwapItem((InventorySlot) array[rightHandSlot], ItemParamIdPrefix::Weapon, rightHandEquipped, -1, false);
-		//hello.DoMeme((InventorySlot)array[rightHandSlot], ItemParamIdPrefix::Weapon, rightHandEquipped, -1, false);
 	}
 
 	bool PlayerIns::removeWeaponFromInventory(const int32_t& equipParamWeaponId)
@@ -270,9 +246,9 @@ namespace hoodie_script {
 		return isPlayer && accessMultilevelPointer<uint32_t>(getAddress() + 0x1FA0, 0xFC);
 	}
 
-	uintptr_t PlayerIns::getMainChrAddress()
+	PlayerIns PlayerIns::getMainChr()
 	{
-		return *accessMultilevelPointer<uintptr_t>(DataBaseAddress::WorldChrMan, 0x80);
+		return WorldChrMan::getMainChr();
 	}
 
 	bool PlayerIns::isMainChr(const uintptr_t& address)
@@ -282,7 +258,7 @@ namespace hoodie_script {
 
 	bool PlayerIns::isMainChrLoaded()
 	{
-		return accessMultilevelPointer<uintptr_t>(DataBaseAddress::WorldChrMan, 0x80);
+		return WorldChrMan::isMainChrLoaded();
 	}
 
 };

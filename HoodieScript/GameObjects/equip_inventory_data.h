@@ -3,7 +3,6 @@
 	* Contributers: Amir
 */
 
-#pragma once
 #include <GameObjects/InventoryItem.h>
 
 namespace hoodie_script {

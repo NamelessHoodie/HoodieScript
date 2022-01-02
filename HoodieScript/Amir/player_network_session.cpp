@@ -1,5 +1,3 @@
-#pragma once
-
 #include "pch.h"
 #include "player_network_session.h"
 #include "databaseaddress.h"

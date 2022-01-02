@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "GuiManager.h"
+#include "script_runtime.h"
+
 namespace hoodie_script
 {
 

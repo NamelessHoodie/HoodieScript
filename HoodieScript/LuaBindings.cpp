@@ -1,7 +1,21 @@
+#pragma once
 #include "pch.h"
 #include "LuaBindings.h"
+#include "LuaEvents/OnHkbAnimation.h"
+#include "LuaEvents/OnSpeffectActive.h"
+#include "LuaEvents/OnParamLoaded.h"
+#include "LuaEvents/OnGameFrame.h"
+#include "LuaEvents/OnRenderingFrame.h"
+#include "HotKeyManager.h"
+#include "LuaObjects/LuaMemory.h"
+//#include <GameObjects/player_ins.h>
+//#include <GameObjects/player_game_data.h>
+#include "GameObjects/sprj_chr_data_module.h"
 #include <GameObjects/SprjMsgRepositoryImp.h>
+#include "GameDebugClasses/world_chr_man.h"
 #include <GameDebugClasses/GameFlags.h>
+#include "LuaEvents/OnHotkey.h"
+#include "script_runtime.h"
 
 namespace hoodie_script
 {
@@ -210,85 +224,103 @@ namespace hoodie_script
 	}
 	void LuaBindings::initializeClasses(sol::state_view luaSol)
 	{
-		sol::usertype<PlayerIns> player_type = luaSol.new_usertype<PlayerIns>("PlayerIns", sol::constructors<PlayerIns(uintptr_t)>());
+		sol::usertype<PlayerIns> sol_playerins = luaSol.new_usertype<PlayerIns>("PlayerIns", sol::constructors<PlayerIns(uintptr_t)>());
 		//PlayerIns : Chr_Ins Members
-		player_type["isValid"] = &PlayerIns::isValid;
-		player_type["getHandle"] = &PlayerIns::getHandle;
-		player_type["ChrType"] = sol::property(&PlayerIns::getChrType, &PlayerIns::setChrType);
-		player_type["Team"] = sol::property(&PlayerIns::getTeam, &PlayerIns::setTeam);
-		player_type["getForwardId"] = &PlayerIns::getForwardId;
-		player_type["getCharacterString"] = &PlayerIns::getCharacterString;
-		player_type["getAnimationString"] = &PlayerIns::getAnimationString;
-		player_type["getAnimationTime"] = &PlayerIns::getAnimationTime;
-		player_type["getMaxAnimationTime"] = &PlayerIns::getMaxAnimationTime;
-		player_type["getTurnRate"] = &PlayerIns::getTurnRate;
-		player_type["Position"] = sol::property(&PlayerIns::getPosition, &PlayerIns::setPosition);
-		player_type["Angle"] = sol::property(&PlayerIns::getAngle, &PlayerIns::setAngle);
-		player_type["getCrossbowAngle"] = &PlayerIns::getCrossbowAngle;
-		player_type["getSprjChrDataModule"] = &PlayerIns::getSprjChrDataModule;
-		player_type["getSprjChrDamageModule"] = &PlayerIns::getSprjChrDamageModule;
-		player_type["isDead"] = sol::property(&PlayerIns::isDead, &PlayerIns::setIsDead);
-		player_type["isNoGravity"] = sol::property(&PlayerIns::isNoGravity, &PlayerIns::setNoGravity);
-		player_type["isDodging"] = &PlayerIns::isDodging;
-		player_type["getHkbCharacter"] = &PlayerIns::getHkbCharacter;
-		player_type["hasHkbCharacter"] = &PlayerIns::hasHkbCharacter;
-		player_type["playAnimation"] = &PlayerIns::playAnimation;
-		player_type["playAnimationString"] = &PlayerIns::playAnimationString;
-		player_type["getHkbIdFromString"] = &PlayerIns::getHkbIdFromString;
-		player_type["getHkbStringFromId"] = &PlayerIns::getHkbStringFromId;
-		player_type["WeightIndex"] = sol::property(&PlayerIns::getWeightIndex, &PlayerIns::setWeightIndex);
-		player_type["hasSpEffect"] = &PlayerIns::hasSpEffect;
-		player_type["getHkbIdFromString"] = &PlayerIns::getHkbIdFromString;
-		player_type["setDebugAnimSpeed"] = &PlayerIns::setDebugAnimSpeed;
-		player_type["getDummyPolyPositions"] = &PlayerIns::getDummyPolyPositions;
-		player_type["getAddress"] = &PlayerIns::getAddress;
-		player_type["isChrIns"] = &PlayerIns::isChrIns;
+		sol_playerins["isValid"] = &PlayerIns::isValid;
+		sol_playerins["getHandle"] = &PlayerIns::getHandle;
+		sol_playerins["getChrType"] = &PlayerIns::getChrType;
+		sol_playerins["setChrType"] = &PlayerIns::setChrType;
+		sol_playerins["getTeam"] = &PlayerIns::getTeam;
+		sol_playerins["setTeam"] = &PlayerIns::setTeam;
+		sol_playerins["getForwardId"] = &PlayerIns::getForwardId;
+		sol_playerins["getCharacterString"] = &PlayerIns::getCharacterString;
+		sol_playerins["getAnimationString"] = &PlayerIns::getAnimationString;
+		sol_playerins["getAnimationTime"] = &PlayerIns::getAnimationTime;
+		sol_playerins["getMaxAnimationTime"] = &PlayerIns::getMaxAnimationTime;
+		sol_playerins["getTurnRate"] = &PlayerIns::getTurnRate;
+		sol_playerins["setPosition"] = &PlayerIns::setPosition;
+		sol_playerins["getPosition"] = &PlayerIns::getPosition;
+		sol_playerins["setPosition"] = &PlayerIns::setPosition;
+		sol_playerins["getAngle"] = &PlayerIns::getAngle;
+		sol_playerins["getCrossbowAngle"] = &PlayerIns::getCrossbowAngle;
+		sol_playerins["setAngle"] = &PlayerIns::setAngle;
+		sol_playerins["getSprjChrDataModule"] = &PlayerIns::getSprjChrDataModule;
+		sol_playerins["getSprjChrDamageModule"] = &PlayerIns::getSprjChrDamageModule;
+		sol_playerins["isDead"] = &PlayerIns::isDead;
+		sol_playerins["setIsDead"] = &PlayerIns::setIsDead;
+		sol_playerins["isNoGravity"] = &PlayerIns::isNoGravity;
+		sol_playerins["setNoGravity"] = &PlayerIns::setNoGravity;
+		sol_playerins["isDodging"] = &PlayerIns::isDodging;
+		sol_playerins["getHkbCharacter"] = &PlayerIns::getHkbCharacter;
+		sol_playerins["hasHkbCharacter"] = &PlayerIns::hasHkbCharacter;
+		sol_playerins["playAnimation"] = &PlayerIns::playAnimation;
+		sol_playerins["playAnimationString"] = &PlayerIns::playAnimationString;
+		sol_playerins["getHkbIdFromString"] = &PlayerIns::getHkbIdFromString;
+		sol_playerins["getHkbStringFromId"] = &PlayerIns::getHkbStringFromId;
+		sol_playerins["getWeightIndex"] = &PlayerIns::getWeightIndex;
+		sol_playerins["hasSpEffect"] = &PlayerIns::hasSpEffect;
+		sol_playerins["setWeightIndex"] = &PlayerIns::setWeightIndex;
+		sol_playerins["setDebugAnimSpeed"] = &PlayerIns::setDebugAnimSpeed;
+		sol_playerins["getDummyPolyPositions"] = &PlayerIns::getDummyPolyPositions;
+		sol_playerins["getAddress"] = &PlayerIns::getAddress;
+		sol_playerins["isPlayerIns"] = PlayerIns::isPlayer;
 		//PlayerIns Members
-		player_type["hasPlayerGameData"] = &PlayerIns::hasPlayerGameData;
-		player_type["getPlayerGameData"] = &PlayerIns::getPlayerGameData;
-		player_type["getNetworkPointer"] = &PlayerIns::getNetworkPointer;
-		player_type["ActiveLeftHandWeapon"] = sol::property(&PlayerIns::getLeftHandWeaponActive, &PlayerIns::setLeftHandWeaponActive);
-		player_type["ActiveRightHandWeapon"] = sol::property(&PlayerIns::getRightHandWeaponActive, &PlayerIns::setRightHandWeaponActive);
-		player_type["getLeftHandWeapon"] = &PlayerIns::getLeftHandWeapon;
-		player_type["setLeftHandWeapon"] = &PlayerIns::setLeftHandWeapon;
-		player_type["getRightHandWeapon"] = &PlayerIns::getRightHandWeapon;
-		player_type["setRightHandWeapon"] = &PlayerIns::setRightHandWeapon;
-		player_type["getNetworkPointer"] = &PlayerIns::getNetworkPointer;
-		player_type["HeadArmor"] = sol::property(&PlayerIns::getHead, &PlayerIns::setHead);
-		player_type["ChestArmor"] = sol::property(&PlayerIns::getChest, &PlayerIns::setChest);
-		player_type["HandsArmor"] = sol::property(&PlayerIns::getHands, &PlayerIns::setHands);
-		player_type["Legs"] = sol::property(&PlayerIns::getLegs, &PlayerIns::setLegs);
-		player_type["getNetworkPointer"] = &PlayerIns::getNetworkPointer;
-		player_type["getRing"] = &PlayerIns::getRing;
-		player_type["setRing"] = &PlayerIns::setRing;
-		player_type["getAmmo"] = &PlayerIns::getAmmo;
-		player_type["setAmmo"] = &PlayerIns::setAmmo;
-		player_type["ActiveCovenant"] = sol::property(&PlayerIns::getCovenant, &PlayerIns::setCovenant);
-		player_type["isNoGoodsConsume"] = sol::property(&PlayerIns::isNoGoodsConsume, &PlayerIns::setNoGoodsConsume);
-		player_type["getPlayerCtrl"] = &PlayerIns::getPlayerCtrl;
-		player_type["getNetworkHandle"] = &PlayerIns::getNetworkHandle;
-		player_type["getAddressByOffsetNumber"] = &PlayerIns::getAddressByOffsetNumber;
-		player_type["isChrWithOffsetNumber"] = &PlayerIns::isChrWithOffsetNumber;
-		player_type["isPlayer"] = &PlayerIns::isPlayer;
-		player_type["isValid"] = &PlayerIns::isValid;
-		player_type["getMainChrAddress"] = &PlayerIns::getMainChrAddress;
-		player_type["isMainChr"] = &PlayerIns::isMainChr;
-		player_type["isMainChrLoaded"] = &PlayerIns::isMainChrLoaded;
-		//Temporary Members, remember to fix this bad meme
-		player_type["ActiveRightHandWeaponNetworked"] = sol::property(&PlayerIns::getRightHandWeaponActive, &PlayerIns::setRightHandWeaponActiveNetworked);
-		player_type["setRightHandWeaponNetworked"] = &PlayerIns::setRightHandWeaponNetworked;
-		player_type["WeaponSheatState"] = sol::property(&PlayerIns::getWeaponSheathState, &PlayerIns::setWeaponSheathState);
-		player_type["RemoveWeaponFromInventory"] = &PlayerIns::removeWeaponFromInventory;
-		player_type["ReplaceWeaponNetworked"] = &PlayerIns::ReplaceWeapon;
+		sol_playerins["getPlayerGameData"] = &PlayerIns::getPlayerGameData;
+		sol_playerins["hasPlayerGameData"] = &PlayerIns::hasPlayerGameData;
+		sol_playerins["getNetworkPointer"] = &PlayerIns::getNetworkPointer;
+		sol_playerins["getLeftHandWeapon"] = &PlayerIns::getLeftHandWeapon;
+		sol_playerins["getLeftHandWeaponActive"] = &PlayerIns::getLeftHandWeaponActive;
+		sol_playerins["setLeftHandWeapon"] = &PlayerIns::setLeftHandWeapon;
+		sol_playerins["setLeftHandWeaponActive"] = &PlayerIns::setLeftHandWeaponActive;
+		sol_playerins["GetActiveWeaponSlotRightHand"] = &PlayerIns::GetActiveWeaponSlotRightHand;
+		sol_playerins["GetActiveWeaponSlotLeftHand"] = &PlayerIns::GetActiveWeaponSlotLeftHand;
+		sol_playerins["getRightHandWeapon"] = &PlayerIns::getRightHandWeapon;
+		sol_playerins["setWeaponSheathState"] = &PlayerIns::setWeaponSheathState;
+		sol_playerins["ReplaceWeapon"] = &PlayerIns::ReplaceWeapon;
+		sol_playerins["ReplaceWeaponActiveRight"] = &PlayerIns::ReplaceWeaponActiveRight;
+		sol_playerins["getWeaponSheathState"] = &PlayerIns::getWeaponSheathState;
+		sol_playerins["getRightHandWeaponActive"] = &PlayerIns::getRightHandWeaponActive;
+		sol_playerins["setRightHandWeapon"] = &PlayerIns::setRightHandWeapon;
+		sol_playerins["setRightHandWeaponActive"] = &PlayerIns::setRightHandWeaponActive;
+		sol_playerins["setRightHandWeaponActiveNetworked"] = &PlayerIns::setRightHandWeaponActiveNetworked;
+		sol_playerins["setRightHandWeaponNetworked"] = &PlayerIns::setRightHandWeaponNetworked;
+		sol_playerins["removeWeaponFromInventory"] = &PlayerIns::removeWeaponFromInventory;
+		sol_playerins["getHead"] = &PlayerIns::getHead;
+		sol_playerins["setHead"] = &PlayerIns::setHead;
+		sol_playerins["getChest"] = &PlayerIns::getChest;
+		sol_playerins["setChest"] = &PlayerIns::setChest;
+		sol_playerins["getHands"] = &PlayerIns::getHands;
+		sol_playerins["setHands"] = &PlayerIns::setHands;
+		sol_playerins["getLegs"] = &PlayerIns::getLegs;
+		sol_playerins["setLegs"] = &PlayerIns::setLegs;
+		sol_playerins["getRing"] = &PlayerIns::getRing;
+		sol_playerins["setRing"] = &PlayerIns::setRing;
+		sol_playerins["getAmmo"] = &PlayerIns::getAmmo;
+		sol_playerins["setAmmo"] = &PlayerIns::setAmmo;
+		sol_playerins["getCovenant"] = &PlayerIns::getCovenant;
+		sol_playerins["setCovenant"] = &PlayerIns::setCovenant;
+		sol_playerins["isNoGoodsConsume"] = &PlayerIns::isNoGoodsConsume;
+		sol_playerins["setNoGoodsConsume"] = &PlayerIns::setNoGoodsConsume;
+		sol_playerins["getPlayerCtrl"] = &PlayerIns::getPlayerCtrl;
+		sol_playerins["getNetworkHandle"] = &PlayerIns::getNetworkHandle;
+		sol_playerins["isValid"] = &PlayerIns::isValid;
+		sol_playerins["getAddressByOffsetNumber"] = PlayerIns::getAddressByOffsetNumber;
+		sol_playerins["isChrWithOffsetNumber"] = PlayerIns::isChrWithOffsetNumber;
+		sol_playerins["getMainChr"] = PlayerIns::getMainChr;
+		sol_playerins["isPlayer"] = PlayerIns::isPlayer;
+		sol_playerins["isMainChr"] = PlayerIns::isMainChr;
+		sol_playerins["isMainChrLoaded"] = PlayerIns::isMainChrLoaded;
 
-		sol::usertype<WorldChrMan> world_chr_man = luaSol.new_usertype<WorldChrMan>("WorldChrMan");
-		world_chr_man["getCurrentMapEnemies"] = WorldChrMan::getCurrentMapEnemies;
-		world_chr_man["reloadCharacterFiles"] = WorldChrMan::reloadCharacterFiles;
-		world_chr_man["findEntityTest"] = WorldChrMan::findEntityTest;
-		world_chr_man["getInsByHandle"] = WorldChrMan::getInsByHandle;
-		world_chr_man["getCamVector"] = WorldChrMan::getCamVector;
-		world_chr_man["getInstance"] = WorldChrMan::getInstance;
-		world_chr_man["hasInstance"] = WorldChrMan::hasInstance;
+		sol::usertype<WorldChrMan> sol_worldchrman = luaSol.new_usertype<WorldChrMan>("WorldChrMan");
+		sol_worldchrman["getCurrentMapEnemies"] = WorldChrMan::getCurrentMapEnemies;
+		sol_worldchrman["reloadCharacterFiles"] = WorldChrMan::reloadCharacterFiles;
+		sol_worldchrman["findEntityTest"] = WorldChrMan::findEntityTest;
+		sol_worldchrman["getInsByHandle"] = WorldChrMan::getInsByHandle;
+		sol_worldchrman["getCamVector"] = WorldChrMan::getCamVector;
+		sol_worldchrman["getMainChr"] = WorldChrMan::getMainChr;
+		sol_worldchrman["isMainChrLoaded"] = WorldChrMan::isMainChrLoaded;
+		sol_worldchrman["isLoaded"] = WorldChrMan::isLoaded;
+		sol_worldchrman["getAddress"] = WorldChrMan::getAddress;
 
 		sol::usertype<ChrIns> sol_chrins = luaSol.new_usertype<ChrIns>("ChrIns");
 		sol_chrins["isValid"] = &ChrIns::isValid;
@@ -303,6 +335,7 @@ namespace hoodie_script
 		sol_chrins["getAnimationTime"] = &ChrIns::getAnimationTime;
 		sol_chrins["getMaxAnimationTime"] = &ChrIns::getMaxAnimationTime;
 		sol_chrins["getTurnRate"] = &ChrIns::getTurnRate;
+		sol_chrins["setPosition"] = &ChrIns::setPosition;
 		sol_chrins["getPosition"] = &ChrIns::getPosition;
 		sol_chrins["setPosition"] = &ChrIns::setPosition;
 		sol_chrins["getAngle"] = &ChrIns::getAngle;
@@ -321,14 +354,12 @@ namespace hoodie_script
 		sol_chrins["playAnimationString"] = &ChrIns::playAnimationString;
 		sol_chrins["getHkbIdFromString"] = &ChrIns::getHkbIdFromString;
 		sol_chrins["getHkbStringFromId"] = &ChrIns::getHkbStringFromId;
-		//sol_chrins["playDebugIdle"] = &ChrIns::playDebugIdle;
 		sol_chrins["getWeightIndex"] = &ChrIns::getWeightIndex;
 		sol_chrins["hasSpEffect"] = &ChrIns::hasSpEffect;
 		sol_chrins["setWeightIndex"] = &ChrIns::setWeightIndex;
 		sol_chrins["setDebugAnimSpeed"] = &ChrIns::setDebugAnimSpeed;
 		sol_chrins["getDummyPolyPositions"] = &ChrIns::getDummyPolyPositions;
 		sol_chrins["getAddress"] = &ChrIns::getAddress;
-		sol_chrins["isChrIns"] = ChrIns::isChrIns;
 
 		sol::usertype<SprjChrDataModule> sol_sprjchrdatamodule = luaSol.new_usertype<SprjChrDataModule>("SprjChrDataModule", sol::constructors<SprjChrDataModule(uintptr_t)>());
 		sol_sprjchrdatamodule["getHealth"] = &SprjChrDataModule::getHealth;

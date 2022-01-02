@@ -1,6 +1,6 @@
 #pragma once
 //Thank you church guard for the addresses, impplementation from NamelessHoodie[2].
-#include "GameObjects/equip_inventory_data.h"
+#include "GameObjects/InventoryItem.h"
 namespace hoodie_script
 {
 

@@ -1,5 +1,3 @@
-#pragma once
-
 #include "pch.h"
 #include "game_option_man.h"
 #include "memory_util.h"

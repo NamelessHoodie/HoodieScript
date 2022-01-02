@@ -4,6 +4,13 @@
 #include "LuaEvents/OnParamLoaded.h"
 #include <Amir/ds3runtime.h>
 #include "GameObjects/SprjMsgRepositoryImp.h"
+#include <cstdio>
+#include "logging.h"
+#include "minhook/include/MinHook.h"
+#include "script_repository.h"
+#include "script_runtime.h"
+#include "HotKeyManager.h"
+#include "HoodieScript-ImGui-Test/GuiManager.h"
 
 #define EXCEPTION_STRING_SIZE    1024
 

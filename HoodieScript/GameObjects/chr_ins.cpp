@@ -1,8 +1,9 @@
-#pragma once
 #include "pch.h"
 #include "chr_ins.h"
 #include "GameDebugClasses/Bullet_Spawn.h"
 #include "Hooks/hkb_animation_hook.h"
+#include "memory_util.h"
+#include "Amir/ds3runtime.h"
 
 namespace hoodie_script {
 

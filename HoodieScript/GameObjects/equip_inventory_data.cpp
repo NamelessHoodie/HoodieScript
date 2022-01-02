@@ -1,9 +1,7 @@
-#pragma once
-
 #include "pch.h"
-#include "equip_inventory_data.h"
 #include "databaseaddress.h"
 #include "memory_util.h"
+#include "equip_inventory_data.h"
 
 namespace hoodie_script {
 

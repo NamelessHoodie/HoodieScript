@@ -1,9 +1,5 @@
 #pragma once
 
-#include <filesystem>
-#include "logging.h"
-#include "script_runtime.h"
-
 EXTERN_C IMAGE_DOS_HEADER __ImageBase;
 
 namespace hoodie_script {

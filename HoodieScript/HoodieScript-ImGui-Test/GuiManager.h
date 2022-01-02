@@ -1,5 +1,5 @@
 #pragma once
-#include "script_runtime.h"
+
 namespace hoodie_script
 {
 	class GuiManager

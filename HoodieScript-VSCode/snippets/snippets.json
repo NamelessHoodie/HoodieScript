@@ -977,114 +977,6 @@
 		"description": "std::tuple<float, bool> ImGui.DragFloat (label, v, v_speed, v_min, v_max, format, power)",
 		"scope": "ImGui.h"
 	},
-	"ImGui.DragFloat2": {
-		"prefix": "ImGui.DragFloat2",
-		"body": "ImGui.DragFloat2(${1:label}, ${2:v})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat2 (label, v)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragFloat21": {
-		"prefix": "ImGui.DragFloat2",
-		"body": "ImGui.DragFloat2(${1:label}, ${2:v}, ${3:v_speed})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat2 (label, v, v_speed)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragFloat22": {
-		"prefix": "ImGui.DragFloat2",
-		"body": "ImGui.DragFloat2(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat2 (label, v, v_speed, v_min)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragFloat23": {
-		"prefix": "ImGui.DragFloat2",
-		"body": "ImGui.DragFloat2(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat2 (label, v, v_speed, v_min, v_max)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragFloat24": {
-		"prefix": "ImGui.DragFloat2",
-		"body": "ImGui.DragFloat2(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat2 (label, v, v_speed, v_min, v_max, format)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragFloat25": {
-		"prefix": "ImGui.DragFloat2",
-		"body": "ImGui.DragFloat2(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format}, ${7:power})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat2 (label, v, v_speed, v_min, v_max, format, power)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragFloat3": {
-		"prefix": "ImGui.DragFloat3",
-		"body": "ImGui.DragFloat3(${1:label}, ${2:v})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat3 (label, v)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragFloat31": {
-		"prefix": "ImGui.DragFloat3",
-		"body": "ImGui.DragFloat3(${1:label}, ${2:v}, ${3:v_speed})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat3 (label, v, v_speed)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragFloat32": {
-		"prefix": "ImGui.DragFloat3",
-		"body": "ImGui.DragFloat3(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat3 (label, v, v_speed, v_min)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragFloat33": {
-		"prefix": "ImGui.DragFloat3",
-		"body": "ImGui.DragFloat3(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat3 (label, v, v_speed, v_min, v_max)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragFloat34": {
-		"prefix": "ImGui.DragFloat3",
-		"body": "ImGui.DragFloat3(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat3 (label, v, v_speed, v_min, v_max, format)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragFloat35": {
-		"prefix": "ImGui.DragFloat3",
-		"body": "ImGui.DragFloat3(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format}, ${7:power})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat3 (label, v, v_speed, v_min, v_max, format, power)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragFloat4": {
-		"prefix": "ImGui.DragFloat4",
-		"body": "ImGui.DragFloat4(${1:label}, ${2:v})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat4 (label, v)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragFloat41": {
-		"prefix": "ImGui.DragFloat4",
-		"body": "ImGui.DragFloat4(${1:label}, ${2:v}, ${3:v_speed})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat4 (label, v, v_speed)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragFloat42": {
-		"prefix": "ImGui.DragFloat4",
-		"body": "ImGui.DragFloat4(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat4 (label, v, v_speed, v_min)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragFloat43": {
-		"prefix": "ImGui.DragFloat4",
-		"body": "ImGui.DragFloat4(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat4 (label, v, v_speed, v_min, v_max)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragFloat44": {
-		"prefix": "ImGui.DragFloat4",
-		"body": "ImGui.DragFloat4(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat4 (label, v, v_speed, v_min, v_max, format)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragFloat45": {
-		"prefix": "ImGui.DragFloat4",
-		"body": "ImGui.DragFloat4(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format}, ${7:power})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.DragFloat4 (label, v, v_speed, v_min, v_max, format, power)",
-		"scope": "ImGui.h"
-	},
 	"ImGui.DragInt": {
 		"prefix": "ImGui.DragInt",
 		"body": "ImGui.DragInt(${1:label}, ${2:v})",
@@ -1113,72 +1005,6 @@
 		"prefix": "ImGui.DragInt",
 		"body": "ImGui.DragInt(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format})",
 		"description": "std::tuple<int, bool> ImGui.DragInt (label, v, v_speed, v_min, v_max, format)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragInt2": {
-		"prefix": "ImGui.DragInt2",
-		"body": "ImGui.DragInt2(${1:label}, ${2:v})",
-		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt2 (label, v)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragInt21": {
-		"prefix": "ImGui.DragInt2",
-		"body": "ImGui.DragInt2(${1:label}, ${2:v}, ${3:v_speed})",
-		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt2 (label, v, v_speed)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragInt22": {
-		"prefix": "ImGui.DragInt2",
-		"body": "ImGui.DragInt2(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min})",
-		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt2 (label, v, v_speed, v_min)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragInt23": {
-		"prefix": "ImGui.DragInt2",
-		"body": "ImGui.DragInt2(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max})",
-		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt2 (label, v, v_speed, v_min, v_max)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragInt24": {
-		"prefix": "ImGui.DragInt2",
-		"body": "ImGui.DragInt2(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format})",
-		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt2 (label, v, v_speed, v_min, v_max, format)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragInt3": {
-		"prefix": "ImGui.DragInt3",
-		"body": "ImGui.DragInt3(${1:label}, ${2:v})",
-		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt3 (label, v)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragInt31": {
-		"prefix": "ImGui.DragInt3",
-		"body": "ImGui.DragInt3(${1:label}, ${2:v}, ${3:v_speed})",
-		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt3 (label, v, v_speed)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragInt32": {
-		"prefix": "ImGui.DragInt3",
-		"body": "ImGui.DragInt3(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min})",
-		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt3 (label, v, v_speed, v_min)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragInt33": {
-		"prefix": "ImGui.DragInt3",
-		"body": "ImGui.DragInt3(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max})",
-		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt3 (label, v, v_speed, v_min, v_max)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragInt34": {
-		"prefix": "ImGui.DragInt3",
-		"body": "ImGui.DragInt3(${1:label}, ${2:v}, ${3:v_speed}, ${4:v_min}, ${5:v_max}, ${6:format})",
-		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt3 (label, v, v_speed, v_min, v_max, format)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.DragInt4": {
-		"prefix": "ImGui.DragInt4",
-		"body": "ImGui.DragInt4(${1:label}, ${2:v})",
-		"description": "std::tuple<sol::as_table_t<std::vector<int>>, bool> ImGui.DragInt4 (label, v)",
 		"scope": "ImGui.h"
 	},
 	"ImGui.DragInt41": {
@@ -1223,58 +1049,22 @@
 		"description": "std::tuple<float, bool> ImGui.SliderFloat (label, v, v_min, v_max, format, power)",
 		"scope": "ImGui.h"
 	},
-	"ImGui.SliderFloat2": {
+	"ImGui.SliderFloat3": {
 		"prefix": "ImGui.SliderFloat2",
 		"body": "ImGui.SliderFloat2(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max})",
 		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.SliderFloat2 (label, v, v_min, v_max)",
 		"scope": "ImGui.h"
 	},
-	"ImGui.SliderFloat21": {
+	"ImGui.SliderFloat4": {
 		"prefix": "ImGui.SliderFloat2",
 		"body": "ImGui.SliderFloat2(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max}, ${5:format})",
 		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.SliderFloat2 (label, v, v_min, v_max, format)",
 		"scope": "ImGui.h"
 	},
-	"ImGui.SliderFloat22": {
+	"ImGui.SliderFloat5": {
 		"prefix": "ImGui.SliderFloat2",
 		"body": "ImGui.SliderFloat2(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max}, ${5:format}, ${6:power})",
 		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.SliderFloat2 (label, v, v_min, v_max, format, power)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.SliderFloat3": {
-		"prefix": "ImGui.SliderFloat3",
-		"body": "ImGui.SliderFloat3(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.SliderFloat3 (label, v, v_min, v_max)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.SliderFloat31": {
-		"prefix": "ImGui.SliderFloat3",
-		"body": "ImGui.SliderFloat3(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max}, ${5:format})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.SliderFloat3 (label, v, v_min, v_max, format)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.SliderFloat32": {
-		"prefix": "ImGui.SliderFloat3",
-		"body": "ImGui.SliderFloat3(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max}, ${5:format}, ${6:power})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.SliderFloat3 (label, v, v_min, v_max, format, power)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.SliderFloat4": {
-		"prefix": "ImGui.SliderFloat4",
-		"body": "ImGui.SliderFloat4(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.SliderFloat4 (label, v, v_min, v_max)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.SliderFloat41": {
-		"prefix": "ImGui.SliderFloat4",
-		"body": "ImGui.SliderFloat4(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max}, ${5:format})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.SliderFloat4 (label, v, v_min, v_max, format)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.SliderFloat42": {
-		"prefix": "ImGui.SliderFloat4",
-		"body": "ImGui.SliderFloat4(${1:label}, ${2:v}, ${3:v_min}, ${4:v_max}, ${5:format}, ${6:power})",
-		"description": "std::tuple<sol::as_table_t<std::vector<float>>, bool> ImGui.SliderFloat4 (label, v, v_min, v_max, format, power)",
 		"scope": "ImGui.h"
 	},
 	"ImGui.SliderAngle": {
@@ -1451,58 +1241,22 @@
 		"description": "std::tuple<float, bool> ImGui.InputFloat (label, v, step, step_fast, format, flags)",
 		"scope": "ImGui.h"
 	},
-	"ImGui.InputFloat2": {
+	"ImGui.InputFloat5": {
 		"prefix": "ImGui.InputFloat2",
 		"body": "ImGui.InputFloat2(${1:label}, ${2:v})",
 		"description": "std::tuple <sol::as_table_t<std::vector<float>>, bool> ImGui.InputFloat2 (label, v)",
 		"scope": "ImGui.h"
 	},
-	"ImGui.InputFloat21": {
+	"ImGui.InputFloat6": {
 		"prefix": "ImGui.InputFloat2",
 		"body": "ImGui.InputFloat2(${1:label}, ${2:v}, ${3:format})",
 		"description": "std::tuple <sol::as_table_t<std::vector<float>>, bool> ImGui.InputFloat2 (label, v, format)",
 		"scope": "ImGui.h"
 	},
-	"ImGui.InputFloat22": {
+	"ImGui.InputFloat7": {
 		"prefix": "ImGui.InputFloat2",
 		"body": "ImGui.InputFloat2(${1:label}, ${2:v}, ${3:format}, ${4:flags})",
 		"description": "std::tuple <sol::as_table_t<std::vector<float>>, bool> ImGui.InputFloat2 (label, v, format, flags)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.InputFloat3": {
-		"prefix": "ImGui.InputFloat3",
-		"body": "ImGui.InputFloat3(${1:label}, ${2:v})",
-		"description": "std::tuple <sol::as_table_t<std::vector<float>>, bool> ImGui.InputFloat3 (label, v)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.InputFloat31": {
-		"prefix": "ImGui.InputFloat3",
-		"body": "ImGui.InputFloat3(${1:label}, ${2:v}, ${3:format})",
-		"description": "std::tuple <sol::as_table_t<std::vector<float>>, bool> ImGui.InputFloat3 (label, v, format)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.InputFloat32": {
-		"prefix": "ImGui.InputFloat3",
-		"body": "ImGui.InputFloat3(${1:label}, ${2:v}, ${3:format}, ${4:flags})",
-		"description": "std::tuple <sol::as_table_t<std::vector<float>>, bool> ImGui.InputFloat3 (label, v, format, flags)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.InputFloat4": {
-		"prefix": "ImGui.InputFloat4",
-		"body": "ImGui.InputFloat4(${1:label}, ${2:v})",
-		"description": "std::tuple <sol::as_table_t<std::vector<float>>, bool> ImGui.InputFloat4 (label, v)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.InputFloat41": {
-		"prefix": "ImGui.InputFloat4",
-		"body": "ImGui.InputFloat4(${1:label}, ${2:v}, ${3:format})",
-		"description": "std::tuple <sol::as_table_t<std::vector<float>>, bool> ImGui.InputFloat4 (label, v, format)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.InputFloat42": {
-		"prefix": "ImGui.InputFloat4",
-		"body": "ImGui.InputFloat4(${1:label}, ${2:v}, ${3:format}, ${4:flags})",
-		"description": "std::tuple <sol::as_table_t<std::vector<float>>, bool> ImGui.InputFloat4 (label, v, format, flags)",
 		"scope": "ImGui.h"
 	},
 	"ImGui.InputInt": {
@@ -1529,40 +1283,16 @@
 		"description": "std::tuple<int, bool> ImGui.InputInt (label, v, step, step_fast, flags)",
 		"scope": "ImGui.h"
 	},
-	"ImGui.InputInt2": {
+	"ImGui.InputInt4": {
 		"prefix": "ImGui.InputInt2",
 		"body": "ImGui.InputInt2(${1:label}, ${2:v})",
 		"description": "std::tuple <sol::as_table_t<std::vector<int>>, bool> ImGui.InputInt2 (label, v)",
 		"scope": "ImGui.h"
 	},
-	"ImGui.InputInt21": {
+	"ImGui.InputInt5": {
 		"prefix": "ImGui.InputInt2",
 		"body": "ImGui.InputInt2(${1:label}, ${2:v}, ${3:flags})",
 		"description": "std::tuple <sol::as_table_t<std::vector<int>>, bool> ImGui.InputInt2 (label, v, flags)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.InputInt3": {
-		"prefix": "ImGui.InputInt3",
-		"body": "ImGui.InputInt3(${1:label}, ${2:v})",
-		"description": "std::tuple <sol::as_table_t<std::vector<int>>, bool> ImGui.InputInt3 (label, v)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.InputInt31": {
-		"prefix": "ImGui.InputInt3",
-		"body": "ImGui.InputInt3(${1:label}, ${2:v}, ${3:flags})",
-		"description": "std::tuple <sol::as_table_t<std::vector<int>>, bool> ImGui.InputInt3 (label, v, flags)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.InputInt4": {
-		"prefix": "ImGui.InputInt4",
-		"body": "ImGui.InputInt4(${1:label}, ${2:v})",
-		"description": "std::tuple <sol::as_table_t<std::vector<int>>, bool> ImGui.InputInt4 (label, v)",
-		"scope": "ImGui.h"
-	},
-	"ImGui.InputInt41": {
-		"prefix": "ImGui.InputInt4",
-		"body": "ImGui.InputInt4(${1:label}, ${2:v}, ${3:flags})",
-		"description": "std::tuple <sol::as_table_t<std::vector<int>>, bool> ImGui.InputInt4 (label, v, flags)",
 		"scope": "ImGui.h"
 	},
 	"ImGui.InputDouble": {
@@ -2967,12 +2697,6 @@
 		"prefix": "ImGuiWindowFlags.NoDockTab",
 		"body": "ImGuiWindowFlags.NoDockTab",
 		"description": "ImGuiWindowFlags.NoDockTab",
-		"scope": "imgui.h"
-	},
-	"ImGuiWindowFlags.DockNodeHost": {
-		"prefix": "ImGuiWindowFlags.DockNodeHost",
-		"body": "ImGuiWindowFlags.DockNodeHost",
-		"description": "ImGuiWindowFlags.DockNodeHost",
 		"scope": "imgui.h"
 	},
 	"ImGuiFocusedFlags.None": {
@@ -5522,49 +5246,61 @@
 	"WorldChrMan.getCurrentMapEnemies": {
 		"prefix": "WorldChrMan.getCurrentMapEnemies",
 		"body": "WorldChrMan.getCurrentMapEnemies()",
-		"description": "WorldChrMan.getCurrentMapEnemies ()",
+		"description": "std::vector<uintptr_t> WorldChrMan.getCurrentMapEnemies ()",
 		"scope": "hoodiescript.lua"
 	},
 	"WorldChrMan.reloadCharacterFiles": {
 		"prefix": "WorldChrMan.reloadCharacterFiles",
 		"body": "WorldChrMan.reloadCharacterFiles(${1:characterId})",
-		"description": "WorldChrMan.reloadCharacterFiles (characterId)",
+		"description": "bool WorldChrMan.reloadCharacterFiles (characterId)",
 		"scope": "hoodiescript.lua"
 	},
 	"WorldChrMan.findEntityTest": {
 		"prefix": "WorldChrMan.findEntityTest",
 		"body": "WorldChrMan.findEntityTest(${1:id})",
-		"description": "WorldChrMan.findEntityTest (id)",
+		"description": "void WorldChrMan.findEntityTest (id)",
 		"scope": "hoodiescript.lua"
 	},
 	"WorldChrMan.getInsByHandle": {
 		"prefix": "WorldChrMan.getInsByHandle",
 		"body": "WorldChrMan.getInsByHandle(${1:handle})",
-		"description": "WorldChrMan.getInsByHandle (handle)",
+		"description": "uintptr_t WorldChrMan.getInsByHandle (handle)",
 		"scope": "hoodiescript.lua"
 	},
 	"WorldChrMan.getCamVector": {
 		"prefix": "WorldChrMan.getCamVector",
 		"body": "WorldChrMan.getCamVector()",
-		"description": "WorldChrMan.getCamVector ()",
+		"description": "std::array<float, 3> WorldChrMan.getCamVector ()",
 		"scope": "hoodiescript.lua"
 	},
-	"WorldChrMan.getInstance": {
-		"prefix": "WorldChrMan.getInstance",
-		"body": "WorldChrMan.getInstance()",
-		"description": "WorldChrMan.getInstance ()",
+	"WorldChrMan.getMainChr": {
+		"prefix": "WorldChrMan.getMainChr",
+		"body": "WorldChrMan.getMainChr()",
+		"description": "PlayerIns WorldChrMan.getMainChr ()",
 		"scope": "hoodiescript.lua"
 	},
-	"WorldChrMan.hasInstance": {
-		"prefix": "WorldChrMan.hasInstance",
-		"body": "WorldChrMan.hasInstance()",
-		"description": "WorldChrMan.hasInstance ()",
+	"WorldChrMan.isMainChrLoaded": {
+		"prefix": "WorldChrMan.isMainChrLoaded",
+		"body": "WorldChrMan.isMainChrLoaded()",
+		"description": "bool WorldChrMan.isMainChrLoaded ()",
+		"scope": "hoodiescript.lua"
+	},
+	"WorldChrMan.isLoaded": {
+		"prefix": "WorldChrMan.isLoaded",
+		"body": "WorldChrMan.isLoaded()",
+		"description": "bool WorldChrMan.isLoaded ()",
+		"scope": "hoodiescript.lua"
+	},
+	"WorldChrMan.getAddress": {
+		"prefix": "WorldChrMan.getAddress",
+		"body": "WorldChrMan.getAddress()",
+		"description": "uintptr_t WorldChrMan.getAddress ()",
 		"scope": "hoodiescript.lua"
 	},
 	"ChrIns.new0": {
 		"prefix": "ChrIns.new",
-		"body": "ChrIns.new(${1:ChrInsPtr})",
-		"description": "ChrIns.new(ChrInsPtr)",
+		"body": "ChrIns.new(${1:address})",
+		"description": " ChrIns.new (address)",
 		"scope": "hoodiescript.lua"
 	},
 	"ChrIns.isValid": {
@@ -5773,8 +5509,8 @@
 	},
 	"ChrIns.getDummyPolyPositions": {
 		"prefix": "ChrIns.getDummyPolyPositions",
-		"body": "ChrIns.getDummyPolyPositions(${1:this}, ${2:dummyPolyId}, ${3:uint32_t&})",
-		"description": "std::vector<std::array<float, 4>> ChrIns.getDummyPolyPositions (this, dummyPolyId, uint32_t&)",
+		"body": "ChrIns.getDummyPolyPositions(${1:this}, ${2:dummyPolyId}, ${3:polyCount})",
+		"description": "std::vector<std::array<float, 4>> ChrIns.getDummyPolyPositions (this, dummyPolyId, polyCount)",
 		"scope": "hoodiescript.lua"
 	},
 	"ChrIns.getAddress": {
@@ -5793,264 +5529,6 @@
 		"prefix": "PlayerIns.new",
 		"body": "PlayerIns.new(${1:address})",
 		"description": " PlayerIns.new (address)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getPlayerGameData": {
-		"prefix": "PlayerIns.getPlayerGameData",
-		"body": "PlayerIns.getPlayerGameData(${1:this})",
-		"description": "PlayerGameData PlayerIns.getPlayerGameData (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.hasPlayerGameData": {
-		"prefix": "PlayerIns.hasPlayerGameData",
-		"body": "PlayerIns.hasPlayerGameData(${1:this})",
-		"description": "bool PlayerIns.hasPlayerGameData (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getNetworkPointer": {
-		"prefix": "PlayerIns.getNetworkPointer",
-		"body": "PlayerIns.getNetworkPointer(${1:this})",
-		"description": "uintptr_t* PlayerIns.getNetworkPointer (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getLeftHandWeapon": {
-		"prefix": "PlayerIns.getLeftHandWeapon",
-		"body": "PlayerIns.getLeftHandWeapon(${1:this}, ${2:slotNumber})",
-		"description": "int32_t PlayerIns.getLeftHandWeapon (this, slotNumber)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getLeftHandWeaponActive": {
-		"prefix": "PlayerIns.getLeftHandWeaponActive",
-		"body": "PlayerIns.getLeftHandWeaponActive(${1:this})",
-		"description": "int32_t PlayerIns.getLeftHandWeaponActive (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setLeftHandWeapon": {
-		"prefix": "PlayerIns.setLeftHandWeapon",
-		"body": "PlayerIns.setLeftHandWeapon(${1:this}, ${2:slotNumber}, ${3:int32_t&})",
-		"description": "void PlayerIns.setLeftHandWeapon (this, slotNumber, int32_t&)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setLeftHandWeaponActive": {
-		"prefix": "PlayerIns.setLeftHandWeaponActive",
-		"body": "PlayerIns.setLeftHandWeaponActive(${1:this}, ${2:equipParamWeaponId})",
-		"description": "void PlayerIns.setLeftHandWeaponActive (this, equipParamWeaponId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getRightHandWeapon": {
-		"prefix": "PlayerIns.getRightHandWeapon",
-		"body": "PlayerIns.getRightHandWeapon(${1:this}, ${2:slotNumber})",
-		"description": "int32_t PlayerIns.getRightHandWeapon (this, slotNumber)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setWeaponSheathState": {
-		"prefix": "PlayerIns.setWeaponSheathState",
-		"body": "PlayerIns.setWeaponSheathState(${1:this}, ${2:slot})",
-		"description": "void PlayerIns.setWeaponSheathState (this, slot)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.ReplaceWeapon": {
-		"prefix": "PlayerIns.ReplaceWeapon",
-		"body": "PlayerIns.ReplaceWeapon(${1:this}, ${2:equipParamWeaponTarget}, ${3:int32_t}, ${4:index})",
-		"description": "void PlayerIns.ReplaceWeapon (this, equipParamWeaponTarget, int32_t, index)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.ReplaceWeaponActiveRight": {
-		"prefix": "PlayerIns.ReplaceWeaponActiveRight",
-		"body": "PlayerIns.ReplaceWeaponActiveRight(${1:this}, ${2:equipParamWeaponTarget}, ${3:int32_t})",
-		"description": "void PlayerIns.ReplaceWeaponActiveRight (this, equipParamWeaponTarget, int32_t)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getWeaponSheathState": {
-		"prefix": "PlayerIns.getWeaponSheathState",
-		"body": "PlayerIns.getWeaponSheathState(${1:this})",
-		"description": "int32_t PlayerIns.getWeaponSheathState (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getRightHandWeaponActive": {
-		"prefix": "PlayerIns.getRightHandWeaponActive",
-		"body": "PlayerIns.getRightHandWeaponActive(${1:this})",
-		"description": "int32_t PlayerIns.getRightHandWeaponActive (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setRightHandWeapon": {
-		"prefix": "PlayerIns.setRightHandWeapon",
-		"body": "PlayerIns.setRightHandWeapon(${1:this}, ${2:slotNumber}, ${3:int32_t&})",
-		"description": "void PlayerIns.setRightHandWeapon (this, slotNumber, int32_t&)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setRightHandWeaponActive": {
-		"prefix": "PlayerIns.setRightHandWeaponActive",
-		"body": "PlayerIns.setRightHandWeaponActive(${1:this}, ${2:equipParamWeaponId})",
-		"description": "void PlayerIns.setRightHandWeaponActive (this, equipParamWeaponId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setRightHandWeaponActiveNetworked": {
-		"prefix": "PlayerIns.setRightHandWeaponActiveNetworked",
-		"body": "PlayerIns.setRightHandWeaponActiveNetworked(${1:this}, ${2:equipParamWeaponId})",
-		"description": "void PlayerIns.setRightHandWeaponActiveNetworked (this, equipParamWeaponId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setRightHandWeaponNetworked": {
-		"prefix": "PlayerIns.setRightHandWeaponNetworked",
-		"body": "PlayerIns.setRightHandWeaponNetworked(${1:this}, ${2:equipParamWeaponId}, ${3:index})",
-		"description": "void PlayerIns.setRightHandWeaponNetworked (this, equipParamWeaponId, index)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.removeWeaponFromInventory": {
-		"prefix": "PlayerIns.removeWeaponFromInventory",
-		"body": "PlayerIns.removeWeaponFromInventory(${1:this}, ${2:equipParamWeaponId})",
-		"description": "bool PlayerIns.removeWeaponFromInventory (this, equipParamWeaponId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getHead": {
-		"prefix": "PlayerIns.getHead",
-		"body": "PlayerIns.getHead(${1:this})",
-		"description": "int32_t PlayerIns.getHead (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setHead": {
-		"prefix": "PlayerIns.setHead",
-		"body": "PlayerIns.setHead(${1:this}, ${2:equipParamProtectorId})",
-		"description": "void PlayerIns.setHead (this, equipParamProtectorId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getChest": {
-		"prefix": "PlayerIns.getChest",
-		"body": "PlayerIns.getChest(${1:this})",
-		"description": "int32_t PlayerIns.getChest (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setChest": {
-		"prefix": "PlayerIns.setChest",
-		"body": "PlayerIns.setChest(${1:this}, ${2:equipParamProtectorId})",
-		"description": "void PlayerIns.setChest (this, equipParamProtectorId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getHands": {
-		"prefix": "PlayerIns.getHands",
-		"body": "PlayerIns.getHands(${1:this})",
-		"description": "int32_t PlayerIns.getHands (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setHands": {
-		"prefix": "PlayerIns.setHands",
-		"body": "PlayerIns.setHands(${1:this}, ${2:equipParamProtectorId})",
-		"description": "void PlayerIns.setHands (this, equipParamProtectorId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getLegs": {
-		"prefix": "PlayerIns.getLegs",
-		"body": "PlayerIns.getLegs(${1:this})",
-		"description": "int32_t PlayerIns.getLegs (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setLegs": {
-		"prefix": "PlayerIns.setLegs",
-		"body": "PlayerIns.setLegs(${1:this}, ${2:equipParamProtectorId})",
-		"description": "void PlayerIns.setLegs (this, equipParamProtectorId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getRing": {
-		"prefix": "PlayerIns.getRing",
-		"body": "PlayerIns.getRing(${1:this}, ${2:slotNumber})",
-		"description": "int32_t PlayerIns.getRing (this, slotNumber)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setRing": {
-		"prefix": "PlayerIns.setRing",
-		"body": "PlayerIns.setRing(${1:this}, ${2:slotNumber}, ${3:int32_t&})",
-		"description": "void PlayerIns.setRing (this, slotNumber, int32_t&)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getAmmo": {
-		"prefix": "PlayerIns.getAmmo",
-		"body": "PlayerIns.getAmmo(${1:this}, ${2:slotNumber})",
-		"description": "int32_t PlayerIns.getAmmo (this, slotNumber)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setAmmo": {
-		"prefix": "PlayerIns.setAmmo",
-		"body": "PlayerIns.setAmmo(${1:this}, ${2:slotNumber}, ${3:int32_t&})",
-		"description": "void PlayerIns.setAmmo (this, slotNumber, int32_t&)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getCovenant": {
-		"prefix": "PlayerIns.getCovenant",
-		"body": "PlayerIns.getCovenant(${1:this})",
-		"description": "int32_t PlayerIns.getCovenant (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setCovenant": {
-		"prefix": "PlayerIns.setCovenant",
-		"body": "PlayerIns.setCovenant(${1:this}, ${2:equipParamAccessoryId})",
-		"description": "void PlayerIns.setCovenant (this, equipParamAccessoryId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.isNoGoodsConsume": {
-		"prefix": "PlayerIns.isNoGoodsConsume",
-		"body": "PlayerIns.isNoGoodsConsume(${1:this})",
-		"description": "bool PlayerIns.isNoGoodsConsume (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setNoGoodsConsume": {
-		"prefix": "PlayerIns.setNoGoodsConsume",
-		"body": "PlayerIns.setNoGoodsConsume(${1:this}, ${2:value})",
-		"description": "void PlayerIns.setNoGoodsConsume (this, value)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getPlayerCtrl": {
-		"prefix": "PlayerIns.getPlayerCtrl",
-		"body": "PlayerIns.getPlayerCtrl(${1:this})",
-		"description": "uintptr_t PlayerIns.getPlayerCtrl (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getNetworkHandle": {
-		"prefix": "PlayerIns.getNetworkHandle",
-		"body": "PlayerIns.getNetworkHandle(${1:this})",
-		"description": "uintptr_t* PlayerIns.getNetworkHandle (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getAddressByOffsetNumber": {
-		"prefix": "PlayerIns.getAddressByOffsetNumber",
-		"body": "PlayerIns.getAddressByOffsetNumber(${1:offsetNumber})",
-		"description": "uintptr_t PlayerIns.getAddressByOffsetNumber (offsetNumber)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.isChrWithOffsetNumber": {
-		"prefix": "PlayerIns.isChrWithOffsetNumber",
-		"body": "PlayerIns.isChrWithOffsetNumber(${1:offsetNumber})",
-		"description": "bool PlayerIns.isChrWithOffsetNumber (offsetNumber)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.isPlayer": {
-		"prefix": "PlayerIns.isPlayer",
-		"body": "PlayerIns.isPlayer(${1:address})",
-		"description": "bool PlayerIns.isPlayer (address)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getMainChrAddress": {
-		"prefix": "PlayerIns.getMainChrAddress",
-		"body": "PlayerIns.getMainChrAddress()",
-		"description": "uintptr_t PlayerIns.getMainChrAddress ()",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.isMainChr": {
-		"prefix": "PlayerIns.isMainChr",
-		"body": "PlayerIns.isMainChr(${1:address})",
-		"description": "bool PlayerIns.isMainChr (address)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.isMainChrLoaded": {
-		"prefix": "PlayerIns.isMainChrLoaded",
-		"body": "PlayerIns.isMainChrLoaded()",
-		"description": "bool PlayerIns.isMainChrLoaded ()",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.isValid": {
-		"prefix": "PlayerIns.isValid",
-		"body": "PlayerIns.isValid(${1:this})",
-		"description": "bool PlayerIns.isValid (this)",
 		"scope": "hoodiescript.lua"
 	},
 	"PlayerIns.getHandle": {
@@ -6227,12 +5705,6 @@
 		"description": "std::wstring PlayerIns.getHkbStringFromId (this, id)",
 		"scope": "hoodiescript.lua"
 	},
-	"PlayerIns.playDebugIdle": {
-		"prefix": "PlayerIns.playDebugIdle",
-		"body": "PlayerIns.playDebugIdle(${1:this}, ${2:animationId})",
-		"description": "//void PlayerIns.playDebugIdle (this, animationId)",
-		"scope": "hoodiescript.lua"
-	},
 	"PlayerIns.getWeightIndex": {
 		"prefix": "PlayerIns.getWeightIndex",
 		"body": "PlayerIns.getWeightIndex(${1:this})",
@@ -6259,8 +5731,8 @@
 	},
 	"PlayerIns.getDummyPolyPositions": {
 		"prefix": "PlayerIns.getDummyPolyPositions",
-		"body": "PlayerIns.getDummyPolyPositions(${1:this}, ${2:dummyPolyId}, ${3:uint32_t&})",
-		"description": "std::vector<std::array<float, 4>> PlayerIns.getDummyPolyPositions (this, dummyPolyId, uint32_t&)",
+		"body": "PlayerIns.getDummyPolyPositions(${1:this}, ${2:dummyPolyId}, ${3:polyCount})",
+		"description": "std::vector<std::array<float, 4>> PlayerIns.getDummyPolyPositions (this, dummyPolyId, polyCount)",
 		"scope": "hoodiescript.lua"
 	},
 	"PlayerIns.getAddress": {
@@ -6269,10 +5741,280 @@
 		"description": "uintptr_t PlayerIns.getAddress (this)",
 		"scope": "hoodiescript.lua"
 	},
-	"PlayerIns.isChrIns": {
-		"prefix": "PlayerIns.isChrIns",
-		"body": "PlayerIns.isChrIns(${1:address})",
-		"description": "bool PlayerIns.isChrIns (address)",
+	"PlayerIns.isPlayerIns": {
+		"prefix": "PlayerIns.isPlayerIns",
+		"body": "PlayerIns.isPlayerIns(${1:address})",
+		"description": "bool PlayerIns.isPlayerIns (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getPlayerGameData": {
+		"prefix": "PlayerIns.getPlayerGameData",
+		"body": "PlayerIns.getPlayerGameData(${1:this})",
+		"description": "PlayerGameData PlayerIns.getPlayerGameData (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.hasPlayerGameData": {
+		"prefix": "PlayerIns.hasPlayerGameData",
+		"body": "PlayerIns.hasPlayerGameData(${1:this})",
+		"description": "bool PlayerIns.hasPlayerGameData (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getNetworkPointer": {
+		"prefix": "PlayerIns.getNetworkPointer",
+		"body": "PlayerIns.getNetworkPointer(${1:this})",
+		"description": "uintptr_t* PlayerIns.getNetworkPointer (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getLeftHandWeapon": {
+		"prefix": "PlayerIns.getLeftHandWeapon",
+		"body": "PlayerIns.getLeftHandWeapon(${1:this}, ${2:slotNumber})",
+		"description": "int32_t PlayerIns.getLeftHandWeapon (this, slotNumber)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getLeftHandWeaponActive": {
+		"prefix": "PlayerIns.getLeftHandWeaponActive",
+		"body": "PlayerIns.getLeftHandWeaponActive(${1:this})",
+		"description": "int32_t PlayerIns.getLeftHandWeaponActive (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setLeftHandWeapon": {
+		"prefix": "PlayerIns.setLeftHandWeapon",
+		"body": "PlayerIns.setLeftHandWeapon(${1:this}, ${2:slotNumber}, ${3:equipParamWeaponId})",
+		"description": "void PlayerIns.setLeftHandWeapon (this, slotNumber, equipParamWeaponId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setLeftHandWeaponActive": {
+		"prefix": "PlayerIns.setLeftHandWeaponActive",
+		"body": "PlayerIns.setLeftHandWeaponActive(${1:this}, ${2:equipParamWeaponId})",
+		"description": "void PlayerIns.setLeftHandWeaponActive (this, equipParamWeaponId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.GetActiveWeaponSlotRightHand": {
+		"prefix": "PlayerIns.GetActiveWeaponSlotRightHand",
+		"body": "PlayerIns.GetActiveWeaponSlotRightHand(${1:this})",
+		"description": "uint32_t PlayerIns.GetActiveWeaponSlotRightHand (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.GetActiveWeaponSlotLeftHand": {
+		"prefix": "PlayerIns.GetActiveWeaponSlotLeftHand",
+		"body": "PlayerIns.GetActiveWeaponSlotLeftHand(${1:this})",
+		"description": "uint32_t PlayerIns.GetActiveWeaponSlotLeftHand (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getRightHandWeapon": {
+		"prefix": "PlayerIns.getRightHandWeapon",
+		"body": "PlayerIns.getRightHandWeapon(${1:this}, ${2:slotNumber})",
+		"description": "int32_t PlayerIns.getRightHandWeapon (this, slotNumber)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setWeaponSheathState": {
+		"prefix": "PlayerIns.setWeaponSheathState",
+		"body": "PlayerIns.setWeaponSheathState(${1:this}, ${2:sheatState})",
+		"description": "void PlayerIns.setWeaponSheathState (this, sheatState)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.ReplaceWeapon": {
+		"prefix": "PlayerIns.ReplaceWeapon",
+		"body": "PlayerIns.ReplaceWeapon(${1:this}, ${2:equipParamWeaponTarget}, ${3:equipParamWeaponReplacement}, ${4:index})",
+		"description": "void PlayerIns.ReplaceWeapon (this, equipParamWeaponTarget, equipParamWeaponReplacement, index)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.ReplaceWeaponActiveRight": {
+		"prefix": "PlayerIns.ReplaceWeaponActiveRight",
+		"body": "PlayerIns.ReplaceWeaponActiveRight(${1:this}, ${2:equipParamWeaponTarget}, ${3:equipParamWeaponReplacement})",
+		"description": "void PlayerIns.ReplaceWeaponActiveRight (this, equipParamWeaponTarget, equipParamWeaponReplacement)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getWeaponSheathState": {
+		"prefix": "PlayerIns.getWeaponSheathState",
+		"body": "PlayerIns.getWeaponSheathState(${1:this})",
+		"description": "int32_t PlayerIns.getWeaponSheathState (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getRightHandWeaponActive": {
+		"prefix": "PlayerIns.getRightHandWeaponActive",
+		"body": "PlayerIns.getRightHandWeaponActive(${1:this})",
+		"description": "int32_t PlayerIns.getRightHandWeaponActive (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setRightHandWeapon": {
+		"prefix": "PlayerIns.setRightHandWeapon",
+		"body": "PlayerIns.setRightHandWeapon(${1:this}, ${2:slotNumber}, ${3:equipParamWeaponId})",
+		"description": "void PlayerIns.setRightHandWeapon (this, slotNumber, equipParamWeaponId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setRightHandWeaponActive": {
+		"prefix": "PlayerIns.setRightHandWeaponActive",
+		"body": "PlayerIns.setRightHandWeaponActive(${1:this}, ${2:equipParamWeaponId})",
+		"description": "void PlayerIns.setRightHandWeaponActive (this, equipParamWeaponId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setRightHandWeaponActiveNetworked": {
+		"prefix": "PlayerIns.setRightHandWeaponActiveNetworked",
+		"body": "PlayerIns.setRightHandWeaponActiveNetworked(${1:this}, ${2:equipParamWeaponId})",
+		"description": "void PlayerIns.setRightHandWeaponActiveNetworked (this, equipParamWeaponId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setRightHandWeaponNetworked": {
+		"prefix": "PlayerIns.setRightHandWeaponNetworked",
+		"body": "PlayerIns.setRightHandWeaponNetworked(${1:this}, ${2:equipParamWeaponId}, ${3:index})",
+		"description": "void PlayerIns.setRightHandWeaponNetworked (this, equipParamWeaponId, index)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.removeWeaponFromInventory": {
+		"prefix": "PlayerIns.removeWeaponFromInventory",
+		"body": "PlayerIns.removeWeaponFromInventory(${1:this}, ${2:equipParamWeaponId})",
+		"description": "bool PlayerIns.removeWeaponFromInventory (this, equipParamWeaponId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getHead": {
+		"prefix": "PlayerIns.getHead",
+		"body": "PlayerIns.getHead(${1:this})",
+		"description": "int32_t PlayerIns.getHead (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setHead": {
+		"prefix": "PlayerIns.setHead",
+		"body": "PlayerIns.setHead(${1:this}, ${2:equipParamProtectorId})",
+		"description": "void PlayerIns.setHead (this, equipParamProtectorId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getChest": {
+		"prefix": "PlayerIns.getChest",
+		"body": "PlayerIns.getChest(${1:this})",
+		"description": "int32_t PlayerIns.getChest (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setChest": {
+		"prefix": "PlayerIns.setChest",
+		"body": "PlayerIns.setChest(${1:this}, ${2:equipParamProtectorId})",
+		"description": "void PlayerIns.setChest (this, equipParamProtectorId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getHands": {
+		"prefix": "PlayerIns.getHands",
+		"body": "PlayerIns.getHands(${1:this})",
+		"description": "int32_t PlayerIns.getHands (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setHands": {
+		"prefix": "PlayerIns.setHands",
+		"body": "PlayerIns.setHands(${1:this}, ${2:equipParamProtectorId})",
+		"description": "void PlayerIns.setHands (this, equipParamProtectorId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getLegs": {
+		"prefix": "PlayerIns.getLegs",
+		"body": "PlayerIns.getLegs(${1:this})",
+		"description": "int32_t PlayerIns.getLegs (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setLegs": {
+		"prefix": "PlayerIns.setLegs",
+		"body": "PlayerIns.setLegs(${1:this}, ${2:equipParamProtectorId})",
+		"description": "void PlayerIns.setLegs (this, equipParamProtectorId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getRing": {
+		"prefix": "PlayerIns.getRing",
+		"body": "PlayerIns.getRing(${1:this}, ${2:slotNumber})",
+		"description": "int32_t PlayerIns.getRing (this, slotNumber)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setRing": {
+		"prefix": "PlayerIns.setRing",
+		"body": "PlayerIns.setRing(${1:this}, ${2:slotNumber}, ${3:equipParamAccessoryId})",
+		"description": "void PlayerIns.setRing (this, slotNumber, equipParamAccessoryId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getAmmo": {
+		"prefix": "PlayerIns.getAmmo",
+		"body": "PlayerIns.getAmmo(${1:this}, ${2:slotNumber})",
+		"description": "int32_t PlayerIns.getAmmo (this, slotNumber)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setAmmo": {
+		"prefix": "PlayerIns.setAmmo",
+		"body": "PlayerIns.setAmmo(${1:this}, ${2:slotNumber}, ${3:equipParamWeaponId})",
+		"description": "void PlayerIns.setAmmo (this, slotNumber, equipParamWeaponId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getCovenant": {
+		"prefix": "PlayerIns.getCovenant",
+		"body": "PlayerIns.getCovenant(${1:this})",
+		"description": "int32_t PlayerIns.getCovenant (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setCovenant": {
+		"prefix": "PlayerIns.setCovenant",
+		"body": "PlayerIns.setCovenant(${1:this}, ${2:equipParamAccessoryId})",
+		"description": "void PlayerIns.setCovenant (this, equipParamAccessoryId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isNoGoodsConsume": {
+		"prefix": "PlayerIns.isNoGoodsConsume",
+		"body": "PlayerIns.isNoGoodsConsume(${1:this})",
+		"description": "bool PlayerIns.isNoGoodsConsume (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setNoGoodsConsume": {
+		"prefix": "PlayerIns.setNoGoodsConsume",
+		"body": "PlayerIns.setNoGoodsConsume(${1:this}, ${2:value})",
+		"description": "void PlayerIns.setNoGoodsConsume (this, value)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getPlayerCtrl": {
+		"prefix": "PlayerIns.getPlayerCtrl",
+		"body": "PlayerIns.getPlayerCtrl(${1:this})",
+		"description": "uintptr_t PlayerIns.getPlayerCtrl (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getNetworkHandle": {
+		"prefix": "PlayerIns.getNetworkHandle",
+		"body": "PlayerIns.getNetworkHandle(${1:this})",
+		"description": "uintptr_t* PlayerIns.getNetworkHandle (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isValid": {
+		"prefix": "PlayerIns.isValid",
+		"body": "PlayerIns.isValid(${1:this})",
+		"description": "bool PlayerIns.isValid (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getAddressByOffsetNumber": {
+		"prefix": "PlayerIns.getAddressByOffsetNumber",
+		"body": "PlayerIns.getAddressByOffsetNumber(${1:offsetNumber})",
+		"description": "uintptr_t PlayerIns.getAddressByOffsetNumber (offsetNumber)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isChrWithOffsetNumber": {
+		"prefix": "PlayerIns.isChrWithOffsetNumber",
+		"body": "PlayerIns.isChrWithOffsetNumber(${1:offsetNumber})",
+		"description": "bool PlayerIns.isChrWithOffsetNumber (offsetNumber)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isPlayer": {
+		"prefix": "PlayerIns.isPlayer",
+		"body": "PlayerIns.isPlayer(${1:address})",
+		"description": "bool PlayerIns.isPlayer (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getMainChr": {
+		"prefix": "PlayerIns.getMainChr",
+		"body": "PlayerIns.getMainChr()",
+		"description": "PlayerIns PlayerIns.getMainChr ()",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isMainChr": {
+		"prefix": "PlayerIns.isMainChr",
+		"body": "PlayerIns.isMainChr(${1:address})",
+		"description": "bool PlayerIns.isMainChr (address)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isMainChrLoaded": {
+		"prefix": "PlayerIns.isMainChrLoaded",
+		"body": "PlayerIns.isMainChrLoaded()",
+		"description": "bool PlayerIns.isMainChrLoaded ()",
 		"scope": "hoodiescript.lua"
 	},
 	"EquipInventoryData.new0": {

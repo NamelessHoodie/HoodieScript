@@ -20,12 +20,7 @@
 */
 
 #pragma once
-#include "memory_util.h"
-#include <cstdint>
-#include <string>
-#include <vector>
-#include "Amir/ds3runtime.h"
-#include <array>
+
 
 namespace hoodie_script {
 

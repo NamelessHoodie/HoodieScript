@@ -192,6 +192,7 @@
     <ClInclude Include="GameObjects\sprj_chr_data_module.h" />
     <ClInclude Include="GameObjects\sprj_gaitem_imp.h" />
     <ClInclude Include="GameObjects\sprj_gaitem_ins.h" />
+    <ClInclude Include="GameUtilities\PlayerUtilities.h" />
     <ClInclude Include="HoodieScript-ImGui-Test\GuiManager.h" />
     <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imconfig.h" />
     <ClInclude Include="HoodieScript-ImGui-Test\ImGui\imgui.h" />
@@ -298,6 +299,7 @@
     <ClCompile Include="GameObjects\sprj_chr_data_module.cpp" />
     <ClCompile Include="GameObjects\sprj_gaitem_imp.cpp" />
     <ClCompile Include="GameObjects\sprj_gaitem_ins.cpp" />
+    <ClCompile Include="GameUtilities\PlayerUtilities.cpp" />
     <ClCompile Include="HoodieScript-ImGui-Test\GuiManager.cpp" />
     <ClCompile Include="HoodieScript-ImGui-Test\ImGui\imgui.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>

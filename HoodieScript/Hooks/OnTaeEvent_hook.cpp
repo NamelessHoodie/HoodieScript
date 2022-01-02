@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "OnTaeEvent_hook.h"
 #include "script_runtime.h"
+#include "GameObjects/chr_ins.h"
 #include "GameExtensions/GameExtensionsManager.h"
 
 namespace hoodie_script {

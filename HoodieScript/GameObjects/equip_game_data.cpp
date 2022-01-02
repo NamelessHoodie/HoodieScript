@@ -1,5 +1,3 @@
-#pragma once
-
 #include "pch.h"
 #include "equip_game_data.h"
 #include "databaseaddress.h"

@@ -19,11 +19,8 @@
 */
 
 #pragma once
-#include "memory_util.h"
-#include "databaseaddress.h"
 #include "chr_ins.h"
-#include "Amir/standard_player_boss.h"
-#include "GameObjects/equip_game_data.h"
+#include "GameObjects/player_game_data.h"
 
 namespace hoodie_script {
 
@@ -43,7 +40,7 @@ public:
 	PlayerIns(uintptr_t address);
 
 	/**
-	* Gets the virtual address of this Player's PlayerGameData object.
+	* Gets an instance of this Player's PlayerGameData object.
 	* 
 	* @return Virtual address of this Player's PlayerGameData object.
 	*/
@@ -74,7 +71,7 @@ public:
 
 	/**
 	* Gets the item in the active left weapon slot of this PlayerIns in the game's memory.
-	*
+	*https://youtu.be/EOy0f_fGKAg
 	* @return equipParamId of the weapon in this slot.
 	*/
 	int32_t getLeftHandWeaponActive() const; 
@@ -82,9 +79,9 @@ public:
 	* Sets the item in the specified left hand weapon slot of this PlayerIns in the game's memory.
 	*
 	* Setting this value may not result in expected behaivor, to learn more read this header's documentation 
- 	  at the top of the file.
+ 	  at the top of the file.https://youtu.be/EOy0f_fGKAg
 	* 
-	* @param slotNumber The weapon slot to put the weapon in, must be an integer ranging 1-3.
+	* @param slotNumber The weapon slot to put the weapon in, must be an integer ranging 0-2.
 	* @param equipParamWeaponId equipParamId of the weapon to put in this slot.
 	*/
 	void setLeftHandWeapon(const uint32_t& slotNumber, const int32_t& equipParamWeaponId);
@@ -99,24 +96,44 @@ public:
 	*/
 	void setLeftHandWeaponActive(const int32_t& equipParamWeaponId);
 
+	/**
+	* gets the active right weapon slot index of this PlayerIns in the game's memory.
+	*
+	* Setting this value may not result in expected behaivor, to learn more read this header's documentation
+	*  at the top of the file.
+	*/
 	uint32_t GetActiveWeaponSlotRightHand() const;
 
+	/**
+	* gets the active left weapon slot index of this PlayerIns in the game's memory.
+	*
+	* Setting this value may not result in expected behaivor, to learn more read this header's documentation
+	*  at the top of the file.
+	*/
 	uint32_t GetActiveWeaponSlotLeftHand() const;
 
 	/**
 	* Gets the item in the specified right weapon slot of this PlayerIns in the game's memory. 
 	* 
-	* @param slotNumber The weapon slot to get the weapon from, must be a integer ranging 1-3.
+	* @param slotNumber The weapon slot to get the weapon from, must be a integer ranging 0-2.
 	* @return equipParamId of the weapon in this slot.
 	*/
 	int32_t getRightHandWeapon(const uint32_t& slotNumber) const;
 
-	void setWeaponSheathState(int32_t slot);
+	/**
+	* Sets the weapon sheat state of this PlayerIns in the game's memory.
+	*/
+	void setWeaponSheathState(int32_t sheatState);
 
 	void ReplaceWeapon(const int32_t& equipParamWeaponTarget, const int32_t equipParamWeaponReplacement, int index);
 
 	void ReplaceWeaponActiveRight(const int32_t& equipParamWeaponTarget, const int32_t equipParamWeaponReplacement);
 
+	/**
+	* Sets the weapon sheat state of this PlayerIns in the game's memory.
+	*
+	* @return PlayerIns's sheat state of the weapon in this slot.
+	*/
 	int32_t getWeaponSheathState();
 
 	/**
@@ -348,11 +365,11 @@ public:
 	static bool isPlayer(const uintptr_t& address);
 
 	/**
-	* Get the virtual address of the main chr(The player charater the game takes the perspective of and allows you to control).
+	* Get an instance of the main chr(The player charater the game takes the perspective of and allows you to control).
 	* 
 	* @return Virtual address of the main chr.
 	*/
-	static uintptr_t getMainChrAddress();
+	static PlayerIns getMainChr();
 
 	/**
 	* Check if an address matches the virtual address of the main chr. 

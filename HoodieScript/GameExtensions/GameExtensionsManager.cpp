@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "GameExtensionsManager.h"
+#include <GameObjects/sprj_chr_data_module.h>
+#include <GameObjects/player_ins.h>
 
 namespace hoodie_script
 {

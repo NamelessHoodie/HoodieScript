@@ -1,6 +1,20 @@
 #include "pch.h"
 #include "script_runtime.h"
 #include "LuaObjects/middleclass.c"
+#include "script_repository.h"
+#include "LuaEvents/OnParamLoaded.h"
+#include "LuaEvents/OnGameFrame.h"
+#include "LuaEvents/OnHkbAnimation.h"
+#include "LuaEvents/OnSpeffectActive.h"
+#include "LuaEvents/OnRenderingFrame.h"
+#include "LuaEvents/OnHotkey.h"
+#include "GameDebugClasses/world_chr_man.h"
+#include "GameObjects/sprj_chr_data_module.h"
+#include "LuaBindings.h"
+#include <random>
+#include "HotKeyManager.h"
+#include "GameExtensions/GameExtensionsManager.h"
+#include <filesystem>
 
 using namespace sol;
 
@@ -172,11 +186,10 @@ namespace hoodie_script {
 
 	int script_runtime::on_hkb_animation(uintptr_t hbkCharacter, int animationId)
 	{
-		auto mainChrPtr = PlayerIns::getMainChrAddress();
-		auto mainChr = PlayerIns(mainChrPtr);
+		auto mainChr = PlayerIns::getMainChr();
 		if (mainChr.getHkbCharacter() == hbkCharacter)
 		{
-			return OnHkbAnimation::DoOnHkbAnimation(_luaState, mainChrPtr, animationId);
+			return OnHkbAnimation::DoOnHkbAnimation(_luaState, mainChr.getAddress(), animationId);
 		}
 		else
 		{

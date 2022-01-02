@@ -1,14 +1,4 @@
 #pragma once
-#include "HotKeyManager.h"
-#include "script_runtime.h"
-#include "LuaEvents/OnHkbAnimation.h"
-#include "LuaEvents/OnSpeffectActive.h"
-#include "Hooks/has_speffect_hook.h"
-#include "LuaEvents/OnParamLoaded.h"
-#include "LuaEvents/OnGameFrame.h"
-#include "LuaObjects/LuaMemory.h"
-#include "GameObjects/equip_inventory_data.h"
-#include <GameObjects/player_game_data.h>
 
 namespace hoodie_script
 {

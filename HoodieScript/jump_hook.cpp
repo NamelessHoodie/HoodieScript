@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "jump_hook.h"
+#include <memory>
+#include "minhook/include/MinHook.h"
 
 namespace hoodie_script {
     jump_hook::jump_hook(uintptr_t target, uintptr_t replacement) {

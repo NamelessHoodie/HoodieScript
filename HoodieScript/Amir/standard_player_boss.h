@@ -4,18 +4,10 @@
 */
 
 #pragma once
-#include "GameObjects/equip_game_data.h"
-#include "GameObjects/player_game_data.h"
 //#include <ds3runtime/scripts/param_patcher.h>
-#include "GameDebugClasses/game_data_man.h"
-#include <databaseaddress.h>
-#include <GameDebugClasses/world_chr_man.h>
-#include <GameDebugClasses/game_option_man.h>
+
 //#include "ds3runtime/scripts/animation_id_handler.h"
-#include <Amir/player_network_session.h>
-#include <Hooks/hkb_animation_hook.h>
-#include "GameObjects/player_ins.h"
-#include "script_runtime.h"
+#include "GameObjects/player_game_data.h"
 
 namespace hoodie_script {
 
@@ -26,8 +18,6 @@ public:
 	{
 	}
 	
-	virtual std::optional<uintptr_t> getChrAddress();
-
 	void replacePlayerAnibndFile(std::filesystem::path path);
 
 	void restoreVannilaPlayerAnibndFile();
@@ -52,7 +42,7 @@ public:
 
 	bool isAnimationPresent(int32_t animationId);
 
-	void setSheathState(int32_t slot);
+	void setSheathStateNetworked(int32_t newSheatState);
 private:
 	//static uintptr_t* GetRowAddressInParam(int RowID, uintptr_t paramPtr);
 	std::vector<InventoryItemInternal> savedItems;

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "jump_hook.h"
-#include "GameObjects/chr_ins.h"
+
 namespace hoodie_script {
 
     class OnTaeEvent_hook : public jump_hook
