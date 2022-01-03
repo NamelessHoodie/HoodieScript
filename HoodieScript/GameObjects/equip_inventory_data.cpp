@@ -56,6 +56,40 @@ bool FOLWisHiddenItem(const uint32_t itemId)
 	return false;
 }
 
+ItemParamIdPrefix EquipInventoryData::getItemParamIdPrefixFromGiveId(int32_t giveId)
+{
+	if ((giveId & (uint32_t)ItemParamIdPrefix::Protector) == (uint32_t)ItemParamIdPrefix::Protector) {
+		return ItemParamIdPrefix::Protector;
+	}
+	else if ((giveId & (uint32_t)ItemParamIdPrefix::Accessory) == (uint32_t)ItemParamIdPrefix::Accessory) {
+		return ItemParamIdPrefix::Accessory;
+	}
+	else if ((giveId & (uint32_t)ItemParamIdPrefix::Goods) == (uint32_t)ItemParamIdPrefix::Goods) {
+		return ItemParamIdPrefix::Goods;
+	}
+	else {
+		return ItemParamIdPrefix::Weapon;
+	}
+}
+
+bool EquipInventoryData::isHiddenItem(const uint32_t itemId)
+{
+	static std::vector<uint32_t> hiddenItems = {
+		0xFFFFFF,
+		(uint32_t)ItemParamIdPrefix::Weapon + 110000u,
+		(uint32_t)ItemParamIdPrefix::Protector + 900000u,
+		(uint32_t)ItemParamIdPrefix::Protector + 901000u,
+		(uint32_t)ItemParamIdPrefix::Protector + 902000u,
+		(uint32_t)ItemParamIdPrefix::Protector + 903000u,
+	};
+
+	for (uint32_t hiddenItemId : hiddenItems) {
+		if (hiddenItemId == itemId) return true;
+	}
+
+	return false;
+}
+
 std::vector<InventoryItem> EquipInventoryData::GetInventoryItems()
 {
 	std::vector<InventoryItem> lst;

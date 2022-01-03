@@ -172,7 +172,6 @@
     <ClInclude Include="Amir\game_packet.h" />
     <ClInclude Include="Amir\player_network_session.h" />
     <ClInclude Include="Amir\script_module.h" />
-    <ClInclude Include="Amir\standard_player_boss.h" />
     <ClInclude Include="databaseaddress.h" />
     <ClInclude Include="entry.h" />
     <ClInclude Include="framework.h" />
@@ -280,7 +279,6 @@
     <ClCompile Include="Amir\game_packet.cpp" />
     <ClCompile Include="Amir\player_network_session.cpp" />
     <ClCompile Include="Amir\script_module.cpp" />
-    <ClCompile Include="Amir\standard_player_boss.cpp" />
     <ClCompile Include="databaseaddress.cpp" />
     <ClCompile Include="entry.cpp" />
     <ClCompile Include="GameDebugClasses\Bullet_Spawn.cpp" />

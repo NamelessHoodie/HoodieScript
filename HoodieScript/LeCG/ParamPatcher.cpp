@@ -2,6 +2,38 @@
 #include "LeCG/ParamPatcher.h"
 
 namespace hoodie_script {
+	//uintptr_t StandardPlayerBoss::GetParamPtr(ParamBaseOffset Offset)
+	//{
+	//	var ParamPtr = IntPtr.Add(Memory.BaseAddress, 0x4782838);
+	//	ParamPtr = new IntPtr(Memory.ReadInt64(ParamPtr));
+	//	ParamPtr = IntPtr.Add(ParamPtr, (int)Offset);
+	//	ParamPtr = new IntPtr(Memory.ReadInt64(ParamPtr));
+	//	ParamPtr = IntPtr.Add(ParamPtr, 0x68);
+	//	ParamPtr = new IntPtr(Memory.ReadInt64(ParamPtr));
+	//	ParamPtr = IntPtr.Add(ParamPtr, 0x68);
+	//	ParamPtr = new IntPtr(Memory.ReadInt64(ParamPtr));
+	//
+	//	return accessMultilevelPointer<uintptr_t>((uintptr_t)((byte)DataBaseAddress::BASEExecutable + (byte)0x4782838), Offset, 0x68, 0x68);
+	//}
+	//uintptr_t* StandardPlayerBoss::GetRowAddressInParam(int RowID, uintptr_t paramPtr) { //this is not good, make sure to fix it if you use it.
+	//	int num = 0;
+	//	byte* param = (byte*)paramPtr;
+	//	byte* DataOffset = param + (byte)0x40;
+	//	if (*(unsigned int*)DataOffset == RowID) {
+	//		return (uintptr_t*)(param + *(unsigned int*)(DataOffset + (byte)0x8));
+	//	}
+	//	while (true) {
+	//		num += 1;
+	//		DataOffset += (byte)0x18;
+	//		if (*(unsigned int*)DataOffset == 0) {
+	//			std::cout << "Row ID: " << std::dec << RowID << " Was Not Found" << std::endl;
+	//			return nullptr;
+	//		}
+	//		else if (*(unsigned int*)DataOffset == RowID) {
+	//			return (uintptr_t*)(param + *(unsigned int*)(DataOffset + (byte)0x8));
+	//		}
+	//	}
+	//}
 	ParamPatcher::ParamPatcher()
 	{
 		while (!hasGameLoaded()) { Sleep(100); }

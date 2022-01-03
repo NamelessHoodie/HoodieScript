@@ -20,6 +20,8 @@ public:
 
 	int32_t getInventoryItemCount();
 	std::vector<InventoryItem> GetInventoryItems();
+	ItemParamIdPrefix getItemParamIdPrefixFromGiveId(int32_t giveId);
+	bool isHiddenItem(const uint32_t itemId);
 private:
 	uintptr_t address;
 };

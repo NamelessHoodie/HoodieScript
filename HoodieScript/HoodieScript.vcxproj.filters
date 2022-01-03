@@ -129,9 +129,6 @@
     <ClInclude Include="Amir\player_network_session.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Amir\standard_player_boss.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Hooks\has_speffect_hook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -414,9 +411,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Amir\player_network_session.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Amir\standard_player_boss.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Hooks\has_speffect_hook.cpp">

@@ -2,6 +2,7 @@
 #include "GameExtensionsManager.h"
 #include <GameObjects/sprj_chr_data_module.h>
 #include <GameObjects/player_ins.h>
+#include "GameUtilities/PlayerUtilities.h"
 
 namespace hoodie_script
 {
@@ -31,7 +32,7 @@ namespace hoodie_script
 				if (PlayerIns::isPlayer(a.getAddress()))
 				{
 					logging::write_line("JumpTable : 666 - MainPlayer");
-					a.ReplaceWeaponActiveRight(a.getRightHandWeaponActive(), jumpTableData->arg2);
+					PlayerUtilities::ReplaceWeaponRightActiveNetworked(a.getRightHandWeaponActive(), jumpTableData->arg2);
 				}
 				else if (a.hasPlayerGameData())
 				{

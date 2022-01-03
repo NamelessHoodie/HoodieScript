@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "player_ins.h"
-#include "Amir/standard_player_boss.h"
 #include "memory_util.h"
 #include "databaseaddress.h"
 #include "GameDebugClasses/world_chr_man.h"
@@ -88,42 +87,6 @@ namespace hoodie_script {
 	int32_t PlayerIns::getWeaponSheathState()
 	{
 		return getPlayerGameData().getWeaponSheathState();
-	}
-
-
-	void PlayerIns::setRightHandWeaponActiveNetworked(const int32_t& equipParamWeaponId)
-	{
-		auto rightHandSlot = GetActiveWeaponSlotRightHand();
-		setRightHandWeaponNetworked(equipParamWeaponId, rightHandSlot);
-	}
-
-	void PlayerIns::setRightHandWeaponNetworked(const int32_t& equipParamWeaponId, int index)
-	{
-		int array[]{ 1,3,5 };
-		StandardPlayerBoss hello = StandardPlayerBoss();
-		hello.giveItemAndSwap((InventorySlot)array[index], ItemParamIdPrefix::Weapon, equipParamWeaponId, -1);
-	}
-
-	bool PlayerIns::removeWeaponFromInventory(const int32_t& equipParamWeaponId)
-	{
-		StandardPlayerBoss hello = StandardPlayerBoss();
-		hello.RemoveItemFromInventory(ItemParamIdPrefix::Weapon, equipParamWeaponId);
-		return true;
-	}
-
-	void PlayerIns::ReplaceWeapon(const int32_t& equipParamWeaponTarget, const int32_t equipParamWeaponReplacement, int index)
-	{
-		int array[]{ 1,3,5 };
-		StandardPlayerBoss hello = StandardPlayerBoss();
-		hello.ReplaceItem((InventorySlot)array[index], ItemParamIdPrefix::Weapon, equipParamWeaponTarget, equipParamWeaponReplacement, -1);
-	}
-
-	void PlayerIns::ReplaceWeaponActiveRight(const int32_t& equipParamWeaponTarget, const int32_t equipParamWeaponReplacement)
-	{
-		auto rightHandSlot = *accessMultilevelPointer<int32_t>(0x144740178, 0x10, 0x2C0);
-		int array[]{ 1,3,5 };
-		StandardPlayerBoss hello = StandardPlayerBoss();
-		hello.ReplaceItem((InventorySlot)array[rightHandSlot], ItemParamIdPrefix::Weapon, equipParamWeaponTarget, equipParamWeaponReplacement, -1);
 	}
 
 	int32_t PlayerIns::getHead() const

@@ -8,8 +8,6 @@
 #include "LuaEvents/OnRenderingFrame.h"
 #include "HotKeyManager.h"
 #include "LuaObjects/LuaMemory.h"
-//#include <GameObjects/player_ins.h>
-//#include <GameObjects/player_game_data.h>
 #include "GameObjects/sprj_chr_data_module.h"
 #include <GameObjects/SprjMsgRepositoryImp.h>
 #include "GameDebugClasses/world_chr_man.h"
@@ -276,15 +274,10 @@ namespace hoodie_script
 		sol_playerins["GetActiveWeaponSlotLeftHand"] = &PlayerIns::GetActiveWeaponSlotLeftHand;
 		sol_playerins["getRightHandWeapon"] = &PlayerIns::getRightHandWeapon;
 		sol_playerins["setWeaponSheathState"] = &PlayerIns::setWeaponSheathState;
-		sol_playerins["ReplaceWeapon"] = &PlayerIns::ReplaceWeapon;
-		sol_playerins["ReplaceWeaponActiveRight"] = &PlayerIns::ReplaceWeaponActiveRight;
 		sol_playerins["getWeaponSheathState"] = &PlayerIns::getWeaponSheathState;
 		sol_playerins["getRightHandWeaponActive"] = &PlayerIns::getRightHandWeaponActive;
 		sol_playerins["setRightHandWeapon"] = &PlayerIns::setRightHandWeapon;
 		sol_playerins["setRightHandWeaponActive"] = &PlayerIns::setRightHandWeaponActive;
-		sol_playerins["setRightHandWeaponActiveNetworked"] = &PlayerIns::setRightHandWeaponActiveNetworked;
-		sol_playerins["setRightHandWeaponNetworked"] = &PlayerIns::setRightHandWeaponNetworked;
-		sol_playerins["removeWeaponFromInventory"] = &PlayerIns::removeWeaponFromInventory;
 		sol_playerins["getHead"] = &PlayerIns::getHead;
 		sol_playerins["setHead"] = &PlayerIns::setHead;
 		sol_playerins["getChest"] = &PlayerIns::getChest;
