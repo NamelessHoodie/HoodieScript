@@ -12,20 +12,27 @@ SprjGaitemImp::SprjGaitemImp(uintptr_t address)
 
 std::optional<SprjGaitemIns> SprjGaitemImp::getItemByUniqueId(uint32_t uniqueId)
 {
-	//std::cout << "UID - " << uniqueId << std::endl;
 	uintptr_t itemOffset = (uniqueId % 0x10000u) * 8u + 0x40u;
-	//std::cout << "RelativeInsOffset - " << itemOffset << std::endl;
 	uintptr_t* itemPtrPtr = (uintptr_t*)(address + itemOffset);
-	//std::cout << "PtrToPtrToIns - " << itemPtrPtr << std::endl;
+	uintptr_t itemPtr = 0;
+	std::optional<SprjGaitemIns> item = std::optional<SprjGaitemIns>();
 	if (itemPtrPtr) {
-		//std::cout << "PtrToIns - " << *itemPtrPtr << std::endl;
-		uintptr_t itemPtr = *itemPtrPtr;
-		std::optional<SprjGaitemIns> item = SprjGaitemIns(itemPtr);
-		//std::cout << "PtrToInsObj - " << item->getAddress() << std::endl;
+		itemPtr = *itemPtrPtr;
+		item = SprjGaitemIns(itemPtr);
 		if (item->isValid())
 			return item;
 	}
-	return std::optional<SprjGaitemIns>();
+
+	std::stringstream sstream;
+	sstream << std::hex;
+	sstream << "UID - " << uniqueId << std::endl;
+	sstream << "UID - " << uniqueId << std::endl;
+	sstream << "RelativeInsOffset - " << itemOffset << std::endl;
+	sstream << "PtrToPtrToIns - " << itemPtrPtr << std::endl;
+	sstream << "PtrToIns - " << itemPtr << std::endl;
+	sstream << "PtrToInsObj - " << item->getAddress() << std::endl;
+	logging::write_line(sstream.str());
+	return item;
 }
 
 SprjGaitemImp SprjGaitemImp::getInstance()
