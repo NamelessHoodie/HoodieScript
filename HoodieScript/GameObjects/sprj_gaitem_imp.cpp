@@ -26,7 +26,6 @@ std::optional<SprjGaitemIns> SprjGaitemImp::getItemByUniqueId(uint32_t uniqueId)
 	std::stringstream sstream;
 	sstream << std::hex;
 	sstream << "UID - " << uniqueId << std::endl;
-	sstream << "UID - " << uniqueId << std::endl;
 	sstream << "RelativeInsOffset - " << itemOffset << std::endl;
 	sstream << "PtrToPtrToIns - " << itemPtrPtr << std::endl;
 	sstream << "PtrToIns - " << itemPtr << std::endl;
