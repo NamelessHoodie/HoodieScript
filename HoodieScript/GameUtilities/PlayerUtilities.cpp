@@ -39,15 +39,18 @@ namespace hoodie_script
 		session.sessionPacketSend(13, (char*)sheathData, 4);
 	}
 
-	int32_t PlayerUtilities::GetInventorySlotDurability(InventorySlot slot, ItemParamIdPrefix paramIdPrefix)
+	int32_t PlayerUtilities::GetInventorySlotDurability(InventorySlot slot)
 	{
 		EquipGameData equipGameData = PlayerIns::getMainChr().
-			getPlayerGameData().
-			getEquipGameData();
+												 getPlayerGameData().
+												 getEquipGameData();
+
 		EquipInventoryData equipInventoryData = equipGameData.getEquipInventoryData();
+
 		auto index = equipGameData.getInventoryItemIdBySlot(slot);
 		auto inventoryItemInternal = equipInventoryData.getInventoryItemById(index);
 		InventoryItem inventoryItem = InventoryItem(inventoryItemInternal, index);
+		std::cout << std::dec << "InventoryItem : Index = " << inventoryItem.inventoryIndex << ", " << "UID = " << std::hex << inventoryItem.uniqueId << ", " << "ItemId = " << std::dec << inventoryItem.itemId << ", " << "ItemType = " << std::hex << (int32_t)inventoryItem.itemType << ", " << "Quantity = " << std::dec << inventoryItem.quantity << ", " << std::hex << "Unk1 = " << inventoryItem.unknown1 << std::endl;
 		auto gaitemIns = inventoryItem.GetGaitemInstance();
 		if (gaitemIns.isValid())
 		{
@@ -76,7 +79,7 @@ namespace hoodie_script
 			return;
 
 		PlayerIns mainPlayer = PlayerIns::getMainChr();
-		auto rightWeaponActiveIndex = mainPlayer.GetActiveWeaponSlotLeftHand();
+		auto rightWeaponActiveIndex = mainPlayer.GetActiveWeaponSlotRightHand();
 
 		ReplaceWeaponRightHandBySlotIndexNetworked(rightWeaponActiveIndex, equipParamWeaponTarget, equipParamWeaponReplacement);
 	}
@@ -109,8 +112,9 @@ namespace hoodie_script
 		if (!PlayerIns::isMainChrLoaded() || !PlayerIns::getMainChr().hasPlayerGameData())
 			return;
 
+
 		if (durability == -1)
-			durability = GetInventorySlotDurability(inventorySlot, paramIdPrefix);
+			durability = GetInventorySlotDurability(inventorySlot);
 		else
 			durability = getItemMaxDurability(paramIdPrefix, paramItemIdReplacement);
 

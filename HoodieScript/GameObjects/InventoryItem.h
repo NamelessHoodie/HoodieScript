@@ -7,7 +7,7 @@ namespace hoodie_script
 		uint32_t uniqueId;
 		int32_t giveId;
 		uint32_t quantity;
-		int32_t unknown1;
+		uint32_t unknown1;
 	};
 
 	enum class ItemParamIdPrefix : int32_t
@@ -21,13 +21,13 @@ namespace hoodie_script
 	class InventoryItem
 	{
 	public:
-		InventoryItem(int32_t inventoryIndex, uint32_t uniqueid, int32_t itemId, uint32_t quantity, int32_t unknown1, ItemParamIdPrefix itemType);
+		InventoryItem(int32_t inventoryIndex, uint32_t uniqueid, int32_t itemId, uint32_t quantity, uint32_t unknown1, ItemParamIdPrefix itemType);
 		InventoryItem(InventoryItemInternal* itemStructPtr, size_t gameInventoryIndex);
 		int32_t inventoryIndex;
 		uint32_t uniqueId;
 		int32_t itemId;
 		uint32_t quantity;
-		int32_t unknown1;
+		uint32_t unknown1;
 		ItemParamIdPrefix itemType;
 		SprjGaitemIns GetGaitemInstance();
 	private:

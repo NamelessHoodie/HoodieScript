@@ -19,7 +19,7 @@ namespace hoodie_script
 		static void giveGoodsAndEquipInGoodSlot(GoodsSlot goodsSlot, int32_t paramItemId, int32_t quantity);
 	private:
 		static void RemoveItemFromInventoryByItemId(ItemParamIdPrefix paramIdPrefix, int32_t paramItemId);
-		static int32_t GetInventorySlotDurability(InventorySlot slot, ItemParamIdPrefix paramIdPrefix);
+		static int32_t GetInventorySlotDurability(InventorySlot slot);
 		static void ReplaceWeaponByInventorySlotNetworked(InventorySlot inventorySlot, ItemParamIdPrefix paramIdPrefix, int32_t paramItemIdTarget, int32_t paramItemIdReplacement, int32_t durability);
 		static void RemoveItemFromInventoryByInventorySlot(InventorySlot slot, ItemParamIdPrefix paramIdPrefix);
 		static std::optional<int32_t> findInventoryIdByGiveId(int32_t giveId);

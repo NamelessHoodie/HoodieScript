@@ -1,10 +1,11 @@
 #include "pch.h"
 #include "InventoryItem.h"
+#include "GameObjects/equip_inventory_data.h"
 #include "GameObjects/sprj_gaitem_Imp.h"
 
 namespace hoodie_script
 {
-	InventoryItem::InventoryItem(int32_t inventoryIndexArg, uint32_t uniqueidArg, int32_t itemIdArg, uint32_t quantityArg, int32_t unknown1Arg, ItemParamIdPrefix itemTypeArg)
+	InventoryItem::InventoryItem(int32_t inventoryIndexArg, uint32_t uniqueidArg, int32_t itemIdArg, uint32_t quantityArg, uint32_t unknown1Arg, ItemParamIdPrefix itemTypeArg)
 	{
 		this->inventoryIndex = inventoryIndexArg;
 		this->uniqueId = uniqueidArg;
@@ -16,28 +17,10 @@ namespace hoodie_script
 
 	InventoryItem::InventoryItem(InventoryItemInternal* itemStructPtr, size_t gameInventoryIndex)
 	{
-		int32_t notFullyQualifiedItemId = itemStructPtr->giveId;
-		ItemParamIdPrefix varItemType;
+		int32_t giveId = itemStructPtr->giveId;
+		ItemParamIdPrefix varItemType = EquipInventoryData::getItemParamIdPrefixFromGiveId(giveId);
+		int32_t notFullyQualifiedItemId = giveId - (int32_t)varItemType;
 
-		if (notFullyQualifiedItemId >= (int32_t)ItemParamIdPrefix::Goods)
-		{
-			notFullyQualifiedItemId -= (int32_t)ItemParamIdPrefix::Goods;
-			varItemType = ItemParamIdPrefix::Goods;
-		}
-		else if (itemId >= (int32_t)ItemParamIdPrefix::Accessory)
-		{
-			notFullyQualifiedItemId -= (int32_t)ItemParamIdPrefix::Accessory;
-			varItemType = ItemParamIdPrefix::Accessory;
-		}
-		else if (itemId >= (int32_t)ItemParamIdPrefix::Protector)
-		{
-			notFullyQualifiedItemId -= (int32_t)ItemParamIdPrefix::Protector;
-			varItemType = ItemParamIdPrefix::Protector;
-		}
-		else
-		{
-			varItemType = ItemParamIdPrefix::Weapon;
-		}
 		this->inventoryIndex = gameInventoryIndex;
 		this->uniqueId = itemStructPtr->uniqueId;
 		this->itemId = notFullyQualifiedItemId;
@@ -48,6 +31,7 @@ namespace hoodie_script
 
 	SprjGaitemIns InventoryItem::GetGaitemInstance()
 	{
+		//logging::write_line(std::format("HasGaitemImp = {0}, ItemType = {1}", SprjGaitemImp::hasInstance(), (int32_t)itemType));
 		if (SprjGaitemImp::hasInstance() && (itemType == ItemParamIdPrefix::Weapon || itemType == ItemParamIdPrefix::Protector))
 		{
 			auto a = SprjGaitemImp::getInstance().getItemByUniqueId(this->uniqueId);
@@ -57,5 +41,6 @@ namespace hoodie_script
 			}
 		}
 		return SprjGaitemIns(0);
+
 	}
 }
