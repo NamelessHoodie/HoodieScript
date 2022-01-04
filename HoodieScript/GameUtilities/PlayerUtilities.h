@@ -16,13 +16,16 @@ namespace hoodie_script
 		static void ReplaceWeaponLeftHandBySlotIndexNetworked(uint32_t weaponSlot, int32_t equipParamWeaponTarget, const int32_t equipParamWeaponReplacement);
 		static void ReloadC0000();
 		static void giveItemAndEquipInInventorySlot(InventorySlot inventorySlot, ItemParamIdPrefix paramIdPrefix, int32_t paramItemId, int32_t durability);
+		static bool tryEquipItemInInventorySlot(InventorySlot inventorySlot, ItemParamIdPrefix paramIdPrefix, int32_t paramItemId);
 		static void giveGoodsAndEquipInGoodSlot(GoodsSlot goodsSlot, int32_t paramItemId, int32_t quantity);
 	private:
 		static void RemoveItemFromInventoryByItemId(ItemParamIdPrefix paramIdPrefix, int32_t paramItemId);
 		static int32_t GetInventorySlotDurability(InventorySlot slot);
 		static void ReplaceWeaponByInventorySlotNetworked(InventorySlot inventorySlot, ItemParamIdPrefix paramIdPrefix, int32_t paramItemIdTarget, int32_t paramItemIdReplacement, int32_t durability);
 		static void RemoveItemFromInventoryByInventorySlot(InventorySlot slot, ItemParamIdPrefix paramIdPrefix);
-		static std::optional<int32_t> findInventoryIdByGiveId(int32_t giveId);
+		static void EquipItemInInventoryIfPresentOrGiveAndEquip(InventorySlot slot, ItemParamIdPrefix paramIdPrefix, int32_t paramItemId, int32_t durability);
+		static std::optional<int32_t> findInventoryIdByGiveId(int32_t giveId, bool disallowEquipped = false);
+		static bool isInventoryItemEquipped(InventoryItem* item);
 		static int32_t getItemMaxDurability(ItemParamIdPrefix paramIdPrefix, int32_t paramItemId);
 	};
 }

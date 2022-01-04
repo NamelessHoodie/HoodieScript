@@ -173,8 +173,16 @@ namespace hoodie_script
 			getEquipGameData();
 		EquipInventoryData equipInventoryData = equipGameData.getEquipInventoryData();
 		auto index = equipGameData.getInventoryItemIdBySlot(slot);
-		giveItemAndEquipInInventorySlot(slot, paramIdPrefix, 110000, -1);
+		EquipItemInInventoryIfPresentOrGiveAndEquip(slot, paramIdPrefix, 110000, -1);
 		equipInventoryData.discardInventoryItems(index, 1);
+	}
+
+	void PlayerUtilities::EquipItemInInventoryIfPresentOrGiveAndEquip(InventorySlot slot, ItemParamIdPrefix paramIdPrefix, int32_t paramItemId, int32_t durability)
+	{
+		if (!tryEquipItemInInventorySlot(slot, paramIdPrefix, paramItemId))
+		{
+			giveItemAndEquipInInventorySlot(slot, paramIdPrefix, paramItemId, durability);
+		}
 	}
 
 	void PlayerUtilities::unequipAllEquipment()
@@ -192,19 +200,19 @@ namespace hoodie_script
 			case 3:
 			case 4:
 			case 5:
-				giveItemAndEquipInInventorySlot((InventorySlot)i, ItemParamIdPrefix::Weapon, 110000, -1);
+				EquipItemInInventoryIfPresentOrGiveAndEquip((InventorySlot)i, ItemParamIdPrefix::Weapon, 110000, -1);
 				break;
 			case 12:
-				giveItemAndEquipInInventorySlot((InventorySlot)i, ItemParamIdPrefix::Protector, 900000, -1);
+				EquipItemInInventoryIfPresentOrGiveAndEquip((InventorySlot)i, ItemParamIdPrefix::Protector, 900000, -1);
 				break;
 			case 13:
-				giveItemAndEquipInInventorySlot((InventorySlot)i, ItemParamIdPrefix::Protector, 901000, -1);
+				EquipItemInInventoryIfPresentOrGiveAndEquip((InventorySlot)i, ItemParamIdPrefix::Protector, 901000, -1);
 				break;
 			case 14:
-				giveItemAndEquipInInventorySlot((InventorySlot)i, ItemParamIdPrefix::Protector, 902000, -1);
+				EquipItemInInventoryIfPresentOrGiveAndEquip((InventorySlot)i, ItemParamIdPrefix::Protector, 902000, -1);
 				break;
 			case 15:
-				giveItemAndEquipInInventorySlot((InventorySlot)i, ItemParamIdPrefix::Protector, 903000, -1);
+				EquipItemInInventoryIfPresentOrGiveAndEquip((InventorySlot)i, ItemParamIdPrefix::Protector, 903000, -1);
 				break;
 			case 6:
 			case 7:
@@ -233,19 +241,27 @@ namespace hoodie_script
 		}
 	}
 
-	std::optional<int32_t> PlayerUtilities::findInventoryIdByGiveId(int32_t giveId)
+	std::optional<int32_t> PlayerUtilities::findInventoryIdByGiveId(int32_t giveId, bool disallowEquipped)
 	{
 		EquipGameData equipGameData = GameDataMan::getInstance().
 			getPlayerGameData().
 			getEquipGameData();
 		EquipInventoryData equipInventoryData = equipGameData.getEquipInventoryData();
+		
 		std::optional<int32_t> indexOfItem;
+		
+		auto items = equipInventoryData.GetInventoryItems();
+		for (auto i = items.begin(); i != items.end(); i++) {
+			auto item = *i;
+			auto itemFullyQualifiedGiveId = item.itemId + (int32_t)item.itemType;
 
-		for (int32_t i = 0; i < equipInventoryData.getInventoryItemCount(); i++) {
-			auto* item = equipInventoryData.getInventoryItemById(i);
+			if (itemFullyQualifiedGiveId == giveId) 
+			{
+				if (disallowEquipped)
+					if (isInventoryItemEquipped(&item))
+						continue;
 
-			if (item != nullptr && item->giveId == giveId) {
-				indexOfItem = i;
+				indexOfItem = item.inventoryIndex;
 				break;
 			}
 		}
@@ -253,25 +269,48 @@ namespace hoodie_script
 		return indexOfItem;
 	}
 
+	bool PlayerUtilities::isInventoryItemEquipped(InventoryItem* item)
+	{
+		GameDataMan gameDataMan = GameDataMan::getInstance();
+		PlayerGameData playerGameData = gameDataMan.getPlayerGameData();
+		EquipGameData equipGameData = playerGameData.getEquipGameData();
+		EquipInventoryData equipInventoryData = equipGameData.getEquipInventoryData();
+
+		for (int32_t i = 0; i <= 5; ++i) {
+			auto indexOfInventoryItem = equipGameData.getInventoryItemIdBySlot((InventorySlot)i);
+			auto inventoryItemInternal = equipInventoryData.getInventoryItemById(indexOfInventoryItem);
+			auto inventoryItem = InventoryItem(inventoryItemInternal, indexOfInventoryItem);
+			if (inventoryItem.uniqueId == item->uniqueId)
+				return true;
+		}
+		return false;
+	}
+
 	void PlayerUtilities::giveItemAndEquipInInventorySlot(InventorySlot inventorySlot, ItemParamIdPrefix paramIdPrefix, int32_t paramItemId, int32_t durability)
+	{
+		EquipGameData equipGameData = PlayerIns::getMainChr().
+												 getPlayerGameData().
+												 getEquipGameData();
+		EquipInventoryData equipInventoryData = equipGameData.getEquipInventoryData();
+
+		equipInventoryData.addItem(paramIdPrefix, paramItemId, 1, durability);
+		tryEquipItemInInventorySlot(inventorySlot, paramIdPrefix, paramItemId);
+	}
+
+	bool PlayerUtilities::tryEquipItemInInventorySlot(InventorySlot inventorySlot, ItemParamIdPrefix paramIdPrefix, int32_t paramItemId)
 	{
 		EquipGameData equipGameData = PlayerIns::getMainChr().
 			getPlayerGameData().
 			getEquipGameData();
 		EquipInventoryData equipInventoryData = equipGameData.getEquipInventoryData();
-		std::optional<int32_t> indexOfItem = findInventoryIdByGiveId((uint32_t)paramIdPrefix + paramItemId);
 
-		if (!indexOfItem.has_value()) {
-			equipInventoryData.addItem(paramIdPrefix, paramItemId, 1, durability);
-			indexOfItem = findInventoryIdByGiveId((uint32_t)paramIdPrefix + paramItemId);
-			equipGameData.equipInventoryItem(inventorySlot, indexOfItem.value());
-			PlayerNetworkSession::queueEquipmentPacket();
-		}
-		else
-		{
-			equipGameData.equipInventoryItem(inventorySlot, indexOfItem.value());
-			PlayerNetworkSession::queueEquipmentPacket();
-		}
+		std::optional<int32_t>indexOfItem = findInventoryIdByGiveId((uint32_t)paramIdPrefix + paramItemId, true);
+		if (!indexOfItem.has_value())
+			return false;
+		
+		equipGameData.equipInventoryItem(inventorySlot, indexOfItem.value());
+		PlayerNetworkSession::queueEquipmentPacket();
+		return true;
 	}
 
 	void PlayerUtilities::giveGoodsAndEquipInGoodSlot(GoodsSlot goodsSlot, int32_t paramItemId, int32_t quantity)
