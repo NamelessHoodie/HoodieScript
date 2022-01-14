@@ -18,6 +18,11 @@ bool ChrIns::isValid() const
 	return bodyNodeFunction && (*bodyNodeFunction == 0x14087D320 || *bodyNodeFunction == 0x1408AF650);
 }
 
+uint32_t ChrIns::getEntityId()
+{
+	return *(uint32_t*)(address + 0x1A1C);
+}
+
 ChrIns::Handle ChrIns::getHandle() const
 {
 	return static_cast<Handle>(*accessMultilevelPointer<uint32_t>(address + 8));
@@ -75,13 +80,15 @@ float ChrIns::getTurnRate() const
 
 std::vector<float> ChrIns::getPosition() const
 {
+	//float* positionArray = accessMultilevelPointer<float>(address + 0x1f90, 0xa8, 0x40, 0x70);
 	float* positionArray = accessMultilevelPointer<float>(address + 0x18, 0x28, 0x80);
-	std::vector<float> position(positionArray, positionArray + 12);
+	std::vector<float> position(positionArray, positionArray + 3);
 	return position;
 }
 
 void ChrIns::setPosition(const std::vector<float>& position)
 {
+	//memcpy(accessMultilevelPointer<float>(address + 0x1f90, 0xa8, 0x40, 0x70), &position[0], 12);
 	memcpy(accessMultilevelPointer<float>(address + 0x18, 0x28, 0x80), &position[0], 12);
 }
 

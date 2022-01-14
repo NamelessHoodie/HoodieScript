@@ -315,7 +315,7 @@ namespace hoodie_script
 		sol_worldchrman["isLoaded"] = WorldChrMan::isLoaded;
 		sol_worldchrman["getAddress"] = WorldChrMan::getAddress;
 
-		sol::usertype<ChrIns> sol_chrins = luaSol.new_usertype<ChrIns>("ChrIns");
+		sol::usertype<ChrIns> sol_chrins = luaSol.new_usertype<ChrIns>("ChrIns", sol::constructors<ChrIns(uintptr_t)>());
 		sol_chrins["isValid"] = &ChrIns::isValid;
 		sol_chrins["getHandle"] = &ChrIns::getHandle;
 		sol_chrins["getChrType"] = &ChrIns::getChrType;

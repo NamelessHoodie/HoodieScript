@@ -85,6 +85,8 @@ public:
 	*/
 	bool isValid() const;
 
+	uint32_t getEntityId();
+
 	/**
 	* Gets the handle of this ChrIns. 
 	* 
