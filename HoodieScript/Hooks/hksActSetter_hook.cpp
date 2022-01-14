@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "hksActSetter_hook.h"
+#include "script_runtime.h"
 #include "GameExtensions/GameExtensionsManager.h"
+#include "LuaEvents/LuaStateThreadLock.h"
+
 //#include "script_runtime.h"
 
 namespace hoodie_script {
@@ -13,6 +16,7 @@ namespace hoodie_script {
 
 	void hksActSetter_hook::on_invoke(uintptr_t* chrInsPtr, int32_t actId, uintptr_t luaStatePtr)
 	{
+		LuaStateThreadLock::Lock();
 		ChrIns characterInstance(*chrInsPtr);
 		LuaArgs luaArgs(luaStatePtr);
 		auto extension = GameExtensionManager::tryGetHksActExpansionLambda(actId);
@@ -24,5 +28,6 @@ namespace hoodie_script {
 		{
 			call(_instance->get_original(), chrInsPtr, actId, luaStatePtr);
 		}
+		LuaStateThreadLock::Unlock();
 	}
 }

@@ -8,6 +8,7 @@
 #include "LuaEvents/OnSpeffectActive.h"
 #include "LuaEvents/OnRenderingFrame.h"
 #include "LuaEvents/OnHotkey.h"
+#include "LuaEvents/OnHksAct.h"
 #include "GameDebugClasses/world_chr_man.h"
 #include "GameObjects/sprj_chr_data_module.h"
 #include "LuaBindings.h"
@@ -15,6 +16,7 @@
 #include "HotKeyManager.h"
 #include "GameExtensions/GameExtensionsManager.h"
 #include <filesystem>
+#include "LuaEvents/LuaStateThreadLock.h"
 
 using namespace sol;
 
@@ -62,14 +64,17 @@ namespace hoodie_script {
 		hksActSet_hook = new hoodie_script::hksActSetter_hook();
 		menu_isopen_getter_hook = new hoodie_script::menu_isopen_getter_hook();
 
+		//LuaStateThreadLock::Lock();
 		lua_State* L = luaL_newstate();
 		luaL_openlibs(L);
 		_luaState = L;
 		InitializeLuaEmbeddedFiles();
 		InitializeFunctionLuaBindings();
 		LuaSetPath(L);
-		script_runtime::paramPatcher = new ParamPatcher();
 		GameExtensionManager::registerEmbeddedExtensions();
+		//LuaStateThreadLock::Unlock();
+
+		script_runtime::paramPatcher = new ParamPatcher();
 		OnParamLoaded::DoOnParamLoaded(_luaState);
 	}
 
@@ -123,6 +128,8 @@ namespace hoodie_script {
 
 	void script_runtime::deinitializeHooks()
 	{
+		//LuaStateThreadLock::Lock();
+
 		//Important that this is installed and uninstalled first
 		gameFrameHook->uninstall();
 
@@ -135,6 +142,7 @@ namespace hoodie_script {
 		hksActSet_hook->uninstall();
 		menu_isopen_getter_hook->uninstall();
 
+		//LuaStateThreadLock::Unlock();
 	}
 
 	void script_runtime::handle_error(lua_State* luaState)

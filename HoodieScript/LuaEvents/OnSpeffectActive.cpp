@@ -4,6 +4,7 @@
 #include "GameObjects/player_ins.h"
 #include "Hooks/has_speffect_hook.h"
 #include "script_runtime.h"
+#include "LuaStateThreadLock.h"
 
 namespace hoodie_script {
 
@@ -26,6 +27,7 @@ namespace hoodie_script {
     }
 
     void OnSpeffectActive::DoOnSpEffect(lua_State* L) {
+        LuaStateThreadLock::Lock();
         sol::state_view sol(L);
         for (size_t i = 0; i < OnSpeffectActive::OnSpeffectSubscriptions.size(); i++)
         {
@@ -54,6 +56,6 @@ namespace hoodie_script {
                 }
             }
         }
-        return;
+        LuaStateThreadLock::Unlock();
     }
 }

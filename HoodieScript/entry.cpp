@@ -17,7 +17,7 @@
 std::shared_ptr<hoodie_script::DS3RuntimeScripting> hoodie_script::ds3runtime_global;;
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved) {
-	HANDLE thread;
+	//HANDLE thread;
 	static HMODULE dinput8dll = nullptr;
 	HMODULE chainModule = NULL;
 	wchar_t chainPath[MAX_PATH];
@@ -67,11 +67,11 @@ void* menuOpenGetter;
 void* menuOpenSetter;
 void* addVehOgFun;
 void* debugMemeOg;
-void* memeHelp;
+void* ds3LuaSetFunctionFunPtrHook;
 
 uint32_t Meme1(int a)
 {
-	uint32_t meme = call(menuOpenGetter, a);
+	uint32_t meme = (uint32_t)call(menuOpenGetter, a);
 	static uint32_t memes[5000]{};
 	if (memes[a] != meme)
 	{
@@ -116,24 +116,24 @@ PVOID addVeh(ULONG first, PVECTORED_EXCEPTION_HANDLER handler)
 	return (PVOID)call(addVehOgFun, first, handler);
 }
 
-bool Idk(uintptr_t hkbMeme)
+bool newLuaFunction(uintptr_t luaState)
 {
-	std::cout << hkbMeme << std::endl;
+	std::cout << luaState << std::endl;
 	//hoodie_script::logging::write_line(std::format("Str = {0}", luaArgs));
 	return false;
 }
 
-void MemeHelp(uintptr_t luaState, const char* name, uintptr_t functionptr)
+void Ds3LuaSetFunction(uintptr_t luaState, const char* name, uintptr_t functionptr)
 {
 	static uintptr_t lastAdr = 0;
 	if (lastAdr != luaState)
 	{
-		call(memeHelp, luaState, "HoodieFun", Idk);
+		call(ds3LuaSetFunctionFunPtrHook, luaState, "HoodieFun", newLuaFunction);
 		std::cout << std::hex << "HkbLuaState* = " << luaState << ", HKSStringName = " << name << ", FunctionPointer = " << functionptr << "\n";
 		lastAdr = luaState;
 	}
 
-	call(memeHelp, luaState, name, functionptr);
+	call(ds3LuaSetFunctionFunPtrHook, luaState, name, functionptr);
 }
 
 DWORD WINAPI init_thread(void* lpParam)
@@ -165,7 +165,7 @@ DWORD WINAPI init_thread(void* lpParam)
 	//MH_CreateHook((LPVOID)0x140d9cd00, Memletto, &debugMemeOg);
 	//MH_EnableHook((LPVOID)0x140d9cd00);
 		
-	//MH_CreateHook((LPVOID)0x1410a08e0, MemeHelp, &memeHelp);
+	//MH_CreateHook((LPVOID)0x1410a08e0, Ds3LuaSetFunction, &ds3LuaSetFunctionFunPtrHook);
 	//MH_EnableHook((LPVOID)0x1410a08e0);
 	hoodie_script::script_runtime::initializeHooks();
 	return S_OK;

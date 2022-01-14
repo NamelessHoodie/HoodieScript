@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "hksgetter_hook.h"
 #include "GameExtensions/GameExtensionsManager.h"
+#include "LuaEvents/LuaStateThreadLock.h"
 //#include "script_runtime.h"
 
 namespace hoodie_script {
@@ -13,6 +14,7 @@ namespace hoodie_script {
 
 	uint64_t hksEnvGetter_hook::on_invoke(uintptr_t* ptrToChrIns, uint32_t envId, int64_t luaStatePtr)
 	{
+		LuaStateThreadLock::Lock();
 		ChrIns characterInstance(*ptrToChrIns);
 		LuaArgs luaArgs(luaStatePtr);
 		auto extension = GameExtensionManager::tryGetHksEnvExpansionLambda(envId);
@@ -22,8 +24,10 @@ namespace hoodie_script {
 		}
 		else
 		{
+			LuaStateThreadLock::Unlock();
 			return call(_instance->get_original(), ptrToChrIns, envId, luaStatePtr);
 		}
+		LuaStateThreadLock::Unlock();
 		return NULL;
 	}
 }

@@ -13,7 +13,10 @@
 #include "GameDebugClasses/world_chr_man.h"
 #include <GameDebugClasses/GameFlags.h>
 #include "LuaEvents/OnHotkey.h"
+//#include "LuaEvents/OnHksAct.h"
+//#include "LuaEvents/OnHksEnv.h"
 #include "script_runtime.h"
+#include <LuaObjects/LuaArgs.h>
 
 namespace hoodie_script
 {
@@ -204,11 +207,16 @@ namespace hoodie_script
 	}
 	void LuaBindings::initializeStaticFunctions(sol::state_view luaSol)
 	{
+		//Lua Events Registration
 		luaSol.set_function("SubscribeToEventOnHkbAnimation", OnHkbAnimation::SubscribeToEventOnHkbAnimation);
 		luaSol.set_function("SubscribeToEventOnSpEffect", OnSpeffectActive::SubscribeToEventOnSpEffect);
 		luaSol.set_function("SubscribeToEventOnRenderingFrame", OnRenderingFrame::SubscribeToEventOnRenderingFrame);
 		luaSol.set_function("SubscribeToEventOnParamLoaded", OnParamLoaded::SubscribeToEventOnParamLoaded);
 		luaSol.set_function("SubscribeToEventOnGameFrame", OnGameFrame::SubscribeToEventOnGameFrame);
+		//luaSol.set_function("SubscribeToEventOnHksAct", OnHksAct::SubscribeToEventOnHksAct);
+		//luaSol.set_function("SubscribeToEventOnHksEnv", OnHksEnv::SubscribeToEventOnHksEnv);
+
+		//Functions
 		luaSol.set_function("RegisterHotkey", OnHotKey::RegisterHotkey);
 		luaSol.set_function("UnregisterHotkey", OnHotKey::UnregisterHotkey);
 		luaSol.set_function("EntityHasSpeffect", EntityHasSpEffectSafe);
@@ -530,6 +538,12 @@ namespace hoodie_script
 		sol_sprjgaitemins["isValid"] = &SprjGaitemIns::isValid;
 		sol_sprjgaitemins["getVtablePtr"] = &SprjGaitemIns::getVtablePtr;
 		sol_sprjgaitemins["getAddress"] = &SprjGaitemIns::getAddress;
+
+		sol::usertype<LuaArgs> sol_luaargs = luaSol.new_usertype<LuaArgs>("HksArgs", sol::constructors<LuaArgs(uintptr_t)>());
+		sol_luaargs["GetString0"] = &LuaArgs::GetString0;
+		sol_luaargs["GetString1"] = &LuaArgs::GetString1;
+		sol_luaargs["HasUint64"] = &LuaArgs::HasUint64;
+		sol_luaargs["GetUint64"] = &LuaArgs::GetUint64;
 	}
 	void LuaBindings::Luaprint(sol::variadic_args va) {
 		std::string r = "";

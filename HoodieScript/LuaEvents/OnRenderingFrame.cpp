@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "OnRenderingFrame.h"
+#include "LuaStateThreadLock.h"
 
 namespace hoodie_script {
 
@@ -12,6 +13,7 @@ namespace hoodie_script {
     }
 
     void OnRenderingFrame::DoOnRenderingFrame(lua_State* L) {
+        LuaStateThreadLock::Lock();
         sol::state_view lua(L);
         for (size_t i = 0; i < OnRenderingFrameHandlers.size(); ++i) {
             auto &[funRef] = OnRenderingFrame::OnRenderingFrameHandlers[i];
@@ -23,5 +25,6 @@ namespace hoodie_script {
                 logging::write_line(error.what());
             }
         }
+        LuaStateThreadLock::Unlock();
     }
 }

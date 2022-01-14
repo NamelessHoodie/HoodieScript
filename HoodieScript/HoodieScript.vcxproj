@@ -205,6 +205,9 @@
     <ClInclude Include="HoodieScript-ImGui-Test\ImGui\stb_textedit.h" />
     <ClInclude Include="HoodieScript-ImGui-Test\ImGui\stb_truetype.h" />
     <ClInclude Include="HoodieScript-ImGui-Test\kiero\kiero.h" />
+    <ClInclude Include="LuaEvents\LuaStateThreadLock.h" />
+    <ClInclude Include="LuaEvents\OnHksAct.h" />
+    <ClInclude Include="LuaEvents\OnHksEnv.h" />
     <ClInclude Include="LuaObjects\LuaArgs.h" />
     <ClInclude Include="vendor\lua\lapi.h" />
     <ClInclude Include="vendor\lua\lcode.h" />
@@ -327,6 +330,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="HoodieScript-ImGui-Test\kiero\kiero.cpp" />
+    <ClCompile Include="LuaEvents\LuaStateThreadLock.cpp" />
+    <ClCompile Include="LuaEvents\OnHksAct.cpp" />
+    <ClCompile Include="LuaEvents\OnHksEnv.cpp" />
     <ClCompile Include="LuaObjects\LuaArgs.cpp" />
     <ClCompile Include="LuaObjects\middleclass.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>

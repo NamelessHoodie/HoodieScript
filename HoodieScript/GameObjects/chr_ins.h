@@ -164,6 +164,8 @@ public:
 	*/
 	std::wstring getCharacterString() const;
 
+	std::wstring getCharacterId() const;
+
 	/**
 	* Get's the current animation string of this ChrIns. 
 	* 

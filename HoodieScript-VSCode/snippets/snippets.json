@@ -5813,18 +5813,6 @@
 		"description": "void PlayerIns.setWeaponSheathState (this, sheatState)",
 		"scope": "hoodiescript.lua"
 	},
-	"PlayerIns.ReplaceWeapon": {
-		"prefix": "PlayerIns.ReplaceWeapon",
-		"body": "PlayerIns.ReplaceWeapon(${1:this}, ${2:equipParamWeaponTarget}, ${3:equipParamWeaponReplacement}, ${4:index})",
-		"description": "void PlayerIns.ReplaceWeapon (this, equipParamWeaponTarget, equipParamWeaponReplacement, index)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.ReplaceWeaponActiveRight": {
-		"prefix": "PlayerIns.ReplaceWeaponActiveRight",
-		"body": "PlayerIns.ReplaceWeaponActiveRight(${1:this}, ${2:equipParamWeaponTarget}, ${3:equipParamWeaponReplacement})",
-		"description": "void PlayerIns.ReplaceWeaponActiveRight (this, equipParamWeaponTarget, equipParamWeaponReplacement)",
-		"scope": "hoodiescript.lua"
-	},
 	"PlayerIns.getWeaponSheathState": {
 		"prefix": "PlayerIns.getWeaponSheathState",
 		"body": "PlayerIns.getWeaponSheathState(${1:this})",
@@ -5847,24 +5835,6 @@
 		"prefix": "PlayerIns.setRightHandWeaponActive",
 		"body": "PlayerIns.setRightHandWeaponActive(${1:this}, ${2:equipParamWeaponId})",
 		"description": "void PlayerIns.setRightHandWeaponActive (this, equipParamWeaponId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setRightHandWeaponActiveNetworked": {
-		"prefix": "PlayerIns.setRightHandWeaponActiveNetworked",
-		"body": "PlayerIns.setRightHandWeaponActiveNetworked(${1:this}, ${2:equipParamWeaponId})",
-		"description": "void PlayerIns.setRightHandWeaponActiveNetworked (this, equipParamWeaponId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setRightHandWeaponNetworked": {
-		"prefix": "PlayerIns.setRightHandWeaponNetworked",
-		"body": "PlayerIns.setRightHandWeaponNetworked(${1:this}, ${2:equipParamWeaponId}, ${3:index})",
-		"description": "void PlayerIns.setRightHandWeaponNetworked (this, equipParamWeaponId, index)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.removeWeaponFromInventory": {
-		"prefix": "PlayerIns.removeWeaponFromInventory",
-		"body": "PlayerIns.removeWeaponFromInventory(${1:this}, ${2:equipParamWeaponId})",
-		"description": "bool PlayerIns.removeWeaponFromInventory (this, equipParamWeaponId)",
 		"scope": "hoodiescript.lua"
 	},
 	"PlayerIns.getHead": {
@@ -6855,6 +6825,36 @@
 		"prefix": "GameFlags.GetFlagState",
 		"body": "GameFlags.GetFlagState(${1:flagID})",
 		"description": "bool GameFlags.GetFlagState (flagID)",
+		"scope": "hoodiescript.lua"
+	},
+	"HksArgs.new0": {
+		"prefix": "HksArgs.new",
+		"body": "HksArgs.new(${1:hkbInternalPtr})",
+		"description": " HksArgs.new (hkbInternalPtr)",
+		"scope": "hoodiescript.lua"
+	},
+	"HksArgs.GetString0": {
+		"prefix": "HksArgs.GetString0",
+		"body": "HksArgs.GetString0(${1:this}, ${2:index})",
+		"description": "std::string HksArgs.GetString0 (this, index)",
+		"scope": "hoodiescript.lua"
+	},
+	"HksArgs.GetString1": {
+		"prefix": "HksArgs.GetString1",
+		"body": "HksArgs.GetString1(${1:this}, ${2:index})",
+		"description": "std::string HksArgs.GetString1 (this, index)",
+		"scope": "hoodiescript.lua"
+	},
+	"HksArgs.HasUint64": {
+		"prefix": "HksArgs.HasUint64",
+		"body": "HksArgs.HasUint64(${1:this}, ${2:index})",
+		"description": "bool HksArgs.HasUint64 (this, index)",
+		"scope": "hoodiescript.lua"
+	},
+	"HksArgs.GetUint64": {
+		"prefix": "HksArgs.GetUint64",
+		"body": "HksArgs.GetUint64(${1:this}, ${2:index})",
+		"description": "uint64_t HksArgs.GetUint64 (this, index)",
 		"scope": "hoodiescript.lua"
 	},
 	"GiveMeTits": {

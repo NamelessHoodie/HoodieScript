@@ -1,6 +1,7 @@
 #pragma once
 
 #include "jump_hook.h"
+#include <mutex>
 
 namespace hoodie_script {
     class hksActSetter_hook : public jump_hook
