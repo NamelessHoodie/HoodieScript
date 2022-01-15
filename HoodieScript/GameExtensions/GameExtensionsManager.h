@@ -1,7 +1,6 @@
 #pragma once
 #include "LuaObjects/LuaArgs.h"
 #include "GameObjects/chr_ins.h"
-#include <mutex>
 
 namespace hoodie_script
 {
