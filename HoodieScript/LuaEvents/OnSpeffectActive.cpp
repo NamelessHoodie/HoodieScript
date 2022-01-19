@@ -27,7 +27,7 @@ namespace hoodie_script {
     }
 
     void OnSpeffectActive::DoOnSpEffect(lua_State* L) {
-        LuaStateThreadLock::Lock();
+        auto lock = LuaStateThreadLock::GetLockObject();
         sol::state_view sol(L);
         for (size_t i = 0; i < OnSpeffectActive::OnSpeffectSubscriptions.size(); i++)
         {
@@ -56,6 +56,5 @@ namespace hoodie_script {
                 }
             }
         }
-        LuaStateThreadLock::Unlock();
     }
 }

@@ -13,7 +13,7 @@ namespace hoodie_script {
     }
 
     int OnHkbAnimation::DoOnHkbAnimation(lua_State* L, uintptr_t chr ,int animationId) {
-        LuaStateThreadLock::Lock();
+        auto lock = LuaStateThreadLock::GetLockObject();
         sol::state_view sol(L);
         for (size_t i = 0; i < OnHkbAnimationHandlers.size(); ++i) {
             auto &[funRef] = OnHkbAnimation::OnHkbAnimationHandlers[i];
@@ -29,7 +29,6 @@ namespace hoodie_script {
                 logging::write_line(error.what());
             }
         }
-        LuaStateThreadLock::Unlock();
         return animationId;
     }
 }

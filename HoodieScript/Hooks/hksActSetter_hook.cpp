@@ -16,18 +16,19 @@ namespace hoodie_script {
 
 	void hksActSetter_hook::on_invoke(uintptr_t* chrInsPtr, int32_t actId, uintptr_t luaStatePtr)
 	{
-		LuaStateThreadLock::Lock();
+		auto lock = LuaStateThreadLock::GetLockObject();
 		ChrIns characterInstance(*chrInsPtr);
 		LuaArgs luaArgs(luaStatePtr);
 		auto extension = GameExtensionManager::tryGetHksActExpansionLambda(actId);
 		if (extension.has_value())
 		{
+			//LuaStateThreadLock::Lock();
 			extension.value()(characterInstance, luaArgs, actId);
+			//LuaStateThreadLock::Unlock();
 		}
 		else
 		{
 			call(_instance->get_original(), chrInsPtr, actId, luaStatePtr);
 		}
-		LuaStateThreadLock::Unlock();
 	}
 }

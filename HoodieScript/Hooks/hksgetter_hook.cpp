@@ -14,20 +14,23 @@ namespace hoodie_script {
 
 	uint64_t hksEnvGetter_hook::on_invoke(uintptr_t* ptrToChrIns, uint32_t envId, int64_t luaStatePtr)
 	{
-		LuaStateThreadLock::Lock();
+		auto lock = LuaStateThreadLock::GetLockObject();
+		uint64_t resultBuffer;
 		ChrIns characterInstance(*ptrToChrIns);
 		LuaArgs luaArgs(luaStatePtr);
 		auto extension = GameExtensionManager::tryGetHksEnvExpansionLambda(envId);
 		if (extension.has_value())
 		{
-			return extension.value()(characterInstance, luaArgs, envId);
+			//LuaStateThreadLock::Lock();
+			resultBuffer = extension.value()(characterInstance, luaArgs, envId);
+			//LuaStateThreadLock::Unlock();
 		}
 		else
 		{
-			LuaStateThreadLock::Unlock();
-			return call(_instance->get_original(), ptrToChrIns, envId, luaStatePtr);
+			resultBuffer = call(_instance->get_original(), ptrToChrIns, envId, luaStatePtr);
 		}
-		LuaStateThreadLock::Unlock();
-		return NULL;
+
+
+		return resultBuffer;
 	}
 }

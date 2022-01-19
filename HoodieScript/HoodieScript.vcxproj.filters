@@ -339,6 +339,9 @@
     <ClInclude Include="LuaEvents\LuaStateThreadLock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LuaEvents\LuaEventQueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -642,6 +645,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LuaEvents\LuaStateThreadLock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaEvents\LuaEventQueue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

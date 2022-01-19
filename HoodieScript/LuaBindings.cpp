@@ -13,8 +13,8 @@
 #include "GameDebugClasses/world_chr_man.h"
 #include <GameDebugClasses/GameFlags.h>
 #include "LuaEvents/OnHotkey.h"
-//#include "LuaEvents/OnHksAct.h"
-//#include "LuaEvents/OnHksEnv.h"
+#include "LuaEvents/OnHksAct.h"
+#include "LuaEvents/OnHksEnv.h"
 #include "script_runtime.h"
 #include <LuaObjects/LuaArgs.h>
 
@@ -213,8 +213,8 @@ namespace hoodie_script
 		luaSol.set_function("SubscribeToEventOnRenderingFrame", OnRenderingFrame::SubscribeToEventOnRenderingFrame);
 		luaSol.set_function("SubscribeToEventOnParamLoaded", OnParamLoaded::SubscribeToEventOnParamLoaded);
 		luaSol.set_function("SubscribeToEventOnGameFrame", OnGameFrame::SubscribeToEventOnGameFrame);
-		//luaSol.set_function("SubscribeToEventOnHksAct", OnHksAct::SubscribeToEventOnHksAct);
-		//luaSol.set_function("SubscribeToEventOnHksEnv", OnHksEnv::SubscribeToEventOnHksEnv);
+		luaSol.set_function("SubscribeToEventOnHksAct", OnHksAct::SubscribeToEventOnHksAct);
+		luaSol.set_function("SubscribeToEventOnHksEnv", OnHksEnv::SubscribeToEventOnHksEnv);
 
 		//Functions
 		luaSol.set_function("RegisterHotkey", OnHotKey::RegisterHotkey);

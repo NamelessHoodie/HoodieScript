@@ -14,7 +14,7 @@ namespace hoodie_script {
     }
 
     void OnParamLoaded::DoOnParamLoaded(lua_State* L) {
-        LuaStateThreadLock::Lock();
+        auto lock = LuaStateThreadLock::GetLockObject();
         sol::state_view sol(L);
         for (size_t i = 0; i < OnParamLoadedHandlers.size(); ++i) {
             auto& [funRef] = OnParamLoaded::OnParamLoadedHandlers[i];
@@ -26,6 +26,5 @@ namespace hoodie_script {
                 logging::write_line(error.what());
             }
         }
-        LuaStateThreadLock::Unlock();
     }
 }

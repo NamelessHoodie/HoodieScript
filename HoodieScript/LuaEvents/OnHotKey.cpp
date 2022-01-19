@@ -26,7 +26,7 @@ namespace hoodie_script {
     }
 
     void OnHotKey::DoOnHotkey(lua_State* L) {
-        LuaStateThreadLock::Lock();
+        auto lock = LuaStateThreadLock::GetLockObject();
         sol::state_view lua(L);
         for (size_t i = 0; i < OnHotKeyHandlers.size(); ++i) {
             auto &[funRef, key, modifier] = OnHotKey::OnHotKeyHandlers[i];
@@ -43,6 +43,5 @@ namespace hoodie_script {
                 }
             }
         }
-        LuaStateThreadLock::Unlock();
     }
 }
