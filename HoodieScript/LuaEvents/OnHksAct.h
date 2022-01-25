@@ -3,7 +3,7 @@
 namespace hoodie_script {
 	class OnHksAct {
 	public:
-		static int SubscribeToEventOnHksAct(int actId, sol::function function);
+		static int SubscribeToEventOnHksAct(sol::function function, int actId);
 	private:
 	};
 

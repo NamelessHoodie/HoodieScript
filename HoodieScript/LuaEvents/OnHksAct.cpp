@@ -3,7 +3,7 @@
 #include "GameExtensions/GameExtensionsManager.h"
 #include <LuaObjects/LuaArgs.h>
 namespace hoodie_script {
-    int OnHksAct::SubscribeToEventOnHksAct(int actId ,sol::function function)
+    int OnHksAct::SubscribeToEventOnHksAct(sol::function function, int actId)
     {
         GameExtensionManager::tryRegisterHksActExtension(actId,
         [function](hksActExpansionLambdaArgs) {

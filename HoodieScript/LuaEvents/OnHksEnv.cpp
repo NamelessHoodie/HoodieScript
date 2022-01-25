@@ -3,7 +3,7 @@
 #include "GameExtensions/GameExtensionsManager.h"
 #include <LuaObjects/LuaArgs.h>
 namespace hoodie_script {
-    int OnHksEnv::SubscribeToEventOnHksEnv(int envId, sol::function function)
+    int OnHksEnv::SubscribeToEventOnHksEnv(sol::function function, int envId)
     {
         GameExtensionManager::tryRegisterHksEnvExtension(envId,
         [function](hksEnvExpansionLambdaArgs) {
