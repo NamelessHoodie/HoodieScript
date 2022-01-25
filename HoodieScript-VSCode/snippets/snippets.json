@@ -6857,6 +6857,49 @@
 		"description": "uint64_t HksArgs.GetUint64 (this, index)",
 		"scope": "hoodiescript.lua"
 	},
+
+	"GameEvents.SubscribeToEventOnHkbAnimation": {
+		"prefix": "GameEvents.SubscribeToEventOnHkbAnimation",
+		"body": "GameEvents.SubscribeToEventOnHkbAnimation(${1:luaFunction})",
+		"description": "void GameEvents.SubscribeToEventOnHkbAnimation (luaFunction)",
+		"scope": "hoodiescript.lua"
+	},
+	"GameEvents.SubscribeToEventOnRenderingFrame": {
+		"prefix": "GameEvents.SubscribeToEventOnRenderingFrame",
+		"body": "GameEvents.SubscribeToEventOnRenderingFrame(${1:luaFunction})",
+		"description": "void GameEvents.SubscribeToEventOnRenderingFrame (luaFunction)",
+		"scope": "hoodiescript.lua"
+	},
+	"GameEvents.SubscribeToEventOnParamLoaded": {
+		"prefix": "GameEvents.SubscribeToEventOnParamLoaded",
+		"body": "GameEvents.SubscribeToEventOnParamLoaded(${1:luaFunction})",
+		"description": "void GameEvents.SubscribeToEventOnParamLoaded (luaFunction)",
+		"scope": "hoodiescript.lua"
+	},
+	"GameEvents.SubscribeToEventOnGameFrame": {
+		"prefix": "GameEvents.SubscribeToEventOnGameFrame",
+		"body": "GameEvents.SubscribeToEventOnGameFrame(${1:luaFunction})",
+		"description": "void GameEvents.SubscribeToEventOnGameFrame (luaFunction)",
+		"scope": "hoodiescript.lua"
+	},
+	"GameEvents.SubscribeToEventOnHksAct": {
+		"prefix": "GameEvents.SubscribeToEventOnHksAct",
+		"body": "GameEvents.SubscribeToEventOnHksAct(${1:luaFunction}, ${2:actId})",
+		"description": "void GameEvents.SubscribeToEventOnHksAct (luaFunction, actId)",
+		"scope": "hoodiescript.lua"
+	},
+	"GameEvents.SubscribeToEventOnHksEnv": {
+		"prefix": "GameEvents.SubscribeToEventOnHksEnv",
+		"body": "GameEvents.SubscribeToEventOnHksEnv(${1:luaFunction}, ${2:envId})",
+		"description": "void GameEvents.SubscribeToEventOnHksEnv (luaFunction, envId)",
+		"scope": "hoodiescript.lua"
+	},
+	"GameEvents.SubscribeToEventOnPositionUpdate": {
+		"prefix": "GameEvents.SubscribeToEventOnPositionUpdate",
+		"body": "GameEvents.SubscribeToEventOnPositionUpdate(${1:luaFunction})",
+		"description": "void GameEvents.SubscribeToEventOnPositionUpdate (luaFunction)",
+		"scope": "hoodiescript.lua"
+	},
 	"GiveMeTits": {
 		"prefix": "Tits",
 		"body": "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⠛⠋⠉⠙⠻⠿⠿⠿⠿⢿⣿⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠄⠄⠄⠄⠄⠄⠄⠄⠹⣿⣿⣶⣶⣦⣬⢹⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠄⠄⠄⣰⣧⡀⠄⠄⠄⠄⠈⢙⡋⣿⣿⣿⢸⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠄⠄⠰⠼⢯⣿⣿⣦⣄⠄⠄⠄⠈⢡⣿⣿⣿⢸⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠄⠄⠸⠤⠕⠛⠙⠷⣿⡆⠄⠄⠄⣸⣿⣿⡏⣼⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣴⣿⣿⣿⢡⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⡟⠄⠄⠄⠄⠄⣄⠄⢀⠄⠄⢀⣤⣾⣿⣿⣿⢃⣾⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⠿⣛⣡⣄⣀⠄⠠⢴⣿⣿⡿⣄⣴⣿⣿⣿⣿⣿⢃⣾⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⡏⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣩⡽⡁⢸⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⢃⣿⣿⢟⣿⣿⣿⣿⣿⣮⢫⣿⣿⣿⣿⣿⣟⢿⠃⠄⢻⣿⣿⣿⣿\n⣿⣿⣿⣿⡿⣸⠟⣵⣿⣿⣿⣿⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣷⣄⢰⡄⢿⣿⣿⣿\n⣿⣿⣿⣿⡇⠏⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠹⡎⣿⣿⣿\n⣭⣍⠛⠿⠄⢰⠋⡉⠹⣿⣿⣿⣿⣿⣿⠙⣿⣿⣿⣿⣿⣿⡟⢁⠙⡆⢡⣿⣿⣿\n⠻⣿⡆⠄⣤⠈⢣⣈⣠⣿⣿⣿⣿⣿⠏⣄⠻⣿⣿⣿⣿⣿⣆⣈⣴⠃⣿⣿⣿⣿\n⡀⠈⢿⠄⣿⡇⠄⠙⠿⣿⡿⠿⢋⣥⣾⣿⣷⣌⠻⢿⣿⣿⡿⠟⣡⣾⣿⣿⠿⢋\n⠛⠳⠄⢠⣿⠇⠄⣷⡑⢶⣶⢿⣿⣿⣿⣽⣿⣿⣿⣶⣶⡐⣶⣿⠿⠛⣩⡄⠄⢸",
