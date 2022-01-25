@@ -9,6 +9,7 @@
 #include "LuaEvents/OnRenderingFrame.h"
 #include "LuaEvents/OnHotkey.h"
 #include "LuaEvents/OnHksAct.h"
+#include "LuaEvents/OnPositionUpdate.h"
 #include "GameDebugClasses/world_chr_man.h"
 #include "GameObjects/sprj_chr_data_module.h"
 #include "LuaBindings.h"
@@ -33,6 +34,8 @@ namespace hoodie_script {
 	hksEnvGetter_hook* script_runtime::hksget_hook = nullptr;
 	hksActSetter_hook* script_runtime::hksActSet_hook = nullptr;
 	menu_isopen_getter_hook* script_runtime::menu_isopen_getter_hook = nullptr;
+	PositionUpdate_Hook* script_runtime::position_Update_Hook = nullptr;
+
 	bool script_runtime::isGameInputLocked = false;
 
 	void script_runtime::InitializeFunctionLuaBindings()
@@ -63,6 +66,7 @@ namespace hoodie_script {
 		hksget_hook = new hoodie_script::hksEnvGetter_hook();
 		hksActSet_hook = new hoodie_script::hksActSetter_hook();
 		menu_isopen_getter_hook = new hoodie_script::menu_isopen_getter_hook();
+		position_Update_Hook = new hoodie_script::PositionUpdate_Hook();
 
 		//LuaStateThreadLock::Lock();
 		lua_State* L = luaL_newstate();
@@ -105,6 +109,7 @@ namespace hoodie_script {
 		hksget_hook->install();
 		hksActSet_hook->install();
 		menu_isopen_getter_hook->install();
+		position_Update_Hook->install();
 
 		//Important that this is hook installed last
 		gameFrameHook->install();
@@ -123,6 +128,7 @@ namespace hoodie_script {
 		hksget_hook->tryRefresh();
 		hksActSet_hook->tryRefresh();
 		menu_isopen_getter_hook->tryRefresh();
+		position_Update_Hook->tryRefresh();
 
 	}
 
@@ -141,6 +147,7 @@ namespace hoodie_script {
 		hksget_hook->uninstall();
 		hksActSet_hook->uninstall();
 		menu_isopen_getter_hook->uninstall();
+		position_Update_Hook->uninstall();
 
 		//LuaStateThreadLock::Unlock();
 	}
@@ -207,6 +214,7 @@ namespace hoodie_script {
 
 	void script_runtime::on_position_update(uintptr_t CsHkCharacterProxy, uintptr_t* SprjChrPhysicsModulePtr, uintptr_t unk0, uintptr_t unk1, uintptr_t unk2)
 	{
+		OnPositionUpdate::DoOnPositionUpdate(_luaState, CsHkCharacterProxy, SprjChrPhysicsModulePtr, unk0, unk1, unk2);
 	}
 
 	double uniform()

@@ -10,6 +10,7 @@
 #include "Hooks/hksgetter_hook.h"
 #include "Hooks/hksActSetter_hook.h"
 #include "Hooks/menu_isopen_getter_hook.h"
+#include "Hooks/PositionUpdate_Hook.h"
 
 namespace hoodie_script {
 	class script_runtime
@@ -42,6 +43,7 @@ namespace hoodie_script {
 		static hksEnvGetter_hook* hksget_hook;
 		static hksActSetter_hook* hksActSet_hook;
 		static menu_isopen_getter_hook* menu_isopen_getter_hook;
+		static PositionUpdate_Hook* position_Update_Hook;
 		static bool isGameInputLocked;
 	private:
 		static void handle_error(lua_State *luaState);
