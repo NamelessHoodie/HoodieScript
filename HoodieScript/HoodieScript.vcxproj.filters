@@ -342,6 +342,9 @@
     <ClInclude Include="LuaEvents\LuaEventQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Hooks\PositionUpdate_Hook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -648,6 +651,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LuaEvents\LuaEventQueue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks\PositionUpdate_Hook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

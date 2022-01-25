@@ -18,6 +18,7 @@ namespace hoodie_script {
 		typedef bool (*DoesHandleHaveSpEffect_t)(unsigned int, int);
 		static void on_goods_use(int goodsId);
 		static int on_hkb_animation(uintptr_t hbkCharacter, int animationId);
+		static void on_position_update(uintptr_t CsHkCharacterProxy, uintptr_t* SprjChrPhysicsModulePtr, uintptr_t unk0, uintptr_t unk1, uintptr_t unk2);
 		static void on_speffect(unsigned int handle, int speffect);
 		static void on_game_frame();
 		static void OnRenderFrame();

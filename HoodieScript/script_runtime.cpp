@@ -205,6 +205,10 @@ namespace hoodie_script {
 		}
 	}
 
+	void script_runtime::on_position_update(uintptr_t CsHkCharacterProxy, uintptr_t* SprjChrPhysicsModulePtr, uintptr_t unk0, uintptr_t unk1, uintptr_t unk2)
+	{
+	}
+
 	double uniform()
 	{
 		return (double)rand() / RAND_MAX;
