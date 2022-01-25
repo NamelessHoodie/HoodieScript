@@ -208,15 +208,17 @@ namespace hoodie_script
 	}
 	void LuaBindings::initializeStaticFunctions(sol::state_view luaSol)
 	{
+
 		//Lua Events Registration
-		luaSol.set_function("SubscribeToEventOnHkbAnimation", OnHkbAnimation::SubscribeToEventOnHkbAnimation);
-		luaSol.set_function("SubscribeToEventOnSpEffect", OnSpeffectActive::SubscribeToEventOnSpEffect);
-		luaSol.set_function("SubscribeToEventOnRenderingFrame", OnRenderingFrame::SubscribeToEventOnRenderingFrame);
-		luaSol.set_function("SubscribeToEventOnParamLoaded", OnParamLoaded::SubscribeToEventOnParamLoaded);
-		luaSol.set_function("SubscribeToEventOnGameFrame", OnGameFrame::SubscribeToEventOnGameFrame);
-		luaSol.set_function("SubscribeToEventOnHksAct", OnHksAct::SubscribeToEventOnHksAct);
-		luaSol.set_function("SubscribeToEventOnHksEnv", OnHksEnv::SubscribeToEventOnHksEnv);
-		luaSol.set_function("SubscribeToEventOnPositionUpdate", OnPositionUpdate::SubscribeToEventOnPositionUpdate);
+		luaSol["GameEvents"] = luaSol.create_table_with(
+			"SubscribeToEventOnHkbAnimation", OnHkbAnimation::SubscribeToEventOnHkbAnimation,
+			"SubscribeToEventOnSpEffect", OnSpeffectActive::SubscribeToEventOnSpEffect,
+			"SubscribeToEventOnRenderingFrame", OnRenderingFrame::SubscribeToEventOnRenderingFrame,
+			"SubscribeToEventOnParamLoaded", OnParamLoaded::SubscribeToEventOnParamLoaded,
+			"SubscribeToEventOnGameFrame", OnGameFrame::SubscribeToEventOnGameFrame,
+			"SubscribeToEventOnHksAct", OnHksAct::SubscribeToEventOnHksAct,
+			"SubscribeToEventOnHksEnv", OnHksEnv::SubscribeToEventOnHksEnv,
+			"SubscribeToEventOnPositionUpdate", OnPositionUpdate::SubscribeToEventOnPositionUpdate);
 
 		//Functions
 		luaSol.set_function("RegisterHotkey", OnHotKey::RegisterHotkey);
