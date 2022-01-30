@@ -12,7 +12,7 @@ namespace hoodie_script
 	}
 
 	void PositionUpdate_Hook::on_invoke(uintptr_t CsHkCharacterProxy, uintptr_t* SprjChrPhysicsModulePtr, uintptr_t unk0, uintptr_t unk1, uintptr_t unk2)
-	{		
+	{	
 		script_runtime::on_position_update(CsHkCharacterProxy, SprjChrPhysicsModulePtr, unk0, unk1, unk2);
 		call(_instance->get_original(), CsHkCharacterProxy, SprjChrPhysicsModulePtr, unk0, unk1, unk2);
 	}

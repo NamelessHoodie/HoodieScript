@@ -18,7 +18,7 @@ namespace hoodie_script {
         for (size_t i = 0; i < OnGameFrameHandlers.size(); ++i) {
             auto& [funRef] = OnPositionUpdate::OnGameFrameHandlers[i];
             sol::protected_function fun = funRef;
-            sol::protected_function_result result = fun(CsHkCharacterProxy, SprjChrPhysicsModulePtr, unk0, unk1, unk2);
+            sol::protected_function_result result = fun(CsHkCharacterProxy, (uintptr_t) SprjChrPhysicsModulePtr, unk0, unk1, unk2);
             if (!result.valid())
             {
                 sol::error error = result;

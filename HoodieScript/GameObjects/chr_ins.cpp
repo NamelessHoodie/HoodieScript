@@ -60,7 +60,8 @@ std::wstring ChrIns::getCharacterString() const
 
 std::wstring ChrIns::getCharacterId() const
 {
-	return std::wstring(accessMultilevelPointer<wchar_t>(address + 0x1F90, 0x18, 0x48));
+	auto ptr = accessMultilevelPointer<wchar_t>(address + 0x1F90, 0x18, 0x48);
+	return ptr != nullptr ? std::wstring(ptr) : L"";
 }
 
 std::wstring ChrIns::getAnimationString() const
