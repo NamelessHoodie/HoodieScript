@@ -244,6 +244,7 @@ namespace hoodie_script
 		sol_playerins["setTeam"] = &PlayerIns::setTeam;
 		sol_playerins["getForwardId"] = &PlayerIns::getForwardId;
 		sol_playerins["getCharacterString"] = &PlayerIns::getCharacterString;
+		sol_playerins["getCharacterId"] = &PlayerIns::getCharacterId;
 		sol_playerins["getAnimationString"] = &PlayerIns::getAnimationString;
 		sol_playerins["getAnimationTime"] = &PlayerIns::getAnimationTime;
 		sol_playerins["getMaxAnimationTime"] = &PlayerIns::getMaxAnimationTime;
@@ -336,6 +337,7 @@ namespace hoodie_script
 		sol_chrins["setTeam"] = &ChrIns::setTeam;
 		sol_chrins["getForwardId"] = &ChrIns::getForwardId;
 		sol_chrins["getCharacterString"] = &ChrIns::getCharacterString;
+		sol_chrins["getCharacterId"] = &ChrIns::getCharacterId;
 		sol_chrins["getAnimationString"] = &ChrIns::getAnimationString;
 		sol_chrins["getAnimationTime"] = &ChrIns::getAnimationTime;
 		sol_chrins["getMaxAnimationTime"] = &ChrIns::getMaxAnimationTime;
