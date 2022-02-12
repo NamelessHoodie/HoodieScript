@@ -13,7 +13,7 @@ namespace hoodie_script
 
 	void GameExtensionManager::registerEmbeddedExtensions()
 	{
-		tryRegisterTaeEventExtension(715, 
+		tryRegisterTaeEventExtension(716, 
 		[](taeExpansionLambaArgs) {
 			std::cout << "eventParametersAddress = " << eventData->eventParameters << std::endl;
 			std::cout << "playbackFramePrevious = " << eventData->animationPlayBackTimePreviousFrame << std::endl;
