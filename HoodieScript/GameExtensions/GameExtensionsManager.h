@@ -35,13 +35,13 @@ namespace hoodie_script
 	struct TaeEvent
 	{
 		int32_t eventId;
-		int32_t padding1;
+		const byte padding1[4];
 		uintptr_t* eventParameters;
 		float animationPlayBackTimePreviousFrame;
 		float animationPlayBackTimeCurrentFrame;
 		bool isFrameEnteringEvent;
 		bool isFrameExitingEvent;
-		int32_t padding2;
+		const byte padding2[6];
 		TaeEventStartEndTimes* times;
 	};
 
