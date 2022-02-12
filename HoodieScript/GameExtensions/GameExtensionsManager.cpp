@@ -15,13 +15,14 @@ namespace hoodie_script
 	{
 		tryRegisterTaeEventExtension(716, 
 		[](taeExpansionLambaArgs) {
-			std::cout << "eventParametersAddress = " << eventData->eventParameters << std::endl;
+			std::cout << std::hex << "eventParametersAddress = " << eventData->eventParameters << std::endl;
 			std::cout << "playbackFramePrevious = " << eventData->animationPlayBackTimePreviousFrame << std::endl;
 			std::cout << "playbackFrameCurrent = " << eventData->animationPlayBackTimeCurrentFrame << std::endl;
 			std::cout << "isFrameEnteringEvent = " << eventData->isFrameEnteringEvent << std::endl;
 			std::cout << "isFrameExitingEvent = " << eventData->isFrameExitingEvent << std::endl;
 			std::cout << "eventStartTime = " << eventData->times->eventStartTime << std::endl;
 			std::cout << "eventEndTime = " << eventData->times->eventEndTime << std::endl;
+			std::cout << std::dec << "HSTaeCustomField1 = " << *(int32_t*)eventData->eventParameters << std::endl;
 		});
 
 		tryRegisterTaeJumptableExtension(666,
