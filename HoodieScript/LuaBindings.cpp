@@ -231,6 +231,7 @@ namespace hoodie_script
 
 		//Functions
 		luaSol.set_function("RegisterHotkey", OnHotKey::RegisterHotkey);
+		luaSol.set_function("RegisterReleaseHotkey", OnHotKey::RegisterReleaseHotkey);
 		luaSol.set_function("UnregisterHotkey", OnHotKey::UnregisterHotkey);
 		luaSol.set_function("EntityHasSpeffect", EntityHasSpEffectSafe);
 		luaSol.set_function("print", Luaprint);
