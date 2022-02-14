@@ -7020,6 +7020,18 @@
 		"description": "void GameEvents.SubscribeToEventOnHksEnv (luaFunction, envId)",
 		"scope": "hoodiescript.lua"
 	},
+	"GameEvents.SubscribeToEventOnSessionSend": {
+		"prefix": "GameEvents.SubscribeToEventOnSessionSend",
+		"body": "GameEvents.SubscribeToEventOnSessionSend(${1:luaFunction})",
+		"description": "void GameEvents.SubscribeToEventOnSessionSend (luaFunction)",
+		"scope": "hoodiescript.lua"
+	},
+	"GameEvents.SubscribeToEventOnSessionReceive": {
+		"prefix": "GameEvents.SubscribeToEventOnSessionReceive",
+		"body": "GameEvents.SubscribeToEventOnSessionReceive(${1:luaFunction})",
+		"description": "void GameEvents.SubscribeToEventOnSessionReceive (luaFunction)",
+		"scope": "hoodiescript.lua"
+	},
 	"GameEvents.SubscribeToEventOnPositionUpdate": {
 		"prefix": "GameEvents.SubscribeToEventOnPositionUpdate",
 		"body": "GameEvents.SubscribeToEventOnPositionUpdate(${1:luaFunction})",

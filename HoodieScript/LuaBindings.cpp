@@ -6,6 +6,8 @@
 #include "LuaEvents/OnParamLoaded.h"
 #include "LuaEvents/OnGameFrame.h"
 #include "LuaEvents/OnRenderingFrame.h"
+#include "LuaEvents/OnSessionSend.h"
+#include "LuaEvents/OnSessionReceive.h"
 #include "LuaEvents/OnPositionUpdate.h"
 #include "HotKeyManager.h"
 #include "LuaObjects/LuaMemory.h"
@@ -223,7 +225,9 @@ namespace hoodie_script
 			"SubscribeToEventOnGameFrame", OnGameFrame::SubscribeToEventOnGameFrame,
 			"SubscribeToEventOnHksAct", OnHksAct::SubscribeToEventOnHksAct,
 			"SubscribeToEventOnHksEnv", OnHksEnv::SubscribeToEventOnHksEnv,
-			"SubscribeToEventOnPositionUpdate", OnPositionUpdate::SubscribeToEventOnPositionUpdate);
+			"SubscribeToEventOnPositionUpdate", OnPositionUpdate::SubscribeToEventOnPositionUpdate,
+			"SubscribeToEventOnSessionSend", OnSessionSend::SubscribeToEventOnSessionSend,
+			"SubscribeToEventOnSessionReceive", OnSessionReceive::SubscribeToEventOnSessionReceive);
 
 		//Functions
 		luaSol.set_function("RegisterHotkey", OnHotKey::RegisterHotkey);
