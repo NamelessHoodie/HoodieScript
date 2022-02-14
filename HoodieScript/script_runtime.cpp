@@ -10,6 +10,8 @@
 #include "LuaEvents/OnHotkey.h"
 #include "LuaEvents/OnHksAct.h"
 #include "LuaEvents/OnPositionUpdate.h"
+#include "LuaEvents/OnSessionReceive.h"
+#include "LuaEvents/OnSessionSend.h"
 #include "GameDebugClasses/world_chr_man.h"
 #include "GameObjects/sprj_chr_data_module.h"
 #include "LuaBindings.h"
@@ -28,12 +30,13 @@ namespace hoodie_script {
 	goods_use_hook* script_runtime::goodsUseHook = nullptr;
 	hkb_animation_hook* script_runtime::hkbAnimationHook = nullptr;
 	game_frame_hook* script_runtime::gameFrameHook = nullptr;
-	session_send_hook* script_runtime::sessionsendhook = nullptr;
 	has_speffect_hook* script_runtime::hasspeffecthook = nullptr;
 	OnTaeEvent_hook* script_runtime::onTaeEvent_hook_instance = nullptr;
 	hksEnvGetter_hook* script_runtime::hksget_hook = nullptr;
 	hksActSetter_hook* script_runtime::hksActSet_hook = nullptr;
 	menu_isopen_getter_hook* script_runtime::menu_isopen_getter_hook = nullptr;
+	session_send_hook* script_runtime::_session_send_hook_instancePtr = nullptr;
+	session_receive_hook* script_runtime::_session_receive_hook_instancePtr = nullptr;
 	PositionUpdate_Hook* script_runtime::position_Update_Hook = nullptr;
 
 	bool script_runtime::isGameInputLocked = false;
@@ -60,12 +63,13 @@ namespace hoodie_script {
 		goodsUseHook = new hoodie_script::goods_use_hook();
 		hkbAnimationHook = new hoodie_script::hkb_animation_hook();
 		gameFrameHook = new hoodie_script::game_frame_hook();
-		//sessionsendhook = new hoodie_script::session_send_hook();
 		hasspeffecthook = new hoodie_script::has_speffect_hook();
 		onTaeEvent_hook_instance = new hoodie_script::OnTaeEvent_hook();
 		hksget_hook = new hoodie_script::hksEnvGetter_hook();
 		hksActSet_hook = new hoodie_script::hksActSetter_hook();
 		menu_isopen_getter_hook = new hoodie_script::menu_isopen_getter_hook();
+		_session_receive_hook_instancePtr = new session_receive_hook();
+		_session_send_hook_instancePtr = new session_send_hook();
 		position_Update_Hook = new hoodie_script::PositionUpdate_Hook();
 
 		//LuaStateThreadLock::Lock();
@@ -103,15 +107,17 @@ namespace hoodie_script {
 		//Install hooks
 		goodsUseHook->install();
 		hkbAnimationHook->install();
-		//sessionsendhook->install();
 		hasspeffecthook->install();
 		onTaeEvent_hook_instance->install();
 		hksget_hook->install();
 		hksActSet_hook->install();
 		menu_isopen_getter_hook->install();
+		_session_send_hook_instancePtr->install();
+		_session_receive_hook_instancePtr->install();
 		position_Update_Hook->install();
 
-		//Important that this is hook installed last
+		//Important that this hook is installed last, 
+		//in order to avoid hook refresh conflicts during initialization.
 		gameFrameHook->install();
 	}
 
@@ -122,12 +128,13 @@ namespace hoodie_script {
 
 		goodsUseHook->tryRefresh();
 		hkbAnimationHook->tryRefresh();
-		//sessionsendhook->tryRefresh();
 		hasspeffecthook->tryRefresh();
 		onTaeEvent_hook_instance->tryRefresh();
 		hksget_hook->tryRefresh();
 		hksActSet_hook->tryRefresh();
 		menu_isopen_getter_hook->tryRefresh();
+		_session_send_hook_instancePtr->tryRefresh();
+		_session_receive_hook_instancePtr->tryRefresh();
 		position_Update_Hook->tryRefresh();
 
 	}
@@ -136,17 +143,19 @@ namespace hoodie_script {
 	{
 		//LuaStateThreadLock::Lock();
 
-		//Important that this is installed and uninstalled first
+		//Important that this is installed and uninstalled first, 
+		//in order to avoid hook refresh conflicts during uinitialization.
 		gameFrameHook->uninstall();
 
 		goodsUseHook->uninstall();
 		hkbAnimationHook->uninstall();
-		//sessionsendhook->uninstall();
 		hasspeffecthook->uninstall();
 		onTaeEvent_hook_instance->uninstall();
 		hksget_hook->uninstall();
 		hksActSet_hook->uninstall();
 		menu_isopen_getter_hook->uninstall();
+		_session_send_hook_instancePtr->uninstall();
+		_session_receive_hook_instancePtr->uninstall();
 		position_Update_Hook->uninstall();
 
 		//LuaStateThreadLock::Unlock();
@@ -215,6 +224,16 @@ namespace hoodie_script {
 	void script_runtime::on_position_update(uintptr_t CsHkCharacterProxy, uintptr_t* SprjChrPhysicsModulePtr, uintptr_t unk0, uintptr_t unk1, uintptr_t unk2)
 	{
 		OnPositionUpdate::DoOnPositionUpdate(_luaState, CsHkCharacterProxy, SprjChrPhysicsModulePtr, unk0, unk1, unk2);
+	}
+
+	uint32_t script_runtime::on_network_session_send(uintptr_t networkSession, uintptr_t* networkHandle, int32_t id, char* buffer, uint32_t maxLength)
+	{
+		return OnSessionSend::DoOnSessionSend(_luaState, networkSession, networkHandle, id, buffer, maxLength);
+	}
+
+	uint32_t script_runtime::on_network_session_receive(uintptr_t networkSession, uintptr_t* networkHandle, int32_t id, char* buffer, uint32_t maxLength, uint32_t receiveLength)
+	{
+		return OnSessionReceive::DoOnSessionReceive(_luaState, networkSession, networkHandle, id, buffer, maxLength, receiveLength);
 	}
 
 	double uniform()

@@ -5,6 +5,7 @@
 #include "hooks/game_frame_hook.h"
 #include "hooks/hkb_animation_hook.h"
 #include "hooks/session_send_hook.h"
+#include "Hooks/session_receive_hook.h"
 #include "Hooks/has_speffect_hook.h"
 #include "Hooks/OnTaeEvent_hook.h"
 #include "Hooks/hksgetter_hook.h"
@@ -20,6 +21,8 @@ namespace hoodie_script {
 		static void on_goods_use(int goodsId);
 		static int on_hkb_animation(uintptr_t hbkCharacter, int animationId);
 		static void on_position_update(uintptr_t CsHkCharacterProxy, uintptr_t* SprjChrPhysicsModulePtr, uintptr_t unk0, uintptr_t unk1, uintptr_t unk2);
+		static uint32_t on_network_session_send(uintptr_t networkSession, uintptr_t* networkHandle, int32_t id, char* buffer, uint32_t maxLength);
+		static uint32_t on_network_session_receive(uintptr_t networkSession, uintptr_t* networkHandle, int32_t id, char* buffer, uint32_t maxLength, uint32_t receiveLength);
 		static void on_speffect(unsigned int handle, int speffect);
 		static void on_game_frame();
 		static void OnRenderFrame();
@@ -43,6 +46,8 @@ namespace hoodie_script {
 		static hksEnvGetter_hook* hksget_hook;
 		static hksActSetter_hook* hksActSet_hook;
 		static menu_isopen_getter_hook* menu_isopen_getter_hook;
+		static session_receive_hook* _session_receive_hook_instancePtr;
+		static session_send_hook* _session_send_hook_instancePtr;
 		static PositionUpdate_Hook* position_Update_Hook;
 		static bool isGameInputLocked;
 	private:

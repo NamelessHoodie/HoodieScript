@@ -16,7 +16,7 @@ public:
 	static std::vector<uintptr_t> getCurrentMapEnemies();
 	static bool reloadCharacterFiles(std::wstring characterId);
 	static void findEntityTest(int32_t id);
-	static uintptr_t getInsByHandle(int32_t handle);
+	static ChrIns getInsByHandle(ChrIns::Handle handle);
 
 	/**
 	* Gets the camera euler angle.
@@ -26,6 +26,17 @@ public:
 	static std::array<float, 3> getCamVector();
 	static PlayerIns getMainChr();
 	static bool isMainChrLoaded();
+
+	/**
+	* Get the instance of PlayerIns by the offset.
+	*
+	* 0 is the main character you control in the game, 1-5 are the PlayerIns'
+	* that may appear in your game via online session.
+	*
+	* @param offsetNumber The PlayerIns number to get the address of
+	* @return The base address of the specified PlayerIns if they exist in memory, otherwise this returns 0.
+	*/
+	static PlayerIns getPlayerByOffsetNumber(ChrIns::OffsetNumber offsetNumber);
 	static bool isLoaded();
 	static uintptr_t getAddress();
 private:

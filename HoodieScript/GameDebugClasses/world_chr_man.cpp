@@ -59,13 +59,13 @@ namespace hoodie_script {
 		}
 	}
 
-	uintptr_t WorldChrMan::getInsByHandle(int32_t handle)
+	ChrIns WorldChrMan::getInsByHandle(ChrIns::Handle handle)
 	{
 		if (isLoaded())
 		{
-			uintptr_t(*GetInsByHandle)(int32_t handle);
+			uintptr_t(*GetInsByHandle)(ChrIns::Handle handle);
 			*(uintptr_t*)&GetInsByHandle = 0x140601fc0;
-			return GetInsByHandle(handle);
+			return ChrIns(GetInsByHandle(handle));
 		}
 		return NULL;
 	}
@@ -91,6 +91,11 @@ namespace hoodie_script {
 		if (WorldChrMan::isLoaded())
 			return accessMultilevelPointer<uintptr_t>(DataBaseAddress::WorldChrMan, 0x80);
 		return false;
+	}
+
+	PlayerIns WorldChrMan::getPlayerByOffsetNumber(ChrIns::OffsetNumber offsetNumber)
+	{
+		return PlayerIns(*accessMultilevelPointer<uintptr_t>(DataBaseAddress::WorldChrMan, 0x40, static_cast<uint32_t>(offsetNumber) * 0x38));
 	}
 
 	uintptr_t WorldChrMan::getAddress()

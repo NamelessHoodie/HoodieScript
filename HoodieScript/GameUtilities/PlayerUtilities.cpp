@@ -33,7 +33,7 @@ namespace hoodie_script
 		if (!playableCharacter.hasHkbCharacter())
 			return;
 
-		playableCharacter.setWeaponSheathState(newSheatState);
+		playableCharacter.getPlayerGameData().setWeaponSheathState(newSheatState);
 		uint16_t sheathData[2] = { newSheatState, PlayerIns::getMainChr().getForwardId() };
 		PlayerNetworkSession session(PlayerNetworkSession::getInstance());
 		session.sessionPacketSend(13, (char*)sheathData, 4);
@@ -79,7 +79,7 @@ namespace hoodie_script
 			return;
 
 		PlayerIns mainPlayer = PlayerIns::getMainChr();
-		auto rightWeaponActiveIndex = mainPlayer.GetActiveWeaponSlotRightHand();
+		auto rightWeaponActiveIndex = mainPlayer.getPlayerGameData().getActiveRightHandSlot();
 
 		ReplaceWeaponRightHandBySlotIndexNetworked(rightWeaponActiveIndex, equipParamWeaponTarget, equipParamWeaponReplacement);
 	}
@@ -90,7 +90,7 @@ namespace hoodie_script
 			return;
 
 		PlayerIns mainPlayer = PlayerIns::getMainChr();
-		auto leftWeaponActiveIndex = mainPlayer.GetActiveWeaponSlotLeftHand();
+		auto leftWeaponActiveIndex = mainPlayer.getPlayerGameData().getActiveLeftHandSlot();
 
 		ReplaceWeaponLeftHandBySlotIndexNetworked(leftWeaponActiveIndex, equipParamWeaponTarget, equipParamWeaponReplacement);
 	}

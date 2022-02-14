@@ -29,23 +29,36 @@ namespace hoodie_script
 		[](taeJumptableExpansionLambdaArgs) {
 			if (eventData->isFrameEnteringEvent)
 			{
-				PlayerIns a(senderCharacter.getAddress());
-				if (PlayerIns::isPlayer(a.getAddress()))
+				PlayerIns senderPlayerCharacter = senderCharacter.toPlayerIns();
+				if (senderPlayerCharacter.isMainChr())
 				{
 					logging::write_line("JumpTable : 666 - MainPlayer");
-					PlayerUtilities::ReplaceWeaponRightActiveNetworked(a.getRightHandWeaponActive(), jumpTableData->arg2);
+
+					int32_t rightHandSlot = senderPlayerCharacter.
+											getPlayerGameData().
+											getActiveRightHandSlot();
+
+					int32_t newWeaponFromJumpTable = jumpTableData->arg2;
+
+					PlayerUtilities::ReplaceWeaponRightActiveNetworked(rightHandSlot, newWeaponFromJumpTable);
 				}
-				else if (a.hasPlayerGameData())
+				else if (senderPlayerCharacter.isNPC())
 				{
 					logging::write_line(L"JumpTable : 666 - " + senderCharacter.getCharacterString());
-					//std::cout << a.getRightHandWeapon(a.GetActiveWeaponSlotRightHand()) << std::endl;
-					auto slot = a.GetActiveWeaponSlotRightHand();
-					auto currentWeapon = a.getRightHandWeapon(slot);
+					auto slot = senderPlayerCharacter.getPlayerGameData().
+													  getActiveRightHandSlot();
+					auto currentWeapon = senderPlayerCharacter.getPlayerGameData().
+															   getRightHandWeapon(slot);
 					auto newWeapon = jumpTableData->arg2;
-					logging::write_line(std::format("Slot = {0}, CW = {1}, NW = {2}", slot, currentWeapon, newWeapon));
-					a.setRightHandWeapon(slot, newWeapon);
-					logging::write_line(std::format("WP0 = {0}, WP1 = {1}, WP2 = {2}", a.getRightHandWeapon(0), a.getRightHandWeapon(1), a.getRightHandWeapon(2)));
-					//a.setRightHandWeapon(0, jmpTableArgs->arg2);
+					auto playerGameData = senderPlayerCharacter.getPlayerGameData();
+
+					logging::write_line(std::format("Slot = {0}, Current = {1}, New = {2}", 
+													slot, 
+													currentWeapon, 
+													newWeapon)
+					);
+
+					playerGameData.setRightHandWeapon(slot, newWeapon);
 				}
 			}
 		});

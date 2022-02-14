@@ -6,6 +6,8 @@
 #include "LuaEvents/OnParamLoaded.h"
 #include "LuaEvents/OnGameFrame.h"
 #include "LuaEvents/OnRenderingFrame.h"
+#include "LuaEvents/OnSessionSend.h"
+#include "LuaEvents/OnSessionReceive.h"
 #include "LuaEvents/OnPositionUpdate.h"
 #include "HotKeyManager.h"
 #include "LuaObjects/LuaMemory.h"
@@ -205,6 +207,11 @@ namespace hoodie_script
 			"PA1", VK::PA1,
 			"OEM_CLEAR", VK::OEM_CLEAR
 		);
+
+		luaSol["Handle"] = luaSol.create_table_with(
+			"MainChr", ChrIns::Handle::MainChr,
+			"None", ChrIns::Handle::None
+		);
 	}
 	void LuaBindings::initializeStaticFunctions(sol::state_view luaSol)
 	{
@@ -218,10 +225,13 @@ namespace hoodie_script
 			"SubscribeToEventOnGameFrame", OnGameFrame::SubscribeToEventOnGameFrame,
 			"SubscribeToEventOnHksAct", OnHksAct::SubscribeToEventOnHksAct,
 			"SubscribeToEventOnHksEnv", OnHksEnv::SubscribeToEventOnHksEnv,
-			"SubscribeToEventOnPositionUpdate", OnPositionUpdate::SubscribeToEventOnPositionUpdate);
+			"SubscribeToEventOnPositionUpdate", OnPositionUpdate::SubscribeToEventOnPositionUpdate,
+			"SubscribeToEventOnSessionSend", OnSessionSend::SubscribeToEventOnSessionSend,
+			"SubscribeToEventOnSessionReceive", OnSessionReceive::SubscribeToEventOnSessionReceive);
 
 		//Functions
 		luaSol.set_function("RegisterHotkey", OnHotKey::RegisterHotkey);
+		luaSol.set_function("RegisterReleaseHotkey", OnHotKey::RegisterReleaseHotkey);
 		luaSol.set_function("UnregisterHotkey", OnHotKey::UnregisterHotkey);
 		luaSol.set_function("EntityHasSpeffect", EntityHasSpEffectSafe);
 		luaSol.set_function("print", Luaprint);
@@ -237,6 +247,7 @@ namespace hoodie_script
 		sol::usertype<PlayerIns> sol_playerins = luaSol.new_usertype<PlayerIns>("PlayerIns", sol::constructors<PlayerIns(uintptr_t)>());
 		//PlayerIns : Chr_Ins Members
 		sol_playerins["isValid"] = &PlayerIns::isValid;
+		sol_playerins["getEntityId"] = &PlayerIns::getEntityId;
 		sol_playerins["getHandle"] = &PlayerIns::getHandle;
 		sol_playerins["getChrType"] = &PlayerIns::getChrType;
 		sol_playerins["setChrType"] = &PlayerIns::setChrType;
@@ -259,6 +270,10 @@ namespace hoodie_script
 		sol_playerins["getSprjChrDamageModule"] = &PlayerIns::getSprjChrDamageModule;
 		sol_playerins["isDead"] = &PlayerIns::isDead;
 		sol_playerins["setIsDead"] = &PlayerIns::setIsDead;
+		sol_playerins["getLockOnTarget"] = &PlayerIns::getLockOnTarget;
+		sol_playerins["setLockOnTarget"] = &PlayerIns::setLockOnTarget;
+		sol_playerins["getLockOnTargetChrHandle"] = &PlayerIns::getLockOnTargetChrHandle;
+		sol_playerins["setLockOnTargetChrHandle"] = &PlayerIns::setLockOnTargetChrHandle;
 		sol_playerins["isNoGravity"] = &PlayerIns::isNoGravity;
 		sol_playerins["setNoGravity"] = &PlayerIns::setNoGravity;
 		sol_playerins["isDodging"] = &PlayerIns::isDodging;
@@ -274,47 +289,26 @@ namespace hoodie_script
 		sol_playerins["setDebugAnimSpeed"] = &PlayerIns::setDebugAnimSpeed;
 		sol_playerins["getDummyPolyPositions"] = &PlayerIns::getDummyPolyPositions;
 		sol_playerins["getAddress"] = &PlayerIns::getAddress;
-		sol_playerins["isPlayerIns"] = PlayerIns::isPlayer;
+		sol_playerins["isPlayerOffsetNumber"] = &PlayerIns::isPlayerOffsetNumber;
+		sol_playerins["isChrIns"] = &PlayerIns::isChrIns;
+		sol_playerins["isPlayableCharacter"] = &PlayerIns::isPlayableCharacter;
+		sol_playerins["isNPC"] = &PlayerIns::isNPC;
+		sol_playerins["toPlayerIns"] = &PlayerIns::toPlayerIns;
 		//PlayerIns Members
 		sol_playerins["getPlayerGameData"] = &PlayerIns::getPlayerGameData;
 		sol_playerins["hasPlayerGameData"] = &PlayerIns::hasPlayerGameData;
+		sol_playerins["getEquipGameData"] = &PlayerIns::getEquipGameData;
+		sol_playerins["hasEquipGameData"] = &PlayerIns::hasEquipGameData;
+		sol_playerins["getEquipInventoryData"] = &PlayerIns::getEquipInventoryData;
+		sol_playerins["hasEquipInventoryData"] = &PlayerIns::hasEquipInventoryData;
 		sol_playerins["getNetworkPointer"] = &PlayerIns::getNetworkPointer;
-		sol_playerins["getLeftHandWeapon"] = &PlayerIns::getLeftHandWeapon;
-		sol_playerins["getLeftHandWeaponActive"] = &PlayerIns::getLeftHandWeaponActive;
-		sol_playerins["setLeftHandWeapon"] = &PlayerIns::setLeftHandWeapon;
-		sol_playerins["setLeftHandWeaponActive"] = &PlayerIns::setLeftHandWeaponActive;
-		sol_playerins["GetActiveWeaponSlotRightHand"] = &PlayerIns::GetActiveWeaponSlotRightHand;
-		sol_playerins["GetActiveWeaponSlotLeftHand"] = &PlayerIns::GetActiveWeaponSlotLeftHand;
-		sol_playerins["getRightHandWeapon"] = &PlayerIns::getRightHandWeapon;
-		sol_playerins["setWeaponSheathState"] = &PlayerIns::setWeaponSheathState;
-		sol_playerins["getWeaponSheathState"] = &PlayerIns::getWeaponSheathState;
-		sol_playerins["getRightHandWeaponActive"] = &PlayerIns::getRightHandWeaponActive;
-		sol_playerins["setRightHandWeapon"] = &PlayerIns::setRightHandWeapon;
-		sol_playerins["setRightHandWeaponActive"] = &PlayerIns::setRightHandWeaponActive;
-		sol_playerins["getHead"] = &PlayerIns::getHead;
-		sol_playerins["setHead"] = &PlayerIns::setHead;
-		sol_playerins["getChest"] = &PlayerIns::getChest;
-		sol_playerins["setChest"] = &PlayerIns::setChest;
-		sol_playerins["getHands"] = &PlayerIns::getHands;
-		sol_playerins["setHands"] = &PlayerIns::setHands;
-		sol_playerins["getLegs"] = &PlayerIns::getLegs;
-		sol_playerins["setLegs"] = &PlayerIns::setLegs;
-		sol_playerins["getRing"] = &PlayerIns::getRing;
-		sol_playerins["setRing"] = &PlayerIns::setRing;
-		sol_playerins["getAmmo"] = &PlayerIns::getAmmo;
-		sol_playerins["setAmmo"] = &PlayerIns::setAmmo;
-		sol_playerins["getCovenant"] = &PlayerIns::getCovenant;
-		sol_playerins["setCovenant"] = &PlayerIns::setCovenant;
 		sol_playerins["isNoGoodsConsume"] = &PlayerIns::isNoGoodsConsume;
 		sol_playerins["setNoGoodsConsume"] = &PlayerIns::setNoGoodsConsume;
 		sol_playerins["getPlayerCtrl"] = &PlayerIns::getPlayerCtrl;
 		sol_playerins["getNetworkHandle"] = &PlayerIns::getNetworkHandle;
 		sol_playerins["isValid"] = &PlayerIns::isValid;
-		sol_playerins["getAddressByOffsetNumber"] = PlayerIns::getAddressByOffsetNumber;
-		sol_playerins["isChrWithOffsetNumber"] = PlayerIns::isChrWithOffsetNumber;
 		sol_playerins["getMainChr"] = PlayerIns::getMainChr;
-		sol_playerins["isPlayer"] = PlayerIns::isPlayer;
-		sol_playerins["isMainChr"] = PlayerIns::isMainChr;
+		sol_playerins["isMainChr"] = &PlayerIns::isMainChr;
 		sol_playerins["isMainChrLoaded"] = PlayerIns::isMainChrLoaded;
 
 		sol::usertype<WorldChrMan> sol_worldchrman = luaSol.new_usertype<WorldChrMan>("WorldChrMan");
@@ -325,11 +319,13 @@ namespace hoodie_script
 		sol_worldchrman["getCamVector"] = WorldChrMan::getCamVector;
 		sol_worldchrman["getMainChr"] = WorldChrMan::getMainChr;
 		sol_worldchrman["isMainChrLoaded"] = WorldChrMan::isMainChrLoaded;
+		sol_worldchrman["getPlayerByOffsetNumber"] = WorldChrMan::getPlayerByOffsetNumber;
 		sol_worldchrman["isLoaded"] = WorldChrMan::isLoaded;
 		sol_worldchrman["getAddress"] = WorldChrMan::getAddress;
 
 		sol::usertype<ChrIns> sol_chrins = luaSol.new_usertype<ChrIns>("ChrIns", sol::constructors<ChrIns(uintptr_t)>());
 		sol_chrins["isValid"] = &ChrIns::isValid;
+		sol_chrins["getEntityId"] = &ChrIns::getEntityId;
 		sol_chrins["getHandle"] = &ChrIns::getHandle;
 		sol_chrins["getChrType"] = &ChrIns::getChrType;
 		sol_chrins["setChrType"] = &ChrIns::setChrType;
@@ -352,6 +348,8 @@ namespace hoodie_script
 		sol_chrins["getSprjChrDamageModule"] = &ChrIns::getSprjChrDamageModule;
 		sol_chrins["isDead"] = &ChrIns::isDead;
 		sol_chrins["setIsDead"] = &ChrIns::setIsDead;
+		sol_chrins["setLockOnTarget"] = &ChrIns::setLockOnTarget;
+		sol_chrins["setLockOnTargetChrHandle"] = &ChrIns::setLockOnTargetChrHandle;
 		sol_chrins["isNoGravity"] = &ChrIns::isNoGravity;
 		sol_chrins["setNoGravity"] = &ChrIns::setNoGravity;
 		sol_chrins["isDodging"] = &ChrIns::isDodging;
@@ -367,6 +365,11 @@ namespace hoodie_script
 		sol_chrins["setDebugAnimSpeed"] = &ChrIns::setDebugAnimSpeed;
 		sol_chrins["getDummyPolyPositions"] = &ChrIns::getDummyPolyPositions;
 		sol_chrins["getAddress"] = &ChrIns::getAddress;
+		sol_chrins["isPlayerOffsetNumber"] = &ChrIns::isPlayerOffsetNumber;
+		sol_chrins["isChrIns"] = &ChrIns::isChrIns;
+		sol_chrins["isPlayableCharacter"] = &ChrIns::isPlayableCharacter;
+		sol_chrins["isNPC"] = &ChrIns::isNPC;
+		sol_chrins["toPlayerIns"] = &ChrIns::toPlayerIns;
 
 		sol::usertype<SprjChrDataModule> sol_sprjchrdatamodule = luaSol.new_usertype<SprjChrDataModule>("SprjChrDataModule", sol::constructors<SprjChrDataModule(uintptr_t)>());
 		sol_sprjchrdatamodule["getHealth"] = &SprjChrDataModule::getHealth;
@@ -397,12 +400,14 @@ namespace hoodie_script
 		sol_sprjchrdatamodule["setNoFPConsumption"] = &SprjChrDataModule::setNoFPConsumption;
 		sol_sprjchrdatamodule["getAddress"] = &SprjChrDataModule::getAddress;
 
-		sol::usertype<EquipInventoryData> sol_EquipInventoryData = luaSol.new_usertype<EquipInventoryData>("EquipInventoryData", sol::constructors<EquipInventoryData(uintptr_t)>());
-		sol_EquipInventoryData["discardInventoryItems"] = &EquipInventoryData::discardInventoryItems;
-		sol_EquipInventoryData["addItem"] = &EquipInventoryData::addItem;
-		sol_EquipInventoryData["getInventoryItemById"] = &EquipInventoryData::getInventoryItemById;
-		sol_EquipInventoryData["getInventoryItemCount"] = &EquipInventoryData::getInventoryItemCount;
-		sol_EquipInventoryData["GetInventoryItems"] = &EquipInventoryData::GetInventoryItems;
+		sol::usertype<EquipInventoryData> sol_equipinventorydata = luaSol.new_usertype<EquipInventoryData>("EquipInventoryData", sol::constructors<EquipInventoryData(uintptr_t)>());
+		sol_equipinventorydata["discardInventoryItems"] = &EquipInventoryData::discardInventoryItems;
+		sol_equipinventorydata["addItem"] = &EquipInventoryData::addItem;
+		sol_equipinventorydata["getInventoryItemById"] = &EquipInventoryData::getInventoryItemById;
+		sol_equipinventorydata["getInventoryItemCount"] = &EquipInventoryData::getInventoryItemCount;
+		sol_equipinventorydata["GetInventoryItems"] = &EquipInventoryData::GetInventoryItems;
+		sol_equipinventorydata["getItemParamIdPrefixFromGiveId"] = EquipInventoryData::getItemParamIdPrefixFromGiveId;
+		sol_equipinventorydata["isHiddenItem"] = &EquipInventoryData::isHiddenItem;
 
 		sol::usertype<PlayerGameData> sol_playergamedata = luaSol.new_usertype<PlayerGameData>("PlayerGameData", sol::constructors<PlayerGameData(uintptr_t)>());
 		sol_playergamedata["getPlayerNo"] = &PlayerGameData::getPlayerNo;
@@ -432,22 +437,33 @@ namespace hoodie_script
 		sol_playergamedata["setGesture"] = &PlayerGameData::setGesture;
 		sol_playergamedata["getEquipGameData"] = &PlayerGameData::getEquipGameData;
 		sol_playergamedata["getWeaponSheathData"] = &PlayerGameData::getWeaponSheathData;
-		sol_playergamedata["getRightHandSlot"] = &PlayerGameData::getRightHandSlot;
-		sol_playergamedata["setRightHandSlot"] = &PlayerGameData::setRightHandSlot;
-		sol_playergamedata["getLeftHandSlot"] = &PlayerGameData::getLeftHandSlot;
-		sol_playergamedata["setLeftHandSlot"] = &PlayerGameData::setLeftHandSlot;
+		sol_playergamedata["getActiveLeftHandSlot"] = &PlayerGameData::getActiveLeftHandSlot;
+		sol_playergamedata["setActiveLeftHandSlot"] = &PlayerGameData::setActiveLeftHandSlot;
+		sol_playergamedata["getActiveRightHandSlot"] = &PlayerGameData::getActiveRightHandSlot;
+		sol_playergamedata["setActiveRightHandSlot"] = &PlayerGameData::setActiveRightHandSlot;
 		sol_playergamedata["getWeaponSheathState"] = &PlayerGameData::getWeaponSheathState;
 		sol_playergamedata["setWeaponSheathState"] = &PlayerGameData::setWeaponSheathState;
+		sol_playergamedata["getAmmo"] = &PlayerGameData::getAmmo;
+		sol_playergamedata["setAmmo"] = &PlayerGameData::setAmmo;
+		sol_playergamedata["getLeftHandWeapon"] = &PlayerGameData::getLeftHandWeapon;
+		sol_playergamedata["setLeftHandWeapon"] = &PlayerGameData::setLeftHandWeapon;
+		sol_playergamedata["getLeftHandWeaponActive"] = &PlayerGameData::getLeftHandWeaponActive;
+		sol_playergamedata["setLeftHandWeaponActive"] = &PlayerGameData::setLeftHandWeaponActive;
+		sol_playergamedata["getRightHandWeapon"] = &PlayerGameData::getRightHandWeapon;
+		sol_playergamedata["setRightHandWeapon"] = &PlayerGameData::setRightHandWeapon;
+		sol_playergamedata["getRightHandWeaponActive"] = &PlayerGameData::getRightHandWeaponActive;
+		sol_playergamedata["setRightHandWeaponActive"] = &PlayerGameData::setRightHandWeaponActive;
+		sol_playergamedata["getHead"] = &PlayerGameData::getHead;
+		sol_playergamedata["setHead"] = &PlayerGameData::setHead;
+		sol_playergamedata["getChest"] = &PlayerGameData::getChest;
+		sol_playergamedata["setChest"] = &PlayerGameData::setChest;
+		sol_playergamedata["getHands"] = &PlayerGameData::getHands;
+		sol_playergamedata["setHands"] = &PlayerGameData::setHands;
+		sol_playergamedata["getLegs"] = &PlayerGameData::getLegs;
+		sol_playergamedata["setLegs"] = &PlayerGameData::setLegs;
+		sol_playergamedata["getRing"] = &PlayerGameData::getRing;
+		sol_playergamedata["setRing"] = &PlayerGameData::setRing;
 		sol_playergamedata["getAddress"] = &PlayerGameData::getAddress;
-
-		sol::usertype<EquipGameData> sol_EquipGameData = luaSol.new_usertype<EquipGameData>("EquipGameData", sol::constructors<EquipGameData(uintptr_t)>());
-		sol_EquipGameData["getInventoryItemIdBySlot"] = &EquipGameData::getInventoryItemIdBySlot;
-		sol_EquipGameData["getInventoryItemIdByQuickSlot"] = &EquipGameData::getInventoryItemIdByQuickSlot;
-		sol_EquipGameData["getInventoryItemIdByToolbeltSlot"] = &EquipGameData::getInventoryItemIdByToolbeltSlot;
-		sol_EquipGameData["equipInventoryItem"] = &EquipGameData::equipInventoryItem;
-		sol_EquipGameData["equipGoodsInventoryItem"] = &EquipGameData::equipGoodsInventoryItem;
-		sol_EquipGameData["modifyInventoryItemQuantity"] = &EquipGameData::modifyInventoryItemQuantity;
-		sol_EquipGameData["getEquipInventoryData"] = &EquipGameData::getEquipInventoryData;
 
 		sol::usertype<InventoryItem> sol_InventoryItem = luaSol.new_usertype<InventoryItem>("InventoryItem");
 		sol_InventoryItem["inventoryIndex"] = &InventoryItem::inventoryIndex;

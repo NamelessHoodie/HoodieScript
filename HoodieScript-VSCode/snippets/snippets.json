@@ -5243,6 +5243,18 @@
 		"description": "VK Enum - Clear key",
 		"scope": "hoodiescript-keys.lua"
 	},
+	"Handle.MainChr": {
+		"prefix": "Handle.MainChr",
+		"body": "Handle.MainChr",
+		"description": "Chr Handle Enum - Main Character",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"Handle.None": {
+		"prefix": "Handle.None",
+		"body": "Handle.None",
+		"description": "Chr Handle Enum - None",
+		"scope": "hoodiescript-keys.lua"
+	},
 	"WorldChrMan.getCurrentMapEnemies": {
 		"prefix": "WorldChrMan.getCurrentMapEnemies",
 		"body": "WorldChrMan.getCurrentMapEnemies()",
@@ -5264,7 +5276,7 @@
 	"WorldChrMan.getInsByHandle": {
 		"prefix": "WorldChrMan.getInsByHandle",
 		"body": "WorldChrMan.getInsByHandle(${1:handle})",
-		"description": "uintptr_t WorldChrMan.getInsByHandle (handle)",
+		"description": "ChrIns WorldChrMan.getInsByHandle (handle)",
 		"scope": "hoodiescript.lua"
 	},
 	"WorldChrMan.getCamVector": {
@@ -5283,6 +5295,12 @@
 		"prefix": "WorldChrMan.isMainChrLoaded",
 		"body": "WorldChrMan.isMainChrLoaded()",
 		"description": "bool WorldChrMan.isMainChrLoaded ()",
+		"scope": "hoodiescript.lua"
+	},
+	"WorldChrMan.getPlayerByOffsetNumber": {
+		"prefix": "WorldChrMan.getPlayerByOffsetNumber",
+		"body": "WorldChrMan.getPlayerByOffsetNumber(${1:offsetNumber})",
+		"description": "PlayerIns WorldChrMan.getPlayerByOffsetNumber (offsetNumber)",
 		"scope": "hoodiescript.lua"
 	},
 	"WorldChrMan.isLoaded": {
@@ -5307,6 +5325,12 @@
 		"prefix": "ChrIns.isValid",
 		"body": "ChrIns.isValid(${1:this})",
 		"description": "bool ChrIns.isValid (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getEntityId": {
+		"prefix": "ChrIns.getEntityId",
+		"body": "ChrIns.getEntityId(${1:this})",
+		"description": "uint32_t ChrIns.getEntityId (this)",
 		"scope": "hoodiescript.lua"
 	},
 	"ChrIns.getHandle": {
@@ -5351,6 +5375,12 @@
 		"description": "std::wstring ChrIns.getCharacterString (this)",
 		"scope": "hoodiescript.lua"
 	},
+	"ChrIns.getCharacterId": {
+		"prefix": "ChrIns.getCharacterId",
+		"body": "ChrIns.getCharacterId(${1:this})",
+		"description": "std::wstring ChrIns.getCharacterId (this)",
+		"scope": "hoodiescript.lua"
+	},
 	"ChrIns.getAnimationString": {
 		"prefix": "ChrIns.getAnimationString",
 		"body": "ChrIns.getAnimationString(${1:this})",
@@ -5373,6 +5403,12 @@
 		"prefix": "ChrIns.getTurnRate",
 		"body": "ChrIns.getTurnRate(${1:this})",
 		"description": "float ChrIns.getTurnRate (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.setPosition": {
+		"prefix": "ChrIns.setPosition",
+		"body": "ChrIns.setPosition(${1:this})",
+		"description": "* have any effect unless you write this vector back using ChrIns.setPosition (this)",
 		"scope": "hoodiescript.lua"
 	},
 	"ChrIns.getPosition": {
@@ -5427,6 +5463,30 @@
 		"prefix": "ChrIns.setIsDead",
 		"body": "ChrIns.setIsDead(${1:this}, ${2:isDead})",
 		"description": "void ChrIns.setIsDead (this, isDead)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getLockOnTarget": {
+		"prefix": "ChrIns.getLockOnTarget",
+		"body": "ChrIns.getLockOnTarget(${1:this})",
+		"description": "ChrIns ChrIns.getLockOnTarget (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.setLockOnTarget": {
+		"prefix": "ChrIns.setLockOnTarget",
+		"body": "ChrIns.setLockOnTarget(${1:this}, ${2:characterInstance})",
+		"description": "void ChrIns.setLockOnTarget (this, characterInstance)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getLockOnTargetChrHandle": {
+		"prefix": "ChrIns.getLockOnTargetChrHandle",
+		"body": "ChrIns.getLockOnTargetChrHandle(${1:this})",
+		"description": "ChrIns::Handle ChrIns.getLockOnTargetChrHandle (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.setLockOnTargetChrHandle": {
+		"prefix": "ChrIns.setLockOnTargetChrHandle",
+		"body": "ChrIns.setLockOnTargetChrHandle(${1:this}, ${2:chrHandle})",
+		"description": "void ChrIns.setLockOnTargetChrHandle (this, chrHandle)",
 		"scope": "hoodiescript.lua"
 	},
 	"ChrIns.isNoGravity": {
@@ -5531,6 +5591,18 @@
 		"description": " PlayerIns.new (address)",
 		"scope": "hoodiescript.lua"
 	},
+	"PlayerIns.isValid": {
+		"prefix": "PlayerIns.isValid",
+		"body": "PlayerIns.isValid(${1:this})",
+		"description": "bool PlayerIns.isValid (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getEntityId": {
+		"prefix": "PlayerIns.getEntityId",
+		"body": "PlayerIns.getEntityId(${1:this})",
+		"description": "uint32_t PlayerIns.getEntityId (this)",
+		"scope": "hoodiescript.lua"
+	},
 	"PlayerIns.getHandle": {
 		"prefix": "PlayerIns.getHandle",
 		"body": "PlayerIns.getHandle(${1:this})",
@@ -5573,6 +5645,12 @@
 		"description": "std::wstring PlayerIns.getCharacterString (this)",
 		"scope": "hoodiescript.lua"
 	},
+	"PlayerIns.getCharacterId": {
+		"prefix": "PlayerIns.getCharacterId",
+		"body": "PlayerIns.getCharacterId(${1:this})",
+		"description": "std::wstring PlayerIns.getCharacterId (this)",
+		"scope": "hoodiescript.lua"
+	},
 	"PlayerIns.getAnimationString": {
 		"prefix": "PlayerIns.getAnimationString",
 		"body": "PlayerIns.getAnimationString(${1:this})",
@@ -5595,6 +5673,12 @@
 		"prefix": "PlayerIns.getTurnRate",
 		"body": "PlayerIns.getTurnRate(${1:this})",
 		"description": "float PlayerIns.getTurnRate (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setPosition": {
+		"prefix": "PlayerIns.setPosition",
+		"body": "PlayerIns.setPosition(${1:this})",
+		"description": "* have any effect unless you write this vector back using PlayerIns.setPosition (this)",
 		"scope": "hoodiescript.lua"
 	},
 	"PlayerIns.getPosition": {
@@ -5649,6 +5733,30 @@
 		"prefix": "PlayerIns.setIsDead",
 		"body": "PlayerIns.setIsDead(${1:this}, ${2:isDead})",
 		"description": "void PlayerIns.setIsDead (this, isDead)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getLockOnTarget": {
+		"prefix": "PlayerIns.getLockOnTarget",
+		"body": "PlayerIns.getLockOnTarget(${1:this})",
+		"description": "ChrIns PlayerIns.getLockOnTarget (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setLockOnTarget": {
+		"prefix": "PlayerIns.setLockOnTarget",
+		"body": "PlayerIns.setLockOnTarget(${1:this}, ${2:characterInstance})",
+		"description": "void PlayerIns.setLockOnTarget (this, characterInstance)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getLockOnTargetChrHandle": {
+		"prefix": "PlayerIns.getLockOnTargetChrHandle",
+		"body": "PlayerIns.getLockOnTargetChrHandle(${1:this})",
+		"description": "ChrIns::Handle PlayerIns.getLockOnTargetChrHandle (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setLockOnTargetChrHandle": {
+		"prefix": "PlayerIns.setLockOnTargetChrHandle",
+		"body": "PlayerIns.setLockOnTargetChrHandle(${1:this}, ${2:chrHandle})",
+		"description": "void PlayerIns.setLockOnTargetChrHandle (this, chrHandle)",
 		"scope": "hoodiescript.lua"
 	},
 	"PlayerIns.isNoGravity": {
@@ -5741,10 +5849,46 @@
 		"description": "uintptr_t PlayerIns.getAddress (this)",
 		"scope": "hoodiescript.lua"
 	},
-	"PlayerIns.isPlayerIns": {
-		"prefix": "PlayerIns.isPlayerIns",
-		"body": "PlayerIns.isPlayerIns(${1:address})",
-		"description": "bool PlayerIns.isPlayerIns (address)",
+	"PlayerIns.isPlayerOffsetNumber": {
+		"prefix": "PlayerIns.isPlayerOffsetNumber",
+		"body": "PlayerIns.isPlayerOffsetNumber(${1:this}, ${2:offsetNumber})",
+		"description": "bool PlayerIns.isPlayerOffsetNumber (this, offsetNumber)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isChrIns": {
+		"prefix": "PlayerIns.isChrIns",
+		"body": "PlayerIns.isChrIns(${1:this})",
+		"description": "bool PlayerIns.isChrIns (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isPlayableCharacter": {
+		"prefix": "PlayerIns.isPlayableCharacter",
+		"body": "PlayerIns.isPlayableCharacter(${1:this})",
+		"description": "bool PlayerIns.isPlayableCharacter (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isNPC": {
+		"prefix": "PlayerIns.isNPC",
+		"body": "PlayerIns.isNPC(${1:this})",
+		"description": "bool PlayerIns.isNPC (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.new3": {
+		"prefix": "PlayerIns.new",
+		"body": "PlayerIns.new()",
+		"description": " PlayerIns.new ()",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.toPlayerIns": {
+		"prefix": "PlayerIns.toPlayerIns",
+		"body": "PlayerIns.toPlayerIns(${1:this})",
+		"description": "PlayerIns PlayerIns.toPlayerIns (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.new0": {
+		"prefix": "PlayerIns.new",
+		"body": "PlayerIns.new(${1:address})",
+		"description": " PlayerIns.new (address)",
 		"scope": "hoodiescript.lua"
 	},
 	"PlayerIns.getPlayerGameData": {
@@ -5759,166 +5903,34 @@
 		"description": "bool PlayerIns.hasPlayerGameData (this)",
 		"scope": "hoodiescript.lua"
 	},
+	"PlayerIns.getEquipGameData": {
+		"prefix": "PlayerIns.getEquipGameData",
+		"body": "PlayerIns.getEquipGameData(${1:this})",
+		"description": "EquipGameData PlayerIns.getEquipGameData (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.hasEquipGameData": {
+		"prefix": "PlayerIns.hasEquipGameData",
+		"body": "PlayerIns.hasEquipGameData(${1:this})",
+		"description": "bool PlayerIns.hasEquipGameData (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getEquipInventoryData": {
+		"prefix": "PlayerIns.getEquipInventoryData",
+		"body": "PlayerIns.getEquipInventoryData(${1:this})",
+		"description": "EquipInventoryData PlayerIns.getEquipInventoryData (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.hasEquipInventoryData": {
+		"prefix": "PlayerIns.hasEquipInventoryData",
+		"body": "PlayerIns.hasEquipInventoryData(${1:this})",
+		"description": "bool PlayerIns.hasEquipInventoryData (this)",
+		"scope": "hoodiescript.lua"
+	},
 	"PlayerIns.getNetworkPointer": {
 		"prefix": "PlayerIns.getNetworkPointer",
 		"body": "PlayerIns.getNetworkPointer(${1:this})",
 		"description": "uintptr_t* PlayerIns.getNetworkPointer (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getLeftHandWeapon": {
-		"prefix": "PlayerIns.getLeftHandWeapon",
-		"body": "PlayerIns.getLeftHandWeapon(${1:this}, ${2:slotNumber})",
-		"description": "int32_t PlayerIns.getLeftHandWeapon (this, slotNumber)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getLeftHandWeaponActive": {
-		"prefix": "PlayerIns.getLeftHandWeaponActive",
-		"body": "PlayerIns.getLeftHandWeaponActive(${1:this})",
-		"description": "int32_t PlayerIns.getLeftHandWeaponActive (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setLeftHandWeapon": {
-		"prefix": "PlayerIns.setLeftHandWeapon",
-		"body": "PlayerIns.setLeftHandWeapon(${1:this}, ${2:slotNumber}, ${3:equipParamWeaponId})",
-		"description": "void PlayerIns.setLeftHandWeapon (this, slotNumber, equipParamWeaponId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setLeftHandWeaponActive": {
-		"prefix": "PlayerIns.setLeftHandWeaponActive",
-		"body": "PlayerIns.setLeftHandWeaponActive(${1:this}, ${2:equipParamWeaponId})",
-		"description": "void PlayerIns.setLeftHandWeaponActive (this, equipParamWeaponId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.GetActiveWeaponSlotRightHand": {
-		"prefix": "PlayerIns.GetActiveWeaponSlotRightHand",
-		"body": "PlayerIns.GetActiveWeaponSlotRightHand(${1:this})",
-		"description": "uint32_t PlayerIns.GetActiveWeaponSlotRightHand (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.GetActiveWeaponSlotLeftHand": {
-		"prefix": "PlayerIns.GetActiveWeaponSlotLeftHand",
-		"body": "PlayerIns.GetActiveWeaponSlotLeftHand(${1:this})",
-		"description": "uint32_t PlayerIns.GetActiveWeaponSlotLeftHand (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getRightHandWeapon": {
-		"prefix": "PlayerIns.getRightHandWeapon",
-		"body": "PlayerIns.getRightHandWeapon(${1:this}, ${2:slotNumber})",
-		"description": "int32_t PlayerIns.getRightHandWeapon (this, slotNumber)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setWeaponSheathState": {
-		"prefix": "PlayerIns.setWeaponSheathState",
-		"body": "PlayerIns.setWeaponSheathState(${1:this}, ${2:sheatState})",
-		"description": "void PlayerIns.setWeaponSheathState (this, sheatState)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getWeaponSheathState": {
-		"prefix": "PlayerIns.getWeaponSheathState",
-		"body": "PlayerIns.getWeaponSheathState(${1:this})",
-		"description": "int32_t PlayerIns.getWeaponSheathState (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getRightHandWeaponActive": {
-		"prefix": "PlayerIns.getRightHandWeaponActive",
-		"body": "PlayerIns.getRightHandWeaponActive(${1:this})",
-		"description": "int32_t PlayerIns.getRightHandWeaponActive (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setRightHandWeapon": {
-		"prefix": "PlayerIns.setRightHandWeapon",
-		"body": "PlayerIns.setRightHandWeapon(${1:this}, ${2:slotNumber}, ${3:equipParamWeaponId})",
-		"description": "void PlayerIns.setRightHandWeapon (this, slotNumber, equipParamWeaponId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setRightHandWeaponActive": {
-		"prefix": "PlayerIns.setRightHandWeaponActive",
-		"body": "PlayerIns.setRightHandWeaponActive(${1:this}, ${2:equipParamWeaponId})",
-		"description": "void PlayerIns.setRightHandWeaponActive (this, equipParamWeaponId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getHead": {
-		"prefix": "PlayerIns.getHead",
-		"body": "PlayerIns.getHead(${1:this})",
-		"description": "int32_t PlayerIns.getHead (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setHead": {
-		"prefix": "PlayerIns.setHead",
-		"body": "PlayerIns.setHead(${1:this}, ${2:equipParamProtectorId})",
-		"description": "void PlayerIns.setHead (this, equipParamProtectorId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getChest": {
-		"prefix": "PlayerIns.getChest",
-		"body": "PlayerIns.getChest(${1:this})",
-		"description": "int32_t PlayerIns.getChest (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setChest": {
-		"prefix": "PlayerIns.setChest",
-		"body": "PlayerIns.setChest(${1:this}, ${2:equipParamProtectorId})",
-		"description": "void PlayerIns.setChest (this, equipParamProtectorId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getHands": {
-		"prefix": "PlayerIns.getHands",
-		"body": "PlayerIns.getHands(${1:this})",
-		"description": "int32_t PlayerIns.getHands (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setHands": {
-		"prefix": "PlayerIns.setHands",
-		"body": "PlayerIns.setHands(${1:this}, ${2:equipParamProtectorId})",
-		"description": "void PlayerIns.setHands (this, equipParamProtectorId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getLegs": {
-		"prefix": "PlayerIns.getLegs",
-		"body": "PlayerIns.getLegs(${1:this})",
-		"description": "int32_t PlayerIns.getLegs (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setLegs": {
-		"prefix": "PlayerIns.setLegs",
-		"body": "PlayerIns.setLegs(${1:this}, ${2:equipParamProtectorId})",
-		"description": "void PlayerIns.setLegs (this, equipParamProtectorId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getRing": {
-		"prefix": "PlayerIns.getRing",
-		"body": "PlayerIns.getRing(${1:this}, ${2:slotNumber})",
-		"description": "int32_t PlayerIns.getRing (this, slotNumber)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setRing": {
-		"prefix": "PlayerIns.setRing",
-		"body": "PlayerIns.setRing(${1:this}, ${2:slotNumber}, ${3:equipParamAccessoryId})",
-		"description": "void PlayerIns.setRing (this, slotNumber, equipParamAccessoryId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getAmmo": {
-		"prefix": "PlayerIns.getAmmo",
-		"body": "PlayerIns.getAmmo(${1:this}, ${2:slotNumber})",
-		"description": "int32_t PlayerIns.getAmmo (this, slotNumber)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setAmmo": {
-		"prefix": "PlayerIns.setAmmo",
-		"body": "PlayerIns.setAmmo(${1:this}, ${2:slotNumber}, ${3:equipParamWeaponId})",
-		"description": "void PlayerIns.setAmmo (this, slotNumber, equipParamWeaponId)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.getCovenant": {
-		"prefix": "PlayerIns.getCovenant",
-		"body": "PlayerIns.getCovenant(${1:this})",
-		"description": "int32_t PlayerIns.getCovenant (this)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.setCovenant": {
-		"prefix": "PlayerIns.setCovenant",
-		"body": "PlayerIns.setCovenant(${1:this}, ${2:equipParamAccessoryId})",
-		"description": "void PlayerIns.setCovenant (this, equipParamAccessoryId)",
 		"scope": "hoodiescript.lua"
 	},
 	"PlayerIns.isNoGoodsConsume": {
@@ -5951,34 +5963,16 @@
 		"description": "bool PlayerIns.isValid (this)",
 		"scope": "hoodiescript.lua"
 	},
-	"PlayerIns.getAddressByOffsetNumber": {
-		"prefix": "PlayerIns.getAddressByOffsetNumber",
-		"body": "PlayerIns.getAddressByOffsetNumber(${1:offsetNumber})",
-		"description": "uintptr_t PlayerIns.getAddressByOffsetNumber (offsetNumber)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.isChrWithOffsetNumber": {
-		"prefix": "PlayerIns.isChrWithOffsetNumber",
-		"body": "PlayerIns.isChrWithOffsetNumber(${1:offsetNumber})",
-		"description": "bool PlayerIns.isChrWithOffsetNumber (offsetNumber)",
-		"scope": "hoodiescript.lua"
-	},
-	"PlayerIns.isPlayer": {
-		"prefix": "PlayerIns.isPlayer",
-		"body": "PlayerIns.isPlayer(${1:address})",
-		"description": "bool PlayerIns.isPlayer (address)",
-		"scope": "hoodiescript.lua"
-	},
 	"PlayerIns.getMainChr": {
 		"prefix": "PlayerIns.getMainChr",
 		"body": "PlayerIns.getMainChr()",
-		"description": "PlayerIns PlayerIns.getMainChr ()",
+		"description": "PlayerIns PlayerIns.getMainChr()",
 		"scope": "hoodiescript.lua"
 	},
 	"PlayerIns.isMainChr": {
 		"prefix": "PlayerIns.isMainChr",
-		"body": "PlayerIns.isMainChr(${1:address})",
-		"description": "bool PlayerIns.isMainChr (address)",
+		"body": "PlayerIns.isMainChr(${1:this})",
+		"description": "bool PlayerIns.isMainChr (this)",
 		"scope": "hoodiescript.lua"
 	},
 	"PlayerIns.isMainChrLoaded": {
@@ -5990,7 +5984,7 @@
 	"EquipInventoryData.new0": {
 		"prefix": "EquipInventoryData.new",
 		"body": "EquipInventoryData.new(${1:address})",
-		"description": " EquipInventoryData.EquipInventoryData (address)",
+		"description": " EquipInventoryData.new (address)",
 		"scope": "hoodiescript.lua"
 	},
 	"EquipInventoryData.discardInventoryItems": {
@@ -6008,7 +6002,7 @@
 	"EquipInventoryData.getInventoryItemById": {
 		"prefix": "EquipInventoryData.getInventoryItemById",
 		"body": "EquipInventoryData.getInventoryItemById(${1:this}, ${2:inventoryItemId})",
-		"description": "InventoryItem* EquipInventoryData.getInventoryItemById (this, inventoryItemId)",
+		"description": "InventoryItemInternal* EquipInventoryData.getInventoryItemById (this, inventoryItemId)",
 		"scope": "hoodiescript.lua"
 	},
 	"EquipInventoryData.getInventoryItemCount": {
@@ -6020,7 +6014,19 @@
 	"EquipInventoryData.GetInventoryItems": {
 		"prefix": "EquipInventoryData.GetInventoryItems",
 		"body": "EquipInventoryData.GetInventoryItems(${1:this})",
-		"description": "std::vector<InventoryItemLua> EquipInventoryData.GetInventoryItems (this)",
+		"description": "std::vector<InventoryItem> EquipInventoryData.GetInventoryItems (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"EquipInventoryData.getItemParamIdPrefixFromGiveId": {
+		"prefix": "EquipInventoryData.getItemParamIdPrefixFromGiveId",
+		"body": "EquipInventoryData.getItemParamIdPrefixFromGiveId(${1:giveId})",
+		"description": "ItemParamIdPrefix EquipInventoryData.getItemParamIdPrefixFromGiveId (giveId)",
+		"scope": "hoodiescript.lua"
+	},
+	"EquipInventoryData.isHiddenItem": {
+		"prefix": "EquipInventoryData.isHiddenItem",
+		"body": "EquipInventoryData.isHiddenItem(${1:this}, ${2:itemId})",
+		"description": "bool EquipInventoryData.isHiddenItem (this, itemId)",
 		"scope": "hoodiescript.lua"
 	},
 	"EquipGameData.new0": {
@@ -6139,8 +6145,8 @@
 	},
 	"PlayerGameData.setFaceData": {
 		"prefix": "PlayerGameData.setFaceData",
-		"body": "PlayerGameData.setFaceData(${1:this})",
-		"description": "std::array<uint8_t, 256> PlayerGameData.setFaceData (this)",
+		"body": "PlayerGameData.setFaceData(${1:this}, ${2:faceData})",
+		"description": "void PlayerGameData.setFaceData (this, faceData)",
 		"scope": "hoodiescript.lua"
 	},
 	"PlayerGameData.getBodyProportions": {
@@ -6211,8 +6217,8 @@
 	},
 	"PlayerGameData.setSpell": {
 		"prefix": "PlayerGameData.setSpell",
-		"body": "PlayerGameData.setSpell(${1:this}, ${2:slotNumber}, ${3:int32_t&})",
-		"description": "void PlayerGameData.setSpell (this, slotNumber, int32_t&)",
+		"body": "PlayerGameData.setSpell(${1:this}, ${2:slotNumber}, ${3:magicId})",
+		"description": "void PlayerGameData.setSpell (this, slotNumber, magicId)",
 		"scope": "hoodiescript.lua"
 	},
 	"PlayerGameData.getGesture": {
@@ -6223,14 +6229,14 @@
 	},
 	"PlayerGameData.setGesture": {
 		"prefix": "PlayerGameData.setGesture",
-		"body": "PlayerGameData.setGesture(${1:this}, ${2:slotNumber}, ${3:uint8_t&})",
-		"description": "void PlayerGameData.setGesture (this, slotNumber, uint8_t&)",
+		"body": "PlayerGameData.setGesture(${1:this}, ${2:slotNumber}, ${3:gestureId})",
+		"description": "void PlayerGameData.setGesture (this, slotNumber, gestureId)",
 		"scope": "hoodiescript.lua"
 	},
 	"PlayerGameData.getEquipGameData": {
 		"prefix": "PlayerGameData.getEquipGameData",
 		"body": "PlayerGameData.getEquipGameData(${1:this})",
-		"description": "uintptr_t PlayerGameData.getEquipGameData (this)",
+		"description": "EquipGameData PlayerGameData.getEquipGameData (this)",
 		"scope": "hoodiescript.lua"
 	},
 	"PlayerGameData.getWeaponSheathData": {
@@ -6239,28 +6245,28 @@
 		"description": "uint16_t PlayerGameData.getWeaponSheathData (this)",
 		"scope": "hoodiescript.lua"
 	},
-	"PlayerGameData.getRightHandSlot": {
-		"prefix": "PlayerGameData.getRightHandSlot",
-		"body": "PlayerGameData.getRightHandSlot(${1:this})",
-		"description": "int32_t PlayerGameData.getRightHandSlot (this)",
+	"PlayerGameData.getActiveLeftHandSlot": {
+		"prefix": "PlayerGameData.getActiveLeftHandSlot",
+		"body": "PlayerGameData.getActiveLeftHandSlot(${1:this})",
+		"description": "int32_t PlayerGameData.getActiveLeftHandSlot (this)",
 		"scope": "hoodiescript.lua"
 	},
-	"PlayerGameData.setRightHandSlot": {
-		"prefix": "PlayerGameData.setRightHandSlot",
-		"body": "PlayerGameData.setRightHandSlot(${1:this}, ${2:slot})",
-		"description": "void PlayerGameData.setRightHandSlot (this, slot)",
+	"PlayerGameData.setActiveLeftHandSlot": {
+		"prefix": "PlayerGameData.setActiveLeftHandSlot",
+		"body": "PlayerGameData.setActiveLeftHandSlot(${1:this}, ${2:slot})",
+		"description": "void PlayerGameData.setActiveLeftHandSlot (this, slot)",
 		"scope": "hoodiescript.lua"
 	},
-	"PlayerGameData.getLeftHandSlot": {
-		"prefix": "PlayerGameData.getLeftHandSlot",
-		"body": "PlayerGameData.getLeftHandSlot(${1:this})",
-		"description": "int32_t PlayerGameData.getLeftHandSlot (this)",
+	"PlayerGameData.getActiveRightHandSlot": {
+		"prefix": "PlayerGameData.getActiveRightHandSlot",
+		"body": "PlayerGameData.getActiveRightHandSlot(${1:this})",
+		"description": "int32_t PlayerGameData.getActiveRightHandSlot (this)",
 		"scope": "hoodiescript.lua"
 	},
-	"PlayerGameData.setLeftHandSlot": {
-		"prefix": "PlayerGameData.setLeftHandSlot",
-		"body": "PlayerGameData.setLeftHandSlot(${1:this}, ${2:slot})",
-		"description": "void PlayerGameData.setLeftHandSlot (this, slot)",
+	"PlayerGameData.setActiveRightHandSlot": {
+		"prefix": "PlayerGameData.setActiveRightHandSlot",
+		"body": "PlayerGameData.setActiveRightHandSlot(${1:this}, ${2:slot})",
+		"description": "void PlayerGameData.setActiveRightHandSlot (this, slot)",
 		"scope": "hoodiescript.lua"
 	},
 	"PlayerGameData.getWeaponSheathState": {
@@ -6275,10 +6281,130 @@
 		"description": "void PlayerGameData.setWeaponSheathState (this, state)",
 		"scope": "hoodiescript.lua"
 	},
+	"PlayerGameData.getAmmo": {
+		"prefix": "PlayerGameData.getAmmo",
+		"body": "PlayerGameData.getAmmo(${1:this}, ${2:slotNumber})",
+		"description": "int32_t PlayerGameData.getAmmo (this, slotNumber)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setAmmo": {
+		"prefix": "PlayerGameData.setAmmo",
+		"body": "PlayerGameData.setAmmo(${1:this}, ${2:slotNumber}, ${3:equipParamAccessoryId})",
+		"description": "void PlayerGameData.setAmmo (this, slotNumber, equipParamAccessoryId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getLeftHandWeapon": {
+		"prefix": "PlayerGameData.getLeftHandWeapon",
+		"body": "PlayerGameData.getLeftHandWeapon(${1:this}, ${2:slotNumber})",
+		"description": "int32_t PlayerGameData.getLeftHandWeapon (this, slotNumber)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setLeftHandWeapon": {
+		"prefix": "PlayerGameData.setLeftHandWeapon",
+		"body": "PlayerGameData.setLeftHandWeapon(${1:this}, ${2:slotNumber}, ${3:equipParamWeaponId})",
+		"description": "void PlayerGameData.setLeftHandWeapon (this, slotNumber, equipParamWeaponId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getLeftHandWeaponActive": {
+		"prefix": "PlayerGameData.getLeftHandWeaponActive",
+		"body": "PlayerGameData.getLeftHandWeaponActive(${1:this})",
+		"description": "int32_t PlayerGameData.getLeftHandWeaponActive (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setLeftHandWeaponActive": {
+		"prefix": "PlayerGameData.setLeftHandWeaponActive",
+		"body": "PlayerGameData.setLeftHandWeaponActive(${1:this}, ${2:equipParamWeaponId})",
+		"description": "void PlayerGameData.setLeftHandWeaponActive (this, equipParamWeaponId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getRightHandWeapon": {
+		"prefix": "PlayerGameData.getRightHandWeapon",
+		"body": "PlayerGameData.getRightHandWeapon(${1:this}, ${2:slotNumber})",
+		"description": "int32_t PlayerGameData.getRightHandWeapon (this, slotNumber)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setRightHandWeapon": {
+		"prefix": "PlayerGameData.setRightHandWeapon",
+		"body": "PlayerGameData.setRightHandWeapon(${1:this}, ${2:slotNumber}, ${3:equipParamWeaponId})",
+		"description": "void PlayerGameData.setRightHandWeapon (this, slotNumber, equipParamWeaponId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getRightHandWeaponActive": {
+		"prefix": "PlayerGameData.getRightHandWeaponActive",
+		"body": "PlayerGameData.getRightHandWeaponActive(${1:this})",
+		"description": "int32_t PlayerGameData.getRightHandWeaponActive (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setRightHandWeaponActive": {
+		"prefix": "PlayerGameData.setRightHandWeaponActive",
+		"body": "PlayerGameData.setRightHandWeaponActive(${1:this}, ${2:equipParamWeaponId})",
+		"description": "void PlayerGameData.setRightHandWeaponActive (this, equipParamWeaponId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getHead": {
+		"prefix": "PlayerGameData.getHead",
+		"body": "PlayerGameData.getHead(${1:this})",
+		"description": "int32_t PlayerGameData.getHead (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setHead": {
+		"prefix": "PlayerGameData.setHead",
+		"body": "PlayerGameData.setHead(${1:this}, ${2:equipParamProtectorId})",
+		"description": "void PlayerGameData.setHead (this, equipParamProtectorId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getChest": {
+		"prefix": "PlayerGameData.getChest",
+		"body": "PlayerGameData.getChest(${1:this})",
+		"description": "int32_t PlayerGameData.getChest (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setChest": {
+		"prefix": "PlayerGameData.setChest",
+		"body": "PlayerGameData.setChest(${1:this}, ${2:equipParamProtectorId})",
+		"description": "void PlayerGameData.setChest (this, equipParamProtectorId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getHands": {
+		"prefix": "PlayerGameData.getHands",
+		"body": "PlayerGameData.getHands(${1:this})",
+		"description": "int32_t PlayerGameData.getHands (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setHands": {
+		"prefix": "PlayerGameData.setHands",
+		"body": "PlayerGameData.setHands(${1:this}, ${2:equipParamProtectorId})",
+		"description": "void PlayerGameData.setHands (this, equipParamProtectorId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getLegs": {
+		"prefix": "PlayerGameData.getLegs",
+		"body": "PlayerGameData.getLegs(${1:this})",
+		"description": "int32_t PlayerGameData.getLegs (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setLegs": {
+		"prefix": "PlayerGameData.setLegs",
+		"body": "PlayerGameData.setLegs(${1:this}, ${2:equipParamProtectorId})",
+		"description": "void PlayerGameData.setLegs (this, equipParamProtectorId)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.getRing": {
+		"prefix": "PlayerGameData.getRing",
+		"body": "PlayerGameData.getRing(${1:this}, ${2:slotNumber})",
+		"description": "int32_t PlayerGameData.getRing (this, slotNumber)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerGameData.setRing": {
+		"prefix": "PlayerGameData.setRing",
+		"body": "PlayerGameData.setRing(${1:this}, ${2:slotNumber}, ${3:equipParamAccessoryId})",
+		"description": "void PlayerGameData.setRing (this, slotNumber, equipParamAccessoryId)",
+		"scope": "hoodiescript.lua"
+	},
 	"PlayerGameData.getAddress": {
 		"prefix": "PlayerGameData.getAddress",
 		"body": "PlayerGameData.getAddress(${1:this})",
-		"description": "void PlayerGameData.getAddress (this)",
+		"description": "uintptr_t PlayerGameData.getAddress (this)",
 		"scope": "hoodiescript.lua"
 	},
 	"InventoryItem.inventoryIndex": {
@@ -6892,6 +7018,18 @@
 		"prefix": "GameEvents.SubscribeToEventOnHksEnv",
 		"body": "GameEvents.SubscribeToEventOnHksEnv(${1:luaFunction}, ${2:envId})",
 		"description": "void GameEvents.SubscribeToEventOnHksEnv (luaFunction, envId)",
+		"scope": "hoodiescript.lua"
+	},
+	"GameEvents.SubscribeToEventOnSessionSend": {
+		"prefix": "GameEvents.SubscribeToEventOnSessionSend",
+		"body": "GameEvents.SubscribeToEventOnSessionSend(${1:luaFunction})",
+		"description": "void GameEvents.SubscribeToEventOnSessionSend (luaFunction)",
+		"scope": "hoodiescript.lua"
+	},
+	"GameEvents.SubscribeToEventOnSessionReceive": {
+		"prefix": "GameEvents.SubscribeToEventOnSessionReceive",
+		"body": "GameEvents.SubscribeToEventOnSessionReceive(${1:luaFunction})",
+		"description": "void GameEvents.SubscribeToEventOnSessionReceive (luaFunction)",
 		"scope": "hoodiescript.lua"
 	},
 	"GameEvents.SubscribeToEventOnPositionUpdate": {
