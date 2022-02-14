@@ -279,10 +279,48 @@ namespace hoodie_script {
 		return address;
 	}
 
-	bool ChrIns::isChrIns(const uintptr_t& address)
+	bool ChrIns::isPlayerOffsetNumber(OffsetNumber offsetNumber)
+	{
+		const uintptr_t chrAddress = WorldChrMan::getPlayerByOffsetNumber(offsetNumber).getAddress();
+		if (chrAddress == NULL)
+			return false;
+
+		if (chrAddress == address)
+			return true;
+
+		return false;
+	}
+
+	bool ChrIns::isChrIns()
 	{
 		const uintptr_t* bodyNodeFunction = accessMultilevelPointer<uintptr_t>(address, 0x400);
 		return bodyNodeFunction && (*bodyNodeFunction == 0x14087D320 || *bodyNodeFunction == 0x1408AF650);
 	}
 
+	bool ChrIns::isPlayableCharacter()
+	{
+		bool isPlayer = false;
+		for (uint32_t i = 0; i < 5; i++) 
+			if (isPlayerOffsetNumber(static_cast<OffsetNumber>(i)))
+				isPlayer = true;
+		return isChrIns() && isPlayer && accessMultilevelPointer<uint32_t>(address + 0x1FA0, 0xFC);
+	}
+
+	bool ChrIns::isNPC()
+	{
+		if (isPlayableCharacter() || !toPlayerIns().hasPlayerGameData())
+			return false;
+
+		return true;
+	}
+
+	ChrIns ChrIns::toChrIns()
+	{
+		return ChrIns(getAddress());
+	}
+
+	PlayerIns ChrIns::toPlayerIns()
+	{
+		return PlayerIns(getAddress());
+	}
 }

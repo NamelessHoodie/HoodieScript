@@ -24,10 +24,22 @@
 
 namespace hoodie_script {
 
+	class PlayerIns;
+
 	class ChrIns
 	{
 	public:
 		ChrIns(uintptr_t address);
+
+		enum class OffsetNumber : uint32_t
+		{
+			MainCharacter = 0,
+			Player1 = 1,
+			Player2 = 2,
+			Player3 = 3,
+			Player4 = 4,
+			Player5 = 5
+		};
 
 		enum class Handle : uint32_t
 		{
@@ -460,15 +472,32 @@ namespace hoodie_script {
 		*/
 		uintptr_t getAddress() const;
 
+		bool isPlayerOffsetNumber(OffsetNumber offsetNumber);
+
 		/**
-		* Check if an address is the base address of an ChrIns.
+		* Checks if the current instance is ChrIns
 		*
 		* Peformes several multi-level pointer checks.
 		*
-		* @param address Base address to check.
-		* @return True if address is the base address of an ChrIns.
+		* @return True if this instance is of ChrIns.
 		*/
-		static bool isChrIns(const uintptr_t& address);
+		bool isChrIns();
+
+		/**
+		* Checks if the current instance is ChrIns
+		*
+		* Peformes several multi-level pointer checks.
+		*
+		* @return True if this instance is of ChrIns.
+		*/
+		bool isPlayableCharacter();
+
+		bool isNPC();
+
+		ChrIns toChrIns();
+
+		PlayerIns toPlayerIns();
+
 	private:
 		uintptr_t address;
 	};

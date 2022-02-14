@@ -93,6 +93,11 @@ namespace hoodie_script {
 		return false;
 	}
 
+	PlayerIns WorldChrMan::getPlayerByOffsetNumber(ChrIns::OffsetNumber offsetNumber)
+	{
+		return PlayerIns(*accessMultilevelPointer<uintptr_t>(DataBaseAddress::WorldChrMan, 0x40, static_cast<uint32_t>(offsetNumber) * 0x38));
+	}
+
 	uintptr_t WorldChrMan::getAddress()
 	{
 		return *accessMultilevelPointer<uintptr_t>(DataBaseAddress::WorldChrMan);

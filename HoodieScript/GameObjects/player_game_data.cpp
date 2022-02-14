@@ -101,14 +101,16 @@ void PlayerGameData::setName(const std::wstring& name)
 	memcpy(namePointer, name.c_str(), name.length() * 2);
 }
 
-PlayerGameData::Covenant PlayerGameData::getCovenant() const
+PlayerGameData::Covenant PlayerGameData::getCovenant()
 {
 	return static_cast<Covenant>(*accessMultilevelPointer<uint32_t>(address + 0xF7));
+	//return static_cast<Covenant>(*accessMultilevelPointer<int32_t>(address + 0x380));
 }
 
-void PlayerGameData::setCovenant(const Covenant& covenant)
+void PlayerGameData::setCovenant(Covenant covenant)
 {
 	*accessMultilevelPointer<uint32_t>(address + 0xF7) = static_cast<uint32_t>(covenant);
+	//*accessMultilevelPointer<int32_t>(address + 0x380) = equipParamAccessoryId;
 }
 
 PlayerGameData::InvadeType PlayerGameData::getInvadeType() const
@@ -153,22 +155,22 @@ uint16_t PlayerGameData::getWeaponSheathData() const
 	return function(address + 0x2B8);
 }
 
-int32_t PlayerGameData::getRightHandSlot() const
+int32_t PlayerGameData::getActiveLeftHandSlot() const
 {
 	return *accessMultilevelPointer<int32_t>(address + 0x2BC);
 }
 
-void PlayerGameData::setRightHandSlot(const int32_t& slot)
+void PlayerGameData::setActiveLeftHandSlot(const int32_t& slot)
 {
 	*accessMultilevelPointer<int32_t>(address + 0x2BC) = slot;
 }
 
-int32_t PlayerGameData::getLeftHandSlot() const
+int32_t PlayerGameData::getActiveRightHandSlot() const
 {
 	return *accessMultilevelPointer<int32_t>(address + 0x2C0);
 }
 
-void PlayerGameData::setLeftHandSlot(const int32_t& slot)
+void PlayerGameData::setActiveRightHandSlot(const int32_t& slot)
 {
 	*accessMultilevelPointer<int32_t>(address + 0x2C0) = slot;
 }
@@ -181,6 +183,112 @@ int32_t PlayerGameData::getWeaponSheathState() const
 void PlayerGameData::setWeaponSheathState(const int32_t& slot)
 {
 	*accessMultilevelPointer<int32_t>(address + 0x2B8) = slot;
+}
+
+//
+
+int32_t PlayerGameData::getAmmo(uint32_t slotNumber)
+{
+	return *accessMultilevelPointer<int32_t>(address + 0x344 + (slotNumber - 1) * 4);
+}
+
+void PlayerGameData::setAmmo(uint32_t slotNumber, int32_t equipParamAccessoryId)
+{
+	*accessMultilevelPointer<int32_t>(address + 0x344 + (slotNumber - 1) * 4) = equipParamAccessoryId;
+}
+
+int32_t PlayerGameData::getLeftHandWeapon(uint32_t slotNumber)
+{
+	return *accessMultilevelPointer<int32_t>(address + 0x32C + (slotNumber) * 8);
+}
+
+void PlayerGameData::setLeftHandWeapon(uint32_t slotNumber, int32_t equipParamWeaponId)
+{
+	*accessMultilevelPointer<int32_t>(address + 0x32C + (slotNumber) * 8) = equipParamWeaponId;
+}
+
+int32_t PlayerGameData::getLeftHandWeaponActive()
+{
+	auto leftHandActiveWeaponSlot = getActiveLeftHandSlot();
+	return getLeftHandWeapon(leftHandActiveWeaponSlot);
+}
+
+void PlayerGameData::setLeftHandWeaponActive(int32_t equipParamWeaponId)
+{
+	auto leftHandActiveWeaponSlot = getActiveLeftHandSlot();
+	setLeftHandWeapon(leftHandActiveWeaponSlot, equipParamWeaponId);
+}
+
+int32_t PlayerGameData::getRightHandWeapon(uint32_t slotNumber)
+{
+	return *accessMultilevelPointer<int32_t>(address + 0x330 + (slotNumber) * 8);
+}
+
+void PlayerGameData::setRightHandWeapon(uint32_t slotNumber, int32_t equipParamWeaponId)
+{
+	*accessMultilevelPointer<int32_t>(address + 0x330 + (slotNumber) * 8) = equipParamWeaponId;
+}
+
+int32_t PlayerGameData::getRightHandWeaponActive()
+{
+	auto rightHandActiveWeaponSlot = getActiveRightHandSlot();
+	return getRightHandWeapon(rightHandActiveWeaponSlot);
+}
+
+void PlayerGameData::setRightHandWeaponActive(int32_t equipParamWeaponId)
+{
+	auto rightHandSlot = getActiveRightHandSlot();
+	setRightHandWeapon(rightHandSlot, equipParamWeaponId);
+}
+
+int32_t PlayerGameData::getHead()
+{
+	return *accessMultilevelPointer<int32_t>(address + 0x35C);
+}
+
+void PlayerGameData::setHead(int32_t equipParamProtectorId)
+{
+	*accessMultilevelPointer<int32_t>(address + 0x35C) = equipParamProtectorId;
+}
+
+int32_t PlayerGameData::getChest()
+{
+	return *accessMultilevelPointer<int32_t>(address + 0x360);
+}
+
+void PlayerGameData::setChest(int32_t equipParamProtectorId)
+{
+	*accessMultilevelPointer<int32_t>(address + 0x360) = equipParamProtectorId;
+}
+
+int32_t PlayerGameData::getHands()
+{
+	return *accessMultilevelPointer<int32_t>(address + 0x364);
+}
+
+void PlayerGameData::setHands(int32_t equipParamProtectorId)
+{
+	*accessMultilevelPointer<int32_t>(address + 0x364) = equipParamProtectorId;
+}
+
+int32_t PlayerGameData::getLegs()
+{
+	return *accessMultilevelPointer<int32_t>(address + 0x368);
+}
+
+void PlayerGameData::setLegs(int32_t equipParamProtectorId)
+{
+	*accessMultilevelPointer<int32_t>(address + 0x368) = equipParamProtectorId;
+}
+
+int32_t PlayerGameData::getRing(uint32_t slotNumber)
+{
+	return *accessMultilevelPointer<int32_t>(address + 0x370 + (slotNumber - 1) * 4);
+}
+
+void PlayerGameData::setRing(uint32_t slotNumber, int32_t equipParamAccessoryId)
+{
+	*accessMultilevelPointer<int32_t>(address + 0x370 + (slotNumber - 1) * 4) = equipParamAccessoryId;
 }
 
 uintptr_t PlayerGameData::getAddress() const
