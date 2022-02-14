@@ -205,6 +205,11 @@ namespace hoodie_script
 			"PA1", VK::PA1,
 			"OEM_CLEAR", VK::OEM_CLEAR
 		);
+
+		luaSol["Handle"] = luaSol.create_table_with(
+			"MainChr", ChrIns::Handle::MainChr,
+			"None", ChrIns::Handle::None
+		);
 	}
 	void LuaBindings::initializeStaticFunctions(sol::state_view luaSol)
 	{
@@ -259,6 +264,10 @@ namespace hoodie_script
 		sol_playerins["getSprjChrDamageModule"] = &PlayerIns::getSprjChrDamageModule;
 		sol_playerins["isDead"] = &PlayerIns::isDead;
 		sol_playerins["setIsDead"] = &PlayerIns::setIsDead;
+		sol_playerins["getLockOnTarget"] = &PlayerIns::getLockOnTarget;
+		sol_playerins["setLockOnTarget"] = &PlayerIns::setLockOnTarget;
+		sol_playerins["getLockOnTargetChrHandle"] = &PlayerIns::getLockOnTargetChrHandle;
+		sol_playerins["setLockOnTargetChrHandle"] = &PlayerIns::setLockOnTargetChrHandle;
 		sol_playerins["isNoGravity"] = &PlayerIns::isNoGravity;
 		sol_playerins["setNoGravity"] = &PlayerIns::setNoGravity;
 		sol_playerins["isDodging"] = &PlayerIns::isDodging;
@@ -316,6 +325,7 @@ namespace hoodie_script
 		sol_playerins["isPlayer"] = PlayerIns::isPlayer;
 		sol_playerins["isMainChr"] = PlayerIns::isMainChr;
 		sol_playerins["isMainChrLoaded"] = PlayerIns::isMainChrLoaded;
+		sol_playerins["isChrIns"] = PlayerIns::isChrIns;
 
 		sol::usertype<WorldChrMan> sol_worldchrman = luaSol.new_usertype<WorldChrMan>("WorldChrMan");
 		sol_worldchrman["getCurrentMapEnemies"] = WorldChrMan::getCurrentMapEnemies;
@@ -352,6 +362,10 @@ namespace hoodie_script
 		sol_chrins["getSprjChrDamageModule"] = &ChrIns::getSprjChrDamageModule;
 		sol_chrins["isDead"] = &ChrIns::isDead;
 		sol_chrins["setIsDead"] = &ChrIns::setIsDead;
+		sol_chrins["getLockOnTarget"] = &ChrIns::getLockOnTarget;
+		sol_chrins["setLockOnTarget"] = &ChrIns::setLockOnTarget;
+		sol_chrins["getLockOnTargetChrHandle"] = &ChrIns::getLockOnTargetChrHandle;
+		sol_chrins["setLockOnTargetChrHandle"] = &ChrIns::setLockOnTargetChrHandle;
 		sol_chrins["isNoGravity"] = &ChrIns::isNoGravity;
 		sol_chrins["setNoGravity"] = &ChrIns::setNoGravity;
 		sol_chrins["isDodging"] = &ChrIns::isDodging;
@@ -367,6 +381,7 @@ namespace hoodie_script
 		sol_chrins["setDebugAnimSpeed"] = &ChrIns::setDebugAnimSpeed;
 		sol_chrins["getDummyPolyPositions"] = &ChrIns::getDummyPolyPositions;
 		sol_chrins["getAddress"] = &ChrIns::getAddress;
+		sol_chrins["isChrIns"] = &ChrIns::isChrIns;
 
 		sol::usertype<SprjChrDataModule> sol_sprjchrdatamodule = luaSol.new_usertype<SprjChrDataModule>("SprjChrDataModule", sol::constructors<SprjChrDataModule(uintptr_t)>());
 		sol_sprjchrdatamodule["getHealth"] = &SprjChrDataModule::getHealth;

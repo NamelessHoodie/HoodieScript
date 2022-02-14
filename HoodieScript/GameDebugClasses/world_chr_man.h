@@ -16,7 +16,7 @@ public:
 	static std::vector<uintptr_t> getCurrentMapEnemies();
 	static bool reloadCharacterFiles(std::wstring characterId);
 	static void findEntityTest(int32_t id);
-	static uintptr_t getInsByHandle(int32_t handle);
+	static ChrIns getInsByHandle(ChrIns::Handle handle);
 
 	/**
 	* Gets the camera euler angle.

@@ -5243,6 +5243,18 @@
 		"description": "VK Enum - Clear key",
 		"scope": "hoodiescript-keys.lua"
 	},
+	"Handle.MainChr": {
+		"prefix": "Handle.MainChr",
+		"body": "Handle.MainChr",
+		"description": "Chr Handle Enum - Main Character",
+		"scope": "hoodiescript-keys.lua"
+	},
+	"Handle.None": {
+		"prefix": "Handle.None",
+		"body": "Handle.None",
+		"description": "Chr Handle Enum - None",
+		"scope": "hoodiescript-keys.lua"
+	},
 	"WorldChrMan.getCurrentMapEnemies": {
 		"prefix": "WorldChrMan.getCurrentMapEnemies",
 		"body": "WorldChrMan.getCurrentMapEnemies()",
@@ -5264,7 +5276,7 @@
 	"WorldChrMan.getInsByHandle": {
 		"prefix": "WorldChrMan.getInsByHandle",
 		"body": "WorldChrMan.getInsByHandle(${1:handle})",
-		"description": "uintptr_t WorldChrMan.getInsByHandle (handle)",
+		"description": "ChrIns WorldChrMan.getInsByHandle (handle)",
 		"scope": "hoodiescript.lua"
 	},
 	"WorldChrMan.getCamVector": {
@@ -5309,6 +5321,12 @@
 		"description": "bool ChrIns.isValid (this)",
 		"scope": "hoodiescript.lua"
 	},
+	"ChrIns.getEntityId": {
+		"prefix": "ChrIns.getEntityId",
+		"body": "ChrIns.getEntityId(${1:this})",
+		"description": "uint32_t ChrIns.getEntityId (this)",
+		"scope": "hoodiescript.lua"
+	},
 	"ChrIns.getHandle": {
 		"prefix": "ChrIns.getHandle",
 		"body": "ChrIns.getHandle(${1:this})",
@@ -5351,6 +5369,12 @@
 		"description": "std::wstring ChrIns.getCharacterString (this)",
 		"scope": "hoodiescript.lua"
 	},
+	"ChrIns.getCharacterId": {
+		"prefix": "ChrIns.getCharacterId",
+		"body": "ChrIns.getCharacterId(${1:this})",
+		"description": "std::wstring ChrIns.getCharacterId (this)",
+		"scope": "hoodiescript.lua"
+	},
 	"ChrIns.getAnimationString": {
 		"prefix": "ChrIns.getAnimationString",
 		"body": "ChrIns.getAnimationString(${1:this})",
@@ -5373,6 +5397,12 @@
 		"prefix": "ChrIns.getTurnRate",
 		"body": "ChrIns.getTurnRate(${1:this})",
 		"description": "float ChrIns.getTurnRate (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.setPosition": {
+		"prefix": "ChrIns.setPosition",
+		"body": "ChrIns.setPosition(${1:this})",
+		"description": "* have any effect unless you write this vector back using ChrIns.setPosition (this)",
 		"scope": "hoodiescript.lua"
 	},
 	"ChrIns.getPosition": {
@@ -5427,6 +5457,30 @@
 		"prefix": "ChrIns.setIsDead",
 		"body": "ChrIns.setIsDead(${1:this}, ${2:isDead})",
 		"description": "void ChrIns.setIsDead (this, isDead)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getLockOnTarget": {
+		"prefix": "ChrIns.getLockOnTarget",
+		"body": "ChrIns.getLockOnTarget(${1:this})",
+		"description": "ChrIns ChrIns.getLockOnTarget (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.setLockOnTarget": {
+		"prefix": "ChrIns.setLockOnTarget",
+		"body": "ChrIns.setLockOnTarget(${1:this}, ${2:characterInstance})",
+		"description": "void ChrIns.setLockOnTarget (this, characterInstance)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.getLockOnTargetChrHandle": {
+		"prefix": "ChrIns.getLockOnTargetChrHandle",
+		"body": "ChrIns.getLockOnTargetChrHandle(${1:this})",
+		"description": "ChrIns::Handle ChrIns.getLockOnTargetChrHandle (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"ChrIns.setLockOnTargetChrHandle": {
+		"prefix": "ChrIns.setLockOnTargetChrHandle",
+		"body": "ChrIns.setLockOnTargetChrHandle(${1:this}, ${2:chrHandle})",
+		"description": "void ChrIns.setLockOnTargetChrHandle (this, chrHandle)",
 		"scope": "hoodiescript.lua"
 	},
 	"ChrIns.isNoGravity": {
@@ -5531,6 +5585,18 @@
 		"description": " PlayerIns.new (address)",
 		"scope": "hoodiescript.lua"
 	},
+	"PlayerIns.isValid": {
+		"prefix": "PlayerIns.isValid",
+		"body": "PlayerIns.isValid(${1:this})",
+		"description": "bool PlayerIns.isValid (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getEntityId": {
+		"prefix": "PlayerIns.getEntityId",
+		"body": "PlayerIns.getEntityId(${1:this})",
+		"description": "uint32_t PlayerIns.getEntityId (this)",
+		"scope": "hoodiescript.lua"
+	},
 	"PlayerIns.getHandle": {
 		"prefix": "PlayerIns.getHandle",
 		"body": "PlayerIns.getHandle(${1:this})",
@@ -5573,6 +5639,12 @@
 		"description": "std::wstring PlayerIns.getCharacterString (this)",
 		"scope": "hoodiescript.lua"
 	},
+	"PlayerIns.getCharacterId": {
+		"prefix": "PlayerIns.getCharacterId",
+		"body": "PlayerIns.getCharacterId(${1:this})",
+		"description": "std::wstring PlayerIns.getCharacterId (this)",
+		"scope": "hoodiescript.lua"
+	},
 	"PlayerIns.getAnimationString": {
 		"prefix": "PlayerIns.getAnimationString",
 		"body": "PlayerIns.getAnimationString(${1:this})",
@@ -5595,6 +5667,12 @@
 		"prefix": "PlayerIns.getTurnRate",
 		"body": "PlayerIns.getTurnRate(${1:this})",
 		"description": "float PlayerIns.getTurnRate (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setPosition": {
+		"prefix": "PlayerIns.setPosition",
+		"body": "PlayerIns.setPosition(${1:this})",
+		"description": "* have any effect unless you write this vector back using PlayerIns.setPosition (this)",
 		"scope": "hoodiescript.lua"
 	},
 	"PlayerIns.getPosition": {
@@ -5649,6 +5727,30 @@
 		"prefix": "PlayerIns.setIsDead",
 		"body": "PlayerIns.setIsDead(${1:this}, ${2:isDead})",
 		"description": "void PlayerIns.setIsDead (this, isDead)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getLockOnTarget": {
+		"prefix": "PlayerIns.getLockOnTarget",
+		"body": "PlayerIns.getLockOnTarget(${1:this})",
+		"description": "ChrIns PlayerIns.getLockOnTarget (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setLockOnTarget": {
+		"prefix": "PlayerIns.setLockOnTarget",
+		"body": "PlayerIns.setLockOnTarget(${1:this}, ${2:characterInstance})",
+		"description": "void PlayerIns.setLockOnTarget (this, characterInstance)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.getLockOnTargetChrHandle": {
+		"prefix": "PlayerIns.getLockOnTargetChrHandle",
+		"body": "PlayerIns.getLockOnTargetChrHandle(${1:this})",
+		"description": "ChrIns::Handle PlayerIns.getLockOnTargetChrHandle (this)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.setLockOnTargetChrHandle": {
+		"prefix": "PlayerIns.setLockOnTargetChrHandle",
+		"body": "PlayerIns.setLockOnTargetChrHandle(${1:this}, ${2:chrHandle})",
+		"description": "void PlayerIns.setLockOnTargetChrHandle (this, chrHandle)",
 		"scope": "hoodiescript.lua"
 	},
 	"PlayerIns.isNoGravity": {
@@ -5733,6 +5835,12 @@
 		"prefix": "PlayerIns.getDummyPolyPositions",
 		"body": "PlayerIns.getDummyPolyPositions(${1:this}, ${2:dummyPolyId}, ${3:polyCount})",
 		"description": "std::vector<std::array<float, 4>> PlayerIns.getDummyPolyPositions (this, dummyPolyId, polyCount)",
+		"scope": "hoodiescript.lua"
+	},
+	"PlayerIns.isChrIns": {
+		"prefix": "PlayerIns.isChrIns",
+		"body": "PlayerIns.isChrIns(${1:address})",
+		"description": "bool PlayerIns.isChrIns (address)",
 		"scope": "hoodiescript.lua"
 	},
 	"PlayerIns.getAddress": {
