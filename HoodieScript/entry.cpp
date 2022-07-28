@@ -3,7 +3,7 @@
 #include "vendor/DInput8/DInput8Proxy.h"
 
 //DLL Entry function/
-//It is called upon loading the dll into the game runs on the game's calling thread.
+//It is called upon loading the dll and runs into the game's calling thread.
 //It must return to return the game's calling thread.
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved) {
 	static HMODULE dinput8dll = nullptr;
@@ -30,12 +30,13 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
 			wcscat_s(dllPath, MAX_PATH, L"\\");
 			//Concatenates <dllPath> with <chainPath>
 			wcscat_s(dllPath, MAX_PATH, chainPath);
-			//Load chained DLL from <dllPath> to memory and write the DLL's module's pointer in <chainModule>
+			//Load chained DLL from <dllPath> and write the module's pointer in <chainModule>
 			chainModule = LoadLibraryW(dllPath);
 			
-			//If <chainModule> contains a pointer, get the pointer of the chained module's DirectInput8Create function
+			//If <chainModule> is not null, proceed.
 			if (chainModule)
 			{
+				//Write the pointer of the chained module's DirectInput8Create function in <DirectInput8Create_fn>
 				DirectInput8Create_fn = (DirectInput8Create_TYPE)GetProcAddress(chainModule, "DirectInput8Create");
 			}
 		}
@@ -50,12 +51,13 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
 			GetSystemDirectoryW(path, MAX_PATH);
 			//Concatenate <path> with "\dinput8.dll" (the \ is escaped with \ obviously)
 			wcscat_s(path, MAX_PATH, L"\\dinput8.dll");
-			//load dinput8 from the path now stored in <path> and store the module's pointer in <dinput8dll>
+			//load dinput8 from <path> and store the module's pointer in <dinput8dll>
 			dinput8dll = LoadLibraryW(path);
 
-			//if a pointer is present in <dinput8dll>, get the address of the function "DirectInput8Create" inside the module
+			//If <chainModule> is not null, proceed. 
 			if (dinput8dll)
 			{
+				//Write the pointer of the chained module's DirectInput8Create function in <DirectInput8Create_fn>
 				DirectInput8Create_fn = (DirectInput8Create_TYPE)GetProcAddress(dinput8dll, "DirectInput8Create");
 			}
 		}
@@ -74,13 +76,14 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
 }
 
 /// <summary>
-/// Runs on the DLL's new thread. 
+/// Runs on the new thread started by the attach function. 
 /// This function is not required to return in order to resume game execution.
 /// </summary>
 /// <param name="lpParam"></param>
 /// <returns></returns>
 DWORD WINAPI init_thread(void* lpParam)
 {
+	std::cout << "I am here to stay!" << std::endl;
 	//Nope, not gonna return.
 	while (true)
 	{
