@@ -4,7 +4,7 @@
 
 //DLL Entry function/
 //It is called upon loading the dll and runs into the game's calling thread.
-//It must return to return the game's calling thread.
+//It must return to resume the game's calling thread.
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved) {
 	static HMODULE dinput8dll = nullptr;
 	HMODULE chainModule = NULL;
