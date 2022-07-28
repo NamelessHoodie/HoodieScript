@@ -7,14 +7,7 @@
 #ifndef PCH_H
 #define PCH_H
 
-#define NOMINMAX
-#define _USE_MATH_DEFINES
-
-
 #include <windows.h>
 #include <iostream>
-
-typedef LRESULT(CALLBACK* WNDPROC)(HWND, UINT, WPARAM, LPARAM);
-typedef uintptr_t PTR;
 
 #endif //PCH_H
